@@ -111,8 +111,6 @@
         <!--发送验证码-->
         function publish() {
             var userName = $("#userName").val();
-
-            alert(userName);
             $.ajax({
                 url: '/person/sendCode',//修改
                 type: 'post',
@@ -125,7 +123,7 @@
 
             function erryFunction(data) {
                 if(data.msg!=null){
-                    alert(data.msg);
+                    alert("返回内容为空");
                 }else{
                     if(data==null){
                         alert("失败");
@@ -195,7 +193,7 @@
                     极速注册，找到适合你的职位
                 </p>
 
-                <form role="form" action="register" method="POST">
+                <form role="form" action="/person/register" method="POST">
                     <div class="row" style="margin-top: 15px;">
                         <div class="form-group col-sm-12">
                             <label for="userName">账号</label><span id="userWarn" ></span>

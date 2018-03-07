@@ -18,7 +18,7 @@ public class UserController {
         List<User> list =  userService.findUser();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("list",list);
-        modelAndView.setViewName("/index");
+        modelAndView.setViewName("/index.html");
         return modelAndView;
     }
 }

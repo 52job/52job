@@ -7,7 +7,6 @@ import com.job52.util.SecurityCodeUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -90,7 +89,7 @@ public class PersonController {
         String pwd2 = request.getParameter("passWord2");
         if(!pwd.equals(pwd2)){
             request.setAttribute("verifyMsg","两次密码不一致");
-            return "forward:/index";
+            return "/index";
         }else {
             if (!verifyNum.equals(verifyCode)) {
                 request.setAttribute("verifyMsg", "验证码错误");
@@ -127,13 +126,13 @@ public class PersonController {
         Person p = personService.personLogin(person);
         if(p==null){
             //登录失败，跳转到登录页面
-            return "forward:/login";
+            return "/login";
         }else{
             //登录成功，1.要把用户的主键放到session域中 2.跳转到主页面
-            request.getSession().setAttribute("pid",p.getPid());
+            request.getSession().setAttribute("person",p);
             //判断是否有自动登录的标志，如果有，则进行自动登录
-            String autoLogin = (String) request.getAttribute("autoLogin");
-            if("checked".equals(autoLogin)){
+            String autoLogin = request.getParameter("autoLogin");
+            if("on".equals(autoLogin)){
                 Cookie cookie = new Cookie("autoLogin", URLEncoder.encode(p.getUserName()+":"+p.getPassWord(), "utf-8"));
                 cookie.setMaxAge(3600*24*7);
                 cookie.setPath(request.getContextPath());
@@ -146,7 +145,6 @@ public class PersonController {
             }
             return "/login";
         }
-
     }
 
     /**
