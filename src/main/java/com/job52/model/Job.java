@@ -1,40 +1,31 @@
 package com.job52.model;
 
+import java.util.Date;
+
 /**
  * InnoDB free: 3072 kB
  * 
  * @author wcyong
  * 
- * @date 2018-02-27
+ * @date 2018-03-06
  */
 public class Job {
     /**
-     * 职位id
+     * ְλid
      */
     private String jid;
 
     /**
-     * 公司id
+     * 公司信息
      */
-    private String eid;
+    private Enterprise enterprise;
 
-    /**
-     * 个人id
-     */
-    private String pid;
-
-    /**
-     * 招聘人数
-     */
     private Integer requiredNumber;
 
-    /**
-     * 工作名称
-     */
     private String jname;
 
     /**
-     * 工作年限要求
+     * 工作经验要求
      */
     private Integer requiredWorkyear;
 
@@ -43,22 +34,34 @@ public class Job {
      */
     private String requiredEducation;
 
+    /**
+     * 月薪范围
+     */
+    private Integer minSalary = 0;
+
+    private Integer maxSalary;
+
     private String benefit;
 
     /**
-     * 职位描述
+     * ְ
      */
     private String jobDesc;
 
-    /**
-     * 工作类型
-     */
+
     private String jobType;
 
-    /**
-     * 工作地点
-     */
     private String workPlace;
+
+    /**
+     * 2:草稿
+     * 1:有效
+     * 0:过期
+     * -1:无效
+     */
+    private Integer jobStatue;
+
+    private Date createTime;
 
     public String getJid() {
         return jid;
@@ -68,20 +71,12 @@ public class Job {
         this.jid = jid == null ? null : jid.trim();
     }
 
-    public String getEid() {
-        return eid;
+    public Enterprise getEnterprise() {
+        return enterprise;
     }
 
-    public void setEid(String eid) {
-        this.eid = eid == null ? null : eid.trim();
-    }
-
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
     }
 
     public Integer getRequiredNumber() {
@@ -116,6 +111,22 @@ public class Job {
         this.requiredEducation = requiredEducation == null ? null : requiredEducation.trim();
     }
 
+    public Integer getMinSalary() {
+        return minSalary;
+    }
+
+    public void setMinSalary(Integer minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public Integer getMaxSalary() {
+        return maxSalary;
+    }
+
+    public void setMaxSalary(Integer maxSalary) {
+        this.maxSalary = maxSalary;
+    }
+
     public String getBenefit() {
         return benefit;
     }
@@ -146,5 +157,21 @@ public class Job {
 
     public void setWorkPlace(String workPlace) {
         this.workPlace = workPlace == null ? null : workPlace.trim();
+    }
+
+    public Integer getJobStatue() {
+        return jobStatue;
+    }
+
+    public void setJobStatue(Integer jobStatue) {
+        this.jobStatue = jobStatue;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -1,26 +1,51 @@
 package com.job52.service;
 
 import com.job52.model.Application;
+import com.job52.model.ApplicationKey;
 
 import java.util.List;
 
 public interface ApplicationService {
-    //我的申请
-    /**
-     * 获取用户申请列表
-     * @return 所有的申请列表
-     * @throws Exception 异常信息
-     */
-    public List<Application> findAllApplication()throws Exception;
 
     /**
-     * 从申请职位
-     * @param pid 用户id
-     * @param jid 职位id
-     * @param rid 简历id
-     * @return 操作是否成功
-     * @throws Exception
+     * 添加一条申请信息
+     * @param application
+     * @return
      */
-    public boolean applyJob(String pid,String jid,String rid) throws Exception;
+    boolean addApplication(Application application);
+
+    /**
+     * 删除一条申请信息
+     * @param applicationKey
+     * @return
+     */
+    boolean removeApplication(ApplicationKey applicationKey);
+
+    /**
+     * 更新申请信息
+     * @param application
+     * @return
+     */
+    boolean updateApplication(Application application);
+
+    /**
+     * 查询所有申请信息
+     * @return
+     */
+    List<Application> queryAll();
+
+    /**
+     * 根据application有的字段的值匹配查询
+     * @param application
+     * @return
+     */
+    List<Application> query(Application application);
+
+    /**
+     * 根据application有的字段的值模糊查询
+     * @param application
+     * @return
+     */
+    List<Application> queryContains(Application application);
 
 }
