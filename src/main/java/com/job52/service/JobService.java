@@ -21,6 +21,13 @@ public interface JobService {
     boolean removeJob(Job job);
 
     /**
+     * 批量删除job
+     * @param jobs
+     * @return
+     */
+    void removeJobs(List<Job> jobs);
+
+    /**
      * 更新一条职位信息
      * @param job
      * @return
