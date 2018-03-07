@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+            function changeImg(img){
+                img.src = img.src+"?time="+new Date().getTime();
+            }
+    </script>
+</head>
+<body>
+<tr>
+    <th>captcha</th>
+    <td>
+        <input type="text" id="captcha" name="captcha" class="text" maxlength="10" />
+        <img id="captchaImage" src="/person/captcha" style="cursor: pointer;"
+             onclick="changeImg(this)"/>
+    </td>
+</tr>
+</body>
+</html>

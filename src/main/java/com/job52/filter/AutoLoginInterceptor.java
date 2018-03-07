@@ -41,13 +41,10 @@ public class AutoLoginInterceptor   implements HandlerInterceptor {
                 p = personMapper.findPersonByNameAndPwd(person);
                 if(p!=null){
                     request.setAttribute("person",p);
-                    return true;
-                }else{
-                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     @Override

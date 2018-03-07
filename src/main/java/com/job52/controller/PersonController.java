@@ -2,18 +2,22 @@ package com.job52.controller;
 
 import com.job52.model.Person;
 import com.job52.service.PersonService;
+import com.job52.util.CaptchaUtil;
 import com.job52.util.FormatUtil;
 import com.job52.util.SecurityCodeUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +39,21 @@ public class PersonController {
     @RequestMapping("/goLogin")
     public String login(){
         return "/login";
+    }
+
+    /**
+     * 得到图形验证码
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping(value = "/captcha", method = RequestMethod.GET)
+    @ResponseBody
+    public void captcha(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        CaptchaUtil.outputCaptcha(request, response);
     }
 
     /**
@@ -112,36 +131,42 @@ public class PersonController {
      * @param userName 登录名
      * @param request 请求域
      * @param response 响应域
+     * @param randomNum 图形验证码
      * @return 跳转地址
      * 无需判断用户账号是什么类型的，直接获取到用户的信息到数据库中进行查找即可
      * 另外该方法还需要处理自动登录的操作
      */
     @RequestMapping("/loginPerson")
-    public String  loginPerson(String userName,String passWord,HttpServletRequest request,HttpServletResponse response) throws Exception{
+    public String  loginPerson(String userName,String passWord,String randomNum,HttpServletRequest request,HttpServletResponse response) throws Exception{
         Person person = new Person();
         person.setEmail(userName);  //用户使用邮箱登录
         person.setUserName(userName);//用户使用用户名登录
         person.setPhone(userName);//用户使用手机登录
         person.setPassWord(passWord);
-        Person p = personService.personLogin(person);
-        if(p==null){
-            //登录失败，跳转到登录页面
-            return "/login";
+        String randomString = (String) request.getSession().getAttribute("randomString");
+        if(!randomString.toLowerCase().equals(randomNum.toLowerCase())){
+            throw new Exception("验证码错误");
         }else{
-            //登录成功，1.要把用户的主键放到session域中 2.跳转到主页面
-            request.getSession().setAttribute("person",p);
-            //判断是否有自动登录的标志，如果有，则进行自动登录
-            String autoLogin = request.getParameter("autoLogin");
-            if("on".equals(autoLogin)){
-                Cookie cookie = new Cookie("autoLogin", URLEncoder.encode(p.getUserName()+":"+p.getPassWord(), "utf-8"));
-                cookie.setMaxAge(3600*24*7);
-                cookie.setPath(request.getContextPath());
-                response.addCookie(cookie);
-            }else{//如果不选择自动登录，则要清除原来的cookie信息
-                Cookie cookie = new Cookie("autoLogin","");
-                cookie.setMaxAge(0);
-                cookie.setPath(request.getContextPath());
-                response.addCookie(cookie);
+            Person p = personService.personLogin(person);
+            if(p==null){
+                //登录失败，跳转到登录页面
+                return "/login";
+            }else {
+                //登录成功，1.要把用户的主键放到session域中 2.跳转到主页面
+                request.getSession().setAttribute("person", p);
+                //判断是否有自动登录的标志，如果有，则进行自动登录
+                String autoLogin = request.getParameter("autoLogin");
+                if ("on".equals(autoLogin)) {
+                    Cookie cookie = new Cookie("autoLogin", URLEncoder.encode(p.getUserName() + ":" + p.getPassWord(), "utf-8"));
+                    cookie.setMaxAge(3600 * 24 * 7);
+                    cookie.setPath(request.getContextPath());
+                    response.addCookie(cookie);
+                } else {//如果不选择自动登录，则要清除原来的cookie信息
+                    Cookie cookie = new Cookie("autoLogin", "");
+                    cookie.setMaxAge(0);
+                    cookie.setPath(request.getContextPath());
+                    response.addCookie(cookie);
+                }
             }
             return "/login";
         }
