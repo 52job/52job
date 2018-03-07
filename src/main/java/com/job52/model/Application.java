@@ -12,7 +12,26 @@ import java.util.Date;
 public class Application extends ApplicationKey {
     private String rid;
 
-    private Integer ispass;
+    public Integer getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(Integer isRead) {
+        this.isRead = isRead;
+    }
+
+    /**
+     * 0:未通过
+     * 1:已通过
+     */
+
+    private Integer isPass;
+
+    /**
+     * 0:未查看
+     * 1:已查看
+     */
+    private Integer isRead;
 
     /**
      * 创建时间
@@ -27,12 +46,12 @@ public class Application extends ApplicationKey {
         this.rid = rid == null ? null : rid.trim();
     }
 
-    public Integer getIspass() {
-        return ispass;
+    public Integer getIsPass() {
+        return isPass;
     }
 
-    public void setIspass(Integer ispass) {
-        this.ispass = ispass;
+    public void setIsPass(Integer ispass) {
+        this.isPass = ispass;
     }
 
     public Date getCreateTime() {
