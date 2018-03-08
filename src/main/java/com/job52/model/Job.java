@@ -43,9 +43,14 @@ public class Job {
 
     private String benefit;
 
+    public Job(Integer jobStatue) {
+        this.jobStatue = jobStatue;
+    }
+
     /**
      * ְ
      */
+
     private String jobDesc;
 
 

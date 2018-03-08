@@ -5,11 +5,12 @@ import com.job52.model.Enterprise;
 import com.job52.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class EnterpriseServiceImpl implements EnterpriseService{
+public class EnterpriseServiceImpl implements EnterpriseService {
 
     @Autowired
     private EnterpriseMapper enterpriseMapper;
@@ -34,6 +35,18 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         return true;
     }
 
+    @Transactional
+    public boolean removeEnterpeises(List<String> eids) {
+        for(String tmp : eids) {
+            try {
+                enterpriseMapper.deleteByPrimaryKey(tmp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
     public boolean updateEnterprise(Enterprise enterprise)  {
         try {
             enterpriseMapper.updateByPrimaryKeySelective(enterprise);
@@ -55,14 +68,21 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         return e;
     }
 
-    @Override
-    public List<Enterprise> queryContainsEnterprise(Enterprise enterprise) {
-        return null;
+    public List<Enterprise> queryContainsEnterprise(Enterprise enterprise)  {
+        try {
+            return enterpriseMapper.selectByContainsInfo(enterprise);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return  null;
+        }
     }
 
-    @Override
-    public List<Enterprise> queryAllEnterprise() {
-        return null;
+    public List<Enterprise> queryAllEnterprise()  {
+        try {
+            return enterpriseMapper.selectAllInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-
 }

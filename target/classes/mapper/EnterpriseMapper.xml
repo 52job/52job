@@ -22,10 +22,26 @@
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-        select 
+        select
         <include refid="Base_Column_List" />
         from enterprise
         where eid = #{eid,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByContainsInfo" resultMap="BaseResultMap" parameterType="com.job52.model.Enterprise" >
+        select
+        <include refid="Base_Column_List" />
+        from enterprise
+        where ename LIKE "%"#{ename,jdbcType=VARCHAR}"%"
+        and adddress LIKE "%"#{adddress,jdbcType=VARCHAR}"%"
+        and e_type LIKE "%"#{eType,jdbcType=VARCHAR}"%"
+        and descriptionte LIKE "%"#{descriptionte,jdbcType=VARCHAR}"%"
+    </select>
+
+    <select id="selectAllInfo" resultMap="BaseResultMap" parameterType="com.job52.model.Enterprise" >
+        select
+        <include refid="Base_Column_List" />
+        from enterprise
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
@@ -34,14 +50,14 @@
     </delete>
 
     <insert id="insert" parameterType="com.job52.model.Enterprise" >
-        insert into enterprise (eid, e_username, e_password, 
-            ename, adddress, e_type, 
-            e_number, email, image_url, 
-            descriptionte, contact)
-        values (#{eid,jdbcType=VARCHAR}, #{eUsername,jdbcType=VARCHAR}, #{ePassword,jdbcType=VARCHAR}, 
-            #{ename,jdbcType=VARCHAR}, #{adddress,jdbcType=VARCHAR}, #{eType,jdbcType=VARCHAR}, 
-            #{eNumber,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, 
-            #{descriptionte,jdbcType=LONGVARCHAR}, #{contact,jdbcType=VARCHAR})
+        insert into enterprise (eid, e_username, e_password,
+        ename, adddress, e_type,
+        e_number, email, image_url,
+        descriptionte, contact)
+        values (#{eid,jdbcType=VARCHAR}, #{eUsername,jdbcType=VARCHAR}, #{ePassword,jdbcType=VARCHAR},
+        #{ename,jdbcType=VARCHAR}, #{adddress,jdbcType=VARCHAR}, #{eType,jdbcType=VARCHAR},
+        #{eNumber,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR},
+        #{descriptionte,jdbcType=LONGVARCHAR}, #{contact,jdbcType=VARCHAR})
     </insert>
 
     <insert id="insertSelective" parameterType="com.job52.model.Enterprise" >

@@ -22,6 +22,21 @@
         where jid = #{jid,jdbcType=VARCHAR}
           and pid = #{pid,jdbcType=VARCHAR}
     </select>
+    
+    <select id="selectByContainsInfo" resultMap="BaseResultMap" parameterType="com.job52.model.CandidateKey">
+        select
+        <include refid="Base_Column_List" />
+        from candidate
+        where descriptionte LIKE "%"#{descriptionte,jdbcType=LONGVARCHAR}"%"
+        and isRead = #{isread,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAllInfo" resultMap="BaseResultMap" parameterType="com.job52.model.CandidateKey">
+        select
+        <include refid="Base_Column_List" />
+        from candidate
+    </select>
+
 
     <delete id="deleteByPrimaryKey" parameterType="com.job52.model.CandidateKey" >
         delete from candidate
