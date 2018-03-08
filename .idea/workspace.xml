@@ -934,7 +934,7 @@
       <workItem from="1520335949103" duration="5455000" />
       <workItem from="1520383413030" duration="11373000" />
       <workItem from="1520401827840" duration="9880000" />
-      <workItem from="1520471063616" duration="9155000" />
+      <workItem from="1520471063616" duration="9199000" />
     </task>
     <task id="LOCAL-00001" summary="person注册">
       <created>1520303874478</created>
@@ -1027,7 +1027,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520489464784</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="添加了ajax提交数据的代码">
+      <created>1520489525681</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1520489525681</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1063,7 +1070,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158283000" />
+    <option name="totallyTimeSpent" value="158327000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
