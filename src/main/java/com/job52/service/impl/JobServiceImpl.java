@@ -1,6 +1,7 @@
 package com.job52.service.impl;
 
 import com.job52.dao.JobMapper;
+import com.job52.model.Enterprise;
 import com.job52.model.Job;
 import com.job52.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;

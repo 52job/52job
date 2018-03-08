@@ -20,14 +20,16 @@ public class Job {
      */
     private Enterprise enterprise;
 
+    private String pid;
+
     private Integer requiredNumber;
 
-    private String jname;
+    private String jname = "";
 
     /**
      * 工作经验要求
      */
-    private Integer requiredWorkyear;
+    private Integer requiredWorkyear = 0;
 
     /**
      * 学历要求
@@ -41,7 +43,7 @@ public class Job {
 
     private Integer maxSalary;
 
-    private String benefit;
+    private String benefit = "";
 
     public Job(Integer jobStatue) {
         this.jobStatue = jobStatue;
@@ -51,14 +53,14 @@ public class Job {
      * ְ
      */
 
-    private String jobDesc;
+    private String jobDesc = "";
 
     public Job() {
     }
 
-    private String jobType;
+    private String jobType = "";
 
-    private String workPlace;
+    private String workPlace = "";
 
     /**
      * 2:草稿
@@ -66,7 +68,7 @@ public class Job {
      * 0:过期
      * -1:无效
      */
-    private Integer jobStatue;
+    private Integer jobStatue = 1;
 
     private Date createTime;
 
@@ -180,5 +182,42 @@ public class Job {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "jid='" + jid + '\'' +
+                ", enterprise=" + enterprise.toString() +
+                ", pid='" + pid + '\'' +
+                ", requiredNumber=" + requiredNumber +
+                ", jname='" + jname + '\'' +
+                ", requiredWorkyear=" + requiredWorkyear +
+                ", requiredEducation='" + requiredEducation + '\'' +
+                ", minSalary=" + minSalary +
+                ", maxSalary=" + maxSalary +
+                ", benefit='" + benefit + '\'' +
+                ", jobDesc='" + jobDesc + '\'' +
+                ", jobType='" + jobType + '\'' +
+                ", workPlace='" + workPlace + '\'' +
+                ", jobStatue=" + jobStatue +
+                ", createTime=" + createTime +
+                '}';
+    }
+
+    public Job(Enterprise enterprise, String jname, String benefit, String jobDesc, String workPlace) {
+        this.enterprise = enterprise;
+        this.jname = jname;
+        this.benefit = benefit;
+        this.jobDesc = jobDesc;
+        this.workPlace = workPlace;
     }
 }
