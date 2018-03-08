@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历搜索</title>
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/maincss.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-table.css">
+
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap/bootstrap-table.js"></script>
+    <script src="../../bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script src="../../bootstrap/bootstrap-table-export.js"></script>
+    <script src="../../bootstrap/tableExport.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                <br><br>
+
+                <div>
+
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                         alt="">
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" nav nav-sidebar">
+                        <li>
+                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                        </li>
+                        <li>
+                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                        </li>
+                        <li class="management">
+                            <a style="color: white" href="#education">职位管理</a>
+                        </li>
+                        <li style="display: none;color: white" class="existinfo">
+                            <a style="color: white" href="#education">已发布职业信息</a>
+                        </li>
+                        <li style="display: none" class="roughinfo">
+                            <a style="color: white" href="#education">草稿箱</a>
+                        </li>
+                        <li style="display: none" class="pastinfo">
+                            <a style="color: white" href="#education">历史职业信息</a>
+                        </li>
+                        <li>
+                            <a style="color: white" href="#skills">应聘管理</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="col-md-10">
+            <br>
+            <div class="panel-body" style="padding-bottom:0px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading">搜索条件</div>
+                    <div class="panel-body">
+                        <form id="formSearch" class="form-horizontal" action="">
+                            <div class="form-group" style="margin-top:5px">
+                                <label class="control-label col-sm-2" for="aimPosition">意向职位</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="aimPosition" name="">
+                                </div>
+                                <label class="control-label col-sm-2" for="graduatedSchool">毕业院校</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="graduatedSchool" name="">
+                                </div>
+                                <div class="col-sm-4" style="text-align:left;">
+                                    <button type="button" style="margin-left:5px" id="btn_query"
+                                            class="btn btn-primary">搜索
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group" style="margin-top:5px">
+                                <label class="control-label col-sm-2" for="edu">学历</label>
+                                <div class="col-sm-2">
+                                    <select id="edu" class="form-control" name="">
+                                        <option>小学</option>
+                                        <option>初中</option>
+                                        <option>高中</option>
+                                        <option>本科</option>
+                                        <option>硕士</option>
+                                        <option>博士</option>
+                                    </select>
+                                </div>
+
+                                <label class="control-label col-sm-2" for="exp">工作经验</label>
+                                <div class="input-group col-sm-2">
+                                    <input type="text" class="form-control" id="exp" name="">
+                                    <div class="input-group-addon">年</div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <table id="resumeTable"></table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+
+        //2.初始化Button的点击事件
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init();
+
+    });
+
+
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#resumeTable').bootstrapTable({
+                url: '',         //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                //toolbar: '#toolbar',                //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: false,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//传递参数（*）
+                //sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                       //初始化加载第一页，默认第一页
+                pageSize: 3,                       //每页的记录行数（*）
+                pageList: [1,2],        //可供选择的每页的行数（*）
+                search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: true,
+                showColumns: true,                  //是否显示所有的列
+                showRefresh: true,                  //是否显示刷新按钮
+                minimumCountColumns: 2, //最少允许的列数
+                showExport: true,
+                exportDataType: "basic",
+                exportTypes: ['excel'],
+                clickToSelect: false,                //是否启用点击选中行
+                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                   //是否显示父子表
+                columns: [{
+                    checkbox: true
+                },  {
+                    field: 'id',//命名需要和后台一致
+                    title: 'ID',
+                    visible: false
+                },{
+                    field: 'aimPosition',//命名需要和后台一致
+                    title: '意向职位'
+                }, {
+                    field: 'graduatedSchool',
+                    title: '毕业院校'
+                }, {
+                    field: 'edu',
+                    title: '学历'
+                }, {
+                    field: 'exp',
+                    title: '工作经验'
+                },{
+                    field: 'des',
+                    title: '描述'
+                }],
+                data:[{
+                    id: 2,
+                    aimPosition:"总经理",
+                    graduatedSchool:"华中科技大学",
+                    edu:"硕士",
+                    exp:5,
+                    des:"实习两年"
+                },{
+                    id: 3,
+                    aimPosition:"部门经理",
+                    graduatedSchool:"华中科技大学",
+                    edu:"博士",
+                    exp:5,
+                    des:"实习三年啦"
+                },{
+                    id: 4,
+                    aimPosition:"项目经理",
+                    graduatedSchool:"北京大学",
+                    edu:"硕士",
+                    exp:7,
+                    des:"工作七年啦"
+                }]
+            });
+        };
+
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset,  //页码
+                departmentname: $("#txt_search_departmentname").val(),
+                statu: $("#txt_search_statu").val()
+            };
+            return temp;
+        };
+        return oTableInit;
+    };
+
+
+    var ButtonInit = function () {
+        var oInit = new Object();
+        var postdata = {};
+
+        oInit.Init = function () {
+            //初始化页面上面的按钮事件
+        };
+
+        return oInit;
+    };
+</script>
+
+</body>
+
+</html>
