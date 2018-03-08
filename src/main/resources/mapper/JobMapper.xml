@@ -23,7 +23,7 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-        jid, eid, pid, required_number, jname, required_workyear, required_education, min_salary,
+        jid, job.eid, pid, required_number, jname, required_workyear, required_education, min_salary,
         max_salary, benefit, job_desc, job_type, work_place, job_statue
     </sql>
 
