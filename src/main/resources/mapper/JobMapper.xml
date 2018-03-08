@@ -16,7 +16,7 @@
         <result column="work_place" property="workPlace" jdbcType="VARCHAR" />
         <result column="job_statue" property="jobStatue" jdbcType="INTEGER" />
         <association property="enterprise" javaType="com.job52.model.Enterprise">
-            <id column="enterprise.eid" property="eid" jdbcType="VARCHAR"></id>
+            <id column="eid" property="eid" jdbcType="VARCHAR"></id>
             <result column="ename" property="ename" jdbcType="VARCHAR"></result>
             <result column="e_type" property="eType" jdbcType="VARCHAR"></result>
         </association>
@@ -45,7 +45,7 @@
             required_education, min_salary, max_salary,
             benefit, job_desc, job_type,
             work_place, job_statue)
-        values (#{jid,jdbcType=VARCHAR}, #{eid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR},
+        values (#{jid,jdbcType=VARCHAR}, #{enterprise.eid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR},
             #{requiredNumber,jdbcType=INTEGER}, #{jname,jdbcType=VARCHAR}, #{requiredWorkyear,jdbcType=INTEGER},
             #{requiredEducation,jdbcType=INTEGER}, #{minSalary,jdbcType=INTEGER}, #{maxSalary,jdbcType=INTEGER},
             #{benefit,jdbcType=VARCHAR}, #{jobDesc,jdbcType=LONGVARCHAR}, #{jobType,jdbcType=VARCHAR},

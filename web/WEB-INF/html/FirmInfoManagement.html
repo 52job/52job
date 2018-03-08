@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>企业信息管理</title>
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/maincss.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-table.css">
+
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap/bootstrap-table.js"></script>
+    <script src="../../bootstrap/bootstrap-table-export.js"></script>
+    <script src="../../bootstrap/tableExport.js"></script>
+    <script>
+        $(document).ready(function () {
+            //点击按钮后设置该输入框为可修改状态，并让该输入框获得焦点
+            $('#comUserNameUpd').click(function () {
+                $('#comUserName').attr("readonly", false).focus();
+            });
+
+            $('#comPasswordUpd').click(function () {
+                $('#comPassword').attr("readonly", false).focus();
+            });
+
+            $('#comNameUpd').click(function () {
+                $('#comName').attr("readonly", false).focus();
+            });
+
+            $('#comAddressUpd').click(function () {
+                $('#comAddress').attr("readonly", false).focus();
+            });
+
+
+            $('#employeeNumUpd').click(function () {
+                $('#employeeNum').attr("readonly", false).focus();
+            });
+
+
+            $('#comEmailUpd').click(function () {
+                $('#comEmail').attr("readonly", false).focus();
+            });
+
+            $('#comContactUpd').click(function () {
+                $('#comContact').attr("readonly", false).focus();
+            });
+
+            $('#comDescUpd').click(function () {
+                $('#comDesc').attr("readonly", false).focus();
+            });
+
+
+
+
+            //
+        });
+
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                <br><br>
+
+                <div>
+
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                         alt="">
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" nav nav-sidebar">
+                        <li>
+                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                        </li>
+                        <li>
+                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                        </li>
+                        <li class="management">
+                            <a style="color: white" href="#education">职位管理</a>
+                        </li>
+                        <li style="display: none;color: white" class="existinfo">
+                            <a style="color: white" href="#education">已发布职业信息</a>
+                        </li>
+                        <li style="display: none" class="roughinfo">
+                            <a style="color: white" href="#education">草稿箱</a>
+                        </li>
+                        <li style="display: none" class="pastinfo">
+                            <a style="color: white" href="#education">历史职业信息</a>
+                        </li>
+                        <li>
+                            <a style="color: white" href="#skills">应聘管理</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="col-md-10">
+            <br><br>
+            <label>企业信息管理</label>
+            <br>
+            <div style="text-align: center">
+
+                <form>
+                    <table class="table table-striped" style="vertical-align: center">
+                        <tbody>
+                        <tr>
+                            <td>企业用户名</td>
+                            <td>
+                                <input type="text" value="ali" readonly="readonly" id="comUserName" name="e_username"></td>
+                            <td>
+                                <input type="button" id="comUserNameUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>企业用户密码</td>
+                            <td>
+                                <input type="text" value="alibaba12456" readonly="readonly" id="comPassword" name="e_password"></td>
+                            <td>
+                                <input type="button" id="comPasswordUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>公司名称</td>
+                            <td>
+                                <input type="text" value="阿里巴巴" readonly="readonly" id="comName" name="ename"></td>
+                            <td>
+                                <input type="button" id="comNameUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>公司地址</td>
+                            <td><input type="text" value="中国杭州" readonly="readonly" id="comAddress" name="adddress"></td>
+
+                            <td>
+                                <input type="button" id="comAddressUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>企业类型</td>
+                            <td>
+                                <select id="comType" name="e_type" readonly="readonly" style="width: 153px;height: 25px">
+                                    <option value="外资(欧美)">外资(欧美)</option>
+                                    <option value="外资(非欧美)">外资(非欧美)</option>
+                                    <option value="合资">合资</option>
+                                    <option value="国企">国企</option>
+                                    <option value="民营公司">民营公司</option>
+                                    <option value="外企代表处">外企代表处</option>
+                                    <option value="政府机关">政府机关</option>
+                                    <option value="事业单位">事业单位</option>
+                                    <option value="非盈利组织">非盈利组织</option>
+                                    <option value="上市公司">上市公司</option>
+                                    <option value="创业公司">创业公司</option>
+                                </select>
+                            <td>
+                                <input type="button" id="comTypeUpd" class="btn btn-default btn-primary" value="修改" style="display: none">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>员工人数</td>
+                            <td><input type="text" value="5000" readonly="readonly" id="employeeNum" name="e_number"></td>
+
+                            <td>
+                                <input type="button" id="employeeNumUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>企业邮箱</td>
+                            <td><input type="email" value="1138701750@qq.com" readonly="readonly" id="comEmail" name="email"></td>
+
+                            <td>
+                                <input type="button" id="comEmailUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>备注(联系人,联系电话)</td>
+                            <td>
+                                <input type="text" value="马云,18362826494" readonly="readonly" id="comContact" name="contact">
+                            </td>
+
+                            <td>
+                                <input type="button" id="comContactUpd" class="btn btn-default btn-primary" value="修改">
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>用户头像</td>
+                            <td colspan="2" align="center">
+                                <input type="file"  name="image_url">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>公司描述</td>
+                            <td>
+                                <textarea rows="6" cols="50" readonly="readonly" id="comDesc" name="descriptionte">这里是公司信息描述......</textarea>
+                            </td>
+                            <td>
+                                <input type="button" id="comDescUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4">
+                                <input type="submit" class="btn btn-default btn-danger" value="保存" onclick="saveCompanyInfo()">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <script>
+        function saveCompanyInfo() {
+            alert("点击了保存按钮");
+        }
+    </script>
+
+</body>
+
+</html>

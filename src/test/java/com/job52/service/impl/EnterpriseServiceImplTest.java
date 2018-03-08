@@ -20,7 +20,7 @@ public class EnterpriseServiceImplTest {
 
     @Test
     public void addEnterprise() throws  Exception{
-        Enterprise e = new Enterprise("ccc","ccc","ccc","ccc","ccc","ccc",333,"ccc","ccc","ccc","ccc");
+        Enterprise e = new Enterprise("aaa","aaa","caaacc","aaa","ccc","ccc",333,"ccc","ccc","ccc","ccc");
         enterpriseService.addEnterprise(e);
     }
 }
