@@ -8,6 +8,20 @@ package com.job52.model;
  * @date 2018-02-27
  */
 public class Enterprise {
+    public Enterprise(String eid, String eUsername, String ePassword, String ename, String adddress, String eType, Integer eNumber, String email, String imageUrl, String descriptionte, String contact) {
+        this.eid = eid;
+        this.eUsername = eUsername;
+        this.ePassword = ePassword;
+        this.ename = ename;
+        this.adddress = adddress;
+        this.eType = eType;
+        this.eNumber = eNumber;
+        this.email = email;
+        this.imageUrl = imageUrl;
+        this.descriptionte = descriptionte;
+        this.contact = contact;
+    }
+
     /**
      * 公司id
      */
@@ -55,22 +69,7 @@ public class Enterprise {
     /**
      * 备注:联系人，电话等等
      */
-
     private String contact;
-
-    public Enterprise(String eid, String eUsername, String ePassword, String ename, String adddress, String eType, Integer eNumber, String email, String imageUrl, String descriptionte, String contact) {
-        this.eid = eid;
-        this.eUsername = eUsername;
-        this.ePassword = ePassword;
-        this.ename = ename;
-        this.adddress = adddress;
-        this.eType = eType;
-        this.eNumber = eNumber;
-        this.email = email;
-        this.imageUrl = imageUrl;
-        this.descriptionte = descriptionte;
-        this.contact = contact;
-    }
 
     public String getEid() {
         return eid;
@@ -150,6 +149,23 @@ public class Enterprise {
 
     public void setDescriptionte(String descriptionte) {
         this.descriptionte = descriptionte == null ? null : descriptionte.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Enterprise{" +
+                "eid='" + eid + '\'' +
+                ", eUsername='" + eUsername + '\'' +
+                ", ePassword='" + ePassword + '\'' +
+                ", ename='" + ename + '\'' +
+                ", adddress='" + adddress + '\'' +
+                ", eType='" + eType + '\'' +
+                ", eNumber=" + eNumber +
+                ", email='" + email + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", descriptionte='" + descriptionte + '\'' +
+                ", contact='" + contact + '\'' +
+                '}';
     }
 
     public String getContact() {

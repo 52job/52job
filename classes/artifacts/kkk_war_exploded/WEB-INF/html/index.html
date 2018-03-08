@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>52job注册</title>
+    <title>用户注册</title>
     <link rel="stylesheet" href="../../css/login.css" />
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
     <script type="text/javascript" src="../../jquery/jquery-3.2.1.js"></script>
@@ -111,8 +111,6 @@
         <!--发送验证码-->
         function publish() {
             var userName = $("#userName").val();
-
-            alert(userName);
             $.ajax({
                 url: '/person/sendCode',//修改
                 type: 'post',
@@ -125,7 +123,7 @@
 
             function erryFunction(data) {
                 if(data.msg!=null){
-                    alert(data.msg);
+                    alert("返回内容为空");
                 }else{
                     if(data==null){
                         alert("失败");
@@ -137,12 +135,12 @@
 
             function succFunction(data) {
                 if(data.msg!=null){
-                    alert(data.msg);
+                    alert("成功了，但是没有信息返回");
                 }else{
                     if(data==null){
-                        alert(data);
+                        alert("数据为空");
                     }else{
-                        alert(data);
+                        alert("44");
                     }
                 }
             }
@@ -195,7 +193,7 @@
                     极速注册，找到适合你的职位
                 </p>
 
-                <form role="form" action="register" method="POST">
+                <form role="form" action="/person/register" method="POST">
                     <div class="row" style="margin-top: 15px;">
                         <div class="form-group col-sm-12">
                             <label for="userName">账号</label><span id="userWarn" ></span>
@@ -205,14 +203,14 @@
 
                     <div class="row" style="margin-top: 0px;">
                         <div class="form-group col-sm-12">
-                            <label for="passWord">密码</label></label><span id="pwdWarn" ></span>
+                            <label for="passWord">密码</label><span id="pwdWarn" ></span>
                             <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" onblur="isSend()">
                         </div>
                     </div>
 
                     <div class="row" style="margin-top: 0px;">
                         <div class="form-group col-sm-12">
-                            <label for="passWord2">确认密码</label></label><span id="pwdWarn2" ></span>
+                            <label for="passWord2">确认密码</label><span id="pwdWarn2" ></span>
                             <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="重新输入密码" onblur="isSend()">
                         </div>
                     </div>

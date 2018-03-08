@@ -22,8 +22,34 @@ public class Candidate extends CandidateKey {
      */
     private Date createTime;
 
+    public Candidate(Integer isread) {
+        this.isread = isread;
+        descriptionte = "";
+    }
+
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "rid='" + rid + '\'' +
+                ", descriptionte='" + descriptionte + '\'' +
+                ", createTime=" + createTime +
+                ", isread=" + isread +
+                '}';
+    }
+
+    public Candidate() {
+        descriptionte = "";
+    }
+
+    public Candidate(String jid, String pid) {
+        super(jid, pid);
+        descriptionte = "";
+    }
+
     /**
-     * 是否被查看
+     * 0：未处理
+     * 1：接受
+     * 2：拒绝
      */
     private Integer isread;
 

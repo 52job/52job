@@ -49,7 +49,6 @@ public class PhoneUtil {
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
 
         if(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
-
             return true;
         }
         return false;

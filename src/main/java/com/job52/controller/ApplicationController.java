@@ -5,39 +5,47 @@ import com.job52.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @RequestMapping("/application")
 public class ApplicationController {
     @Autowired
-    private ApplicationService applicationService;
+    ApplicationService applicationService;
 
-    /**
-     * 查找用户的申请列表
-     * @param model
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/findAllApplication")
-    public String findAllApplication(Model model) throws Exception {
-        List<Application> applicationList = applicationService.findAllApplication();
-        model.addAttribute("applicationList",applicationList);
-        return null;
+    @RequestMapping("/list")
+    public String queryApplication(HttpSession session, Model model) {
+        Application application = new Application();
+        application.setPid((String)session.getAttribute("pid"));
+        model.addAttribute(applicationService.query(application));
+        return "application";
+    }
+    @RequestMapping("/list/{isRead}")
+    @ResponseBody
+    public List<Application> queryApplicationByRead(HttpSession session, @PathVariable("isRead") int isRead) {
+        if (isRead != 0 || isRead !=1) {
+            return null;
+        }
+        Application application = new Application();
+        application.setPid((String)session.getAttribute("pid"));
+        application.setIsRead(isRead);
+        return  applicationService.query(application);
     }
 
-    /**
-     * 提交用户申请
-     * @param pid 用户id
-     * @param jid 职位id
-     * @param rid 职位id
-     * @return
-     * @throws Exception
-     */
-    public String applyJob(String pid, String jid, String rid) throws Exception {
-        applicationService.applyJob(pid, jid, rid);
-        return null;
+    @RequestMapping("/list/{isRead}/{isPass}")
+    @ResponseBody
+    public List<Application> queryApplicationByPass(HttpSession session, @PathVariable("isRead") int isRead, @PathVariable("isPass") int isPass) {
+        if (isRead !=1) {
+            return null;
+        }
+        Application application = new Application();
+        application.setPid((String)session.getAttribute("pid"));
+        application.setIsPass(isPass);
+        return  applicationService.query(application);
     }
 }

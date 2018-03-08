@@ -27,7 +27,7 @@
     </select>
 
     <!--通过用户名和密码来查找用户-->
-    <select id="findPersonByNameAndPwd"  parameterType="com.job52.model.Person" resultType="com.job52.model.Person">
+    <select id="findPersonByNameAndPwd"  parameterType="com.job52.model.Person" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM person

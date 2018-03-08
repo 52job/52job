@@ -11,28 +11,31 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-        pid, gid, rid, ispass, create_time
+        pid, gid, rid, ispass, Isread, create_time
     </sql>
 
+
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.job52.model.ApplicationKey" >
-        select 
+        select
         <include refid="Base_Column_List" />
         from application
         where pid = #{pid,jdbcType=VARCHAR}
-          and gid = #{gid,jdbcType=VARCHAR}
+        and gid = #{gid,jdbcType=VARCHAR}
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="com.job52.model.ApplicationKey" >
         delete from application
         where pid = #{pid,jdbcType=VARCHAR}
-          and gid = #{gid,jdbcType=VARCHAR}
+        and gid = #{gid,jdbcType=VARCHAR}
     </delete>
 
     <insert id="insert" parameterType="com.job52.model.Application" >
-        insert into application (pid, gid, rid, 
-            ispass, create_time)
-        values (#{pid,jdbcType=VARCHAR}, #{gid,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
-            #{ispass,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+        insert into application (pid, gid, rid,
+        ispass, Isread, create_time
+        )
+        values (#{pid,jdbcType=VARCHAR}, #{gid,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR},
+        #{ispass,jdbcType=INTEGER}, #{isread,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+        )
     </insert>
 
     <insert id="insertSelective" parameterType="com.job52.model.Application" >
@@ -49,6 +52,9 @@
             </if>
             <if test="ispass != null" >
                 ispass,
+            </if>
+            <if test="isread != null" >
+                Isread,
             </if>
             <if test="createTime != null" >
                 create_time,
@@ -67,6 +73,9 @@
             <if test="ispass != null" >
                 #{ispass,jdbcType=INTEGER},
             </if>
+            <if test="isread != null" >
+                #{isread,jdbcType=INTEGER},
+            </if>
             <if test="createTime != null" >
                 #{createTime,jdbcType=TIMESTAMP},
             </if>
@@ -82,20 +91,77 @@
             <if test="ispass != null" >
                 ispass = #{ispass,jdbcType=INTEGER},
             </if>
+            <if test="isread != null" >
+                Isread = #{isread,jdbcType=INTEGER},
+            </if>
             <if test="createTime != null" >
                 create_time = #{createTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where pid = #{pid,jdbcType=VARCHAR}
-          and gid = #{gid,jdbcType=VARCHAR}
+        and gid = #{gid,jdbcType=VARCHAR}
     </update>
 
     <update id="updateByPrimaryKey" parameterType="com.job52.model.Application" >
         update application
         set rid = #{rid,jdbcType=VARCHAR},
             ispass = #{ispass,jdbcType=INTEGER},
+            Isread = #{isread,jdbcType=INTEGER},
             create_time = #{createTime,jdbcType=TIMESTAMP}
         where pid = #{pid,jdbcType=VARCHAR}
           and gid = #{gid,jdbcType=VARCHAR}
     </update>
+
+    <select id="query" parameterType="com.job52.model.Application" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from application
+        <trim prefix="where" prefixOverrides="and">
+            <if test="pid != null" >
+               and pid = #{pid,jdbcType=VARCHAR}
+            </if>
+            <if test="gid != null" >
+                and gid = #{gid,jdbcType=VARCHAR}
+            </if>
+            <if test="rid != null" >
+                and rid = #{rid,jdbcType=VARCHAR}
+            </if>
+            <if test="isread != null">
+                and isread = #{isread,jdbcType=INTEGER}
+            </if>
+            <if test="ispass != null" >
+                and ispass = #{ispass,jdbcType=INTEGER}
+            </if>
+            <if test="createTime != null" >
+                and createTime = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryContains" parameterType="com.job52.model.Application" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from application
+        <trim prefix="where" prefixOverrides="and">
+            <if test="pid != null" >
+                and pid like "%"#{pid,jdbcType=VARCHAR}"%"
+            </if>
+            <if test="gid != null" >
+                and gid like "%"#{gid,jdbcType=VARCHAR}"%"
+            </if>
+            <if test="rid != null" >
+                and rid like "%"#{rid,jdbcType=VARCHAR}"%"
+            </if>
+            <if test="isread != null">
+                and isread = #{isread,jdbcType=INTEGER}
+            </if>
+            <if test="ispass != null" >
+                and ispass = #{ispass,jdbcType=INTEGER}
+            </if>
+            <if test="createTime != null" >
+                and createTime like "%"#{createTime,jdbcType=TIMESTAMP}"%"
+            </if>
+        </trim>
+    </select>
+
 </mapper>

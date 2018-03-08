@@ -27,6 +27,18 @@
         (2)允许使用"/"做整体映射
      -->
     <mvc:default-servlet-handler />
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--对所有的Url都进行拦截-->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/**/*login*"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/**/*index*"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/**/*Login*"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/**/*register*"></mvc:exclude-mapping>
+            <bean class="com.job52.filter.AutoLoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
     <!-- 3.配置jsp显示ViewResovler -->

@@ -1,4 +1,190 @@
 package com.job52.controller;
 
+import com.job52.model.Candidate;
+import com.job52.model.Resume;
+import com.job52.service.CandidateInfoService;
+import com.job52.service.JobService;
+import com.job52.service.PersonService;
+import com.job52.service.ResumeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
+@Controller
+@RequestMapping("/candidate")
 public class CandidateController {
+    @Autowired
+    private CandidateInfoService candidateInfoService;
+    @Autowired
+    private ResumeService resumeService;
+    @Autowired
+    private JobService jobService;
+    @Autowired
+    private PersonService personService;
+
+    @RequestMapping("/candidate_1")
+    public String index() {
+        return "/company-applymentmanageF";
+    }
+
+    /**
+     * get uncheck list
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
+    public String uncheckList(Model model) throws Exception {
+        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0));
+        List<String> names = null,jobs = null;
+        int len = candidates.size();
+        for(int i=0; i<len ; i++) {
+            names.set(i,personService.queryPerson(candidates.get(i).getPid()).getUserName());
+            jobs.set(i,jobService.getJob(candidates.get(i).getJid()).getJname());
+        }
+        model.addAttribute("candidates",candidates);
+        model.addAttribute("names",names);
+        model.addAttribute("jobs",jobs);
+        for(Candidate tmp : candidates) {
+            System.out.println(tmp);
+        }
+        return "uncheckList";
+    }
+
+    /**
+     * set candidate isread
+     * @param jid
+     * @param pid
+     * @param isread
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/{jid}:{pid}/{isread}/setIsRead/uncheckList",method = RequestMethod.POST)
+    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("isread") Integer isread,Model model ) {
+        if(jid == null ||pid == null) {
+            return "redirect:/uncheckList" ;
+        }
+        Candidate c=candidateInfoService.getCandidate(new Candidate(jid,pid));
+        c.setIsread(isread);
+        boolean flag = false;
+        try {
+            flag = candidateInfoService.updateCandidate(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error",e);
+        }
+        model.addAttribute("flag",flag);
+        return "uncheckList";
+    }
+
+    /**
+     * get resume
+     * @param rid
+     * @return
+     */
+    @RequestMapping(value = "/{rid}/getResumeByIdInUncheck/uncheckList",method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public Resume getResumeByIdInUncheck(@PathVariable("rid") String rid) {
+        Resume r = resumeService.getResume(rid);
+        return r;
+    }
+
+
+    /**
+     * get check list
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/checkList",method = RequestMethod.GET)
+    public String checkList(Model model) throws Exception {
+        List<Candidate> candidates1 = candidateInfoService.queryContainsCandidate(new Candidate(1));
+        List<Candidate> candidates2 = candidateInfoService.queryContainsCandidate(new Candidate(2));
+        candidates1.addAll(candidates2);
+        List<String> names = null,jobs = null;
+        int len = candidates1.size();
+        for(int i=0; i<len ; i++) {
+            names.set(i,personService.queryPerson(candidates1.get(i).getPid()).getUserName());
+            jobs.set(i,jobService.getJob(candidates1.get(i).getJid()).getJname());
+        }
+        model.addAttribute("candidates",candidates1);
+        model.addAttribute("names",names);
+        model.addAttribute("jobs",jobs);
+        return "checkList";
+    }
+
+    /**
+     * get rusume
+     * @param rid
+     * @return
+     */
+    @RequestMapping(value = "/{rid}/getResumeByIdInCheck/uncheckList",method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public Resume getResumeByIdInCheck(@PathVariable("rid") String rid) {
+        Resume r = resumeService.getResume(rid);
+        return r;
+    }
+
+    /**
+     * delect candidates
+     * @param request
+     * @param model
+     */
+    @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
+    @Transactional
+    public void delectCandidates(HttpServletRequest request , Model model) {
+       List<String> jids = null;
+       List<String> pids = null;
+        jids = (List<String>) request.getAttribute("jids");
+        pids = (List<String>) request.getAttribute("pids");
+       try {
+           candidateInfoService.removeCandidates(jids,pids);
+       } catch (Exception e) {
+           e.printStackTrace();
+           model.addAttribute("error",e);
+           throw new RuntimeException();
+       }
+    }
+
+    /**
+     * delect candidate
+     * @param request
+     * @param model
+     */
+    @RequestMapping(value = "/delectCandidate/checkList",method = RequestMethod.DELETE)
+    public void delectCandidate(HttpServletRequest request , Model model) {
+        String jid = null;
+        String pid = null;
+        jid = (String) request.getAttribute("jid");
+        pid = (String) request.getAttribute("pid");
+            try {
+                candidateInfoService.removeCandidate(new Candidate(jid,pid));
+            } catch (Exception e) {
+                e.printStackTrace();
+                model.addAttribute("error",e);
+                throw new RuntimeException();
+            }
+    }
+
+    /**
+     * query resumes
+     * @param request
+     * @param model
+     */
+    @RequestMapping(value = "/queryResumes",method = RequestMethod.GET)
+    public void queryResumes(HttpServletRequest request , Model model) {
+        Resume resume = (Resume) request.getAttribute("resume");
+        List<Resume> resumeList = resumeService.queryAll(resume);
+        model.addAttribute("resumeList",resumeList);
+    }
+
+
 }

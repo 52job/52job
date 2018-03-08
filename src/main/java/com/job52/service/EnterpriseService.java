@@ -12,7 +12,7 @@ public interface EnterpriseService {
      * @return
      * @throws Exception
      */
-     boolean addEnterprise(Enterprise enterprise) throws Exception ;
+    boolean addEnterprise(Enterprise enterprise) ;
 
     /**
      * 删除公司信息
@@ -21,6 +21,13 @@ public interface EnterpriseService {
      * @throws Exception
      */
      boolean removeEnterprise(String eid) ;
+
+    /**
+     * 批量删除公司信息
+     * @param eids
+     * @return
+     */
+     boolean removeEnterpeises(List<String> eids);
 
     /**
      * 更新公司信息
