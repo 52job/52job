@@ -7,57 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d9f621-79d6-4f12-8eda-06b13de9acf1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/close.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/contact-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/home-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/profile.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/FirmInfoManagement.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/PositionInfoSearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/ResumeSearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-company.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-data.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-person.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-position.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/bootstraptable.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageF.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageP.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-existpositioninfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-pastpositioninfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-roughpositioninfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/model.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/myapplication.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/mycollection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/person-applyposition.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/person-resumecreate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/person-resumemanage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/updateinfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/css/multiConditionSelect.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/javascript/multiConditionSelectJs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/jquery/jquery-3.2.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/ApplicationServiceTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/ApplicationController.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/ApplicationController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/service/impl/JobServiceImpl.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/service/impl/JobServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Enterprise.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Enterprise.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Job.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Job.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/util/CommonUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/util/CommonUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/ApplicationMapper.xml" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/ApplicationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/JobMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/ApplicationMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ApplicationMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/ApplicationMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/ApplicationMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/JobMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -351,8 +305,8 @@
       <file leaf-file-name="JobServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="185">
+              <caret line="55" column="59" lean-forward="false" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -363,7 +317,7 @@
       <file leaf-file-name="JobServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
+            <state relative-caret-position="224">
               <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
               <folding>
                 <element signature="e#1879#1880#0" expanded="true" />
@@ -375,16 +329,17 @@
       <file leaf-file-name="JobMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            <state relative-caret-position="212">
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
-                <marker date="1520478471977" expanded="true" signature="1891:2044" ph="select from job" />
-                <marker date="1520478471977" expanded="true" signature="2139:2198" ph="delete from " />
-                <marker date="1520478471977" expanded="true" signature="2284:3010" ph="insert into job... " />
-                <marker date="1520478471977" expanded="true" signature="6107:7758" ph="update job e... " />
-                <marker date="1520478471977" expanded="true" signature="7856:8601" ph="update job s... " />
-                <marker date="1520478471977" expanded="true" signature="11961:12372" ph="select from job" />
-                <marker date="1520478471977" expanded="true" signature="12486:13215" ph="select from job" />
+                <element signature="e#12766#12770#0" expanded="true" />
+                <marker date="1520484192662" expanded="true" signature="1891:2044" ph="select from job" />
+                <marker date="1520484192662" expanded="true" signature="2139:2198" ph="delete from " />
+                <marker date="1520484192662" expanded="true" signature="2284:3010" ph="insert into job... " />
+                <marker date="1520484192662" expanded="true" signature="6107:7758" ph="update job e... " />
+                <marker date="1520484192662" expanded="true" signature="7856:8601" ph="update job s... " />
+                <marker date="1520484192662" expanded="true" signature="11961:12372" ph="select from job" />
+                <marker date="1520484192662" expanded="true" signature="12486:13351" ph="select ,enam... " />
               </folding>
             </state>
           </provider>
@@ -404,14 +359,14 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
-              <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
+              <caret line="197" column="38" lean-forward="false" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
               <folding>
-                <element signature="e#3307#3308#0" expanded="true" />
-                <element signature="e#3349#3350#0" expanded="true" />
-                <element signature="e#3541#3542#0" expanded="true" />
-                <element signature="e#3567#3568#0" expanded="true" />
-                <element signature="e#3605#3606#0" expanded="true" />
-                <element signature="e#3635#3636#0" expanded="true" />
+                <element signature="e#3330#3331#0" expanded="true" />
+                <element signature="e#3372#3373#0" expanded="true" />
+                <element signature="e#3564#3565#0" expanded="true" />
+                <element signature="e#3590#3591#0" expanded="true" />
+                <element signature="e#3628#3629#0" expanded="true" />
+                <element signature="e#3658#3659#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -579,11 +534,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="548" />
-    <option name="y" value="89" />
-    <option name="width" value="1326" />
-    <option name="height" value="946" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -645,15 +599,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -661,100 +606,7 @@
               <item name="52job" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
@@ -1666,43 +1518,50 @@
       <option name="project" value="LOCAL" />
       <updated>1520471869397</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="更新job相关">
+      <created>1520478642753</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1520478642753</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 10h 59m 10s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 33m 00s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 10h 59m 39s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 34m 04s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 04m 08s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 35m 32s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 05m 16s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 37m 16s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 05m 50s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 38m 19s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 06m 43s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 39m 26s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 07m 26s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 41m 27s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 07m 42s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 42m 02s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 08m 01s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 42m 40s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 08m 51s.xml">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 12h 43m 20s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155975000" />
+    <option name="totallyTimeSpent" value="159758000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1717,7 +1576,7 @@
     <frame x="0" y="23" width="1280" height="725" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52698416" sideWeight="0.15024233" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47460318" sideWeight="0.15024233" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4872814" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1734,7 +1593,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52698416" sideWeight="0.8497577" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47460318" sideWeight="0.8497577" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21587302" sideWeight="0.49353796" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45833334" sideWeight="0.7186009" order="12" side_tool="false" content_ui="tabs" />
@@ -1846,7 +1705,8 @@
     <MESSAGE value="张康熙" />
     <MESSAGE value="job类" />
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="更新job相关" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新job相关" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2116,47 +1976,47 @@
         <state relative-caret-position="270">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
-            <marker date="1520478526484" expanded="true" signature="192522:192539" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192522:192557" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192522:192570" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192522:192585" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192620:195272" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192633:195257" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192687:193082" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192706:193067" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192823:193047" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192863:193013" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="192884:192991" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193132:193455" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193151:193440" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193235:193420" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193275:193386" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193296:193364" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193506:193778" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193525:193763" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193558:193743" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193598:193709" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193619:193687" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193821:194134" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193840:194119" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193914:194099" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193954:194065" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="193975:194043" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194185:194502" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194204:194487" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194282:194467" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194322:194433" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194343:194411" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194537:194843" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194556:194828" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194630:194808" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194670:194774" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194691:194752" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194895:195243" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="194914:195228" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="195023:195208" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="195063:195174" ph="..." />
-            <marker date="1520478526484" expanded="true" signature="195084:195152" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183709:183726" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183709:183744" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183709:183757" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183709:183772" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183807:186459" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183820:186444" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183874:184269" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="183893:184254" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184010:184234" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184050:184200" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184071:184178" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184319:184642" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184338:184627" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184422:184607" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184462:184573" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184483:184551" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184693:184965" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184712:184950" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184745:184930" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184785:184896" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="184806:184874" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185008:185321" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185027:185306" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185101:185286" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185141:185252" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185162:185230" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185372:185689" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185391:185674" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185469:185654" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185509:185620" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185530:185598" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185724:186030" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185743:186015" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185817:185995" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185857:185961" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="185878:185939" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="186082:186430" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="186101:186415" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="186210:186395" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="186250:186361" ph="..." />
+            <marker date="1520484210307" expanded="true" signature="186271:186339" ph="..." />
           </folding>
         </state>
       </provider>
@@ -2263,11 +2123,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="224">
+          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+          <folding>
+            <element signature="e#1879#1880#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="55" column="59" lean-forward="false" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2279,53 +2151,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-          <folding>
-            <element signature="e#1879#1880#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
-          <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
+          <caret line="197" column="38" lean-forward="false" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
           <folding>
-            <element signature="e#3307#3308#0" expanded="true" />
-            <element signature="e#3349#3350#0" expanded="true" />
-            <element signature="e#3541#3542#0" expanded="true" />
-            <element signature="e#3567#3568#0" expanded="true" />
-            <element signature="e#3605#3606#0" expanded="true" />
-            <element signature="e#3635#3636#0" expanded="true" />
+            <element signature="e#3330#3331#0" expanded="true" />
+            <element signature="e#3372#3373#0" expanded="true" />
+            <element signature="e#3564#3565#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+            <element signature="e#3628#3629#0" expanded="true" />
+            <element signature="e#3658#3659#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="212">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
-            <marker date="1520478471977" expanded="true" signature="1891:2044" ph="select from job" />
-            <marker date="1520478471977" expanded="true" signature="2139:2198" ph="delete from " />
-            <marker date="1520478471977" expanded="true" signature="2284:3010" ph="insert into job... " />
-            <marker date="1520478471977" expanded="true" signature="6107:7758" ph="update job e... " />
-            <marker date="1520478471977" expanded="true" signature="7856:8601" ph="update job s... " />
-            <marker date="1520478471977" expanded="true" signature="11961:12372" ph="select from job" />
-            <marker date="1520478471977" expanded="true" signature="12486:13215" ph="select from job" />
+            <element signature="e#12766#12770#0" expanded="true" />
+            <marker date="1520484192662" expanded="true" signature="1891:2044" ph="select from job" />
+            <marker date="1520484192662" expanded="true" signature="2139:2198" ph="delete from " />
+            <marker date="1520484192662" expanded="true" signature="2284:3010" ph="insert into job... " />
+            <marker date="1520484192662" expanded="true" signature="6107:7758" ph="update job e... " />
+            <marker date="1520484192662" expanded="true" signature="7856:8601" ph="update job s... " />
+            <marker date="1520484192662" expanded="true" signature="11961:12372" ph="select from job" />
+            <marker date="1520484192662" expanded="true" signature="12486:13351" ph="select ,enam... " />
           </folding>
         </state>
       </provider>

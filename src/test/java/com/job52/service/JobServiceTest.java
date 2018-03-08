@@ -48,13 +48,12 @@ public class JobServiceTest {
 
     @Test
     public void queryJobs() throws Exception {
-        Job job = new Job();
-        job.setEnterprise(new Enterprise());
-
-
+        Job job = new Job("aaa");
+        System.out.println(job);
         List<Job> list = jobService.queryJobs(job);
         for (Job j : list) {
             System.out.println(j.toString());
+            System.out.println(j.getEnterprise().toString());
         }
     }
 
