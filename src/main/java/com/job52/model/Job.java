@@ -53,6 +53,8 @@ public class Job {
 
     private String jobDesc;
 
+    public Job() {
+    }
 
     private String jobType;
 
