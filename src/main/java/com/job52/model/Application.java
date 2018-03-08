@@ -13,11 +13,11 @@ public class Application extends ApplicationKey {
     private String rid;
 
     public Integer getIsRead() {
-        return isRead;
+        return isread;
     }
 
     public void setIsRead(Integer isRead) {
-        this.isRead = isRead;
+        this.isread = isRead;
     }
 
     /**
@@ -25,13 +25,13 @@ public class Application extends ApplicationKey {
      * 1:已通过
      */
 
-    private Integer isPass;
+    private Integer ispass;
 
     /**
      * 0:未查看
      * 1:已查看
      */
-    private Integer isRead;
+    private Integer isread;
 
     /**
      * 创建时间
@@ -47,11 +47,11 @@ public class Application extends ApplicationKey {
     }
 
     public Integer getIsPass() {
-        return isPass;
+        return ispass;
     }
 
     public void setIsPass(Integer ispass) {
-        this.isPass = ispass;
+        this.ispass = ispass;
     }
 
     public Date getCreateTime() {

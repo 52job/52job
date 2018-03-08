@@ -66,6 +66,6 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public Person queryPerson(String pid) throws Exception {
-        return null;
+        return personMapper.selectByPrimaryKey(pid);
     }
 }

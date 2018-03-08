@@ -34,6 +34,7 @@ public class Candidate extends CandidateKey {
                 ", descriptionte='" + descriptionte + '\'' +
                 ", createTime=" + createTime +
                 ", isread=" + isread +
+                ", ispass=" + ispass +
                 '}';
     }
 
@@ -46,12 +47,17 @@ public class Candidate extends CandidateKey {
         descriptionte = "";
     }
 
-    /**
-     * 0：未处理
-     * 1：接受
-     * 2：拒绝
-     */
     private Integer isread;
+
+    public Integer getIspass() {
+        return ispass;
+    }
+
+    public void setIspass(Integer ispass) {
+        this.ispass = ispass;
+    }
+
+    private Integer ispass;
 
     public String getRid() {
         return rid;

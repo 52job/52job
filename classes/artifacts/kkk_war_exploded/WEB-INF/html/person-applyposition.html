@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../CSS/maincss.css" rel="stylesheet">
+
+
+    <script src="../../jquery/jquery-3.2.1.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .lab:hover {
+            color: #f2af00;
+        }
+.bg1{
+    background-size: cover;
+   //background-image: url();
+
+        position: relative;
+
+
+}
+p{
+    color: #343a40;
+    font-weight: 650;
+}
+
+    </style>
+    <script>
+        function getdata() {
+            var id1=localStorage.getItem("id1");
+var id2=localStorage.getItem("id2");
+var id3=localStorage.getItem("id3");
+var data={
+    "id1":id1,
+    "id2":id2,
+    "id3":id3
+};
+data=JSON.stringify(data);
+$.ajax({
+    url: '',
+    type: 'get',
+    dataType: 'json',
+    data: data,
+    success: succFunction,
+    error: erryFunction
+
+});
+function succFunction(result) {
+    var json = eval(result);
+    var salary=document.getElementById("salary");
+    var location=document.getElementById("location");
+    var education=document.getElementById("education");
+    var experience=document.getElementById("experience");
+    var number=document.getElementById("number");
+    var category=document.getElementById("category");
+    var jobrs=document.getElementById("jobrs");
+    var applyre=document.getElementById("applyre");
+    var jobre=document.getElementById("jobre");
+    var phone=document.getElementById("phone");
+    var address=document.getElementById("address");
+    var email=document.getElementById("email");
+    salary.innerText=json.salary;
+    location.innerText=json.location;
+    education.innerText=json.education;
+    experience.innerText=json.experience;
+    number.innerText=json.number;
+    category.innerText=json.category;
+    jobrs.innerText=json.jobrs;
+    applyre.innerText=json.applyre;
+    jobre.innerText=json.jobre;
+    phone.innerText=json.phone;
+    address.innerText=json.address;
+    email.innerText=json.email;
+}
+function erryFunction() {
+ alert("获取数据失败");
+}
+        }
+    </script>
+</head>
+
+<body onload="getdata()">
+<div class="bg1" style="width: 100%;height:610px;position: relative;" >
+<div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.75);" class="bg2" >
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                <br><br>
+
+                <div>
+
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                         alt="">
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" nav nav-sidebar">
+                        <li>
+                            <a style="color: white" href="admin-person.html">职位申请</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+<div >
+        <br><br>
+
+        <div class="col-md-11 col-md-offset-1">
+            <div>
+                <div>
+                    <div style="float: left"><h3 id="h3">产品经理</h3></div>
+                    <br>
+                    <div style="position: absolute;right: 200px" title="点击收藏"><span class="glyphicon glyphicon-star-empty"
+                                                                                    aria-hidden="true"
+                                                                                    style="font-size: 25px;color:orange;opacity: 3;float: left"
+                                                                                    onclick="click2()"></span>
+                    </div>
+                    <div style="position: absolute;right: 150px" title="点击申请职位"><span class="glyphicon glyphicon-user"
+                                                                                      style="font-size: 25px;color:orange;opacity: 3;float: left"
+                                                                                      onclick="click3()"></span></div>
+                </div>
+                <br><br><br><br><br>
+                <div>
+                    <div style="position: absolute;left: 100px;top: 80px"><p style="display: inline">职位月薪：</p>
+                        <p style="display: inline" id="salary">100000</p></div>
+                    <div style="position: absolute;left: 400px;top: 80px"><p style="display: inline">工作地点：</p>
+                        <p style="display: inline" id="location">武汉洪山区</p></div>
+                </div>
+                <br>
+                <div>
+                    <div style="position: absolute;left: 100px;top: 110px"><p style="display: inline">最低学历：</p>
+                        <p style="display: inline" id="education">本科</p></div>
+                    <div style="position: absolute;left: 400px;top: 110px"><p style="display: inline">工作经验：</p>
+                        <p style="display: inline" id="experience">不限</p></div>
+                </div>
+                <br>
+                <div>
+                    <div style="position: absolute;left: 100px;top:140px;"><p style="display: inline">招聘人数：</p>
+                        <p style="display: inline" id="number">4</p></div>
+                    <div style="position: absolute;left: 400px;top: 140px"><p style="display: inline">职位类别：</p>
+                        <p style="display: inline" id="category">产品经理</p></div>
+                </div>
+            </div>
+            <hr size="5" noshade="false">
+            <ul class="nav nav-tabs">
+                <li role="presentation" id="position" class="active"><a href="#position2">职位描述</a></li>
+                <li role="presentation" id="company"><a href="#company2">公司介绍</a></li>
+                <li role="presentation" id="contact"><a href="#">联系方式</a></li>
+            </ul>
+            <script>
+                $(document).ready(function () {
+                    $("#position").click(function () {
+                     document.getElementById("position").setAttribute("class","active") ;
+                     document.getElementById("company").setAttribute("class","") ;
+                     document.getElementById("contact").setAttribute("class","") ;
+                     document.getElementById("position2").setAttribute("style","display:block");
+                     document.getElementById("company2").setAttribute("style","display:none");
+                     document.getElementById("contact2").setAttribute("style","display:none");
+                    });
+                    $("#company").click(function () {
+                        document.getElementById("position").setAttribute("class","") ;
+                        document.getElementById("company").setAttribute("class","active") ;
+                        document.getElementById("contact").setAttribute("class","") ;
+                        document.getElementById("position2").setAttribute("style","display:none");
+                        document.getElementById("company2").setAttribute("style","display:block");
+                        document.getElementById("contact2").setAttribute("style","display:none");
+                    });
+                    $("#contact").click(function () {
+                        document.getElementById("position").setAttribute("class","") ;
+                        document.getElementById("company").setAttribute("class","") ;
+                        document.getElementById("contact").setAttribute("class","active") ;
+                        document.getElementById("position2").setAttribute("style","display:none");
+                        document.getElementById("company2").setAttribute("style","display:none");
+                        document.getElementById("contact2").setAttribute("style","display:block");
+                    });
+                })
+            </script>
+            <div>
+                <br>
+                <div id="model">
+              <div class="container-fluid" id="position2" style="display: block">
+                 <div class="row">
+                <div class="col-md-4" style="border-right:1px dashed grey;"><p class="lab" style="font-size: 20px">岗位职责</p>
+             <p class="lab" id="jobrs"></p>
+                </div>
+                  <div class="col-md-4" style="border-right:1px dashed grey;"><p class="lab" style="font-size: 20px">应聘条件</p>
+                     <p class="lab" id="applyre"></p>
+                  </div>
+                     <div class="col-md-4"><p class="lab" style="font-size: 20px">职位要求</p>
+                        <p class="lab" id="jobre"></p>
+                     </div>
+                 </div>
+              </div>
+                    <div id="company2" style="display: none">
+                        <p class="lab" id="companyintr"></p>
+                    </div>
+                    <div class="container-fluid" id="contact2" style="display: none">
+                        <div class="row">
+                            <div class="col-md-4" style="border-right:1px dashed grey;">
+                                <span class="glyphicon glyphicon-earphone" style="font-size: 50px;color: darkorange"></span><br><br><br>
+                                <p class="lab" id="phone"></p>
+                            </div>
+                            <div class="col-md-4" style="border-right:1px dashed grey;">
+                                <span class="glyphicon glyphicon-map-marker" style="font-size: 50px;color: darkorange"></span><br><br><br>
+                                <p class="lab" id="address"></p>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="glyphicon glyphicon-envelope" style="font-size: 50px;color: darkorange"></span><br><br><br>
+                                <p class="lab" id="email"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<script>
+
+    function click2() {
+       var id1=localStorage.getItem("id1");
+       var id2=localStorage.getItem("id2");
+       var id3=localStorage.getItem("id3");
+        var data={
+            "id1":id1,
+            "id2":id2,
+            "id3":id3
+        };
+        data=JSON.stringify(data);
+        $.ajax({
+            url: '',
+            type: 'get',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+
+        });
+        function succFunction() {
+           // alert("收藏失败");
+         alert("收藏成功");
+        }
+        function erryFunction() {
+          // alert("收藏失败");
+        }
+    }
+
+    function click3() {
+        var id1=localStorage.getItem("id1");
+        var id2=localStorage.getItem("id2");
+        var id3=localStorage.getItem("id3");
+        var data={
+            "id1":id1,
+            "id2":id2,
+            "id3":id3
+        };
+        data=JSON.stringify(data);
+        $.ajax({
+            url: '',
+            type: 'get',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+
+        });
+        function succFunction() {
+            alert("申请成功");
+        }
+        function erryFunction() {
+            alert("申请失败");
+        }
+    }
+</script>
+</div>
+</div>
+</body>
+
+</html>
