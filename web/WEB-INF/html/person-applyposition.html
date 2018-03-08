@@ -16,21 +16,23 @@
         .lab:hover {
             color: #f2af00;
         }
-body{
+.bg1{
     background-size: cover;
-   <!-- background-image: url();-->
-    background-color: transparent;
+   //background-image: url();
 
+        position: relative;
+
+
+}
+p{
+    color: #343a40;
+    font-weight: 650;
 }
 
     </style>
     <script>
-
-       function getdata() {
-          // alert("hello");
-          // var a=document.getElementById("salary").val;
-          // alert(a);
-/* var id1=localStorage.getItem("id1");
+        function getdata() {
+            var id1=localStorage.getItem("id1");
 var id2=localStorage.getItem("id2");
 var id3=localStorage.getItem("id3");
 var data={
@@ -50,18 +52,42 @@ $.ajax({
 });
 function succFunction(result) {
     var json = eval(result);
-
+    var salary=document.getElementById("salary");
+    var location=document.getElementById("location");
+    var education=document.getElementById("education");
+    var experience=document.getElementById("experience");
+    var number=document.getElementById("number");
+    var category=document.getElementById("category");
+    var jobrs=document.getElementById("jobrs");
+    var applyre=document.getElementById("applyre");
+    var jobre=document.getElementById("jobre");
+    var phone=document.getElementById("phone");
+    var address=document.getElementById("address");
+    var email=document.getElementById("email");
+    salary.innerText=json.salary;
+    location.innerText=json.location;
+    education.innerText=json.education;
+    experience.innerText=json.experience;
+    number.innerText=json.number;
+    category.innerText=json.category;
+    jobrs.innerText=json.jobrs;
+    applyre.innerText=json.applyre;
+    jobre.innerText=json.jobre;
+    phone.innerText=json.phone;
+    address.innerText=json.address;
+    email.innerText=json.email;
 }
 function erryFunction() {
  alert("获取数据失败");
-}*/
+}
         }
     </script>
 </head>
 
 <body onload="getdata()">
-<div class="bg"  >
-<div style="opacity: 1" >
+<div class="bg1" style="width: 100%;height:610px;position: relative;" >
+<div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.75);" class="bg2" >
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1">
@@ -211,15 +237,58 @@ function erryFunction() {
 <script>
 
     function click2() {
-        alert("收藏");
-       //var a= document.getElementsByTagName("p")[1].innerHTML;
-      // var b=document.getElementById("salary").innerHTML;
-         //alert(b);
-        document.getElementById("salary").innerText(123);
+       var id1=localStorage.getItem("id1");
+       var id2=localStorage.getItem("id2");
+       var id3=localStorage.getItem("id3");
+        var data={
+            "id1":id1,
+            "id2":id2,
+            "id3":id3
+        };
+        data=JSON.stringify(data);
+        $.ajax({
+            url: '',
+            type: 'get',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+
+        });
+        function succFunction() {
+           // alert("收藏失败");
+         alert("收藏成功");
+        }
+        function erryFunction() {
+          // alert("收藏失败");
+        }
     }
 
     function click3() {
-        alert("职位申请");
+        var id1=localStorage.getItem("id1");
+        var id2=localStorage.getItem("id2");
+        var id3=localStorage.getItem("id3");
+        var data={
+            "id1":id1,
+            "id2":id2,
+            "id3":id3
+        };
+        data=JSON.stringify(data);
+        $.ajax({
+            url: '',
+            type: 'get',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+
+        });
+        function succFunction() {
+            alert("申请成功");
+        }
+        function erryFunction() {
+            alert("申请失败");
+        }
     }
 </script>
 </div>

@@ -27,14 +27,6 @@ public class JobServiceImpl implements JobService {
         return false;
     }
 
-    @Override
-    public void removeJobs(List<Job> jobs) {
-        for (Job job : jobs) {
-            removeJob(job);
-        }
-
-    }
-
     public boolean updateJob(Job job) {
         if (jobMapper.updateByPrimaryKeySelective(job) > 0) {
             return true;
