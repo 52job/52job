@@ -72,120 +72,86 @@
         });
 
         function submitAjax() {
+            //alert("123456");
             searchKey = document.getElementById('PositionInfoSearch').value;
-            //alert(salaryKey);
+            //alert("123");
             $.ajax({
-                type: "POST",
-                url: "",
+                url: "/job/list",
+                type: "post",
                 data:{
-                    searchKey1:searchKey,
-                    salaryKey1:salaryKey,
-                    firmCharacterKey1:firmCharacterKey,
-                    experienceKey1:experienceKey,
-                    educationKey1:educationKey
+                    "searchKey1":searchKey,               //搜索框
+                    "salaryKey1":salaryKey,               //最低薪资
+                    "firmCharacterKey1":firmCharacterKey,//公司性质
+                    "experienceKey1":experienceKey,   //工作经历要求
+                    "educationKey1":educationKey      //学历要求
                 },     //或者data:{id:1,name:zhangxiaofan,sex:male}
                 success:function(data){
-                    //TODO
+                    $('#bottomTable').bootstrapTable('destroy');
                     $('#bottomTable').bootstrapTable({
-                        url: '',//修改
-                        method: 'get',
-                        pagination: true,
-                        cache: false,
-                        striped: true,
-                        toolbar: '#toolbar',
-                        pageNumber: 1,
-                        pageSize: 3,
-                        pageList: [1, 2, 3],
-                        showRefresh: true,
-                        showColumns: true,
-                        showToggle: true,
-                        undefinedText: '-',
-                        selectItemName: 'select',
-                        sortable: true,
-                        showExport: true,
-                        exportDataType: "basic",
-                        exportTypes: ['excel'],
-                        clickToSelect: true,
-                        maintainSelected: true,
-                        height: 550,
-                        search: false,
-                        showPaginationSwitch: true,
-                        checkboxHeader: true,
+                        url: '/job/list',//修改
+                        method: 'post',
+                        toolbar: '#toolbar',                //工具按钮用哪个容器
+                        striped: true,                      //是否显示行间隔色
+                        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                        pagination: true,                   //是否显示分页（*）
+                        sortable: false,                     //是否启用排序
+                        sortOrder: "asc",                   //排序方式
+                        queryParams:queryParams,//传递参数（*）
+                        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                        pageNumber: 1,                       //初始化加载第一页，默认第一页
+                        pageSize: 10,                       //每页的记录行数（*）
+                        pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                        search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                        contentType: "application/x-www-form-urlencoded",
+                        strictSearch: true,
+                        //showColumns: true,                  //是否显示所有的列
+                        showRefresh: true,                  //是否显示刷新按钮
+                        minimumCountColumns: 2,             //最少允许的列数
+                        clickToSelect: true,                //是否启用点击选中行
+                        height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                        uniqueId: "no",                     //每一行的唯一标识，一般为主键列
+                        showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                        cardView: false,                    //是否显示详细视图
+                        detailView: false,                   //是否显示父子表
                         columns: [{
                             field: 'jid',
                             title: 'JID',
                             visible: false
                         }, {
-                            field: 'eid',
+                            field: 'enterprise.eid',
                             title: 'EID',
-                            visible: false
-                        }, {
-                            field: 'pid',
-                            title: 'PID',
                             visible: false
                         }, {
                             field: 'jname',//命名需与后台一致
                             title: '职位名称'
                         }, {
-                            field: 'ename',
+                            field: 'enterprise.ename',
                             title: '公司名'
                         }, {
-                            field: 'work_place',
+                            field: 'workPlace',
                             title: '工作地点'
                         }, {
-                            field: 'min_salary',
+                            field: 'minSalary',
                             title: '最低工资(千)'
                         }, {
-                            field: 'max_salary',
+                            field: 'maxSalary',
                             title: '最高工资(千)'
-                        }, {
-                            field: 'operate',
-                            title: '操作',
-                            formatter: function (value, row, index) {
-
-                                var u = '<a href="#" class="glyphicon glyphicon-list-alt" mce_href="#" onclick="queryRow(\'' + row.jid + '\',\'' + row.eid + '\',\'' + row.pid + '\',\'' + row.jname + '\',\'' + row.ename + '\',\'' + row.work_place + '\',\'' + row.min_salary + '\',\'' + row.max_salary + '\' )" >查看</a> ';
-
-                                return u;
-                            }
-                        }],
-                        data: [{
-                            jid: 3,
-                            eid: 4,
-                            pid: 5,
-                            jname: "总经理",
-                            ename: "百度",
-                            work_place: "北京",
-                            min_salary: 8,
-                            max_salary: 10,
-
-
-                        }, {
-
-                            jid: 4,
-                            eid: 4,
-                            pid: 5,
-                            jname: "部门经理",
-                            ename: "百度",
-                            work_place: "北京",
-                            min_salary: 8,
-                            max_salary: 10,
-
-                        }, {
-                            jid: 5,
-                            eid: 4,
-                            pid: 5,
-                            jname: "项目经理",
-                            ename: "百度",
-                            work_place: "北京",
-                            min_salary: 8,
-                            max_salary: 10,
-                        }]
-
+                        },
+                        ]
                     });
                 }
             })
         }
-
+        function queryParams() {
+            var temp = {
+                'searchKey1':searchKey,               //搜索框
+                'salaryKey1':salaryKey,               //最低薪资
+                'firmCharacterKey1':firmCharacterKey,//公司性质
+                'experienceKey1':experienceKey,   //工作经历要求
+                'educationKey1':educationKey
+            };
+            return temp;
+        }
 
 
 
@@ -230,7 +196,7 @@
                             <div class="" style="float: left;width: 600px">
                                 <input type="text" class="form-control" id="PositionInfoSearch" name="jname">
                             </div>
-                            <input type="submit" class="btn btn-default btn-success" onclick="submitAjax()" style="float: left" value="搜索">
+                            <input type="button" class="btn btn-default btn-success" onclick="submitAjax()" style="float: left" value="搜索">
 
                         </div>
                     </form>
@@ -341,11 +307,10 @@
 
     }
 
-    function queryRow(jid, eid, pid) {
+    function queryRow(jid, eid) {
         //alert(jid);
         localStorage.setItem('jid', jid);
         localStorage.setItem('eid', eid);
-        localStorage.setItem('pid', pid);
         //aa=localStorage.getItem('jid');
         //alert(aa);
         //window.location.href = 'test.html';
