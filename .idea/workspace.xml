@@ -6,12 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d9f621-79d6-4f12-8eda-06b13de9acf1" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/jdbc.properties&#10;#&#9;target/classes/jdbc.properties">
+    <list default="true" id="53d9f621-79d6-4f12-8eda-06b13de9acf1" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/close.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/contact-bg.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/home-bg.jpg" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/img/profile.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/img/close.gif" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/FirmInfoManagement.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/PositionInfoSearch.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/ResumeSearch.html" />
@@ -37,25 +36,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/jquery/jquery-3.2.1.min.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/ApplicationServiceTest.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/FirmInfoManagement.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/PositionInfoSearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/ResumeSearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/myapplication.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/mycollection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/multiConditionSelect.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/javascript/multiConditionSelectJs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/jquery/jquery-3.2.1.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/ApplicationController.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/ApplicationController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/CandidateController.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/CandidateController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Application.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Candidate.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Candidate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Enterprise.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Enterprise.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Job.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Job.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/service/impl/JobServiceImpl.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/service/impl/JobServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/util/CommonUtil.class" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/util/CommonUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Candidate.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Candidate.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Enterprise.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Enterprise.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/model/Job.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/model/Job.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/job52/util/CommonUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/job52/util/CommonUtil.class" />
@@ -63,9 +46,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/ApplicationMapper.xml" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/ApplicationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/CandidateMapper.xml" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/CandidateMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/JobMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/controller/ApplicationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/controller/ApplicationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" afterPath="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" />
@@ -77,20 +58,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/ApplicationMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/ApplicationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/CandidateMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/CandidateMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/JobMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/admin-company.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/admin-company.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/admin-data.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/admin-data.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/admin-person.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/admin-person.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/admin-position.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/admin-position.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageP.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageP.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/company-pastpositioninfo.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/company-pastpositioninfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/company-roughpositioninfo.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/company-roughpositioninfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/model.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/model.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/person-applyposition.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/person-applyposition.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/person-resumecreate.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/person-resumecreate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/html/person-resumemanage.html" afterPath="$PROJECT_DIR$/web/WEB-INF/html/person-resumemanage.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -380,36 +348,120 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CandidateController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CandidateController.java">
+      <file leaf-file-name="JobServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+            <state relative-caret-position="114">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
-                <element signature="e#1839#1847#0" expanded="true" />
-                <element signature="e#1896#1904#0" expanded="true" />
-                <element signature="e#1953#1961#0" expanded="true" />
-                <element signature="e#2010#2018#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollectionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CollectionController.java">
+      <file leaf-file-name="JobServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="191">
+              <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+              <folding>
+                <element signature="e#1879#1880#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding>
+                <marker date="1520478471977" expanded="true" signature="1891:2044" ph="select from job" />
+                <marker date="1520478471977" expanded="true" signature="2139:2198" ph="delete from " />
+                <marker date="1520478471977" expanded="true" signature="2284:3010" ph="insert into job... " />
+                <marker date="1520478471977" expanded="true" signature="6107:7758" ph="update job e... " />
+                <marker date="1520478471977" expanded="true" signature="7856:8601" ph="update job s... " />
+                <marker date="1520478471977" expanded="true" signature="11961:12372" ph="select from job" />
+                <marker date="1520478471977" expanded="true" signature="12486:13215" ph="select from job" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Enterprise.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-343">
+              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="company-applymentmanageF.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageF.html">
+      <file leaf-file-name="Job.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="69">
+              <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
+              <folding>
+                <element signature="e#3307#3308#0" expanded="true" />
+                <element signature="e#3349#3350#0" expanded="true" />
+                <element signature="e#3541#3542#0" expanded="true" />
+                <element signature="e#3567#3568#0" expanded="true" />
+                <element signature="e#3605#3606#0" expanded="true" />
+                <element signature="e#3635#3636#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CaptchaUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CaptchaUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterpriseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/EnterpriseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/ApplicationServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterpriseServiceImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="22" column="63" lean-forward="false" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -447,6 +499,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/service/impl/ApplicationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/util/MailTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mail.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/job52/util/MailUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/service/impl/EnterpriseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/util/MailUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/dao/EnterpriseMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/service/EnterpriseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/util/PhoneUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/util/SecurityCodeUtil.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/com/job52/util/SecurityCodeUtilTest.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/html/register.html" />
         <option value="$PROJECT_DIR$/src/test/java/com/job52/util/FormatUtilTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/util/MD5Util.java" />
@@ -475,6 +540,7 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/html/ResumeSearch.html" />
         <option value="$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html" />
         <option value="$PROJECT_DIR$/web/WEB-INF/html/PositionInfoSearch.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ApplicationMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/model/Application.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/job52/service/ApplicationServiceTest.java" />
@@ -484,20 +550,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageP.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/admin-company.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/admin-data.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/admin-person.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/admin-position.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/company-pastpositioninfo.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/company-roughpositioninfo.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/model.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/person-applyposition.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/person-resumecreate.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/person-resumemanage.html" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageF.html" />
       </list>
     </option>
   </component>
@@ -528,9 +580,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1050" />
+    <option name="x" value="548" />
+    <option name="y" value="89" />
+    <option name="width" value="1326" />
+    <option name="height" value="946" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -551,6 +604,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -582,15 +636,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -599,7 +644,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -609,17 +653,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="job52" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -629,7 +662,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -639,10 +671,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="job52" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
@@ -670,13 +710,62 @@
             <path>
               <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
               <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
               <item name="52job" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
@@ -691,20 +780,12 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="kkk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="52job" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -751,146 +832,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Updated" />
           <option name="myStatusName" value="Changed" />
@@ -968,538 +909,6 @@
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/index.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/login.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/web.xml</PATH>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1582,566 +991,6 @@
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/javascript/model.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/javascript/multiConditionSelectJs.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/jquery/jquery-3.2.1.min.js</PATH>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -2195,363 +1044,6 @@
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/test-classes/com/job52/util/FormatUtilTest.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/test-classes/com/job52/util/MailUtilTest.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/test-classes/com/job52/util/SecurityCodeUtilTest.class</PATH>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -2559,41 +1051,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="RESTORED" />
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
@@ -2602,41 +1059,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MODIFIED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Skipped" />
@@ -2644,41 +1066,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SKIPPED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with conflicts" />
@@ -2686,41 +1073,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_CONFLICTS" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with tree conflicts" />
@@ -2728,41 +1080,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with property conflicts" />
@@ -2770,41 +1087,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged" />
@@ -2812,41 +1094,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Not in repository" />
@@ -2854,41 +1101,6 @@
         <option name="mySupportsDeletion" value="true" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="UNKNOWN" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Locally added" />
@@ -2896,41 +1108,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="LOCALLY_ADDED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Locally removed" />
@@ -2938,41 +1115,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="LOCALLY_REMOVED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Switched" />
@@ -2980,41 +1122,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SWITCHED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
@@ -3030,7 +1137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.tomcat">
+  <component name="RunManager" selected="JUnit.JobServiceTest.queryJobs">
     <configuration name="ApplicationServiceTest.addApplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -3563,6 +1670,12 @@
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 10h 59m 10s.xml">
+      <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 10h 59m 39s.xml">
+      <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 04m 08s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
@@ -3587,15 +1700,9 @@
     <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 08m 51s.xml">
       <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 18m 15s.xml">
-      <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JobServiceTest_queryJobs - 2018.03.08 at 11h 19m 01s.xml">
-      <configuration name="JobServiceTest.queryJobs" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158134000" />
+    <option name="totallyTimeSpent" value="155975000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -3607,11 +1714,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="725" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17745535" sideWeight="0.50536484" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32700893" sideWeight="0.48497853" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52698416" sideWeight="0.15024233" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4872814" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3619,18 +1726,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49330357" sideWeight="0.64109445" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7978395" sideWeight="0.49682036" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17745535" sideWeight="0.4946352" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50617284" sideWeight="0.64785373" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.568254" sideWeight="0.4789984" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.49785408" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.359375" sideWeight="0.31276825" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53348213" sideWeight="0.4946352" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52698416" sideWeight="0.8497577" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21587302" sideWeight="0.49353796" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4575893" sideWeight="0.7156652" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29345495" sideWeight="0.67777777" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45833334" sideWeight="0.7186009" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26979" sideWeight="0.67777777" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20906201" sideWeight="0.32222223" order="2" side_tool="true" content_ui="tabs" />
@@ -3649,9 +1757,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21450618" sideWeight="0.6438792" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7978395" sideWeight="0.49682036" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.568254" sideWeight="0.4789984" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -3740,8 +1846,7 @@
     <MESSAGE value="张康熙" />
     <MESSAGE value="job类" />
     <MESSAGE value="测试" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/jdbc.properties&#10;#&#9;target/classes/jdbc.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/jdbc.properties&#10;#&#9;target/classes/jdbc.properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3758,11 +1863,301 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PersonMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/PersonServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="52" column="41" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.3.RELEASE/spring-web-4.2.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/ResumeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/ResumeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-373">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Candidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/EnterpriseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/JobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#900#901#0" expanded="true" />
+            <element signature="e#927#928#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CandidateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/CandidateInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/EnterpriseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1537">
+          <caret line="121" column="14" lean-forward="true" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <marker date="1520474369196" expanded="true" signature="748:970" ph="{...}" />
+            <marker date="1520474369196" expanded="true" signature="975:1026" ph="@{...}" />
+            <marker date="1520474369196" expanded="true" signature="1136:1431" ph="{...}" />
+            <marker date="1520474369196" expanded="true" signature="1643:1923" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/person-applyposition.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="1" column="577" lean-forward="true" selection-start-line="1" selection-start-column="577" selection-end-line="1" selection-end-column="577" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/javascript/multiConditionSelectJs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/multiConditionSelect.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/myapplication.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/mycollection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/ResumeSearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/FirmInfoManagement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CollectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/PositionInfoSearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="226" column="29" lean-forward="false" selection-start-line="226" selection-start-column="29" selection-end-line="226" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/ResumeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mail.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/filter/AutoLoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/EnterpriseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
+          <folding>
+            <marker date="1520478526484" expanded="true" signature="192522:192539" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192522:192557" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192522:192570" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192522:192585" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192620:195272" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192633:195257" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192687:193082" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192706:193067" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192823:193047" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192863:193013" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="192884:192991" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193132:193455" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193151:193440" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193235:193420" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193275:193386" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193296:193364" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193506:193778" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193525:193763" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193558:193743" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193598:193709" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193619:193687" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193821:194134" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193840:194119" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193914:194099" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193954:194065" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="193975:194043" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194185:194502" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194204:194487" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194282:194467" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194322:194433" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194343:194411" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194537:194843" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194556:194828" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194630:194808" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194670:194774" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194691:194752" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194895:195243" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="194914:195228" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="195023:195208" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="195063:195174" ph="..." />
+            <marker date="1520478526484" expanded="true" signature="195084:195152" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3770,6 +2165,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3785,6 +2181,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3792,6 +2189,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3799,6 +2197,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3806,7 +2205,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding />
+          <folding>
+            <marker date="1520475588005" expanded="true" signature="926:1088" ph="select from application" />
+            <marker date="1520475588005" expanded="true" signature="1197:1306" ph="delete from " />
+            <marker date="1520475588005" expanded="true" signature="1400:1683" ph="insert into application... " />
+            <marker date="1520475588005" expanded="true" signature="3166:3750" ph="update appli... " />
+            <marker date="1520475588005" expanded="true" signature="3856:4162" ph="update appli... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3838,6 +2243,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3853,6 +2259,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3872,327 +2279,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="25" column="101" lean-forward="false" selection-start-line="25" selection-start-column="101" selection-end-line="25" selection-end-column="101" />
+        <state relative-caret-position="191">
+          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
           <folding>
-            <marker date="1520478867207" expanded="true" signature="2560:3010" ph="insert into job... " />
-            <marker date="1520478867207" expanded="true" signature="2560:3023" ph="..." />
-            <marker date="1520478867207" expanded="true" signature="6107:7758" ph="update job e... " />
-            <marker date="1520478867207" expanded="true" signature="7856:8601" ph="update job s... " />
-            <marker date="1520478867207" expanded="true" signature="11961:12372" ph="select from job" />
-            <marker date="1520478867207" expanded="true" signature="12486:13215" ph="select from job" />
+            <element signature="e#1879#1880#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/PersonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="198" column="55" lean-forward="false" selection-start-line="198" selection-start-column="55" selection-end-line="198" selection-end-column="55" />
+          <folding>
+            <element signature="e#3307#3308#0" expanded="true" />
+            <element signature="e#3349#3350#0" expanded="true" />
+            <element signature="e#3541#3542#0" expanded="true" />
+            <element signature="e#3567#3568#0" expanded="true" />
+            <element signature="e#3605#3606#0" expanded="true" />
+            <element signature="e#3635#3636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/CandidateInfoServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/dao/CandidateMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="46" column="41" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1879#1880#0" expanded="true" />
-            <marker date="1520478867047" expanded="false" signature="1228:1239" ph=" { " />
-            <marker date="1520478867047" expanded="false" signature="1267:1273" ph=" }" />
-            <marker date="1520478867047" expanded="false" signature="1318:1329" ph=" { " />
-            <marker date="1520478867047" expanded="false" signature="1365:1371" ph=" }" />
-            <marker date="1520478867047" expanded="false" signature="1739:1750" ph=" { " />
-            <marker date="1520478867047" expanded="false" signature="1784:1790" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/impl/PersonServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="68" column="52" lean-forward="false" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CandidateMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="120" column="33" lean-forward="false" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
-          <folding>
-            <marker date="1520478471448" expanded="true" signature="952:1115" ph="select from candidate" />
-            <marker date="1520478471448" expanded="true" signature="1253:1452" ph="select from candidate" />
-            <marker date="1520478471448" expanded="true" signature="1253:1500" ph="select from candidate" />
-            <marker date="1520478471448" expanded="true" signature="1627:1701" ph="select from candidate" />
-            <marker date="1520478471448" expanded="true" signature="1809:1918" ph="delete from " />
-            <marker date="1520478471448" expanded="true" signature="2010:2366" ph="insert into candidate... " />
-            <marker date="1520478471448" expanded="true" signature="4059:4779" ph="update candi... " />
-            <marker date="1520478471448" expanded="true" signature="4883:5205" ph="update candi... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-company.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Candidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-          <folding>
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-person.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-position.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/bootstraptable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageP.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-pastpositioninfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-roughpositioninfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/FirmInfoManagement.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/mycollection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/person-applyposition.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/person-resumecreate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/person-resumemanage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/PositionInfoSearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6467">
-          <caret line="226" column="29" lean-forward="false" selection-start-line="226" selection-start-column="29" selection-end-line="226" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/resetPwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/ResumeSearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageF.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CollectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/CandidateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="e#1839#1847#0" expanded="true" />
-            <element signature="e#1896#1904#0" expanded="true" />
-            <element signature="e#1953#1961#0" expanded="true" />
-            <element signature="e#2010#2018#0" expanded="true" />
+            <marker date="1520478471977" expanded="true" signature="1891:2044" ph="select from job" />
+            <marker date="1520478471977" expanded="true" signature="2139:2198" ph="delete from " />
+            <marker date="1520478471977" expanded="true" signature="2284:3010" ph="insert into job... " />
+            <marker date="1520478471977" expanded="true" signature="6107:7758" ph="update job e... " />
+            <marker date="1520478471977" expanded="true" signature="7856:8601" ph="update job s... " />
+            <marker date="1520478471977" expanded="true" signature="11961:12372" ph="select from job" />
+            <marker date="1520478471977" expanded="true" signature="12486:13215" ph="select from job" />
           </folding>
         </state>
       </provider>

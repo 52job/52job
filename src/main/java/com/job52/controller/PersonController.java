@@ -41,6 +41,11 @@ public class PersonController {
         return "/login";
     }
 
+    //跳转到密码重置页面
+    @RequestMapping("resetPwd")
+    public String resetPwd(){
+        return "/resetPwd";
+    }
     /**
      * 得到图形验证码
      * @param request
@@ -127,8 +132,8 @@ public class PersonController {
 
     /**
      * 个人用户登录
-     * @param passWord 用户密码
-     * @param userName 登录名
+     * @param passWordLogin用户密码
+     * @param userNameLogin 登录名
      * @param request 请求域
      * @param response 响应域
      * @param randomNum 图形验证码
@@ -137,12 +142,13 @@ public class PersonController {
      * 另外该方法还需要处理自动登录的操作
      */
     @RequestMapping("/loginPerson")
-    public String  loginPerson(String userName,String passWord,String randomNum,HttpServletRequest request,HttpServletResponse response) throws Exception{
+    @ResponseBody
+    public String  loginPerson(String userNameLogin,String passWordLogin,String randomNum,HttpServletRequest request,HttpServletResponse response) throws Exception{
         Person person = new Person();
-        person.setEmail(userName);  //用户使用邮箱登录
-        person.setUserName(userName);//用户使用用户名登录
-        person.setPhone(userName);//用户使用手机登录
-        person.setPassWord(passWord);
+        person.setEmail(userNameLogin);  //用户使用邮箱登录
+        person.setUserName(userNameLogin);//用户使用用户名登录
+        person.setPhone(userNameLogin);//用户使用手机登录
+        person.setPassWord(passWordLogin);
         String randomString = (String) request.getSession().getAttribute("randomString");
         if(!randomString.toLowerCase().equals(randomNum.toLowerCase())){
             throw new Exception("验证码错误");
@@ -150,7 +156,7 @@ public class PersonController {
             Person p = personService.personLogin(person);
             if(p==null){
                 //登录失败，跳转到登录页面
-                return "/login";
+                return "fail";
             }else {
                 //登录成功，1.要把用户的主键放到session域中 2.跳转到主页面
                 request.getSession().setAttribute("person", p);
@@ -168,7 +174,7 @@ public class PersonController {
                     response.addCookie(cookie);
                 }
             }
-            return "/login";
+            return "success";
         }
     }
 

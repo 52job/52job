@@ -23,7 +23,7 @@
     </style>
 </head>
 
-<body>
+<body onload="table()">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -136,246 +136,54 @@
         </div>
     </div>
 </div>
-    <script>
-        function del2() {
-            var row = $("#table").bootstrapTable('getSelections');
-            var data = "[";
-            if (row == "") {
-                alert("请选择要删除的数据");
-            } else {
-                for (var i = 0; i < row.length; i++) {
-                    data += ' {"id":"' + row[i].id + '" },';
-                }
-                var reg = /,$/gi;
-                data = data.replace(reg, "");
-                data += "]";
-                $.ajax({
-                    url: '/v1/node/',
-                    type: 'delete',
-                    dataType: 'text',
-                    data: data,
+<script>
+    var searchdata = "";
 
-                    success: succFunction,
-                    error: erryFunction//成功执行方法????
-                });
+    function del2() {
+        var row = $("#table").bootstrapTable('getSelections');
+        var data = "[";
+        if (row == "") {
+            alert("请选择要删除的数据");
+        } else {
+            for (var i = 0; i < row.length; i++) {
+                data += ' {"id":"' + row[i].id + '" },';
+            }
+            var reg = /,$/gi;
+            data = data.replace(reg, "");
+            data += "]";
+            $.ajax({
+                url: '/v1/node/',
+                type: 'delete',
+                dataType: 'text',
+                data: data,
 
-
-                function erryFunction() {
-                    alert("删除失败");
-                }
-
-                function succFunction() {
-
-
-                    alert("删除成功");
-                    $("#search").click();
-
-                }
-            }}
-        $(document).ready(function () {
-            $("#search").click(function () {
-                var searchdata = $("#searchdata").val();
-                var data = {
-                    "searchdata": searchdata   //修改
-                }
-                data = JSON.stringify(data);
-                $.ajax({
-                    url: '/v1/node/',//修改
-                    type: 'post',
-                    dataType: 'text',
-                    data: data,
-                    success: succFunction,
-                    error: erryFunction
-                });
-
-
-                function erryFunction() {
-                    alert("搜索失败");
-                }
-
-                function succFunction() {
-                    $('#table').bootstrapTable({
-                        url: '',//修改
-                        method: 'post',
-                        toolbar: '#toolbar',
-                        pagination: true,
-                        striped: true,
-                        pageNumber: 1,
-                        pageSize: 2,
-                        pageList: [1, 2],
-                        showRefresh: true,
-                        showColumns: true,
-                        showToggle: true,
-                        undefinedText: '-',
-                        selectItemName: 'select',
-                        sortable: true,
-                        showExport: true,
-                        exportDataType: "basic",
-                        exportTypes: ['excel'],
-                        clickToSelect: true,
-                        maintainSelected: true,
-                        search: true,
-                        showPaginationSwitch: true,
-                        checkboxHeader:true,
-                        columns: [{
-                            checkbox: true,
-                            title: '选择'
-
-                        },{
-                            field:'id',
-                            title:'ID',
-                            visible: false
-                        },{
-                            field: 'position',//命名需与后台一致
-                            title: '职位'
-                        }, {
-                            field: 'requirement',
-                            title: '要求'
-                        }, {
-                            field: 'company',
-                            title: '企业'
-                        }, {
-                            field: 'department',
-                            title: '部门'
-                        }, {
-                            field: 'operate',
-                            title: '操作',
-                            formatter: function (value, row, index) {
-                                var s = '<a href="#" mce_href="#" onclick="searchinfo(\'' + index + '\' )" data-toggle="modal">查看详细</a> ';
-                                var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\' )" >删除</a> ';
-                                var t = '<a href="#" mce_href="#" onclick="top1(\'' + row.id + '\' )" >置顶操作</a> ';
-                                return s + d + t;
-                            }
-                        }]
-                    });
-                }
-                    function searchinfo(index) {
-                        $("#position").val(position[index]["position"]);//修改
-                        $("#number").val(position[index]["number"]);
-                        $("#requirement").val(position[index]["requirement"]);
-                        $("#company").val(position[index]["company"]);
-                        $("#department").val(position[index]["department"]);
-                        $("#Pintroduction").val(position[index]["Pintroduction"]);
-                        $("#location").val(position[index]["location"]);
-                        $("#Cintroduction").val(position[index]["Cintroduction"]);
-                        $("#mymodel").modal();
-                    }
-
-                    function del(index) {
-
-                        var id = index;
-
-
-                        var data = {
-                            "id": id, //修改
-
-                        }
-                        data = JSON.stringify(data);
-                        $.ajax({
-                            url: '/v1/node/',//修改
-                            type: 'post',
-                            dataType: 'text',
-                            data: data,
-                            success: succFunction,
-                            error: erryFunction
-                        });
-
-                        function erryFunction() {
-                            alert("删除失败");
-                        }
-
-                        function succFunction() {
-                            alert("删除成功");
-                            $("#search").click();
-                        }
-                    }
-
-                    function top1(index) {
-                        var id = index;
-
-
-                        var data = {
-                            "id": id //修改
-
-                        };
-                        data = JSON.stringify(data);
-                        $.ajax({
-                            url: '/v1/node/',//修改
-                            type: 'post',
-                            dataType: 'text',
-                            data: data,
-                            success: succFunction,
-                            error: erryFunction
-                        });
-
-                        function erryFunction() {
-                            alert("置顶失败");
-                        }
-
-                        function succFunction() {
-                            alert("置顶成功");
-
-                        }
-                    }
-
-
-
+                success: succFunction,
+                error: erryFunction//成功执行方法????
             });
 
-            $('#table').bootstrapTable({
-                url: '',//修改
-                pagination: true,
-                toolbar: '#toolbar',
-                striped: true,
-                pageNumber: 1,
-                pageSize: 2,
-                pageList: [1, 2],
-                showRefresh: true,
-                showColumns: true,
-                showToggle: true,
-                undefinedText: '-',
-                selectItemName: 'select',
-                sortable: true, showExport: true,
-                exportDataType: "basic",
-                exportTypes: ['excel'],
-                clickToSelect: true,
-                maintainSelected: true,
-                search: true,
-                showPaginationSwitch: true,
-                checkboxHeader:true,
-                columns: [{
-                    checkbox: true,
-                    title: '选择'
 
-                },{
-                    field:'id',
-                    title:'ID',
-                    visible: false
-                }, {
-                    field: 'position',//命名需与后台一致
-                    title: '职位'
-                }, {
-                    field: 'requirement',
-                    title: '要求'
-                }, {
-                    field: 'company',
-                    title: '企业'
-                }, {
-                    field: 'department',
-                    title: '部门'
-                }, {
-                    field: 'operate',
-                    title: '操作'
+            function erryFunction() {
+                alert("删除失败");
+            }
 
-                }]
-            });
-        })
+            function succFunction() {
 
-     /*   $('#table').bootstrapTable({
-            url: '',//修改
+
+                alert("删除成功");
+                $("#search").click();
+
+            }
+        }
+    }
+
+    function table() {
+        var url = "...?searchdata=" + searchdata;
+        $('#table').bootstrapTable({
+            url: url,//修改
+            method: 'post',
+            toolbar: '#toolbar',
             pagination: true,
             striped: true,
-
             pageNumber: 1,
             pageSize: 2,
             pageList: [1, 2],
@@ -383,14 +191,26 @@
             showColumns: true,
             showToggle: true,
             undefinedText: '-',
-            checkboxHeader: false,
             selectItemName: 'select',
             sortable: true,
+            showExport: true,
+            exportDataType: "basic",
+            exportTypes: ['excel'],
+            clickToSelect: true,
+            maintainSelected: true,
+            search: true,
+            showPaginationSwitch: true,
+            checkboxHeader: true,
             columns: [{
-                field: 'id',//命名需与后台一致
-                title: 'ID'
+                checkbox: true,
+                title: '选择'
+
             }, {
-                field: 'position',
+                field: 'id',
+                title: 'ID',
+                visible: false
+            }, {
+                field: 'position',//命名需与后台一致
                 title: '职位'
             }, {
                 field: 'requirement',
@@ -405,40 +225,97 @@
                 field: 'operate',
                 title: '操作',
                 formatter: function (value, row, index) {
-                    var s = '<a href="#" mce_href="#" onclick="searchinfo(\'' + index + '\' )" data-toggle="modal" >查看详细</a> ';
-                    var d = '<a href="#" mce_href="#" onclick="del(\'' + value + '\' )" >删除</a> ';
+                    var s = '<a href="#" mce_href="#" onclick="searchinfo(\'' + index + '\' )" data-toggle="modal">查看详细</a> ';
+                    var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\' )" >删除</a> ';
                     var t = '<a href="#" mce_href="#" onclick="top1(\'' + row.id + '\' )" >置顶操作</a> ';
                     return s + d + t;
                 }
-            }],
-            data: [{
-                id: 1,
-
-
-            }, {
-                id: 2,
-
             }]
 
         });
 
-        function searchinfo(index) {
-//alert(index);
-            $("#position").val("hello");
-            $("#number").val(32);
-            $("#mymodel").modal();
+    }
 
-        };
+    function searchinfo(index) {
+        $("#position").val(position[index]["position"]);//修改
+        $("#number").val(position[index]["number"]);
+        $("#requirement").val(position[index]["requirement"]);
+        $("#company").val(position[index]["company"]);
+        $("#department").val(position[index]["department"]);
+        $("#Pintroduction").val(position[index]["Pintroduction"]);
+        $("#location").val(position[index]["location"]);
+        $("#Cintroduction").val(position[index]["Cintroduction"]);
+        $("#mymodel").modal();
+    }
 
-        function del(index) {
-            alert(index);
+    function del(index) {
+
+        var id = index;
+
+
+        var data = {
+            "id": id, //修改
+
+        }
+        data = JSON.stringify(data);
+        $.ajax({
+            url: '/v1/node/',//修改
+            type: 'post',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+        });
+
+        function erryFunction() {
+            alert("删除失败");
         }
 
+        function succFunction() {
+            alert("删除成功");
+            $("#search").click();
+        }
+    }
 
-        function top1(index) {
+    function top1(index) {
+        var id = index;
 
-        }*/
-    </script>
+
+        var data = {
+            "id": id //修改
+
+        };
+        data = JSON.stringify(data);
+        $.ajax({
+            url: '/v1/node/',//修改
+            type: 'post',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+        });
+
+        function erryFunction() {
+            alert("置顶失败");
+        }
+
+        function succFunction() {
+            alert("置顶成功");
+
+        }
+    }
+
+    $(document).ready(function () {
+        $("#search").click(function () {
+            searchdata = $("#searchdata").val();
+            table();
+
+        });
+
+    })
+
+
+</script>
 </body>
 
 </html>

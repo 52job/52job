@@ -65,6 +65,12 @@
             <version>1.9.11</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.44</version>
+        </dependency>
+
 
         <!-- 1.日志 java日志：slf4j, log4j, logback, common-logging
             slf4j是接口/规范
@@ -192,6 +198,12 @@
         </dependency>
 
 
+        <!-- json处理 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.44</version>
+        </dependency>
 
 
     </dependencies>
