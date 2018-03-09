@@ -17,31 +17,177 @@
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
     <script>
+        var searchKey="";//搜索框输入的关键字(职位名称)
+        var salaryKey="";//月薪范围
+
+        var firmCharacterKey="";//公司性质
+        var experienceKey="";//工作经验
+        var educationKey="";//学历
         $(document).ready(function () {
             $('#btn').click(function () {
                 $('#multiSelect').toggle();
             });
 
-            // $('#select1 dd').click(function () {
-            //
-            //         var salary = $('#selectA').text();
-            //         alert(salary);
-            // });
+             $('#select1 dd').click(function () {
+                     if($('#selectA').text().length==0){
+                         salaryKey="全部";
+                     }
+                     else{
+                         salaryKey=$('#selectA').text();
+                     }
+                    // alert(salaryKey);
+             });
+
+            $('#select2 dd').click(function () {
+                if($('#selectB').text().length==0){
+                    firmCharacterKey="全部";
+                }
+                else{
+                    firmCharacterKey=$('#selectB').text();
+                }
+                //alert(firmCharacterKey);
+            });
+
+            $('#select3 dd').click(function () {
+                if($('#selectC').text().length==0){
+                    experienceKey="全部";
+                }
+                else{
+                    experienceKey=$('#selectC').text();
+                }
+                //alert(experienceKey);
+            });
+
+            $('#select4 dd').click(function () {
+                if($('#selectD').text().length==0){
+                    educationKey="全部";
+                }
+                else{
+                    educationKey=$('#selectD').text();
+                }
+                //alert(educationKey);
+            });
+
+
         });
 
-        // function submitAjax() {
-        //     //var salary = $('#selectA').text();
-        //     $.ajax({
-        //         type: 'post',
-        //         url: '#',
-        //
-        //         data: {
-        //             salary: salary,
-        //             //sb: 'ajaxString_b'},
-        //         success: function (res) {
-        //             alert(res);
-        //         }
-        //     });
+        function submitAjax() {
+            searchKey = document.getElementById('PositionInfoSearch').value;
+            //alert(salaryKey);
+            $.ajax({
+                type: "POST",
+                url: "",
+                data:{
+                    searchKey1:searchKey,
+                    salaryKey1:salaryKey,
+                    firmCharacterKey1:firmCharacterKey,
+                    experienceKey1:experienceKey,
+                    educationKey1:educationKey
+                },     //或者data:{id:1,name:zhangxiaofan,sex:male}
+                success:function(data){
+                    //TODO
+                    $('#bottomTable').bootstrapTable({
+                        url: '',//修改
+                        method: 'get',
+                        pagination: true,
+                        cache: false,
+                        striped: true,
+                        toolbar: '#toolbar',
+                        pageNumber: 1,
+                        pageSize: 3,
+                        pageList: [1, 2, 3],
+                        showRefresh: true,
+                        showColumns: true,
+                        showToggle: true,
+                        undefinedText: '-',
+                        selectItemName: 'select',
+                        sortable: true,
+                        showExport: true,
+                        exportDataType: "basic",
+                        exportTypes: ['excel'],
+                        clickToSelect: true,
+                        maintainSelected: true,
+                        height: 550,
+                        search: false,
+                        showPaginationSwitch: true,
+                        checkboxHeader: true,
+                        columns: [{
+                            field: 'jid',
+                            title: 'JID',
+                            visible: false
+                        }, {
+                            field: 'eid',
+                            title: 'EID',
+                            visible: false
+                        }, {
+                            field: 'pid',
+                            title: 'PID',
+                            visible: false
+                        }, {
+                            field: 'jname',//命名需与后台一致
+                            title: '职位名称'
+                        }, {
+                            field: 'ename',
+                            title: '公司名'
+                        }, {
+                            field: 'work_place',
+                            title: '工作地点'
+                        }, {
+                            field: 'min_salary',
+                            title: '最低工资(千)'
+                        }, {
+                            field: 'max_salary',
+                            title: '最高工资(千)'
+                        }, {
+                            field: 'operate',
+                            title: '操作',
+                            formatter: function (value, row, index) {
+
+                                var u = '<a href="#" class="glyphicon glyphicon-list-alt" mce_href="#" onclick="queryRow(\'' + row.jid + '\',\'' + row.eid + '\',\'' + row.pid + '\',\'' + row.jname + '\',\'' + row.ename + '\',\'' + row.work_place + '\',\'' + row.min_salary + '\',\'' + row.max_salary + '\' )" >查看</a> ';
+
+                                return u;
+                            }
+                        }],
+                        data: [{
+                            jid: 3,
+                            eid: 4,
+                            pid: 5,
+                            jname: "总经理",
+                            ename: "百度",
+                            work_place: "北京",
+                            min_salary: 8,
+                            max_salary: 10,
+
+
+                        }, {
+
+                            jid: 4,
+                            eid: 4,
+                            pid: 5,
+                            jname: "部门经理",
+                            ename: "百度",
+                            work_place: "北京",
+                            min_salary: 8,
+                            max_salary: 10,
+
+                        }, {
+                            jid: 5,
+                            eid: 4,
+                            pid: 5,
+                            jname: "项目经理",
+                            ename: "百度",
+                            work_place: "北京",
+                            min_salary: 8,
+                            max_salary: 10,
+                        }]
+
+                    });
+                }
+            })
+        }
+
+
+
 
     </script>
 
@@ -57,8 +203,8 @@
                     <a class="navbar-brand" href="#">52job</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                  <!--<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
+                    <li><a href="/person/index"><span class="glyphicon glyphicon-user"></span> 注册/登录</a></li>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
                             class="glyphicon glyphicon-heart"></span> 我的52job<b class="caret"></b>
                     </a>
@@ -80,11 +226,11 @@
                 <div class="panel-body" style="">
                     <form id="formSearch" class="form-horizontal" action="" style="text-align: center">
                         <div class="form-group" style="margin-top:2px;display: inline-block">
-                            <label class="control-label" for="PositionInfoSearc" style="float: left;font-size: 20px">职位信息搜索</label>
+                            <label class="control-label" for="PositionInfoSearch" style="float: left;font-size: 20px">职位信息搜索</label>
                             <div class="" style="float: left;width: 600px">
-                                <input type="text" class="form-control" id="PositionInfoSearc" name="jname">
+                                <input type="text" class="form-control" id="PositionInfoSearch" name="jname">
                             </div>
-                            <input type="submit" class="btn btn-default btn-success" style="float: left" value="搜索">
+                            <input type="submit" class="btn btn-default btn-success" onclick="submitAjax()" style="float: left" value="搜索">
 
                         </div>
                     </form>
@@ -190,102 +336,7 @@
 <script>
     function table() {
 
-        $('#bottomTable').bootstrapTable({
-            url: '',//修改
-            method: 'get',
-            pagination: true,
-            cache: false,
-            striped: true,
-            toolbar: '#toolbar',
-            pageNumber: 1,
-            pageSize: 3,
-            pageList: [1, 2, 3],
-            showRefresh: true,
-            showColumns: true,
-            showToggle: true,
-            undefinedText: '-',
-            selectItemName: 'select',
-            sortable: true,
-            showExport: true,
-            exportDataType: "basic",
-            exportTypes: ['excel'],
-            clickToSelect: true,
-            maintainSelected: true,
-            height: 550,
-            search: false,
-            showPaginationSwitch: true,
-            checkboxHeader: true,
-            columns: [{
-                field: 'jid',
-                title: 'JID',
-                visible: false
-            }, {
-                field: 'eid',
-                title: 'EID',
-                visible: false
-            }, {
-                field: 'pid',
-                title: 'PID',
-                visible: false
-            }, {
-                field: 'jname',//命名需与后台一致
-                title: '职位名称'
-            }, {
-                field: 'ename',
-                title: '公司名'
-            }, {
-                field: 'work_place',
-                title: '工作地点'
-            }, {
-                field: 'min_salary',
-                title: '最低工资(千)'
-            }, {
-                field: 'max_salary',
-                title: '最高工资(千)'
-            }, {
-                field: 'operate',
-                title: '操作',
-                formatter: function (value, row, index) {
 
-                    var u = '<a href="#" class="glyphicon glyphicon-list-alt" mce_href="#" onclick="queryRow(\'' + row.jid + '\',\'' + row.eid + '\',\'' + row.pid + '\',\'' + row.jname + '\',\'' + row.ename + '\',\'' + row.work_place + '\',\'' + row.min_salary + '\',\'' + row.max_salary + '\' )" >查看</a> ';
-
-                    return u;
-                }
-            }],
-            data: [{
-                jid: 3,
-                eid: 4,
-                pid: 5,
-                jname: "总经理",
-                ename: "百度",
-                work_place: "北京",
-                min_salary: 8,
-                max_salary: 10,
-
-
-            }, {
-
-                jid: 4,
-                eid: 4,
-                pid: 5,
-                jname: "部门经理",
-                ename: "百度",
-                work_place: "北京",
-                min_salary: 8,
-                max_salary: 10,
-
-            }, {
-                jid: 5,
-                eid: 4,
-                pid: 5,
-                jname: "项目经理",
-                ename: "百度",
-                work_place: "北京",
-                min_salary: 8,
-                max_salary: 10,
-            }]
-
-        });
 
 
     }

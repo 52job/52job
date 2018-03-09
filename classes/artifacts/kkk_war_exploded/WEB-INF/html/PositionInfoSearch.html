@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>职位信息检索</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../css/multiConditionSelect.css">
+    <link href="../../css/maincss.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-table.css">
+
+    <script type="text/javascript" src="../../jquery/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../javascript/multiConditionSelectJs.js"></script>
+    <script src="../../bootstrap/bootstrap-table.js"></script>
+    <script src="../../bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script src="../../bootstrap/bootstrap-table-export.js"></script>
+    <script src="../../bootstrap/tableExport.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                $('#multiSelect').toggle();
+            });
+
+            // $('#select1 dd').click(function () {
+            //
+            //         var salary = $('#selectA').text();
+            //         alert(salary);
+            // });
+        });
+
+        // function submitAjax() {
+        //     //var salary = $('#selectA').text();
+        //     $.ajax({
+        //         type: 'post',
+        //         url: '#',
+        //
+        //         data: {
+        //             salary: salary,
+        //             //sb: 'ajaxString_b'},
+        //         success: function (res) {
+        //             alert(res);
+        //         }
+        //     });
+
+    </script>
+
+</head>
+<body style="background-color: #f8f6e9" onload="table()">
+
+<div class="container-fluid">
+    <div class="col-md-10" style="height: 40px;line-height: 40px">
+        <!-- 顶部固定导航条 -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">52job</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                  <!--<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
+                    <li><a href="/person/index"><span class="glyphicon glyphicon-user"></span> 注册/登录</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                            class="glyphicon glyphicon-heart"></span> 我的52job<b class="caret"></b>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">简历中心</a></li>
+                            <li><a href="#">我的收藏</a></li>
+                            <li><a href="#">我的申请</a></li>
+                            <li><a href="#">信息修改</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="col-md-10">
+        <div class="panel-body" style="padding-bottom:0px;">
+            <div class="panel panel-default">
+                <div class="panel-body" style="">
+                    <form id="formSearch" class="form-horizontal" action="" style="text-align: center">
+                        <div class="form-group" style="margin-top:2px;display: inline-block">
+                            <label class="control-label" for="PositionInfoSearc" style="float: left;font-size: 20px">职位信息搜索</label>
+                            <div class="" style="float: left;width: 600px">
+                                <input type="text" class="form-control" id="PositionInfoSearc" name="jname">
+                            </div>
+                            <input type="submit" class="btn btn-default btn-success" style="float: left" value="搜索">
+
+                        </div>
+                    </form>
+
+                    <ul style="text-align: center">
+                        <li>
+                            <button id="btn" class="btn btn-default">收起/展开选择框</button>
+                        </li>
+
+                    </ul>
+                    <div id="multiSelect">
+                        <ul class="select">
+                            <li class="select-list">
+                                <dl id="select1">
+                                    <dt>月薪范围：</dt>
+                                    <dd class="select-all selected"><a href="#">全部</a></dd>
+                                    <dd><a href="#">2千以下</a></dd>
+                                    <dd><a href="#">2-3千</a></dd>
+                                    <dd><a href="#">3-4.5千</a></dd>
+                                    <dd><a href="#">4.5-6千</a></dd>
+                                    <dd><a href="#">6-8千</a></dd>
+                                    <dd><a href="#">0.8-1万</a></dd>
+                                    <dd><a href="#">1-1.5万</a></dd>
+                                    <dd><a href="#">1.5-2万</a></dd>
+                                    <dd><a href="#">2-3万</a></dd>
+                                    <dd><a href="#">3-4万</a></dd>
+                                    <dd><a href="#">4-5万</a></dd>
+                                    <dd><a href="#">5万以上</a></dd>
+                                </dl>
+                            </li>
+                            <li class="select-list">
+                                <dl id="select2">
+                                    <dt>公司性质：</dt>
+                                    <dd class="select-all selected"><a href="#">全部</a></dd>
+                                    <dd><a href="#">外资(欧美)</a></dd>
+                                    <dd><a href="#">外资(非欧美)</a></dd>
+                                    <dd><a href="#">合资</a></dd>
+                                    <dd><a href="#">国企</a></dd>
+                                    <dd><a href="#">民营公司</a></dd>
+                                    <dd><a href="#">外企代表处</a></dd>
+                                    <dd><a href="#">政府机关</a></dd>
+                                    <dd><a href="#">事业单位</a></dd>
+                                    <dd><a href="#">非盈利组织</a></dd>
+                                    <dd><a href="#">上市公司</a></dd>
+                                    <dd><a href="#">创业公司</a></dd>
+
+                                </dl>
+                            </li>
+                            <li class="select-list">
+                                <dl id="select3">
+                                    <dt>工作经验：</dt>
+                                    <dd class="select-all selected"><a href="#">全部</a></dd>
+                                    <dd><a href="#">无经验</a></dd>
+                                    <dd><a href="#">1-3年</a></dd>
+                                    <dd><a href="#">3-5年</a></dd>
+                                    <dd><a href="#">5-10年</a></dd>
+                                    <dd><a href="#">10年以上</a></dd>
+                                </dl>
+                            </li>
+                            <li class="select-list">
+                                <dl id="select4">
+                                    <dt>学历要求：</dt>
+                                    <dd class="select-all selected"><a href="#">全部</a></dd>
+                                    <dd><a href="#">初中及以下</a></dd>
+                                    <dd><a href="#">高中/中技/中专</a></dd>
+                                    <dd><a href="#">大专</a></dd>
+                                    <dd><a href="#">本科</a></dd>
+                                    <dd><a href="#">硕士</a></dd>
+                                    <dd><a href="#">博士</a></dd>
+                                </dl>
+                            </li>
+                            <li class="select-list" style="display: none">
+                                <dl id="select5">
+                                    <dt>公司规模：</dt>
+                                    <dd class="select-all selected"><a href="#">全部</a></dd>
+                                    <dd><a href="#">少于50人</a></dd>
+                                    <dd><a href="#">50-150人</a></dd>
+                                    <dd><a href="#">150-500人</a></dd>
+                                    <dd><a href="#">500-1000人</a></dd>
+                                    <dd><a href="#">1000-5000人</a></dd>
+                                    <dd><a href="#">5000-10000人</a></dd>
+                                    <dd><a href="#">10000人以上</a></dd>
+                                </dl>
+                            </li>
+                            <li class="select-result">
+                                <dl>
+                                    <dt>已选条件：</dt>
+                                    <dd class="select-no">暂时没有选择过滤条件</dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                    <table id="bottomTable"></table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function table() {
+
+        $('#bottomTable').bootstrapTable({
+            url: '',//修改
+            method: 'get',
+            pagination: true,
+            cache: false,
+            striped: true,
+            toolbar: '#toolbar',
+            pageNumber: 1,
+            pageSize: 3,
+            pageList: [1, 2, 3],
+            showRefresh: true,
+            showColumns: true,
+            showToggle: true,
+            undefinedText: '-',
+            selectItemName: 'select',
+            sortable: true,
+            showExport: true,
+            exportDataType: "basic",
+            exportTypes: ['excel'],
+            clickToSelect: true,
+            maintainSelected: true,
+            height: 550,
+            search: false,
+            showPaginationSwitch: true,
+            checkboxHeader: true,
+            columns: [{
+                field: 'jid',
+                title: 'JID',
+                visible: false
+            }, {
+                field: 'eid',
+                title: 'EID',
+                visible: false
+            }, {
+                field: 'pid',
+                title: 'PID',
+                visible: false
+            }, {
+                field: 'jname',//命名需与后台一致
+                title: '职位名称'
+            }, {
+                field: 'ename',
+                title: '公司名'
+            }, {
+                field: 'work_place',
+                title: '工作地点'
+            }, {
+                field: 'min_salary',
+                title: '最低工资(千)'
+            }, {
+                field: 'max_salary',
+                title: '最高工资(千)'
+            }, {
+                field: 'operate',
+                title: '操作',
+                formatter: function (value, row, index) {
+
+                    var u = '<a href="#" class="glyphicon glyphicon-list-alt" mce_href="#" onclick="queryRow(\'' + row.jid + '\',\'' + row.eid + '\',\'' + row.pid + '\',\'' + row.jname + '\',\'' + row.ename + '\',\'' + row.work_place + '\',\'' + row.min_salary + '\',\'' + row.max_salary + '\' )" >查看</a> ';
+
+                    return u;
+                }
+            }],
+            data: [{
+                jid: 3,
+                eid: 4,
+                pid: 5,
+                jname: "总经理",
+                ename: "百度",
+                work_place: "北京",
+                min_salary: 8,
+                max_salary: 10,
+
+
+            }, {
+
+                jid: 4,
+                eid: 4,
+                pid: 5,
+                jname: "部门经理",
+                ename: "百度",
+                work_place: "北京",
+                min_salary: 8,
+                max_salary: 10,
+
+            }, {
+                jid: 5,
+                eid: 4,
+                pid: 5,
+                jname: "项目经理",
+                ename: "百度",
+                work_place: "北京",
+                min_salary: 8,
+                max_salary: 10,
+            }]
+
+        });
+
+
+    }
+
+    function queryRow(jid, eid, pid) {
+        //alert(jid);
+        localStorage.setItem('jid', jid);
+        localStorage.setItem('eid', eid);
+        localStorage.setItem('pid', pid);
+        //aa=localStorage.getItem('jid');
+        //alert(aa);
+        //window.location.href = 'test.html';
+    }
+
+
+</script>
+
+</body>
+</html>

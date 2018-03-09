@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>信息修改</title>
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/maincss.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-table.css">
+
+    <script src="../../jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap/bootstrap-table.js"></script>
+    <script src="../../bootstrap/bootstrap-table-export.js"></script>
+    <script src="../../bootstrap/tableExport.js"></script>
+
+
+    <style>
+        .inp {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            //点击按钮后设置该输入框为可修改状态，并让该输入框获得焦点
+            $('#userNameUpd').click(function () {
+                $('#userName').attr("readonly", false).focus();
+            });
+
+            $('#userPwdUpd').click(function () {
+                $('#userPwd').attr("readonly", false).focus();
+            });
+
+            $('#phoneNumUpd').click(function () {
+                $('#phoneNum').attr("readonly", false).focus();
+            });
+
+            $('#mailUpd').click(function () {
+                $('#mail').attr("readonly", false).focus();
+            });
+
+            //设置手机验证按钮的状态，输入框不为空则可点击，为空不可点击
+            $("input[id=phoneNum]").on("input focus blur", function (evt) {
+                if ($(this).val().trim().length) {
+
+                    $("#phoneNumPro").removeAttr("disabled");
+                } else {
+                    $("#phoneNumPro").prop("disabled", "disabled");
+                }
+            });
+            if ($("input[id=phoneNum]").val() != "") {
+                $("#phoneNumPro").removeAttr("disabled");
+            }
+
+            //设置邮箱验证按钮的状态，输入框不为空则可点击，为空不可点击
+            $("input[id=mail]").on("input focus blur", function (evt) {
+                if ($(this).val().trim().length) {
+
+                    $("#mailPro").removeAttr("disabled");
+                } else {
+                    $("#mailPro").prop("disabled", "disabled");
+                }
+            });
+            if ($("input[id=mail]").val() != "") {
+                $("#mailPro").removeAttr("disabled");
+            }
+
+            $("#phoneNum").blur(function () {
+                var phone = document.getElementById('phoneNum').value;
+                if (!(/^1[34578]\d{9}$/.test(phone))) {
+                    return document.getElementById('phoneWarn').innerHTML = '请输入正确的手机号';
+                    return false;
+                } else {
+                    return document.getElementById('phoneWarn').innerHTML = 'ok';
+                }
+            });
+
+
+        });
+
+
+    </script>
+
+</head>
+
+<body onload="table()">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                <br><br>
+
+                <div>
+
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                         alt="">
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" nav nav-sidebar">
+                        <li>
+                            <a style="color: white" href="mycollection.html">我的收藏</a>
+                        </li>
+
+                        <li>
+                            <a style="color: white" href="myapplication.html">我的申请</a>
+                        </li>
+
+                        <li>
+                            <a style="color: white" href="updateinfo.html">信息修改</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-md-10">
+            <br><br><br><br>
+            <label>信息修改</label>
+            <br>
+            <div style="text-align: center">
+
+                <form>
+                    <table class="table table-striped" style="vertical-align: center">
+                        <tbody>
+                        <tr>
+                            <td>用户名</td>
+                            <td>
+                                <input type="text" value="漩涡鸣人" readonly="readonly" id="userName" name="userName"></td>
+                            <td>
+                                <input type="button" id="userNameUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>登录密码</td>
+                            <td><input type="text" value="123456" readonly="readonly" id="userPwd"></td>
+
+                            <td>
+                                <input type="button" id="userPwdUpd" class="btn btn-default btn-primary" value="修改">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>手机</td>
+                            <td>
+                                <input type="text" value="18362826494" readonly="readonly" id="phoneNum">
+                            </td>
+
+                            <td>
+                                <input type="button" id="phoneNumUpd" class="btn btn-default btn-primary" value="修改">
+                                <input type="button" id="phoneNumPro" class="btn btn-default btn-primary" value="验证"
+                                       disabled>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>邮箱</td>
+                            <td><input type="text" value="" readonly="readonly" id="mail"></td>
+
+                            <td>
+                                <input type="button" id="mailUpd" class="btn btn-default btn-primary" value="修改">
+                                <input type="button" id="mailPro" class="btn btn-default btn-primary" value="验证"
+                                       disabled>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <input type="submit" class="btn btn-default btn-danger" value="保存" onclick="save()">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function save() {
+        alert("点击保存按钮后执行此方法");
+    }
+</script>
+
+
+</body>
+
+</html>

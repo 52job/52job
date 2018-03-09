@@ -41,6 +41,11 @@ public class PersonController {
         return "/login";
     }
 
+    //跳转到密码重置页面
+    @RequestMapping("resetPwd")
+    public String resetPwd(){
+        return "/resetPwd";
+    }
     /**
      * 得到图形验证码
      * @param request

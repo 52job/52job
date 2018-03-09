@@ -18,30 +18,32 @@ public class Job {
     /**
      * 公司信息
      */
-    private Enterprise enterprise;
+    private Enterprise enterprise = new Enterprise();
+
+    private String pid;
 
     private Integer requiredNumber;
 
-    private String jname;
+    private String jname = "";
 
     /**
      * 工作经验要求
      */
-    private Integer requiredWorkyear;
+    private Integer requiredWorkyear = 0;
 
     /**
      * 学历要求
      */
-    private String requiredEducation;
+    private Integer requiredEducation = 0;
 
     /**
      * 月薪范围
      */
     private Integer minSalary = 0;
 
-    private Integer maxSalary;
+    private Integer maxSalary = 1;
 
-    private String benefit;
+    private String benefit = "";
 
     public Job(Integer jobStatue) {
         this.jobStatue = jobStatue;
@@ -51,14 +53,14 @@ public class Job {
      * ְ
      */
 
-    private String jobDesc;
+    private String jobDesc = "";
 
     public Job() {
     }
 
-    private String jobType;
+    private String jobType = "";
 
-    private String workPlace;
+    private String workPlace = "";
 
     /**
      * 2:草稿
@@ -66,7 +68,7 @@ public class Job {
      * 0:过期
      * -1:无效
      */
-    private Integer jobStatue;
+    private Integer jobStatue = 1;
 
     private Date createTime;
 
@@ -110,12 +112,12 @@ public class Job {
         this.requiredWorkyear = requiredWorkyear;
     }
 
-    public String getRequiredEducation() {
+    public Integer getRequiredEducation() {
         return requiredEducation;
     }
 
-    public void setRequiredEducation(String requiredEducation) {
-        this.requiredEducation = requiredEducation == null ? null : requiredEducation.trim();
+    public void setRequiredEducation(Integer requiredEducation) {
+        this.requiredEducation = requiredEducation == null ? null : requiredEducation;
     }
 
     public Integer getMinSalary() {
@@ -180,5 +182,46 @@ public class Job {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "jid='" + jid + '\'' +
+                ", jname='" + jname + '\'' +
+                ", requiredWorkyear=" + requiredWorkyear +
+                ", requiredEducation=" + requiredEducation +
+                ", minSalary=" + minSalary +
+                ", maxSalary=" + maxSalary +
+                ", benefit='" + benefit + '\'' +
+                ", jobDesc='" + jobDesc + '\'' +
+                ", jobType='" + jobType + '\'' +
+                ", workPlace='" + workPlace + '\'' +
+                ", jobStatue=" + jobStatue +
+                ", createTime=" + createTime +
+                '}';
+    }
+
+    public Job(Enterprise enterprise, String jname, String benefit, String jobDesc, String workPlace) {
+        this.enterprise = enterprise;
+        this.jname = jname;
+        this.benefit = benefit;
+        this.jobDesc = jobDesc;
+        this.workPlace = workPlace;
+    }
+
+    public Job(String value) {
+        this.jname = value;
+        this.benefit = value;
+        this.jobDesc = value;
+        this.workPlace = value;
     }
 }

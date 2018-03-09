@@ -22,6 +22,9 @@ public class Enterprise {
         this.contact = contact;
     }
 
+    public Enterprise() {
+    }
+
     /**
      * 公司id
      */

@@ -1,6 +1,7 @@
 package com.job52.controller;
 
 import com.job52.model.Candidate;
+import com.job52.model.Person;
 import com.job52.model.Resume;
 import com.job52.service.CandidateInfoService;
 import com.job52.service.JobService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -42,19 +44,31 @@ public class CandidateController {
      */
     @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
     public String uncheckList(Model model) throws Exception {
-        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0));
-        List<String> names = null,jobs = null;
-        int len = candidates.size();
-        for(int i=0; i<len ; i++) {
-            names.set(i,personService.queryPerson(candidates.get(i).getPid()).getUserName());
-            jobs.set(i,jobService.getJob(candidates.get(i).getJid()).getJname());
-        }
-        model.addAttribute("candidates",candidates);
-        model.addAttribute("names",names);
-        model.addAttribute("jobs",jobs);
-        for(Candidate tmp : candidates) {
-            System.out.println(tmp);
-        }
+            List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0));
+            for (Candidate tmp : candidates) {
+                System.out.println(tmp);
+                System.out.println("___________________________________________________________get");
+            }
+            List<String> names = new ArrayList<String>();
+            List<String> jobs = new ArrayList<String>();
+            List<String> jids = new ArrayList<String>();
+            List<String> pids = new ArrayList<String>();
+            int len = candidates.size();
+            Person p = personService.queryPerson("1");
+            p.getUserName();
+            for (int i = 0; i < len; i++) {
+                Candidate c = candidates.get(i);
+                jids.add(i, c.getJid());
+                pids.add(i, c.getPid());
+                names.add(i, personService.queryPerson(c.getPid()).getUserName());
+                jobs.add(i, jobService.getJob(c.getJid()).getJname());
+            }
+            model.addAttribute("jids", jids);
+            model.addAttribute("pids", pids);
+            model.addAttribute("candidates", candidates);
+            model.addAttribute("names", names);
+            model.addAttribute("jobs", jobs);
+            System.out.println("___________________________________________________________1");
         return "uncheckList";
     }
 
@@ -62,17 +76,18 @@ public class CandidateController {
      * set candidate isread
      * @param jid
      * @param pid
-     * @param isread
+     * @param ispass
      * @param model
      * @return
      */
-    @RequestMapping(value = "/{jid}:{pid}/{isread}/setIsRead/uncheckList",method = RequestMethod.POST)
-    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("isread") Integer isread,Model model ) {
+    @RequestMapping(value = "/{jid}:{pid}/{ispass}/setIsRead/uncheckList",method = RequestMethod.POST)
+    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("ispass") Integer ispass,Model model ) {
         if(jid == null ||pid == null) {
             return "redirect:/uncheckList" ;
         }
         Candidate c=candidateInfoService.getCandidate(new Candidate(jid,pid));
-        c.setIsread(isread);
+        c.setIsread(1);
+        c.setIspass(ispass);
         boolean flag = false;
         try {
             flag = candidateInfoService.updateCandidate(c);
@@ -105,16 +120,14 @@ public class CandidateController {
      */
     @RequestMapping(value = "/checkList",method = RequestMethod.GET)
     public String checkList(Model model) throws Exception {
-        List<Candidate> candidates1 = candidateInfoService.queryContainsCandidate(new Candidate(1));
-        List<Candidate> candidates2 = candidateInfoService.queryContainsCandidate(new Candidate(2));
-        candidates1.addAll(candidates2);
+        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(1));
         List<String> names = null,jobs = null;
-        int len = candidates1.size();
+        int len = candidates.size();
         for(int i=0; i<len ; i++) {
-            names.set(i,personService.queryPerson(candidates1.get(i).getPid()).getUserName());
-            jobs.set(i,jobService.getJob(candidates1.get(i).getJid()).getJname());
+            names.set(i,personService.queryPerson(candidates.get(i).getPid()).getUserName());
+            jobs.set(i,jobService.getJob(candidates.get(i).getJid()).getJname());
         }
-        model.addAttribute("candidates",candidates1);
+        model.addAttribute("candidates",candidates);
         model.addAttribute("names",names);
         model.addAttribute("jobs",jobs);
         return "checkList";
