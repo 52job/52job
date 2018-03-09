@@ -16,20 +16,20 @@
         <result column="work_place" property="workPlace" jdbcType="VARCHAR" />
         <result column="job_statue" property="jobStatue" jdbcType="INTEGER" />
         <association property="enterprise" javaType="com.job52.model.Enterprise">
-            <id column="enterprise.eid" property="eid" jdbcType="VARCHAR"></id>
+            <id column="eid" property="eid" jdbcType="VARCHAR"></id>
             <result column="ename" property="ename" jdbcType="VARCHAR"></result>
             <result column="e_type" property="eType" jdbcType="VARCHAR"></result>
         </association>
     </resultMap>
 
     <sql id="Base_Column_List" >
-        jid, eid, pid, required_number, jname, required_workyear, required_education, min_salary,
+        jid, job.eid, pid, required_number, jname, required_workyear, required_education, min_salary,
         max_salary, benefit, job_desc, job_type, work_place, job_statue
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
         select 
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List" />,ename,e_type
         from job,enterprise
         where job.eid = enterprise.eid and jid = #{jid,jdbcType=VARCHAR}
     </select>
@@ -45,7 +45,7 @@
             required_education, min_salary, max_salary,
             benefit, job_desc, job_type,
             work_place, job_statue)
-        values (#{jid,jdbcType=VARCHAR}, #{eid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR},
+        values (#{jid,jdbcType=VARCHAR}, #{enterprise.eid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR},
             #{requiredNumber,jdbcType=INTEGER}, #{jname,jdbcType=VARCHAR}, #{requiredWorkyear,jdbcType=INTEGER},
             #{requiredEducation,jdbcType=INTEGER}, #{minSalary,jdbcType=INTEGER}, #{maxSalary,jdbcType=INTEGER},
             #{benefit,jdbcType=VARCHAR}, #{jobDesc,jdbcType=LONGVARCHAR}, #{jobType,jdbcType=VARCHAR},
@@ -294,19 +294,24 @@
 
     <select id="queryJobs" parameterType="com.job52.model.Job" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List"/>,ename,e_type
         from job,enterprise where job.eid = enterprise.eid
         and required_workyear >= #{requiredWorkyear,jdbcType=INTEGER}
-        and max_salary >= #{minSalary,jdbcType=INTEGER}
+        and
+        (max_salary >= #{minSalary,jdbcType=INTEGER}
+        or min_salary &lt;= #{maxSalary,jdbcType=INTEGER})
         and required_education >= #{requiredEducation,jdbcType=INTEGER}
+        and job_statue = 1
         <if test="enterprise.eType != null">
             and e_type = #{enterprise.eType,jdbcType=VARCHAR}
         </if>
-        or jname like "%"#{jname,jdbcType=VARCHAR}"%"
+        and
+        ( jname like "%"#{jname}"%"
         or  benefit like "%"#{benefit,jdbcType=VARCHAR}"%"
-        or  job_desc like "%"#{jobDesc,jdbcType=LONGVARCHAR}"%"
+        or  job_desc like "%"#{jobDesc,jdbcType=VARCHAR}"%"
         or  job_type like "%"#{jobType,jdbcType=VARCHAR}"%"
         or  work_place like "%"#{workPlace,jdbcType=VARCHAR}"%"
+        or ename like "%"#{jname}"%")
     </select>
 
 </mapper>

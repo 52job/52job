@@ -49,7 +49,8 @@ public class JobServiceTest {
     @Test
     public void queryJobs() throws Exception {
         Job job = new Job("aaa");
-        System.out.println(job);
+       // System.out.println(job);
+        job.setRequiredEducation(3);
         List<Job> list = jobService.queryJobs(job);
         for (Job j : list) {
             System.out.println(j.toString());
