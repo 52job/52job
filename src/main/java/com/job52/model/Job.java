@@ -18,7 +18,7 @@ public class Job {
     /**
      * 公司信息
      */
-    private Enterprise enterprise;
+    private Enterprise enterprise = new Enterprise();
 
     private String pid;
 
@@ -34,14 +34,14 @@ public class Job {
     /**
      * 学历要求
      */
-    private String requiredEducation;
+    private Integer requiredEducation = 0;
 
     /**
      * 月薪范围
      */
     private Integer minSalary = 0;
 
-    private Integer maxSalary;
+    private Integer maxSalary = 1;
 
     private String benefit = "";
 
@@ -112,12 +112,12 @@ public class Job {
         this.requiredWorkyear = requiredWorkyear;
     }
 
-    public String getRequiredEducation() {
+    public Integer getRequiredEducation() {
         return requiredEducation;
     }
 
-    public void setRequiredEducation(String requiredEducation) {
-        this.requiredEducation = requiredEducation == null ? null : requiredEducation.trim();
+    public void setRequiredEducation(Integer requiredEducation) {
+        this.requiredEducation = requiredEducation == null ? null : requiredEducation;
     }
 
     public Integer getMinSalary() {
@@ -196,12 +196,9 @@ public class Job {
     public String toString() {
         return "Job{" +
                 "jid='" + jid + '\'' +
-                ", enterprise=" + enterprise.toString() +
-                ", pid='" + pid + '\'' +
-                ", requiredNumber=" + requiredNumber +
                 ", jname='" + jname + '\'' +
                 ", requiredWorkyear=" + requiredWorkyear +
-                ", requiredEducation='" + requiredEducation + '\'' +
+                ", requiredEducation=" + requiredEducation +
                 ", minSalary=" + minSalary +
                 ", maxSalary=" + maxSalary +
                 ", benefit='" + benefit + '\'' +
@@ -219,5 +216,12 @@ public class Job {
         this.benefit = benefit;
         this.jobDesc = jobDesc;
         this.workPlace = workPlace;
+    }
+
+    public Job(String value) {
+        this.jname = value;
+        this.benefit = value;
+        this.jobDesc = value;
+        this.workPlace = value;
     }
 }
