@@ -298,8 +298,8 @@
         from job,enterprise where job.eid = enterprise.eid
         and required_workyear >= #{requiredWorkyear,jdbcType=INTEGER}
         and
-        (max_salary >= #{minSalary,jdbcType=INTEGER}
-        or min_salary &lt;= #{maxSalary,jdbcType=INTEGER})
+        ((max_salary >= #{minSalary,jdbcType=INTEGER} and max_salary &lt;= #{maxSalary,jdbcType=INTEGER})
+        or (min_salary >= #{minSalary,jdbcType=INTEGER} and min_salary &lt;= #{maxSalary,jdbcType=INTEGER}))
         and required_education >= #{requiredEducation,jdbcType=INTEGER}
         and job_statue = 1
         <if test="enterprise.eType != null">
