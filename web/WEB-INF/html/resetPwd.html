@@ -2,9 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>找回密码</title>
-</head>
-<body>
+    <title>密码重置</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var countdown = 60;
+        <!--设置倒计时时间-->
+        function settime(val) {
+            if(countdown == 0) {
+                val.removeAttribute("disabled");
+                val.value = "免费获取验证码";
+                countdown = 60;
+            } else {
+                val.setAttribute("disabled", true);
+                val.value = "重新发送(" + countdown + ")";
+                countdown--;
+                setTimeout(function() {
+                    settime(val)
+                }, 1000)
+            }
 
+        }
+    </script>
+</head>
+
+<body>
+<form  action="/person/register" method="POST">
+    <div class="row" style="margin-top: 15px;">
+        <div class="form-group col-sm-12">
+            <label for="userName">手机/邮箱</label><span id="userWarn" ></span>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="手机号/邮箱号" >
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 0px;">
+        <div class="form-group col-sm-6  form-horizontal">
+            <input type="text" class="form-control" id="safecode" name="verifyNum" placeholder="验证码">
+        </div>
+        <!--
+            作者：offline
+            时间：2018-02-28
+            描述：
+            <button class="btn btn-default" id="btn" onclick="settime(this)>获取验证码</button>
+        -->
+        <input type="button" id="sendCode" class="btn btn-default" value="免费获取验证码" disabled="true" onclick="settime(this),publish()" />
+    </div>
+
+    <div class="row" style="margin-top: 0px;">
+        <div class="form-group col-sm-12">
+            <label for="passWord">输入新密码</label><span id="pwdWarn" ></span>
+            <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" ">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 0px;">
+        <div class="form-group col-sm-12">
+            <label for="passWord2">确认新密码</label><span id="pwdWarn2" ></span>
+            <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="密码(6-16位字母、数字、无空格)" />
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 10px;text-align: center;">
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-danger" style="width: 300px;" id="alterPwd"  disabled="true">确认修改</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>

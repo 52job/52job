@@ -93,6 +93,25 @@
                 }
             }
 
+
+            $("#userNameLogin").blur(function () {
+                var userName = document.getElementById('userNameLogin').value;
+                if(userName==null||userName==""){
+                    document.getElementById("userWarnLogin").setAttribute("style","color: red;margin-left: 20px;");
+                    return document.getElementById('userWarnLogin').innerHTML = '用户名不能为空';
+                    return false;
+                }
+            });
+
+            $("#passWordLogin").blur(function () {
+                var passWord = document.getElementById('passWordLogin').value;
+                if(passWord==null||passWord==""){
+                    document.getElementById("pwdWarnLogin").setAttribute("style","color: red;margin-left: 20px;");
+                    return document.getElementById('pwdWarnLogin').innerHTML = '密码不能为空';
+                    return false;
+                }
+            });
+
         });
 
         function  is_check() {
@@ -162,6 +181,10 @@
                 }, 1000)
             }
 
+        }
+
+        function changeImg(img){
+            img.src = img.src+"?time="+new Date().getTime();
         }
     </script>
 
@@ -241,15 +264,71 @@
 
                     <div class="row" style="margin-top: 5px;text-align: center;">
                         <label>已有账号</label>
-                        <a href="/person/goLogin">点击登录</a>
+                        <a href="#mymode" data-toggle="modal">点击登录</a>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
-
 </div>
+
+<div class="modal fade" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+    <div class="modal-dialog" style="width: 340px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 id="myModalLabel" align="center">用户登录</h4>
+            </div>
+            <div class="modal-body" style="position: relative;text-align: center; ">
+                <div style="width: 300px;height:280px">
+                    <form action="/person/loginPerson" method="post" enctype="multipart/form-data"><!--修改-->
+
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="userName" style="float: left">请输入密码</label><span id="userWarnLogin"></span>
+                                <input type="text" class="form-control" name="userName"
+                                       id="userNameLogin" placeholder="用户名/手机/邮箱" required autofocus
+                            />
+                            </div>
+                        </div>
+                        <br>
+
+                        <div>
+
+                            <div style="display: inline-block">
+                                <label for="passWord" style="float: left;">请输入密码</label><span id="pwdWarnLogin"></span>
+                                <input type="passwordLogin" class="form-control" name="passWord"
+                                       id="passWordLogin" placeholder="请输入密码" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div>
+                            <input type="text" style="height:30px;width:100px;margin-left: 30px;margin-right: 5px;text-align: center"  placeholder="验证码" required autofocus
+                                   name="randomNum"/><img src="/person/captcha" tyle="cursor: pointer;"
+                                                          onclick="changeImg(this)"/>
+
+                        </div>
+
+                        <div class="col-lg-10 mycheckbox checkbox">
+                            <input type="checkbox" class="col-lg-1" name="autoLogin">七天内自动登录</input>
+                        </div>
+                        <br><br>
+
+                        <div align="center">
+
+                            <input type="submit" class="btn  btn-danger" value="登录" align="center" style="width: 260px"/>
+                            <br>
+                            <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="aqua">忘记密码？</font></a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>

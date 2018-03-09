@@ -44,6 +44,7 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="kkk/web/Web" />
+      <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.44" />
     </root>
   </artifact>
 </component>
