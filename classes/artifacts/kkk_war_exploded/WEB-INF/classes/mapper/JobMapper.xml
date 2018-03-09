@@ -294,24 +294,19 @@
 
     <select id="queryJobs" parameterType="com.job52.model.Job" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>,ename,e_type
+        <include refid="Base_Column_List"/>
         from job,enterprise where job.eid = enterprise.eid
         and required_workyear >= #{requiredWorkyear,jdbcType=INTEGER}
-        and
-        (max_salary >= #{minSalary,jdbcType=INTEGER}
-        or min_salary &lt;= #{maxSalary,jdbcType=INTEGER})
+        and max_salary >= #{minSalary,jdbcType=INTEGER}
         and required_education >= #{requiredEducation,jdbcType=INTEGER}
-        and job_statue = 1
         <if test="enterprise.eType != null">
             and e_type = #{enterprise.eType,jdbcType=VARCHAR}
         </if>
-        and
-        ( jname like "%"#{jname}"%"
+        or jname like "%"#{jname,jdbcType=VARCHAR}"%"
         or  benefit like "%"#{benefit,jdbcType=VARCHAR}"%"
-        or  job_desc like "%"#{jobDesc,jdbcType=VARCHAR}"%"
+        or  job_desc like "%"#{jobDesc,jdbcType=LONGVARCHAR}"%"
         or  job_type like "%"#{jobType,jdbcType=VARCHAR}"%"
         or  work_place like "%"#{workPlace,jdbcType=VARCHAR}"%"
-        or ename like "%"#{jname}"%")
     </select>
 
 </mapper>
