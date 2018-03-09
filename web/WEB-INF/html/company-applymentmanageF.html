@@ -82,7 +82,7 @@
 
 
         $('#table').bootstrapTable({
-            url: '/candidate/uncheckList',//修改
+            url: '',//修改
             pagination: true,
             striped: true,
             pageNumber: 1,
@@ -102,15 +102,15 @@
             showPaginationSwitch: true,
 
             columns: [{
-                field: "jids",
+                field: "pid",
                 title: "ID",
                 visible: false
             }, {
-                field: "pids",
+                field: "rid",
                 title: "ID",
                 visible: false
             }, {
-                field: 'names',//命名需与后台一致
+                field: 'name',//命名需与后台一致
                 title: '申请人'
             }, {
                 field: 'resume',
@@ -120,7 +120,7 @@
                     return l;
                 }
             }, {
-                field: 'jobs',
+                field: 'position',
                 title: '申请职位'
             }, {
                 field: 'operate',
@@ -131,6 +131,14 @@
                     var r = '<a href="#" mce_href="#" onclick="refuse(\'' + row.id + '\' )" >拒绝</a> ';
                     return a + "| " + r;
                 }
+            }],
+            data: [{
+                username: 1,
+
+
+            }, {
+                username: 2,
+
             }]
 
         });
