@@ -5,6 +5,7 @@ import com.job52.model.Job;
 import com.job52.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,14 @@ public class JobServiceImpl implements JobService {
             return true;
         }
         return false;
+    }
+
+    @Transactional
+    public void removeJobs(List<Job> jobs) {
+        for (Job job : jobs) {
+            removeJob(job);
+        }
+
     }
 
     public boolean updateJob(Job job) {

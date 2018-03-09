@@ -17,7 +17,6 @@ import java.util.List;
 public class ApplicationController {
     @Autowired
     ApplicationService applicationService;
-
     @RequestMapping("/list")
     public String queryApplication(HttpSession session, Model model) {
         Application application = new Application();
