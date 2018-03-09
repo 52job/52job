@@ -90,18 +90,28 @@
 <body>
 <form action="/person/loginPerson" method="post" id="form1">
     <div class="mycenter">
-        <div class="mysign">
-            <div class="col-lg-11 text-center text-info">
-                <h2>用户登录</h2>
+        <div>
+            <div class="text-center ">
+                用户登录
             </div>
+
+
+
             <div class="col-lg-10">
+
+                <span id="userWarn"></span>
                 <input type="text" class="form-control" name="userName" id="userName"
-                       placeholder="用户名/手机/邮箱" required autofocus/><span id="userWarn" ></span>
+                               placeholder="用户名/手机/邮箱" required autofocus/>
             </div>
-            <div class="col-lg-10"></div>
+
+
             <div class="col-lg-10">
+                <span id="pwdWarn"></span>
+            </div>
+            <div class="col-lg-10">
+
                 <input type="password" class="form-control" name="passWord" id="passWord"
-                       placeholder="请输入密码" required autofocus/><span id="pwdWarn"></span>
+                       placeholder="请输入密码" required autofocus/>
             </div>
             <div >
                 <td>
@@ -117,9 +127,8 @@
             <div class="col-lg-10">
                 <input type="submit" class="btn btn-success col-lg-12 btn-danger" value="登录">
             </div>
-            <div class="col-lg-10"></div>
             <div class="col-lg-11" style="text-align: left;margin-left: 30px">
-                <a href=""><font color="aqua">忘记密码？</font></a>
+                <a href="/person/resetPwd"><font color="aqua">忘记密码？</font></a>
             </div>
         </div>
     </div>
