@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -66,7 +67,7 @@ public class EnterpriseController {
      */
     @RequestMapping(value = "/delectJobs",method = RequestMethod.DELETE)
     public void delectJobs(HttpServletRequest request , Model model) {
-        List<Job> jobs = null;
+        List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
@@ -127,7 +128,7 @@ public class EnterpriseController {
      */
     @RequestMapping(value = "/delectPassedJobs",method = RequestMethod.DELETE)
     public void delectPassedJobs(HttpServletRequest request , Model model) {
-        List<Job> jobs = null;
+        List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
@@ -193,7 +194,7 @@ public class EnterpriseController {
      */
     @RequestMapping(value = "/delectPreparedJobs",method = RequestMethod.DELETE)
     public void delectPreparedJobs(HttpServletRequest request , Model model) {
-        List<Job> jobs = null;
+        List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);

@@ -1,6 +1,7 @@
 package com.job52.controller;
 
 import com.job52.model.Candidate;
+import com.job52.model.Job;
 import com.job52.model.Person;
 import com.job52.model.Resume;
 import com.job52.service.CandidateInfoService;
@@ -17,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/candidate")
@@ -43,19 +47,22 @@ public class CandidateController {
      * @return
      */
     @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
-    public String uncheckList(Model model) throws Exception {
-            List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0));
+    @ResponseBody
+    public  Map<String, String> uncheckList(Model model) throws Exception {
+           List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
             for (Candidate tmp : candidates) {
                 System.out.println(tmp);
                 System.out.println("___________________________________________________________get");
             }
+
             List<String> names = new ArrayList<String>();
             List<String> jobs = new ArrayList<String>();
             List<String> jids = new ArrayList<String>();
             List<String> pids = new ArrayList<String>();
+
             int len = candidates.size();
-            Person p = personService.queryPerson("1");
-            p.getUserName();
+            Job j = jobService.getJob("2");
+            j.getJname();
             for (int i = 0; i < len; i++) {
                 Candidate c = candidates.get(i);
                 jids.add(i, c.getJid());
@@ -68,9 +75,13 @@ public class CandidateController {
             model.addAttribute("candidates", candidates);
             model.addAttribute("names", names);
             model.addAttribute("jobs", jobs);
-            System.out.println("___________________________________________________________1");
-        return "uncheckList";
+        System.out.println("___________________________________________________________get2");
+            return null;
+
+
     }
+
+
 
     /**
      * set candidate isread
@@ -154,17 +165,17 @@ public class CandidateController {
     @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
     @Transactional
     public void delectCandidates(HttpServletRequest request , Model model) {
-       List<String> jids = null;
-       List<String> pids = null;
+        List<String> jids = new ArrayList<String>();
+        List<String> pids = new ArrayList<String>();
         jids = (List<String>) request.getAttribute("jids");
         pids = (List<String>) request.getAttribute("pids");
-       try {
-           candidateInfoService.removeCandidates(jids,pids);
-       } catch (Exception e) {
-           e.printStackTrace();
-           model.addAttribute("error",e);
-           throw new RuntimeException();
-       }
+        try {
+            candidateInfoService.removeCandidates(jids,pids);
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error",e);
+            throw new RuntimeException();
+        }
     }
 
     /**
@@ -178,13 +189,13 @@ public class CandidateController {
         String pid = null;
         jid = (String) request.getAttribute("jid");
         pid = (String) request.getAttribute("pid");
-            try {
-                candidateInfoService.removeCandidate(new Candidate(jid,pid));
-            } catch (Exception e) {
-                e.printStackTrace();
-                model.addAttribute("error",e);
-                throw new RuntimeException();
-            }
+        try {
+            candidateInfoService.removeCandidate(new Candidate(jid,pid));
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error",e);
+            throw new RuntimeException();
+        }
     }
 
     /**
