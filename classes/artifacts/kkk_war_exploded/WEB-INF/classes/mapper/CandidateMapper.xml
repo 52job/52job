@@ -12,7 +12,7 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-        jid, pid, rid, descriptionte, create_time, isRead
+        jid, pid, rid, descriptionte, create_time, isRead, isPass
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.job52.model.CandidateKey" >
@@ -28,6 +28,7 @@
         <include refid="Base_Column_List" />
         from candidate
         where descriptionte LIKE "%"#{descriptionte,jdbcType=LONGVARCHAR}"%"
+        and isPass = #{isPass,jdbcType=INTEGER}
         and isRead = #{isread,jdbcType=INTEGER}
     </select>
 
@@ -49,7 +50,8 @@
             descriptionte, create_time, isRead
             )
         values (#{jid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
-            #{descriptionte,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}
+            #{descriptionte,jdbcType=LONGVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{ispass,jdbcType=INTEGER}
+            #{isread,jdbcType=INTEGER}
             )
     </insert>
 
@@ -71,6 +73,9 @@
             <if test="createTime != null" >
                 create_time,
             </if>
+            <if test="ispass != null" >
+                isPass,
+            </if>
             <if test="isread != null" >
                 isRead,
             </if>
@@ -91,6 +96,9 @@
             <if test="createTime != null" >
                 #{createTime,jdbcType=TIMESTAMP},
             </if>
+            <if test="ispass != null" >
+                #{ispass,jdbcType=INTEGER},
+            </if>
             <if test="isread != null" >
                 #{isread,jdbcType=INTEGER},
             </if>
@@ -108,6 +116,9 @@
             </if>
             <if test="createTime != null" >
                 create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ispass != null" >
+                isPass = #{ispass,jdbcType=INTEGER},
             </if>
             <if test="isread != null" >
                 isRead = #{isread,jdbcType=INTEGER},

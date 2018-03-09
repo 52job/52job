@@ -114,6 +114,7 @@
 
         });
 
+
         function  is_check() {
             var status = document.getElementById("cbox");
             var register = document.getElementById("register");
@@ -124,6 +125,36 @@
                 register.setAttribute("disabled", true);
             }
         }
+        <!--用户登录-->
+        function login(){
+            var userNameLogin = $("#userNameLogin").val();
+            var passWordLogin =$("#passWordLogin").val();
+            var randomNum = $("#randomNum").val();
+            alert("enter")
+            $.ajax({
+                url: '/person/loginPerson',//修改
+                type: 'post',
+                //dataType: 'json',
+                //contentType : 'application/json',
+                data:"userNameLogin="+userNameLogin+"&passWordLogin="+passWordLogin+"&randomNum="+randomNum,
+                success: success,
+                error: success
+            })
+        }
+
+        function success(data) {
+          if(data=="success"){
+              window.location.href="/person/resetPwd";
+          }else{
+              alert("fail");
+              $("#myMode").modal("show");
+          }
+        }
+
+
+        $("#myMode").on("show.bs.modal", function() {
+            $(this).removeData("bs.modal");
+        });
 
     </script>
     <script>
@@ -264,7 +295,7 @@
 
                     <div class="row" style="margin-top: 5px;text-align: center;">
                         <label>已有账号</label>
-                        <a href="#mymode" data-toggle="modal">点击登录</a>
+                        <a href="#myMode" data-toggle="modal">点击登录</a>
                     </div>
                 </form>
             </div>
@@ -272,7 +303,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade" id="myMode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
     <div class="modal-dialog" style="width: 340px">
         <div class="modal-content">
             <div class="modal-header">
@@ -281,12 +312,12 @@
             </div>
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div style="width: 300px;height:280px">
-                    <form action="/person/loginPerson" method="post" enctype="multipart/form-data"><!--修改-->
+                    <form action="/person/loginPerson" method="POST"><!--修改-->
 
                         <div >
                             <div style="display: inline-block">
-                                <label for="userName" style="float: left">请输入密码</label><span id="userWarnLogin"></span>
-                                <input type="text" class="form-control" name="userName"
+                                <label for="userNameLogin" style="float: left">请输入登录名</label><span id="userWarnLogin"></span>
+                                <input type="text" class="form-control" name="userName1"
                                        id="userNameLogin" placeholder="用户名/手机/邮箱" required autofocus
                             />
                             </div>
@@ -296,8 +327,8 @@
                         <div>
 
                             <div style="display: inline-block">
-                                <label for="passWord" style="float: left;">请输入密码</label><span id="pwdWarnLogin"></span>
-                                <input type="passwordLogin" class="form-control" name="passWord"
+                                <label for="passWordLogin" style="float: left;">请输入密码</label><span id="pwdWarnLogin"></span>
+                                <input type="password" class="form-control" name="passWord1"
                                        id="passWordLogin" placeholder="请输入密码" required autofocus/>
                             </div>
                         </div>
@@ -305,7 +336,7 @@
 
                         <div>
                             <input type="text" style="height:30px;width:100px;margin-left: 30px;margin-right: 5px;text-align: center"  placeholder="验证码" required autofocus
-                                   name="randomNum"/><img src="/person/captcha" tyle="cursor: pointer;"
+                                   name="randomNum" id="randomNum"/><img src="/person/captcha" tyle="cursor: pointer;"
                                                           onclick="changeImg(this)"/>
 
                         </div>
@@ -317,7 +348,7 @@
 
                         <div align="center">
 
-                            <input type="submit" class="btn  btn-danger" value="登录" align="center" style="width: 260px"/>
+                            <input type="button" class="btn  btn-danger" value="登录" align="center" onclick="login()" style="width: 260px"/>
                             <br>
                             <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="aqua">忘记密码？</font></a>
                         </div>
