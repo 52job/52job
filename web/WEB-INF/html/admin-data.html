@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="table()">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -27,7 +27,8 @@
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../img/profile.jpg" alt="">
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                         alt="">
 
                 </div>
 
@@ -71,14 +72,14 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-md-offset-1">
-                           <p>按：发布时间、职位类别、企业、日搜索量、周搜索量 排序</p>
+                            <p>按：发布时间、职位类别、企业、日搜索量、周搜索量 排序</p>
                         </div>
                     </form>
                 </div>
             </div>
 
             <br><br><br>
-            <div class="table-responsive  "style="position:relative;left: -40px">
+            <div class="table-responsive  " style="position:relative;left: -40px">
                 <div id="toolbar" class="btn-group">
                     <button id="btn_delete" type="button" class="btn btn-default" onclick="del2()">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
@@ -93,6 +94,8 @@
     </div>
 </div>
 <script>
+    var searchdata = "";
+
     function del2() {
         var row = $("#table").bootstrapTable('getSelections');
         var data = "[";
@@ -127,110 +130,14 @@
                 $("#search").click();
 
             }
-        }}
-    $(document).ready(function(){
-        $("#search").click(function () {
-         var searchdata=$("#searchdata").val();
-            var data = {
-                "searchdata": searchdata   //修改
-            }
-            data = JSON.stringify(data);
-            $.ajax({
-                url: '/v1/node/',//修改
-                type: 'post',
-                dataType: 'text',
-                data: data,
-                success: succFunction,
-                error: erryFunction
-            });
+        }
+    }
 
-
-            function erryFunction() {
-                alert("搜索失败");
-            }
-
-            function succFunction() {
-                $('#table').bootstrapTable({
-                    url: '',//修改
-                    method: 'post',
-                    pagination: true,
-                    striped: true,
-                    toolbar: '#toolbar',
-                    pageNumber: 1,
-                    pageSize: 2,
-                    pageList: [1, 2],
-                    showRefresh: true,
-                    showColumns: true,
-                    showToggle: true,
-                    undefinedText: '-',
-                    selectItemName: 'select',
-                    sortable: true,  showExport: true,
-                    exportDataType: "basic",
-                    exportTypes: ['excel'],
-                    clickToSelect: true,
-                    maintainSelected: true,
-                    search: true,
-                    showPaginationSwitch: true,
-                    checkboxHeader:true,
-                    columns: [{
-                        checkbox: true,
-                        title: '选择'
-
-                    },{
-                        field:'id',
-                        title:'ID',
-                        visible: false
-                    },{
-                        field: 'position',//命名需与后台一致
-                        title: '职位'
-                    }, {
-                        field: 'company',
-                        title: '企业'
-                    }, {
-                        field: 'department',
-                        title: '部门'
-                    }, {
-                        field: 'data',
-                        title: '被搜索数据'
-                    }, {
-                        field: 'operate',
-                        title: '操作',
-                        formatter: function (value, row, index) {
-
-                            var t = '<a href="#" mce_href="#" onclick="top2(\'' + row.id + '\' )" >置顶</a> ';
-                            return t;
-                        }
-                    }]
-
-                });
-            }
-                function top2(index){
-                    var id=index;
-                    var data = {
-                        "id": id   //修改
-                    }
-                    data = JSON.stringify(data);
-                    $.ajax({
-                        url: '/v1/node/',//修改
-                        type: 'post',
-                        dataType: 'text',
-                        data: data,
-                        success: succFunction,
-                        error: erryFunction
-                    });
-
-
-                    function erryFunction() {
-                        alert("置顶失败");
-                    }
-                    function succFunction() {
-                        alert("置顶成功");
-                    }
-                }
-
-        });
+    function table() {
+        var url = "?searchdata=" + searchdata;
         $('#table').bootstrapTable({
-            url:'',//修改
+            url: url,//修改
+            method: 'post',
             pagination: true,
             striped: true,
             toolbar: '#toolbar',
@@ -240,101 +147,82 @@
             showRefresh: true,
             showColumns: true,
             showToggle: true,
-            undefinedText:'-',
-            selectItemName:'select',
-            sortable:true, showExport: true,
+            undefinedText: '-',
+            selectItemName: 'select',
+            sortable: true, showExport: true,
             exportDataType: "basic",
             exportTypes: ['excel'],
             clickToSelect: true,
             maintainSelected: true,
             search: true,
             showPaginationSwitch: true,
-            checkboxHeader:true,
+            checkboxHeader: true,
             columns: [{
                 checkbox: true,
                 title: '选择'
 
-            },{
-                field:'id',
-                title:'ID',
+            }, {
+                field: 'id',
+                title: 'ID',
                 visible: false
-            },{
+            }, {
                 field: 'position',//命名需与后台一致
                 title: '职位'
             }, {
                 field: 'company',
                 title: '企业'
-            },{
+            }, {
                 field: 'department',
                 title: '部门'
-            },{
+            }, {
                 field: 'data',
                 title: '被搜索数据'
-            },{
-                field:'operate',
-                title:'操作',
+            }, {
+                field: 'operate',
+                title: '操作',
+                formatter: function (value, row, index) {
 
+                    var t = '<a href="#" mce_href="#" onclick="top2(\'' + row.id + '\' )" >置顶</a> ';
+                    return t;
+                }
             }]
 
         });
+    }
 
+    function top2(index) {
+        var id = index;
+        var data = {
+            "id": id   //修改
+        }
+        data = JSON.stringify(data);
+        $.ajax({
+            url: '/v1/node/',//修改
+            type: 'post',
+            dataType: 'text',
+            data: data,
+            success: succFunction,
+            error: erryFunction
+        });
+
+
+        function erryFunction() {
+            alert("置顶失败");
+        }
+
+        function succFunction() {
+            alert("置顶成功");
+        }
+    }
+
+    $(document).ready(function () {
+        $("#search").click(function () {
+            searchdata = $("#searchdata").val();
+            table();
+        });
     })
 
 
-   /* $('#table').bootstrapTable({
-        url:'',//修改
-        pagination: true,
-        striped: true,
-
-        pageNumber: 1,
-        pageSize: 2,
-        pageList: [1, 2],
-        showRefresh: true,
-        showColumns: true,
-        showToggle: true,
-        undefinedText:'-',
-        checkboxHeader: false,
-        selectItemName:'select',
-        sortable:true,
-        columns: [{
-            field: 'id',//命名需与后台一致
-            title: 'ID'
-        }, {
-            field: 'position',
-            title: '职位'
-        }, {
-            field: 'company',
-            title: '企业'
-        },{
-            field: 'department',
-            title: '部门'
-        },{
-            field: '被搜索数据',
-            title: '邮箱'
-        },{
-            field:'操作',
-            title:'Item Operate',
-            formatter:function(value,row,index) {
-
-                var t = '<a href="#" mce_href="#" onclick="top2(\''+ row.phone +'\' )" >置顶</a> ';
-                return t;
-            }
-        }],
-        data: [{//修改
-            username: 1,
-            phone: 'Item 1',
-            email: '$1'
-
-        }, {
-            id: 2,
-            name: 'Item 2',
-            price: '$2'
-        }]
-
-    });
-    function top2(index){
-        alert("hello"+index);
-    }*/
 </script>
 </body>
 
