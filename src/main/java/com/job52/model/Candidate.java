@@ -49,6 +49,14 @@ public class Candidate extends CandidateKey {
 
     private Integer isread;
 
+    public Candidate(Integer isread, Integer ispass) {
+        this.isread = isread;
+        this.ispass = ispass;
+        descriptionte = "";
+    }
+
+    private Integer ispass;
+
     public Integer getIspass() {
         return ispass;
     }
@@ -56,8 +64,6 @@ public class Candidate extends CandidateKey {
     public void setIspass(Integer ispass) {
         this.ispass = ispass;
     }
-
-    private Integer ispass;
 
     public String getRid() {
         return rid;

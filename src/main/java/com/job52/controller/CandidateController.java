@@ -1,5 +1,7 @@
 package com.job52.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.job52.dto.packet1;
 import com.job52.model.Candidate;
 import com.job52.model.Job;
 import com.job52.model.Person;
@@ -48,37 +50,42 @@ public class CandidateController {
      */
     @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
     @ResponseBody
-    public  Map<String, String> uncheckList(Model model) throws Exception {
-           List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
-            for (Candidate tmp : candidates) {
-                System.out.println(tmp);
-                System.out.println("___________________________________________________________get");
-            }
+    public  String uncheckList(Model model) throws Exception {
+        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
+        for (Candidate tmp : candidates) {
+            System.out.println(tmp);
+            System.out.println("___________________________________________________________get");
+        }
 
-            List<String> names = new ArrayList<String>();
-            List<String> jobs = new ArrayList<String>();
-            List<String> jids = new ArrayList<String>();
-            List<String> pids = new ArrayList<String>();
-
-            int len = candidates.size();
-            Job j = jobService.getJob("2");
-            j.getJname();
-            for (int i = 0; i < len; i++) {
-                Candidate c = candidates.get(i);
-                jids.add(i, c.getJid());
-                pids.add(i, c.getPid());
-                names.add(i, personService.queryPerson(c.getPid()).getUserName());
-                jobs.add(i, jobService.getJob(c.getJid()).getJname());
-            }
-            model.addAttribute("jids", jids);
-            model.addAttribute("pids", pids);
-            model.addAttribute("candidates", candidates);
-            model.addAttribute("names", names);
-            model.addAttribute("jobs", jobs);
+        List<packet1> packet1s = new ArrayList<packet1>();
+        Map<String,Object> map = new HashMap<String, Object>();
+        int len = candidates.size();
+        String jid,pid,rid,name,job;
+        // Job j = jobService.getJob("2");
+        //j.getJname();
+        for (int i = 0; i < len; i++) {
+            Candidate c = candidates.get(i);
+            jid = c.getJid();
+            pid = c.getPid();
+            rid = c.getRid();
+            name = personService.queryPerson(c.getPid()).getUserName();
+            job = jobService.getJob(c.getJid()).getJname();
+            packet1s.add(i,new packet1(jid,pid,rid,name,job));
+//                jids.add(i, c.getJid());
+//                pids.add(i, c.getPid());
+//                names.add(i, personService.queryPerson(c.getPid()).getUserName());
+//                jobs.add(i, jobService.getJob(c.getJid()).getJname());
+        }
+        // model.addAttribute("jids", jids);
+        //model.addAttribute("pids", pids);
+//            model.addAttribute("candidates", candidates);
+//            model.addAttribute("names", names);
+//            model.addAttribute("jobs", jobs);
+        map.put("total",len);
+        map.put("rows",packet1s);
+        String jsonString = JSON.toJSONString(map);
         System.out.println("___________________________________________________________get2");
-            return null;
-
-
+        return jsonString;
     }
 
 

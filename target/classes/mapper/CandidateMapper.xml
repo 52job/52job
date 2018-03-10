@@ -12,7 +12,11 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
+<<<<<<< Updated upstream
         jid, pid, rid, descriptionte, create_time, isRead, isPass
+=======
+        jid, pid, rid, descriptionte, create_time, isPass, isRead
+>>>>>>> Stashed changes
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.job52.model.CandidateKey" >
@@ -28,7 +32,11 @@
         <include refid="Base_Column_List" />
         from candidate
         where descriptionte LIKE "%"#{descriptionte,jdbcType=LONGVARCHAR}"%"
+<<<<<<< Updated upstream
         and isPass = #{isPass,jdbcType=INTEGER}
+=======
+        and isPass = #{ispass,jdbcType=INTEGER}
+>>>>>>> Stashed changes
         and isRead = #{isread,jdbcType=INTEGER}
     </select>
 
@@ -133,6 +141,7 @@
         set rid = #{rid,jdbcType=VARCHAR},
             descriptionte = #{descriptionte,jdbcType=LONGVARCHAR},
             create_time = #{createTime,jdbcType=TIMESTAMP},
+            isPass = #{ispass,jdbcType=INTEGER}
             isRead = #{isread,jdbcType=INTEGER}
         where jid = #{jid,jdbcType=VARCHAR}
           and pid = #{pid,jdbcType=VARCHAR}

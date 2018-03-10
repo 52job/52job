@@ -20,6 +20,7 @@
 </head>
 
 <body onload="table()">
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -80,9 +81,8 @@
 <script>
     function table() {
 
-
         $('#table').bootstrapTable({
-            url: '',//修改
+            url: '/candidate/uncheckList',//修改
             pagination: true,
             striped: true,
             pageNumber: 1,
@@ -103,13 +103,18 @@
 
             columns: [{
                 field: "pid",
-                title: "ID",
+                title: "PID",
                 visible: false
             }, {
                 field: "rid",
-                title: "ID",
+                title: "RID",
                 visible: false
             }, {
+                field: "jid",
+                title: "JID",
+                visible: false
+            },
+                {
                 field: 'name',//命名需与后台一致
                 title: '申请人'
             }, {
@@ -120,7 +125,7 @@
                     return l;
                 }
             }, {
-                field: 'position',
+                field: 'job',
                 title: '申请职位'
             }, {
                 field: 'operate',
@@ -132,14 +137,7 @@
                     return a + "| " + r;
                 }
             }],
-            data: [{
-                username: 1,
 
-
-            }, {
-                username: 2,
-
-            }]
 
         });
     }
@@ -210,9 +208,20 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
 
         }
 
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset:params.offset
+            };
+            return temp;
+        };
+        return oTableInit;
+
+
     }
 
-    function accept1(index) {
+
+            function accept1(index) {
         var data = {
             "id": index,
             "status": 1
