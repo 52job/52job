@@ -61,8 +61,6 @@ public class CandidateController {
         Map<String,Object> map = new HashMap<String, Object>();
         int len = candidates.size();
         String jid,pid,rid,name,job;
-        // Job j = jobService.getJob("2");
-        //j.getJname();
         for (int i = 0; i < len; i++) {
             Candidate c = candidates.get(i);
             jid = c.getJid();
@@ -71,16 +69,7 @@ public class CandidateController {
             name = personService.queryPerson(c.getPid()).getUserName();
             job = jobService.getJob(c.getJid()).getJname();
             packet1s.add(i,new packet1(jid,pid,rid,name,job));
-//                jids.add(i, c.getJid());
-//                pids.add(i, c.getPid());
-//                names.add(i, personService.queryPerson(c.getPid()).getUserName());
-//                jobs.add(i, jobService.getJob(c.getJid()).getJname());
         }
-        // model.addAttribute("jids", jids);
-        //model.addAttribute("pids", pids);
-//            model.addAttribute("candidates", candidates);
-//            model.addAttribute("names", names);
-//            model.addAttribute("jobs", jobs);
         map.put("total",len);
         map.put("rows",packet1s);
         String jsonString = JSON.toJSONString(map);
@@ -137,18 +126,28 @@ public class CandidateController {
      * @return
      */
     @RequestMapping(value = "/checkList",method = RequestMethod.GET)
+    @ResponseBody
     public String checkList(Model model) throws Exception {
         List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(1));
-        List<String> names = null,jobs = null;
+        List<packet1> packet1s = new ArrayList<packet1>();
+        Map<String,Object> map = new HashMap<String, Object>();
         int len = candidates.size();
-        for(int i=0; i<len ; i++) {
-            names.set(i,personService.queryPerson(candidates.get(i).getPid()).getUserName());
-            jobs.set(i,jobService.getJob(candidates.get(i).getJid()).getJname());
+        String jid,pid,rid,name,job;
+        Integer ispass;
+        for (int i = 0; i < len; i++) {
+            Candidate c = candidates.get(i);
+            jid = c.getJid();
+            pid = c.getPid();
+            rid = c.getRid();
+            ispass = c.getIspass();
+            name = personService.queryPerson(c.getPid()).getUserName();
+            job = jobService.getJob(c.getJid()).getJname();
+            packet1s.add(i,new packet1(jid,pid,rid,ispass,name,job));
         }
-        model.addAttribute("candidates",candidates);
-        model.addAttribute("names",names);
-        model.addAttribute("jobs",jobs);
-        return "checkList";
+        map.put("total",len);
+        map.put("rows",packet1s);
+        String jsonString = JSON.toJSONString(map);
+        return jsonString;
     }
 
     /**

@@ -4,6 +4,16 @@ public class packet1 {
     String jid;
     String pid;
     String rid;
+    Integer ispass;
+
+    public packet1(String jid, String pid, String rid, Integer ispass, String name, String job) {
+        this.jid = jid;
+        this.pid = pid;
+        this.rid = rid;
+        this.ispass = ispass;
+        this.name = name;
+        this.job = job;
+    }
 
     public packet1(String jid, String pid, String rid, String name, String job) {
         this.jid = jid;
