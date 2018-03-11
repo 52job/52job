@@ -20,6 +20,7 @@
 </head>
 
 <body onload="table()">
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -79,7 +80,6 @@
 </div>
 <script>
     function table() {
-
 
         $('#table').bootstrapTable({
             url: '/candidate/uncheckList',//修改
@@ -202,9 +202,20 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
 
         }
 
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset:params.offset
+            };
+            return temp;
+        };
+        return oTableInit;
+
+
     }
 
-    function accept1(index) {
+
+            function accept1(index) {
         var data = {
             "id": index,
             "status": 1

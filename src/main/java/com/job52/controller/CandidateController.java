@@ -1,6 +1,9 @@
 package com.job52.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.job52.dto.packet1;
 import com.job52.model.Candidate;
+import com.job52.model.Job;
 import com.job52.model.Person;
 import com.job52.model.Resume;
 import com.job52.service.CandidateInfoService;
@@ -17,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/candidate")
@@ -39,63 +45,58 @@ public class CandidateController {
 
     /**
      * get uncheck list
-     * @param model
      * @return
      */
     @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
-    public String uncheckList(Model model) throws Exception {
-            List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0));
-            for (Candidate tmp : candidates) {
-                System.out.println(tmp);
-                System.out.println("___________________________________________________________get");
-            }
-            List<String> names = new ArrayList<String>();
-            List<String> jobs = new ArrayList<String>();
-            List<String> jids = new ArrayList<String>();
-            List<String> pids = new ArrayList<String>();
-            int len = candidates.size();
-            Person p = personService.queryPerson("1");
-            p.getUserName();
-            for (int i = 0; i < len; i++) {
-                Candidate c = candidates.get(i);
-                jids.add(i, c.getJid());
-                pids.add(i, c.getPid());
-                names.add(i, personService.queryPerson(c.getPid()).getUserName());
-                jobs.add(i, jobService.getJob(c.getJid()).getJname());
-            }
-            model.addAttribute("jids", jids);
-            model.addAttribute("pids", pids);
-            model.addAttribute("candidates", candidates);
-            model.addAttribute("names", names);
-            model.addAttribute("jobs", jobs);
-            System.out.println("___________________________________________________________1");
-        return "uncheckList";
+    @ResponseBody
+    public  String uncheckList() throws Exception {
+        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
+        for (Candidate tmp : candidates) {
+            System.out.println(tmp);
+            System.out.println("___________________________________________________________get");
+        }
+
+        List<packet1> packet1s = new ArrayList<packet1>();
+        Map<String,Object> map = new HashMap<String, Object>();
+        int len = candidates.size();
+        String jid,pid,rid,name,job;
+        for (int i = 0; i < len; i++) {
+            Candidate c = candidates.get(i);
+            jid = c.getJid();
+            pid = c.getPid();
+            rid = c.getRid();
+            name = personService.queryPerson(c.getPid()).getUserName();
+            job = jobService.getJob(c.getJid()).getJname();
+            packet1s.add(i,new packet1(jid,pid,rid,name,job));
+        }
+        map.put("total",len);
+        map.put("rows",packet1s);
+        String jsonString = JSON.toJSONString(map);
+        System.out.println("!!!"+jsonString);
+        return jsonString;
     }
+
 
     /**
      * set candidate isread
      * @param jid
      * @param pid
      * @param ispass
-     * @param model
      * @return
      */
-    @RequestMapping(value = "/{jid}:{pid}/{ispass}/setIsRead/uncheckList",method = RequestMethod.POST)
-    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("ispass") Integer ispass,Model model ) {
+    @RequestMapping(value = "/{jid}:{pid}/{ispass}/setIsRead/uncheckList",method = RequestMethod.GET)
+    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("ispass") Integer ispass ) {
         if(jid == null ||pid == null) {
             return "redirect:/uncheckList" ;
         }
         Candidate c=candidateInfoService.getCandidate(new Candidate(jid,pid));
         c.setIsread(1);
         c.setIspass(ispass);
-        boolean flag = false;
         try {
-            flag = candidateInfoService.updateCandidate(c);
+            candidateInfoService.updateCandidate(c);
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("error",e);
         }
-        model.addAttribute("flag",flag);
         return "uncheckList";
     }
 
@@ -119,18 +120,28 @@ public class CandidateController {
      * @return
      */
     @RequestMapping(value = "/checkList",method = RequestMethod.GET)
+    @ResponseBody
     public String checkList(Model model) throws Exception {
         List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(1));
-        List<String> names = null,jobs = null;
+        List<packet1> packet1s = new ArrayList<packet1>();
+        Map<String,Object> map = new HashMap<String, Object>();
         int len = candidates.size();
-        for(int i=0; i<len ; i++) {
-            names.set(i,personService.queryPerson(candidates.get(i).getPid()).getUserName());
-            jobs.set(i,jobService.getJob(candidates.get(i).getJid()).getJname());
+        String jid,pid,rid,name,job;
+        Integer ispass;
+        for (int i = 0; i < len; i++) {
+            Candidate c = candidates.get(i);
+            jid = c.getJid();
+            pid = c.getPid();
+            rid = c.getRid();
+            ispass = c.getIspass();
+            name = personService.queryPerson(c.getPid()).getUserName();
+            job = jobService.getJob(c.getJid()).getJname();
+            packet1s.add(i,new packet1(jid,pid,rid,ispass,name,job));
         }
-        model.addAttribute("candidates",candidates);
-        model.addAttribute("names",names);
-        model.addAttribute("jobs",jobs);
-        return "checkList";
+        map.put("total",len);
+        map.put("rows",packet1s);
+        String jsonString = JSON.toJSONString(map);
+        return jsonString;
     }
 
     /**
@@ -149,42 +160,38 @@ public class CandidateController {
     /**
      * delect candidates
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
     @Transactional
-    public void delectCandidates(HttpServletRequest request , Model model) {
-       List<String> jids = null;
-       List<String> pids = null;
+    public void delectCandidates(HttpServletRequest request) {
+        List<String> jids = new ArrayList<String>();
+        List<String> pids = new ArrayList<String>();
         jids = (List<String>) request.getAttribute("jids");
         pids = (List<String>) request.getAttribute("pids");
-       try {
-           candidateInfoService.removeCandidates(jids,pids);
-       } catch (Exception e) {
-           e.printStackTrace();
-           model.addAttribute("error",e);
-           throw new RuntimeException();
-       }
+        try {
+            candidateInfoService.removeCandidates(jids,pids);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 
     /**
      * delect candidate
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectCandidate/checkList",method = RequestMethod.DELETE)
-    public void delectCandidate(HttpServletRequest request , Model model) {
+    public void delectCandidate(HttpServletRequest request) {
         String jid = null;
         String pid = null;
         jid = (String) request.getAttribute("jid");
         pid = (String) request.getAttribute("pid");
-            try {
-                candidateInfoService.removeCandidate(new Candidate(jid,pid));
-            } catch (Exception e) {
-                e.printStackTrace();
-                model.addAttribute("error",e);
-                throw new RuntimeException();
-            }
+        try {
+            candidateInfoService.removeCandidate(new Candidate(jid,pid));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 
     /**
@@ -193,10 +200,15 @@ public class CandidateController {
      * @param model
      */
     @RequestMapping(value = "/queryResumes",method = RequestMethod.GET)
-    public void queryResumes(HttpServletRequest request , Model model) {
+    @ResponseBody
+    public String queryResumes(HttpServletRequest request , Model model) {
         Resume resume = (Resume) request.getAttribute("resume");
         List<Resume> resumeList = resumeService.queryAll(resume);
-        model.addAttribute("resumeList",resumeList);
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("total",resumeList.size());
+        map.put("rows",resumeList);
+        String JsonString = JSON.toJSONString(map);
+        return  JsonString;
     }
 
 
