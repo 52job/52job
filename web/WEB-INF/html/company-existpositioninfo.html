@@ -139,6 +139,9 @@
                 field: 'position',//命名需与后台一致
                 title: '职位'
             }, {
+                field: 'number',//命名需与后台一致
+                title: '招聘人数'
+            }, {
                 field: 'salary',
                 title: '薪酬'
             }, {
@@ -158,7 +161,7 @@
                 title: '操作',
                 formatter: function (value, row, index) {
 
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
 
                     return u;
                 }
@@ -187,8 +190,9 @@
 
     }
 
-    function update(id, position, salary, education, experience, city, introduction) {
+    function update(id, position,number, salary, education, experience, city, introduction) {
         $("#position2").val(position);
+        $("#number2").val(number);
         $("#salary2").val(salary);
         $("#education2").val(education);
         $("#experience2").val(experience);
@@ -254,6 +258,8 @@
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position" type="text" class="inp"
                 ></div>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
+                ></div>
                 <br>
                 <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary" type="text" class="inp">
                 </div>
@@ -283,6 +289,7 @@
 <script>
     function publish() {
         var position = $("#position").val();
+        var number=$("#number").val();
         var salary = $("#salary").val();
         var education = $("#education").val();
         var experience = $("#experience").val();
@@ -291,6 +298,7 @@
         var data = {
             "id":id,
             "position": position,
+            "number":number,
             "salary": salary,
             "education": education,
             "experience": experience,
@@ -332,6 +340,9 @@
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position2" type="text" class="inp"
                 ></div>
                 <br>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number2" type="text" class="inp"
+                ></div>
+                <br>
                 <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
                 </div>
                 <br>
@@ -361,6 +372,7 @@
     function finish() {
         var id=window.localStorage.getItem("uid");
         var position = $("#position2").val();
+        var number=$("#number2").val();
         var salary = $("#salary2").val();
         var education = $("#education2").val();
         var experience = $("#experience2").val();
@@ -370,6 +382,7 @@
         var data={
             "id":id,
             "position":position,
+            "number":number,
             "salary":salary,
             "education":education,
             "experience":experience,
