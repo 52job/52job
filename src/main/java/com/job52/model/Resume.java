@@ -8,9 +8,7 @@ package com.job52.model;
  * @String 2018-02-27
  */
 public class Resume {
-    /**
-     * 简历id
-     */
+
     private String rid;
     private String pid;
     private String name;
@@ -50,27 +48,6 @@ public class Resume {
         this.graduationUniversity = graduationUniversity;
         this.graduationTime = graduationTime;
         this.careerIntention = careerIntention;
-        this.major = major;
-        this.workExp = workExp;
-        this.isPublic = isPublic;
-        this.accessory = accessory;
-    }
-
-    public Resume(String rid, String pid, String name, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String major, String workExp, int isPublic, String accessory) {
-        this.rid = rid;
-        this.pid = pid;
-        this.name = name;
-        this.sex = sex;
-        this.portrait = portrait;
-        this.birthday = birthday;
-        this.tel = tel;
-        this.startWorkTime = startWorkTime;
-        this.jobState = jobState;
-        this.email = email;
-        this.address = address;
-        this.highestEducation = highestEducation;
-        this.graduationUniversity = graduationUniversity;
-        this.graduationTime = graduationTime;
         this.major = major;
         this.workExp = workExp;
         this.isPublic = isPublic;
