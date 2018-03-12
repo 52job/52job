@@ -39,8 +39,12 @@ public class CandidateController {
     private PersonService personService;
 
     @RequestMapping("/candidate_1")
-    public String index() {
+    public String index1() {
         return "/company-applymentmanageF";
+    }
+    @RequestMapping("/candidate_2")
+    public String index2() {
+        return "/company-applymentmanageP";
     }
 
     /**
@@ -120,25 +124,31 @@ public class CandidateController {
     @RequestMapping(value = "/checkList",method = RequestMethod.GET)
     @ResponseBody
     public String checkList() throws Exception {
-        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(1));
+        List<Candidate> candidates1 = candidateInfoService.queryContainsCandidate(new Candidate(1,0));
+        List<Candidate> candidates2 = candidateInfoService.queryContainsCandidate(new Candidate(1,1));
+        candidates1.addAll(candidates2);
         List<packet1> packet1s = new ArrayList<packet1>();
         Map<String,Object> map = new HashMap<String, Object>();
-        int len = candidates.size();
+        int len = candidates1.size();
         String jid,pid,rid,name,job;
         Integer ispass;
         for (int i = 0; i < len; i++) {
-            Candidate c = candidates.get(i);
+            Candidate c = candidates1.get(i);
             jid = c.getJid();
             pid = c.getPid();
             rid = c.getRid();
             ispass = c.getIspass();
+            System.out.println("ispass_______________"+ispass);
             name = personService.queryPerson(c.getPid()).getUserName();
             job = jobService.getJob(c.getJid()).getJname();
-            packet1s.add(i,new packet1(jid,pid,rid,ispass,name,job));
+            packet1 p = new packet1(jid,pid,rid,ispass,name,job);
+            packet1s.add(i,p);
+            System.out.println(p);
         }
         map.put("total",len);
         map.put("rows",packet1s);
         String jsonString = JSON.toJSONString(map);
+        System.out.println(jsonString);
         return jsonString;
     }
 
