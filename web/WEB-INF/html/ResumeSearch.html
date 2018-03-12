@@ -15,22 +15,27 @@
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
     <script src="../../javascript/model.js"></script>
+    <script>
+        function getimg() {
+            var person_img=localStorage.getItem("personimg");//修改
+            document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
+        }
+    </script>
 </head>
-<body>
+<body onload="getimg()">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-
-                <div>
-                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
+                <div class="color">
+                    <div><a style="position: relative;float: left;" href="PositionInfoSearch.html">首页</a></div>
+                    <div><a style="position: relative;float: right;" href="index.html">退出</a></div>
                 </div>
                 <br><br>
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src=" " id="person_img"
                          alt="">
 
                 </div>
@@ -40,33 +45,33 @@
                 <br>
                 <br>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class=" nav nav-sidebar">
+                    <ul class=" nav nav-sidebar color">
                         <li>
-                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                            <a  href="FirmInfoManagement.html">企业信息管理</a>
                         </li>
                         <li>
-                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                            <a  href="ResumeSearch.html">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a style="color: white" href="#">职位管理</a>
+                            <a  href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a style="color: white" href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="company-existpositioninfo.html">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a style="color: white" href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="company-roughpositioninfo.html">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a style="color: white" href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="company-pastpositioninfo.html">历史职业信息</a>
                         </li>
                         <li class="apply">
-                            <a style="color: white" href="#">应聘管理</a>
+                            <a  href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a style="color: white" href="company-applymentmanageF.html">未处理</a>
+                            <a  href="company-applymentmanageF.html">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a style="color: white" href="company-applymentmanageP.html">已处理</a>
+                            <a  href="company-applymentmanageP.html">已处理</a>
                         </li>
 
                     </ul>

@@ -20,6 +20,18 @@
             font-weight: 100;
 
         }
+        .bg1{
+            background-size: cover;
+            background-image: url(../../img/home-bg.jpg);
+
+                position: relative;
+
+
+        }
+        .p1{
+            color: #343a40;
+            font-weight: 650;
+        }
     </style>
     <script>
         jQuery.validator.addMethod("isMobile", function (value, element) {
@@ -139,7 +151,10 @@
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="bg1" style="width: 100%;height:610px;position: relative;" >
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2" >
+<div class="container-fluid p1">
     <div class="row">
 
         <div class="col-md-2">
@@ -152,7 +167,7 @@
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../img/profile.jpg"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
                          alt="">
 
                 </div>
@@ -193,7 +208,7 @@
             <div class="container-fluid">
                 <form id="form" action="">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 p1">
                             <img alt="请添加图片" class="img-thumbnail" id="img" src=""
                                  style="width: 160px;height: 160px ;text-align: center;line-height: 140px"
                                  onclick="upload()"/>
@@ -201,29 +216,29 @@
                         </div>
 
                         <div class="col-md-7">
-                            <div style="white-space: nowrap"> 姓名：<input type="text" name="name" >&nbsp;&nbsp;&nbsp;
+                            <div style="white-space: nowrap" class="p1"> 姓名：<input type="text" name="name" >&nbsp;&nbsp;&nbsp;
                                 出生日期：<input type="date" name="date" ></div>
                             <br>
-                            <div style="white-space: nowrap">性别：&nbsp;&nbsp;<input type="radio" name="sex"
+                            <div style="white-space: nowrap" class="p1">性别：&nbsp;&nbsp;<input type="radio" name="sex"
                                                                                    checked="checked">男&nbsp;&nbsp;&nbsp;<input
                                     type="radio" name="sex">女&nbsp;&nbsp;&nbsp;
                                 开始工作年份：<input type="month" name="month"></div>
                             <br>
-                            <div style="white-space: nowrap"> 手机：<input type="tel"  name="tel">&nbsp;&nbsp;&nbsp;
+                            <div style="white-space: nowrap" class="p1"> 手机：<input type="tel"  name="tel">&nbsp;&nbsp;&nbsp;
                                 求职状态：<input type="text" name="jobstate"></div>
                             <br>
-                            <div style="white-space: nowrap"> 邮箱：<input type="email" name="email">&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div style="white-space: nowrap" class="p1"> 邮箱：<input type="email" name="email">&nbsp;&nbsp;&nbsp;&nbsp;
                                 居住地：<input type="text" name="address"></div>
                         </div>
                     </div>
                     <div id="container"></div>
                     <br><br><br>
-                    <div style="position: relative;left: -70px;white-space: nowrap">
+                    <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
                         毕业院校：<input type="text" style="width: 260px" name="school" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         毕业时间：<input type="month" style="width: 260px" name="time">
                     </div>
                     <br>
-                    <div style="position: relative;left: -70px;white-space: nowrap">
+                    <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
                         &nbsp;&nbsp;
                         专业：<input type="text" style="width: 260px" name="major">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         最高学历:<select style="width: 260px;text-align: center;"name="education">
@@ -238,7 +253,7 @@
                     </select>
                     </div>
                     <br>
-                    <div style="position: relative;left: -70px;white-space: nowrap">
+                    <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
                         &nbsp; 简历状态：<select style="width: 100px;text-align: center;" name="resume_state">
                         <option value="">请选择</option>
                         <option value="公开">公开</option>
@@ -247,14 +262,14 @@
                     </div>
 
 
-                    <div style="position: relative;left: -50px">
+                    <div style="position: relative;left: -50px" class="p1">
                         <input type="file" style="float: right;display: none" value="添加附件" id="appendix"/>
                         <input type="button" value="添加附件" style="float: right" onclick="app()"/>
                         <br><br>
                         <textarea style="height: 100px;width: 100%" placeholder="此处填写工作经历，可上传附件" required></textarea>
                     </div>
                     <br>
-                    <div align="center">
+                    <div align="center" class="p1">
                         <button class="btn-default" style="width: 80px" type="submit" onclick="ref()" id="save" hidden>
                             保存
                         </button>
@@ -301,7 +316,8 @@
 
 
 </script>
-
+</div>
+</body>
 </body>
 
 </html>
