@@ -33,7 +33,6 @@ public class ResumeServiceImpl implements ResumeService {
         return resumeMapper.queryAll(resume);
     }
 
-
     public Resume getResume(String rid){
         return resumeMapper.selectByPrimaryKey(rid);
     }
