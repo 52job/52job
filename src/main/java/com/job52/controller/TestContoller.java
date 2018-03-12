@@ -72,4 +72,10 @@ public class TestContoller {
         //{total=200, rows=[{ID='test1', Name='name1', Sex='sex1'}, {ID='test2', Name='name2', Sex='sex2'}]}
        //{total=200, rows=[{ID='2', Name='om', Sex='null'}, {ID='2', Name='om', Sex='null'}]}
     }
+
+    @RequestMapping("/demo")
+    public String test1(@RequestBody Map<String,String> map){
+        System.out.println(map);
+        return null;
+    }
 }

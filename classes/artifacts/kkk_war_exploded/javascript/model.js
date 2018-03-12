@@ -1,4 +1,4 @@
-i=0;
+i=0;j=0
 $(document).ready(function () {
 
     $(".management").click(function () {
@@ -16,6 +16,20 @@ $(document).ready(function () {
 
     });
 
+    $(".apply").click(function () {
+        // alert("hello world");
+        if (j == 0) {
+
+            $(".f,.p").show();
+
+            j = 1;
+        } else {
+            $(".f,.p").hide();
+
+            j = 0;
+        }
+
+    });
 
 
 })

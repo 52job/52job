@@ -4,6 +4,8 @@ package com.job52.service;
 import com.job52.model.Person;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
+import java.util.List;
+
 
 public interface PersonService {
     /**
@@ -49,6 +51,23 @@ public interface PersonService {
      * @throws Exception 异常信息
      */
      Person queryPerson(String pid) throws Exception;
+
+    /**
+     * 根据条件查询用户信息
+     * @param condition 输入条件
+     * @return 用户信息
+     * @throws Exception
+     */
+     List<Person> queryPersonByCondition(String condition) throws  Exception;
+
+    /**
+     * 根据主键删除用户信息
+     * @param ids 用户id
+     * @return
+     * @throws Exception
+     */
+     boolean deletePersonById(String[] ids) throws Exception;
+
 
     /**
      * 通过登录名查找用户，可以是用户名或者邮箱或者电话

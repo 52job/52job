@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -69,6 +70,19 @@ public class PersonServiceImpl implements PersonService {
     public Person queryPerson(String pid) throws Exception {
         Person p = personMapper.selectByPrimaryKey(pid);
         return p;
+    }
+
+    @Override
+    public List<Person> queryPersonByCondition(String condition) throws Exception {
+        return personMapper.queryPersonByCondition(condition);
+    }
+
+    @Override
+    public boolean deletePersonById(String[] ids) throws Exception {
+        for(String id:ids){
+            personMapper.deleteByPrimaryKey(id);
+        }
+        return true;
     }
 
     @Override
