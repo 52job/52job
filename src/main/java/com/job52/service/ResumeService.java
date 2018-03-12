@@ -30,10 +30,9 @@ public interface ResumeService {
 
     /**
      * 查询所有简历信息
+     * @param resume
      * @return
      */
-    List<Resume> queryAll();
-
     List<Resume> queryAll(Resume resume);
 
     /**

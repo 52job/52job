@@ -1,60 +1,65 @@
 package com.job52.model;
 
-import java.util.Date;
 
 /**
  * InnoDB free: 3072 kB
- * 
+ *
  * @author wcyong
- * 
- * @date 2018-02-27
+ * @String 2018-02-27
  */
 public class Resume {
-    /**
-     * 简历id
-     */
+
     private String rid;
-
     private String pid;
-
+    private String name;
+    private String sex;
+    private String portrait;
     private String birthday;
-
-    /**
-     * 最高学历
-     */
+    private String tel;
+    private String startWorkTime;
+    private String jobState;
+    private String email;
+    private String address;
     private String highestEducation;
-
-    /**
-     * 毕业院校
-     */
-    private String gradutionUniversity;
-
-    /**
-     * 毕业时间
-     */
-    private Date gradutionTime;
-
-    /**
-     * 专业
-     */
+    private String graduationUniversity;
+    private String graduationTime;
+    private String careerIntention;
     private String major;
-
-    /**
-     * 工作经历
-     */
     private String workExp;
+    private int isPublic;
+    private String accessory;
 
-    /**
-     * 简历是否公开
-     */
-    private Integer ispublic;
+    public Resume() {
+    }
+
+    public Resume(String rid, String pid, String name, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String careerIntention, String major, String workExp, int isPublic, String accessory) {
+        this.rid = rid;
+        this.pid = pid;
+        this.name = name;
+        this.sex = sex;
+        this.portrait = portrait;
+        this.birthday = birthday;
+        this.tel = tel;
+        this.startWorkTime = startWorkTime;
+        this.jobState = jobState;
+        this.email = email;
+        this.address = address;
+        this.highestEducation = highestEducation;
+        this.graduationUniversity = graduationUniversity;
+        this.graduationTime = graduationTime;
+        this.careerIntention = careerIntention;
+        this.major = major;
+        this.workExp = workExp;
+        this.isPublic = isPublic;
+        this.accessory = accessory;
+    }
 
     public String getRid() {
         return rid;
     }
 
     public void setRid(String rid) {
-        this.rid = rid == null ? null : rid.trim();
+        this.rid = rid;
     }
 
     public String getPid() {
@@ -62,7 +67,31 @@ public class Resume {
     }
 
     public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
+        this.pid = pid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
     }
 
     public String getBirthday() {
@@ -70,7 +99,47 @@ public class Resume {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday == null ? null : birthday.trim();
+        this.birthday = birthday;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getStartWorkTime() {
+        return startWorkTime;
+    }
+
+    public void setStartWorkTime(String startWorkTime) {
+        this.startWorkTime = startWorkTime;
+    }
+
+    public String getJobState() {
+        return jobState;
+    }
+
+    public void setJobState(String jobState) {
+        this.jobState = jobState;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getHighestEducation() {
@@ -78,23 +147,31 @@ public class Resume {
     }
 
     public void setHighestEducation(String highestEducation) {
-        this.highestEducation = highestEducation == null ? null : highestEducation.trim();
+        this.highestEducation = highestEducation;
     }
 
-    public String getGradutionUniversity() {
-        return gradutionUniversity;
+    public String getGraduationUniversity() {
+        return graduationUniversity;
     }
 
-    public void setGradutionUniversity(String gradutionUniversity) {
-        this.gradutionUniversity = gradutionUniversity == null ? null : gradutionUniversity.trim();
+    public void setGraduationUniversity(String graduationUniversity) {
+        this.graduationUniversity = graduationUniversity;
     }
 
-    public Date getGradutionTime() {
-        return gradutionTime;
+    public String getGraduationTime() {
+        return graduationTime;
     }
 
-    public void setGradutionTime(Date gradutionTime) {
-        this.gradutionTime = gradutionTime;
+    public void setGraduationTime(String graduationTime) {
+        this.graduationTime = graduationTime;
+    }
+
+    public String getCareerIntention() {
+        return careerIntention;
+    }
+
+    public void setCareerIntention(String careerIntention) {
+        this.careerIntention = careerIntention;
     }
 
     public String getMajor() {
@@ -102,7 +179,7 @@ public class Resume {
     }
 
     public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
+        this.major = major;
     }
 
     public String getWorkExp() {
@@ -110,14 +187,47 @@ public class Resume {
     }
 
     public void setWorkExp(String workExp) {
-        this.workExp = workExp == null ? null : workExp.trim();
+        this.workExp = workExp;
     }
 
-    public Integer getIspublic() {
-        return ispublic;
+    public int getIsPublic() {
+        return isPublic;
     }
 
-    public void setIspublic(Integer ispublic) {
-        this.ispublic = ispublic;
+    public void setIsPublic(int isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public String getAccessory() {
+        return accessory;
+    }
+
+    public void setAccessory(String accessory) {
+        this.accessory = accessory;
+    }
+
+    @Override
+    public String toString() {
+        return "Resume{" +
+                "rid='" + rid + '\'' +
+                ", pid='" + pid + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", portrait='" + portrait + '\'' +
+                ", birthday=" + birthday +
+                ", tel='" + tel + '\'' +
+                ", startWorkTime=" + startWorkTime +
+                ", jobState='" + jobState + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", highestEducation='" + highestEducation + '\'' +
+                ", graduationUniversity='" + graduationUniversity + '\'' +
+                ", graduationTime=" + graduationTime +
+                ", careerIntention='" + careerIntention + '\'' +
+                ", major='" + major + '\'' +
+                ", workExp='" + workExp + '\'' +
+                ", isPublic=" + isPublic +
+                ", accessory='" + accessory + '\'' +
+                '}';
     }
 }

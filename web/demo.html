@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css"/>
+    <script type="text/javascript" src="../../jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+   function test() {
+       alert("测试");
+      $.ajax({
+           type:"post",
+           dataType:"json",
+           url:"/test/demo",
+           contentType:"application/json",
+           data:JSON.stringify({
+               name:"韦德",
+               win:[2006,2012,2013],
+               age:35
+           })
+       })
+   }
+
+</script>
+
+<body>
+ <button onclick="test()">点击</button>
+</body>
+</html>
