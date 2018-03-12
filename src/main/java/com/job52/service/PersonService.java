@@ -2,9 +2,7 @@ package com.job52.service;
 
 
 import com.job52.model.Person;
-
-
-
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
 
 public interface PersonService {
@@ -51,6 +49,14 @@ public interface PersonService {
      * @throws Exception 异常信息
      */
      Person queryPerson(String pid) throws Exception;
+
+    /**
+     * 通过登录名查找用户，可以是用户名或者邮箱或者电话
+     * @param name
+     * @return
+     * @throws Exception
+     */
+     Person queryPersonByNameCondition(String name) throws Exception;
 
 
 

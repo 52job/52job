@@ -58,4 +58,12 @@ public interface PersonMapper {
      */
     int findLastId();
 
+    /**
+     * 根据登录名查找用户
+     * @param name 登录名
+     * @return 用户信息
+     * @throws Exception
+     */
+    Person queryPersonByNameCondition(String name) throws Exception;
+
 }

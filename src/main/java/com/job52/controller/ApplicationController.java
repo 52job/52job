@@ -22,7 +22,7 @@ public class ApplicationController {
         Application application = new Application();
         application.setPid((String)session.getAttribute("pid"));
         model.addAttribute(applicationService.query(application));
-        return "application";
+        return "/myapplication";
     }
     @RequestMapping("/list/{isRead}")
     @ResponseBody
