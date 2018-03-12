@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/enterpeise")
@@ -53,14 +50,17 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/addJob",method = RequestMethod.GET)
-    public void addJobs(HttpServletRequest request) {
+    @ResponseBody
+    public String addJobs(HttpServletRequest request) {
         Job j = null;
         j = (Job) request.getAttribute("job");
         try{
             jobService.addJob(j);
         }catch (Exception e){
-            throw new RuntimeException();
+            e.printStackTrace();
+            return "false";
         }
+        return "true";
     }
 
     /**
@@ -68,45 +68,19 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/delectJobs",method = RequestMethod.DELETE)
-    public void delectJobs(HttpServletRequest request) {
+    @ResponseBody
+    public String delectJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
-    /**
-     * update job1
-     * @param jid
-     * @return
-     */
-    @RequestMapping(value = "/{jid}/updateJob1",method = RequestMethod.POST,
-            produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public Job updateJob1(@PathVariable("jid") String jid) {
-        Job j = jobService.getJob(jid);
-        return j;
-    }
-
-    /**
-     * update job2
-     * @param jid
-     * @param request
-     */
-    @RequestMapping(value = "/{jid}/updateJob2",method = RequestMethod.GET)
-    public void updateJob2(@PathVariable("jid") String jid,HttpServletRequest request) {
-        Job j = (Job) request.getAttribute("job");
-        try{
-            jobService.updateJob(j);
-        }catch (Exception e){
-            e.printStackTrace();
-            throw new RuntimeException();
-        }
-    }
 
     /**
      * show passed joblist
@@ -128,15 +102,17 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/delectPassedJobs",method = RequestMethod.DELETE)
-    public void delectPassedJobs(HttpServletRequest request) {
+    @ResponseBody
+    public String delectPassedJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
@@ -145,14 +121,16 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/delectPassedJob",method = RequestMethod.DELETE)
-    public void delectPassedJob(@PathVariable("jid") String jid,HttpServletRequest request) {
+    @ResponseBody
+    public String delectPassedJob(@PathVariable("jid") String jid,HttpServletRequest request) {
         Job j = (Job) request.getAttribute("job");
         try{
             jobService.removeJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
@@ -161,6 +139,7 @@ public class EnterpriseController {
      * @return
      */
     @RequestMapping(value = "/jobPrepareddList",method = RequestMethod.GET)
+    @ResponseBody
     public String jobPrepareddList(Model model) {
         List<Job> jobs = jobService.query(new Job(2));
         Map<String,Object> map = new HashMap<String, Object>();
@@ -175,15 +154,17 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/addPreparedJobs",method = RequestMethod.GET)
-    public void addPreparedJobs(HttpServletRequest request) {
+    @ResponseBody
+    public String addPreparedJobs(HttpServletRequest request) {
         Job j = null;
         j = (Job) request.getAttribute("job");
         try{
             jobService.addJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
@@ -191,88 +172,114 @@ public class EnterpriseController {
      * @param request
      */
     @RequestMapping(value = "/delectPreparedJobs",method = RequestMethod.DELETE)
-    public void delectPreparedJobs(HttpServletRequest request) {
+    @ResponseBody
+    public String delectPreparedJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
-     * update prepared job1
-     * @param jid
+     * update job1
      * @return
      */
-    @RequestMapping(value = "/{jid}/updatePreparedJob1",method = RequestMethod.POST,
+    @RequestMapping(value = "/updateJob1",method = RequestMethod.GET,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Job updatePreparedJob1(@PathVariable("jid") String jid) {
+    public String updatePreparedJob1(HttpServletRequest request) {
+        String jid = request.getParameter("jid");
         Job j = jobService.getJob(jid);
-        return j;
+        String JsonString = JSON.toJSONString(j);
+        return JsonString;
     }
 
     /**
-     * update Prepared job2
-     * @param jid
+     * update job2
      * @param request
      */
-    @RequestMapping(value = "/{jid}/updatePreparedJob2",method = RequestMethod.GET)
-    public void updatePreparedJob2(@PathVariable("jid") String jid,HttpServletRequest request) {
-        Job j = (Job) request.getAttribute("job");
+    @RequestMapping(value = "/updateJob2",method = RequestMethod.GET)
+    @ResponseBody
+    public String updatePreparedJob2(HttpServletRequest request) {
+        String jid = request.getParameter("jid");
+        Enterprise enterprise  = new Enterprise(request.getParameter("eid"));
+        String pid = request.getParameter("pid");
+        Integer requiredNumber = Integer.parseInt(request.getParameter("requiredNumber"));
+        String jname = request.getParameter("jname");
+        Integer requiredWorkyear = Integer.parseInt(request.getParameter("requiredWorkyear"));
+        Integer requiredEducation = Integer.parseInt(request.getParameter("requiredEducation"));
+        Integer minSalary = Integer.parseInt(request.getParameter("minSalary"));
+        Integer maxSalary = Integer.parseInt(request.getParameter("maxSalary"));
+        String benefit = request.getParameter("benefit");
+        String jobDesc = request.getParameter("jobDesc");
+        String jobType = request.getParameter("jobType");
+        String workPlace = request.getParameter("workPlace");
+        Integer jobStatue = Integer.parseInt(request.getParameter("jobStatue"));
+        Date createTime = new Date(request.getParameter("createTime"));
+
         try{
-            jobService.updateJob(j);
+            //todo
+            jobService.updateJob(new Job(jid,enterprise,pid,requiredNumber,jname,requiredWorkyear,requiredEducation,minSalary
+                    ,maxSalary,benefit,jobDesc,jobType,workPlace,jobStatue,createTime));
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
      * update prepared job jobState
-     * @param jid
      */
-    @RequestMapping(value = "/{jid}/updatePreparedJobJobState",method = RequestMethod.GET)
-    public  void updatePreparedJobJobState(@PathVariable("jid") String jid) {
+    @RequestMapping(value = "/updatePreparedJobJobState",method = RequestMethod.GET)
+    @ResponseBody
+    public  String updatePreparedJobJobState(HttpServletRequest request) {
+        String jid = request.getParameter("jid");
         Job j = jobService.getJob(jid);
         j.setJobStatue(1);
         try{
             jobService.updateJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
-    @RequestMapping(value = "/{eid}/getEnterpriseInfo",method = RequestMethod.POST,
+    @RequestMapping(value = "/getEnterpriseInfo",method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Enterprise enterprise(@PathVariable("eid") String eid) {
+    public Enterprise enterprise(HttpServletRequest request) {
+        String eid = request.getParameter("eid");
         Enterprise enterprise = enterpriseService.getEnterprise(eid);
         return enterprise;
     }
 
-    @RequestMapping(value = "/{eid}/updateEnterpriseInfo",method = RequestMethod.GET)
-    public void updateEnterpriseInfo(@PathVariable("eid") String eid, HttpServletRequest request) {
-        String username = (String) request.getAttribute("username");
-        String password = (String) request.getAttribute("password");
-        String name = (String) request.getAttribute("name");
-        String address = (String) request.getAttribute("address");
-        String type = (String) request.getAttribute("type");
-        Integer number = (Integer) request.getAttribute("number");
-        String email = (String) request.getAttribute("email");
-        String contact = (String) request.getAttribute("contact");
-        String imgurl = (String) request.getAttribute("imgurl");
-        String description = (String) request.getAttribute("description");
+    @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.GET)
+    public String updateEnterpriseInfo(HttpServletRequest request) {
+        String eid = request.getParameter("eid");
+        String username =  request.getParameter("username");
+        String password =  request.getParameter("password");
+        String name =  request.getParameter("name");
+        String address =  request.getParameter("address");
+        String type =  request.getParameter("type");
+        Integer number =  Integer.parseInt(request.getParameter("number"));
+        String email =  request.getParameter("email");
+        String contact =  request.getParameter("contact");
+        String imgurl =  request.getParameter("imgurl");
+        String description =  request.getParameter("description");
         Enterprise enterprise = new Enterprise(eid,username,password,name,address,type,number,email,contact,imgurl,description);
         try{
             enterpriseService.updateEnterprise(enterprise);
         }catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 }
