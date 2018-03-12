@@ -5,22 +5,32 @@
     <resultMap id="BaseResultMap" type="com.job52.model.Resume" >
         <id column="rid" property="rid" jdbcType="VARCHAR" />
         <result column="pid" property="pid" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" jdbcType="VARCHAR" />
+        <result column="portrait" property="portrait" jdbcType="VARCHAR" />
         <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+        <result column="tel" property="tel" jdbcType="VARCHAR" />
+        <result column="start_workTime" property="startWorktime" jdbcType="DATE" />
+        <result column="jobState" property="jobstate" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
         <result column="highest_education" property="highestEducation" jdbcType="VARCHAR" />
-        <result column="gradution_university" property="gradutionUniversity" jdbcType="VARCHAR" />
-        <result column="gradution_time" property="gradutionTime" jdbcType="TIMESTAMP" />
+        <result column="graduation_university" property="graduationUniversity" jdbcType="VARCHAR" />
+        <result column="graduation_time" property="graduationTime" jdbcType="DATE" />
         <result column="major" property="major" jdbcType="VARCHAR" />
         <result column="work_exp" property="workExp" jdbcType="LONGVARCHAR" />
         <result column="isPublic" property="ispublic" jdbcType="INTEGER" />
+        <result column="accessory" property="accessory" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Base_Column_List" >
-        rid, pid, birthday, highest_education, gradution_university, gradution_time, major, 
-        work_exp, isPublic
+        rid, pid, name, sex, portrait, birthday, tel, start_workTime, jobState, email, address,
+        highest_education, graduation_university, graduation_time, major, work_exp, isPublic,
+        accessory
     </sql>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-        select 
+        select
         <include refid="Base_Column_List" />
         from resume
         where rid = #{rid,jdbcType=VARCHAR}
@@ -32,14 +42,20 @@
     </delete>
 
     <insert id="insert" parameterType="com.job52.model.Resume" >
-        insert into resume (rid, pid, birthday, 
-            highest_education, gradution_university, 
-            gradution_time, major, work_exp, 
-            isPublic)
-        values (#{rid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
-            #{highestEducation,jdbcType=VARCHAR}, #{gradutionUniversity,jdbcType=VARCHAR}, 
-            #{gradutionTime,jdbcType=TIMESTAMP}, #{major,jdbcType=VARCHAR}, #{workExp,jdbcType=LONGVARCHAR}, 
-            #{ispublic,jdbcType=INTEGER})
+        insert into resume (rid, pid, name,
+        sex, portrait, birthday,
+        tel, start_workTime, jobState,
+        email, address, highest_education,
+        graduation_university, graduation_time, major,
+        work_exp, isPublic, accessory
+        )
+        values (#{rid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{sex,jdbcType=VARCHAR}, #{portrait,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR},
+        #{tel,jdbcType=VARCHAR}, #{startWorktime,jdbcType=DATE}, #{jobstate,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{highestEducation,jdbcType=VARCHAR},
+        #{graduationUniversity,jdbcType=VARCHAR}, #{graduationTime,jdbcType=DATE}, #{major,jdbcType=VARCHAR},
+        #{workExp,jdbcType=LONGVARCHAR}, #{ispublic,jdbcType=INTEGER}, #{accessory,jdbcType=VARCHAR}
+        )
     </insert>
 
     <insert id="insertSelective" parameterType="com.job52.model.Resume" >
@@ -51,17 +67,41 @@
             <if test="pid != null" >
                 pid,
             </if>
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="sex != null" >
+                sex,
+            </if>
+            <if test="portrait != null" >
+                portrait,
+            </if>
             <if test="birthday != null" >
                 birthday,
+            </if>
+            <if test="tel != null" >
+                tel,
+            </if>
+            <if test="startWorktime != null" >
+                start_workTime,
+            </if>
+            <if test="jobstate != null" >
+                jobState,
+            </if>
+            <if test="email != null" >
+                email,
+            </if>
+            <if test="address != null" >
+                address,
             </if>
             <if test="highestEducation != null" >
                 highest_education,
             </if>
-            <if test="gradutionUniversity != null" >
-                gradution_university,
+            <if test="graduationUniversity != null" >
+                graduation_university,
             </if>
-            <if test="gradutionTime != null" >
-                gradution_time,
+            <if test="graduationTime != null" >
+                graduation_time,
             </if>
             <if test="major != null" >
                 major,
@@ -72,6 +112,9 @@
             <if test="ispublic != null" >
                 isPublic,
             </if>
+            <if test="accessory != null" >
+                accessory,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="rid != null" >
@@ -80,17 +123,41 @@
             <if test="pid != null" >
                 #{pid,jdbcType=VARCHAR},
             </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null" >
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="portrait != null" >
+                #{portrait,jdbcType=VARCHAR},
+            </if>
             <if test="birthday != null" >
                 #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="tel != null" >
+                #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="startWorktime != null" >
+                #{startWorktime,jdbcType=DATE},
+            </if>
+            <if test="jobstate != null" >
+                #{jobstate,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null" >
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null" >
+                #{address,jdbcType=VARCHAR},
             </if>
             <if test="highestEducation != null" >
                 #{highestEducation,jdbcType=VARCHAR},
             </if>
-            <if test="gradutionUniversity != null" >
-                #{gradutionUniversity,jdbcType=VARCHAR},
+            <if test="graduationUniversity != null" >
+                #{graduationUniversity,jdbcType=VARCHAR},
             </if>
-            <if test="gradutionTime != null" >
-                #{gradutionTime,jdbcType=TIMESTAMP},
+            <if test="graduationTime != null" >
+                #{graduationTime,jdbcType=DATE},
             </if>
             <if test="major != null" >
                 #{major,jdbcType=VARCHAR},
@@ -101,6 +168,9 @@
             <if test="ispublic != null" >
                 #{ispublic,jdbcType=INTEGER},
             </if>
+            <if test="accessory != null" >
+                #{accessory,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
 
@@ -110,17 +180,41 @@
             <if test="pid != null" >
                 pid = #{pid,jdbcType=VARCHAR},
             </if>
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null" >
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="portrait != null" >
+                portrait = #{portrait,jdbcType=VARCHAR},
+            </if>
             <if test="birthday != null" >
                 birthday = #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="tel != null" >
+                tel = #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="startWorktime != null" >
+                start_workTime = #{startWorktime,jdbcType=DATE},
+            </if>
+            <if test="jobstate != null" >
+                jobState = #{jobstate,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null" >
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null" >
+                address = #{address,jdbcType=VARCHAR},
             </if>
             <if test="highestEducation != null" >
                 highest_education = #{highestEducation,jdbcType=VARCHAR},
             </if>
-            <if test="gradutionUniversity != null" >
-                gradution_university = #{gradutionUniversity,jdbcType=VARCHAR},
+            <if test="graduationUniversity != null" >
+                graduation_university = #{graduationUniversity,jdbcType=VARCHAR},
             </if>
-            <if test="gradutionTime != null" >
-                gradution_time = #{gradutionTime,jdbcType=TIMESTAMP},
+            <if test="graduationTime != null" >
+                graduation_time = #{graduationTime,jdbcType=DATE},
             </if>
             <if test="major != null" >
                 major = #{major,jdbcType=VARCHAR},
@@ -131,6 +225,9 @@
             <if test="ispublic != null" >
                 isPublic = #{ispublic,jdbcType=INTEGER},
             </if>
+            <if test="accessory != null" >
+                accessory = #{accessory,jdbcType=VARCHAR},
+            </if>
         </set>
         where rid = #{rid,jdbcType=VARCHAR}
     </update>
@@ -138,13 +235,34 @@
     <update id="updateByPrimaryKey" parameterType="com.job52.model.Resume" >
         update resume
         set pid = #{pid,jdbcType=VARCHAR},
-            birthday = #{birthday,jdbcType=VARCHAR},
-            highest_education = #{highestEducation,jdbcType=VARCHAR},
-            gradution_university = #{gradutionUniversity,jdbcType=VARCHAR},
-            gradution_time = #{gradutionTime,jdbcType=TIMESTAMP},
-            major = #{major,jdbcType=VARCHAR},
-            work_exp = #{workExp,jdbcType=LONGVARCHAR},
-            isPublic = #{ispublic,jdbcType=INTEGER}
+        name = #{name,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=VARCHAR},
+        portrait = #{portrait,jdbcType=VARCHAR},
+        birthday = #{birthday,jdbcType=VARCHAR},
+        tel = #{tel,jdbcType=VARCHAR},
+        start_workTime = #{startWorktime,jdbcType=DATE},
+        jobState = #{jobstate,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        address = #{address,jdbcType=VARCHAR},
+        highest_education = #{highestEducation,jdbcType=VARCHAR},
+        graduation_university = #{graduationUniversity,jdbcType=VARCHAR},
+        graduation_time = #{graduationTime,jdbcType=DATE},
+        major = #{major,jdbcType=VARCHAR},
+        work_exp = #{workExp,jdbcType=LONGVARCHAR},
+        isPublic = #{ispublic,jdbcType=INTEGER},
+        accessory = #{accessory,jdbcType=VARCHAR}
+        where rid = #{rid,jdbcType=VARCHAR}
+    </update>
+
+    <select id="queryAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from resume
+    </select>
+
+    <update id="setStateByPrimaryKey" parameterType="com.job52.model.Resume" >
+        update resume
+        set isPublic = #{ispublic,jdbcType=INTEGER}
         where rid = #{rid,jdbcType=VARCHAR}
     </update>
 </mapper>
