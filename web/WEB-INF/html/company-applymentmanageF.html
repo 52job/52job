@@ -127,7 +127,7 @@
                     field: 'resume',
                     title: '简历',
                     formatter: function (value, row, index) {
-                        var l = '<a href="#" mce_href="#" onclick="look(\'' + row.pid + '\',\'' + row.rid + '\' )" >点击查看</a> ';
+                        var l = '<a href="#" mce_href="#" onclick="look(\'' + row.rid + '\' )" >点击查看</a> ';
                         return l;
                     }
                 }, {
@@ -147,18 +147,17 @@
         });
     }
 
-    function look(pid, rid) {
+    function look( rid) {
         //$("#mymode").modal();
         var data = {
-            "pid": pid,
             "rid": rid
         };
         data=JSON.stringify(data);
         $.ajax({
-            url:'',
+            url:'/candidate/getResumeByIdInUncheck/uncheckList?rid='+rid,
             type:'get',
             dataType:'json',
-            data:data,
+//            data:data,
             success:succFunction,
             error:erryFunction
         });

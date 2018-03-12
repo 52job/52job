@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
-@RequestMapping("/enterpeise")
+@RequestMapping("/enterprise")
 public class EnterpriseController {
 
     @Autowired
@@ -25,9 +25,9 @@ public class EnterpriseController {
     @Autowired
     private JobService jobService;
 
-    @RequestMapping("/enterpeise")
+    @RequestMapping("/enterprise_1")
     public String index() {
-        return "/company-applymentmanageF";
+        return "/company-existpositioninfo";
     }
 
     /**
@@ -37,11 +37,13 @@ public class EnterpriseController {
     @RequestMapping(value = "/jobList",method = RequestMethod.GET)
     @ResponseBody
     public String jobList() {
-        List<Job> jobs = jobService.query(new Job(1));
+        System.out.println("in___________________________________________");
+        List<Job> jobs = jobService.queryJobs(new Job(1));
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("total",jobs.size());
         map.put("rows",jobs);
         String JsonString = JSON.toJSONString(map);
+        System.out.println(JsonString);
         return  JsonString;
     }
 
