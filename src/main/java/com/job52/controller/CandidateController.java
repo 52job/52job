@@ -146,7 +146,7 @@ public class CandidateController {
      * get rusume
      * @return
      */
-    @RequestMapping(value = "/{rid}/getResumeByIdInCheck/uncheckList",method = RequestMethod.GET,
+    @RequestMapping(value = "/getResumeByIdInCheck/uncheckList",method = RequestMethod.GET,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String getResumeByIdInCheck(HttpServletRequest request) {
