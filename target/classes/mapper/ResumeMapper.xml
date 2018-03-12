@@ -10,7 +10,7 @@
         <result column="portrait" property="portrait" jdbcType="VARCHAR" />
         <result column="birthday" property="birthday" jdbcType="VARCHAR" />
         <result column="tel" property="tel" jdbcType="VARCHAR" />
-        <result column="startWorkTime" property="startWorktime" jdbcType="VARCHAR" />
+        <result column="startWorkTime" property="startWorkTime" jdbcType="VARCHAR" />
         <result column="jobState" property="jobState" jdbcType="VARCHAR" />
         <result column="email" property="email" jdbcType="VARCHAR" />
         <result column="address" property="address" jdbcType="VARCHAR" />
@@ -52,7 +52,7 @@
         )
         values (#{rid,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
         #{sex,jdbcType=VARCHAR}, #{portrait,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR},
-        #{tel,jdbcType=VARCHAR}, #{startWorktime,jdbcType=VARCHAR}, #{jobState,jdbcType=VARCHAR},
+        #{tel,jdbcType=VARCHAR}, #{startWorkTime,jdbcType=VARCHAR}, #{jobState,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{highestEducation,jdbcType=VARCHAR},
         #{graduationUniversity,jdbcType=VARCHAR}, #{graduationTime,jdbcType=VARCHAR}, #{careerIntention,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR},
         #{workExp,jdbcType=LONGVARCHAR}, #{isPublic,jdbcType=INTEGER}, #{accessory,jdbcType=VARCHAR}
@@ -83,7 +83,7 @@
             <if test="tel != null" >
                 tel,
             </if>
-            <if test="startWorktime != null" >
+            <if test="startWorkTime != null" >
                 startWorkTime,
             </if>
             <if test="jobState != null" >
@@ -142,8 +142,8 @@
             <if test="tel != null" >
                 #{tel,jdbcType=VARCHAR},
             </if>
-            <if test="startWorktime != null" >
-                #{startWorktime,jdbcType=VARCHAR},
+            <if test="startWorkTime != null" >
+                #{startWorkTime,jdbcType=VARCHAR},
             </if>
             <if test="jobState != null" >
                 #{jobState,jdbcType=VARCHAR},
@@ -202,8 +202,8 @@
             <if test="tel != null" >
                 tel = #{tel,jdbcType=VARCHAR},
             </if>
-            <if test="startWorktime != null" >
-                startWorkTime = #{startWorktime,jdbcType=VARCHAR},
+            <if test="startWorkTime != null" >
+                startWorkTime = #{startWorkTime,jdbcType=VARCHAR},
             </if>
             <if test="jobState != null" >
                 jobState = #{jobState,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
         portrait = #{portrait,jdbcType=VARCHAR},
         birthday = #{birthday,jdbcType=VARCHAR},
         tel = #{tel,jdbcType=VARCHAR},
-        startWorkTime = #{startWorktime,jdbcType=VARCHAR},
+        startWorkTime = #{startWorkTime,jdbcType=VARCHAR},
         jobState = #{jobState,jdbcType=VARCHAR},
         email = #{email,jdbcType=VARCHAR},
         address = #{address,jdbcType=VARCHAR},
