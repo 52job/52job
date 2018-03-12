@@ -51,6 +51,8 @@ public class CandidateController {
     @RequestMapping(value = "/uncheckList",method = RequestMethod.GET)
     @ResponseBody
     public  String uncheckList(Model model) throws Exception {
+        Map<String,Object> map = new HashMap<String, Object>();
+
         List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
         for (Candidate tmp : candidates) {
             System.out.println(tmp);
@@ -58,7 +60,7 @@ public class CandidateController {
         }
 
         List<packet1> packet1s = new ArrayList<packet1>();
-        Map<String,Object> map = new HashMap<String, Object>();
+
         int len = candidates.size();
         String jid,pid,rid,name,job;
         for (int i = 0; i < len; i++) {
@@ -70,7 +72,7 @@ public class CandidateController {
             job = jobService.getJob(c.getJid()).getJname();
             packet1s.add(i,new packet1(jid,pid,rid,name,job));
         }
-        map.put("total",len);
+        map.put("total",200);
         map.put("rows",packet1s);
         String jsonString = JSON.toJSONString(map);
         System.out.println("___________________________________________________________get2");

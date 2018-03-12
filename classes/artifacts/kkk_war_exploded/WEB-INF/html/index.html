@@ -93,25 +93,6 @@
                 }
             }
 
-
-            $("#userNameLogin").blur(function () {
-                var userName = document.getElementById('userNameLogin').value;
-                if(userName==null||userName==""){
-                    document.getElementById("userWarnLogin").setAttribute("style","color: red;margin-left: 20px;");
-                    return document.getElementById('userWarnLogin').innerHTML = '用户名不能为空';
-                    return false;
-                }
-            });
-
-            $("#passWordLogin").blur(function () {
-                var passWord = document.getElementById('passWordLogin').value;
-                if(passWord==null||passWord==""){
-                    document.getElementById("pwdWarnLogin").setAttribute("style","color: red;margin-left: 20px;");
-                    return document.getElementById('pwdWarnLogin').innerHTML = '密码不能为空';
-                    return false;
-                }
-            });
-
         });
 
 
@@ -144,17 +125,12 @@
 
         function success(data) {
           if(data=="success"){
-              window.location.href="/person/resetPwd";
+              window.location.href="/job/init";
           }else{
               alert("fail");
-              $("#myMode").modal("show");
           }
         }
 
-
-        $("#myMode").on("show.bs.modal", function() {
-            $(this).removeData("bs.modal");
-        });
 
     </script>
     <script>
@@ -212,10 +188,6 @@
                 }, 1000)
             }
 
-        }
-
-        function changeImg(img){
-            img.src = img.src+"?time="+new Date().getTime();
         }
     </script>
 
@@ -295,6 +267,7 @@
 
                     <div class="row" style="margin-top: 5px;text-align: center;">
                         <label>已有账号</label>
+
                         <a href="#myMode" data-toggle="modal">点击登录</a>
                     </div>
                 </form>
@@ -354,12 +327,11 @@
                         </div>
 
                     </form>
-                </div>
-            </div>
-        </div>
+             </div>
+           </div>
+      </div>
     </div>
 </div>
-
 </body>
 
 </html>
