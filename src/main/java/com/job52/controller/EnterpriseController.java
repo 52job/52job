@@ -1,5 +1,6 @@
 package com.job52.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.job52.model.Enterprise;
 import com.job52.model.Job;
 import com.job52.service.EnterpriseService;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/enterpeise")
@@ -32,30 +35,30 @@ public class EnterpriseController {
 
     /**
      * show joblist
-     * @param model
      * @return
      */
     @RequestMapping(value = "/jobList",method = RequestMethod.GET)
-    public String jobList(Model model) {
+    @ResponseBody
+    public String jobList() {
         List<Job> jobs = jobService.query(new Job(1));
-        model.addAttribute("jobs",jobs);
-        return "jobList";
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("total",jobs.size());
+        map.put("rows",jobs);
+        String JsonString = JSON.toJSONString(map);
+        return  JsonString;
     }
 
     /**
      * add job
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/addJob",method = RequestMethod.GET)
-    public void addJobs(HttpServletRequest request , Model model) {
+    public void addJobs(HttpServletRequest request) {
         Job j = null;
         j = (Job) request.getAttribute("job");
         try{
             jobService.addJob(j);
         }catch (Exception e){
-            e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -63,17 +66,15 @@ public class EnterpriseController {
     /**
      * delect jobs
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectJobs",method = RequestMethod.DELETE)
-    public void delectJobs(HttpServletRequest request , Model model) {
+    public void delectJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -95,46 +96,45 @@ public class EnterpriseController {
      * update job2
      * @param jid
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/{jid}/updateJob2",method = RequestMethod.GET)
-    public void updateJob2(@PathVariable("jid") String jid,HttpServletRequest request,Model model) {
+    public void updateJob2(@PathVariable("jid") String jid,HttpServletRequest request) {
         Job j = (Job) request.getAttribute("job");
         try{
             jobService.updateJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
 
     /**
      * show passed joblist
-     * @param model
      * @return
      */
     @RequestMapping(value = "/jobPassedList",method = RequestMethod.GET)
-    public String jobPassedList(Model model) {
+    @ResponseBody
+    public String jobPassedList() {
         List<Job> jobs = jobService.query(new Job(0));
-        model.addAttribute("jobs",jobs);
-        return "jobPassedList";
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("total",jobs.size());
+        map.put("rows",jobs);
+        String JsonString = JSON.toJSONString(map);
+        return  JsonString;
     }
 
     /**
      * delect passed jobs
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectPassedJobs",method = RequestMethod.DELETE)
-    public void delectPassedJobs(HttpServletRequest request , Model model) {
+    public void delectPassedJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -143,16 +143,14 @@ public class EnterpriseController {
      * delect passed job
      * @param jid
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectPassedJob",method = RequestMethod.DELETE)
-    public void delectPassedJob(@PathVariable("jid") String jid,HttpServletRequest request , Model model) {
+    public void delectPassedJob(@PathVariable("jid") String jid,HttpServletRequest request) {
         Job j = (Job) request.getAttribute("job");
         try{
             jobService.removeJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -165,24 +163,25 @@ public class EnterpriseController {
     @RequestMapping(value = "/jobPrepareddList",method = RequestMethod.GET)
     public String jobPrepareddList(Model model) {
         List<Job> jobs = jobService.query(new Job(2));
-        model.addAttribute("jobs",jobs);
-        return "jobPassedList";
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("total",jobs.size());
+        map.put("rows",jobs);
+        String JsonString = JSON.toJSONString(map);
+        return  JsonString;
     }
 
     /**
      * add prepared job
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/addPreparedJobs",method = RequestMethod.GET)
-    public void addPreparedJobs(HttpServletRequest request , Model model) {
+    public void addPreparedJobs(HttpServletRequest request) {
         Job j = null;
         j = (Job) request.getAttribute("job");
         try{
             jobService.addJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -190,17 +189,15 @@ public class EnterpriseController {
     /**
      * delect prepared jobs
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/delectPreparedJobs",method = RequestMethod.DELETE)
-    public void delectPreparedJobs(HttpServletRequest request , Model model) {
+    public void delectPreparedJobs(HttpServletRequest request) {
         List<Job> jobs = new ArrayList<Job>();
         jobs = (List<Job>) request.getAttribute("jobs");
         try{
             jobService.removeJobs(jobs);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -222,16 +219,14 @@ public class EnterpriseController {
      * update Prepared job2
      * @param jid
      * @param request
-     * @param model
      */
     @RequestMapping(value = "/{jid}/updatePreparedJob2",method = RequestMethod.GET)
-    public void updatePreparedJob2(@PathVariable("jid") String jid,HttpServletRequest request,Model model) {
+    public void updatePreparedJob2(@PathVariable("jid") String jid,HttpServletRequest request) {
         Job j = (Job) request.getAttribute("job");
         try{
             jobService.updateJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -239,17 +234,15 @@ public class EnterpriseController {
     /**
      * update prepared job jobState
      * @param jid
-     * @param model
      */
     @RequestMapping(value = "/{jid}/updatePreparedJobJobState",method = RequestMethod.GET)
-    public  void updatePreparedJobJobState(@PathVariable("jid") String jid,Model model) {
+    public  void updatePreparedJobJobState(@PathVariable("jid") String jid) {
         Job j = jobService.getJob(jid);
         j.setJobStatue(1);
         try{
             jobService.updateJob(j);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
@@ -263,7 +256,7 @@ public class EnterpriseController {
     }
 
     @RequestMapping(value = "/{eid}/updateEnterpriseInfo",method = RequestMethod.GET)
-    public void updateEnterpriseInfo(@PathVariable("eid") String eid, HttpServletRequest request,Model model) {
+    public void updateEnterpriseInfo(@PathVariable("eid") String eid, HttpServletRequest request) {
         String username = (String) request.getAttribute("username");
         String password = (String) request.getAttribute("password");
         String name = (String) request.getAttribute("name");
@@ -279,7 +272,6 @@ public class EnterpriseController {
             enterpriseService.updateEnterprise(enterprise);
         }catch (Exception e){
             e.printStackTrace();
-            model.addAttribute("error",e);
             throw new RuntimeException();
         }
     }
