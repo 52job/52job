@@ -285,7 +285,8 @@
         select
         <include refid="Base_Column_List"/>
         from job,enterprise where job.eid = enterprise.eid
-        and jname like "%"#{jname,jdbcType=VARCHAR}"%"
+        and jid like "%"#{jid,jdbcType=VARCHAR}"%"
+        or  jname like "%"#{jname,jdbcType=VARCHAR}"%"
         or  benefit like "%"#{benefit,jdbcType=VARCHAR}"%"
         or  job_desc like "%"#{jobDesc,jdbcType=LONGVARCHAR}"%"
         or  job_type like "%"#{jobType,jdbcType=VARCHAR}"%"

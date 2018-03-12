@@ -7,8 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d9f621-79d6-4f12-8eda-06b13de9acf1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/dto/packet1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/AdminController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/job52/controller/AdminController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/FirmInfoManagement.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/FirmInfoManagement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageF.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageF.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageP.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageP.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-existpositioninfo.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-existpositioninfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-pastpositioninfo.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-pastpositioninfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-roughpositioninfo.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-roughpositioninfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/myapplication.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/myapplication.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/updateinfo.html" afterPath="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/updateinfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -298,44 +312,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Job.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Job.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="e#1387#1388#0" expanded="true" />
-                <element signature="e#1424#1425#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Enterprise.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Enterprise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JobMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="293" column="0" lean-forward="false" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+            <state relative-caret-position="175">
+              <caret line="285" column="43" lean-forward="true" selection-start-line="285" selection-start-column="43" selection-end-line="285" selection-end-column="43" />
               <folding>
-                <element signature="e#12773#12777#0" expanded="true" />
-                <element signature="e#12881#12885#0" expanded="true" />
-                <marker date="1520571594260" expanded="true" signature="1891:2057" ph="select from job" />
-                <marker date="1520571594260" expanded="true" signature="2152:2211" ph="delete from " />
-                <marker date="1520571594260" expanded="true" signature="2297:3023" ph="insert into job... " />
-                <marker date="1520571594260" expanded="true" signature="6120:7771" ph="update job e... " />
-                <marker date="1520571594260" expanded="true" signature="7869:8614" ph="update job s... " />
-                <marker date="1520571594260" expanded="true" signature="11974:12385" ph="select from job" />
-                <marker date="1520571594260" expanded="true" signature="12499:13467" ph="select ,enam... " />
+                <element signature="e#12824#12828#0" expanded="true" />
+                <element signature="e#12932#12936#0" expanded="true" />
+                <marker date="1520824824423" expanded="true" signature="1891:2057" ph="select from job" />
+                <marker date="1520824824423" expanded="true" signature="2152:2211" ph="delete from " />
+                <marker date="1520824824423" expanded="true" signature="2297:3023" ph="insert into job... " />
+                <marker date="1520824824423" expanded="true" signature="6120:7771" ph="update job e... " />
+                <marker date="1520824824423" expanded="true" signature="7869:8614" ph="update job s... " />
+                <marker date="1520824824423" expanded="true" signature="11974:12436" ph="select from job" />
+                <marker date="1520824824423" expanded="true" signature="12550:13518" ph="select ,enam... " />
               </folding>
             </state>
           </provider>
@@ -351,21 +342,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="615">
+              <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1077#1078#0" expanded="true" />
+                <element signature="e#1114#1115#0" expanded="true" />
+                <element signature="e#1169#1170#0" expanded="true" />
+                <element signature="e#1209#1210#0" expanded="true" />
+                <element signature="e#1270#1271#0" expanded="true" />
+                <element signature="e#1308#1309#0" expanded="true" />
+                <element signature="e#1371#1372#0" expanded="true" />
+                <element signature="e#1410#1411#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterpriseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/EnterpriseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityCodeUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JobService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/JobService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-11">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/JobController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="68" column="26" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="68" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityCodeUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/SecurityCodeUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="company-existpositioninfo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -374,8 +415,8 @@
       <file leaf-file-name="PersonController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/PersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="398">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -383,31 +424,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionInfoSearch.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/PositionInfoSearch.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="misc.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CommonUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -420,8 +441,8 @@
       <list>
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -446,7 +467,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/job52/util/MailUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/service/impl/EnterpriseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/util/MailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/dao/EnterpriseMapper.java" />
@@ -480,7 +500,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/job52/service/impl/JobServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/model/Job.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/html/resetPwd.html" />
         <option value="$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/resetPwd.html" />
@@ -497,6 +516,8 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/job52/controller/CandidateController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/job52/controller/AdminController.java" />
       </list>
     </option>
   </component>
@@ -598,6 +619,24 @@
               <item name="52job" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="52job" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job52" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="52job" type="b2602c69:ProjectViewProjectNode" />
+              <item name="52job" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -690,58 +729,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/encodings.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/META-INF/MANIFEST.MF</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/CandidateController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/EnterpriseController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/controller/PersonController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/model/Candidate.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/com/job52/service/impl/PersonServiceImpl.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/jdbc.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/classes/mapper/CandidateMapper.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-company.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-data.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-person.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/admin-position.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageF.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-applymentmanageP.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-existpositioninfo.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-pastpositioninfo.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/company-roughpositioninfo.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/model.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/classes/artifacts/kkk_war_exploded/WEB-INF/html/resetPwd.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/controller/CandidateController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/controller/EnterpriseController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/controller/PersonController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/model/Candidate.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/service/impl/PersonServiceImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/jdbc.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/mapper/CandidateMapper.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/com/job52/service/JobServiceTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/job52/controller/PersonController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/job52/model/Candidate.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/jdbc.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/mapper/CandidateMapper.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/FirmInfoManagement.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/ResumeSearch.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/admin-company.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/admin-data.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/admin-person.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/admin-position.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageF.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/company-applymentmanageP.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/company-pastpositioninfo.html</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/company-roughpositioninfo.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/model.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/myapplication.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/mycollection.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/person-resumecreate.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/person-resumemanage.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/WEB-INF/html/updateinfo.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/javascript/model.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -749,7 +742,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/job52/dto/packet1.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1390,7 +1382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520471869397</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="测试">
+      <created>1520820604784</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1520820604784</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1426,7 +1425,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176661000" />
+    <option name="totallyTimeSpent" value="181286000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1441,7 +1440,7 @@
     <frame x="16" y="23" width="1280" height="725" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284127" sideWeight="0.42487884" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284127" sideWeight="0.42891762" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.4872814" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1453,13 +1452,13 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21428572" sideWeight="0.63974154" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7978395" sideWeight="0.49682036" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4351852" sideWeight="0.47615263" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43492064" sideWeight="0.47334412" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.49676898" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34444445" sideWeight="0.4911147" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284127" sideWeight="0.57512116" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34444445" sideWeight="0.49919224" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284127" sideWeight="0.5710824" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25873017" sideWeight="0.70678514" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32956383" sideWeight="0.67777777" order="0" side_tool="false" content_ui="combo" />
@@ -1581,41 +1580,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ApplicationMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/model/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/JobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/ApplicationServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/EnterpriseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/job52/service/impl/EnterpriseServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1788,6 +1752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1802,9 +1767,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1596">
           <caret line="254" column="7" lean-forward="true" selection-start-line="254" selection-start-column="7" selection-end-line="254" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1819,14 +1782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/JobController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1873,8 +1828,8 @@
         <state relative-caret-position="915">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="e#1387#1388#0" expanded="true" />
-            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="false" />
+            <element signature="e#1424#1425#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1891,7 +1846,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1520820617380" expanded="true" signature="7871:7915" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:7941" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:7963" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:7982" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:7997" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:8008" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="7871:14096" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8037:14088" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8078:8097" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8098:14076" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8144:14060" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8194:14041" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8279:8297" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8298:8946" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8355:8391" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8392:8918" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8483:8510" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8576:8600" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8601:8746" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8863:8874" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="8980:8998" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="8999:9172" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="9028:9145" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="9215:13965" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="9259:13938" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="9312:10379" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="9362:10345" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="10432:11427" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="10482:11393" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="11480:12076" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="11530:12042" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="12129:12787" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="12179:12753" ph="..." />
+            <marker date="1520820617380" expanded="false" signature="12848:12861" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="12912:13585" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="13674:13908" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="13711:13874" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="14106:14407" ph="..." />
+            <marker date="1520820617380" expanded="true" signature="14129:14140" ph="{...}" />
+            <marker date="1520820617380" expanded="true" signature="14174:14396" ph="{...}" />
+            <marker date="1520820617380" expanded="true" signature="14290:14390" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1899,48 +1896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="293" column="0" lean-forward="false" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
-          <folding>
-            <element signature="e#12773#12777#0" expanded="true" />
-            <element signature="e#12881#12885#0" expanded="true" />
-            <marker date="1520571594260" expanded="true" signature="1891:2057" ph="select from job" />
-            <marker date="1520571594260" expanded="true" signature="2152:2211" ph="delete from " />
-            <marker date="1520571594260" expanded="true" signature="2297:3023" ph="insert into job... " />
-            <marker date="1520571594260" expanded="true" signature="6120:7771" ph="update job e... " />
-            <marker date="1520571594260" expanded="true" signature="7869:8614" ph="update job s... " />
-            <marker date="1520571594260" expanded="true" signature="11974:12385" ph="select from job" />
-            <marker date="1520571594260" expanded="true" signature="12499:13467" ph="select ,enam... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-company.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2390">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1955,19 +1910,119 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/PersonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        <state relative-caret-position="398">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/company-existpositioninfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/html/admin-company.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2390">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/SecurityCodeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/util/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/JobMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="285" column="43" lean-forward="true" selection-start-line="285" selection-start-column="43" selection-end-line="285" selection-end-column="43" />
+          <folding>
+            <element signature="e#12824#12828#0" expanded="true" />
+            <element signature="e#12932#12936#0" expanded="true" />
+            <marker date="1520824824423" expanded="true" signature="1891:2057" ph="select from job" />
+            <marker date="1520824824423" expanded="true" signature="2152:2211" ph="delete from " />
+            <marker date="1520824824423" expanded="true" signature="2297:3023" ph="insert into job... " />
+            <marker date="1520824824423" expanded="true" signature="6120:7771" ph="update job e... " />
+            <marker date="1520824824423" expanded="true" signature="7869:8614" ph="update job s... " />
+            <marker date="1520824824423" expanded="true" signature="11974:12436" ph="select from job" />
+            <marker date="1520824824423" expanded="true" signature="12550:13518" ph="select ,enam... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/JobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="68" column="26" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="68" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/JobService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/service/EnterpriseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/job52/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+            <element signature="e#1410#1411#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
