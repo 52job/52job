@@ -1,6 +1,6 @@
 package com.job52.service;
 
-import com.job52.model.Collection;
+import com.job52.model.*;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface CollectionService {
      * @return 收藏列表
      * @throws Exception 异常信息
      */
-    public List<Collection> findAllCollection() throws Exception;
+    public List<Job> findAllCollection(String pid) throws Exception;
 
     /**
      * 删除收藏列表中的内容
@@ -20,5 +20,8 @@ public interface CollectionService {
      * @return  操作是否成功
      * @throws Exception
      */
-    public boolean deleteCollection(String[] ids) throws Exception;
+    public boolean deleteCollection(List<CollectionKey> ids) throws Exception;
+
+
+    public boolean addApplication(List<Application> ids) throws Exception;
 }

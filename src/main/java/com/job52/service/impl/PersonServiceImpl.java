@@ -54,7 +54,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public boolean updatePersonInfo(String pid, Person person) throws Exception {
-        return false;
+       personMapper.updateByPrimaryKeySelective(person);
+        return true;
     }
 
     public boolean UpdatePersonPhone(String pid, String phone) throws Exception {
@@ -69,4 +70,11 @@ public class PersonServiceImpl implements PersonService {
         Person p = personMapper.selectByPrimaryKey(pid);
         return p;
     }
+
+    @Override
+    public Person queryPersonByNameCondition(String name) throws Exception {
+        return personMapper.queryPersonByNameCondition(name);
+    }
+
+
 }

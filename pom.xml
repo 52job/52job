@@ -129,6 +129,7 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -196,7 +197,6 @@
             <artifactId>spring-test</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
-
 
         <!-- json处理 -->
         <dependency>

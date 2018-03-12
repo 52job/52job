@@ -80,6 +80,7 @@
             });
 
 
+
         });
 
 
@@ -137,7 +138,8 @@
                             <td>
                                 <input type="text" value="漩涡鸣人" readonly="readonly" id="userName" name="userName"></td>
                             <td>
-                                <input type="button" id="userNameUpd" class="btn btn-default btn-primary" value="修改">
+                                <input type="button" id="userNameUpd" class="btn btn-default btn-primary"
+                                       data-toggle="modal" data-target="#setNewName" value="修改">
                             </td>
 
                         </tr>
@@ -151,7 +153,8 @@
                             <td><input type="text" value="123456" readonly="readonly" id="userPwd"></td>
 
                             <td>
-                                <input type="button" id="userPwdUpd" class="btn btn-default btn-primary" value="修改">
+                                <input type="button" id="userPwdUpd" class="btn btn-default btn-primary"
+                                       data-toggle="modal" data-target="#setPwd" value="修改">
                             </td>
                         </tr>
                         <tr>
@@ -166,9 +169,10 @@
                             </td>
 
                             <td>
-                                <input type="button" id="phoneNumUpd" class="btn btn-default btn-primary" value="修改">
-                                <input type="button" id="phoneNumPro" class="btn btn-default btn-primary" value="验证"
-                                       disabled>
+                                <input type="button" id="phoneNumUpd" data-toggle="modal" data-target="#setPhone"
+                                       class="btn btn-default btn-primary" value="重置/验证">
+
+
                             </td>
 
                         </tr>
@@ -182,9 +186,9 @@
                             <td><input type="text" value="" readonly="readonly" id="mail"></td>
 
                             <td>
-                                <input type="button" id="mailUpd" class="btn btn-default btn-primary" value="修改">
-                                <input type="button" id="mailPro" class="btn btn-default btn-primary" value="验证"
-                                       disabled>
+                                <input type="button" id="mailUpd" class="btn btn-default btn-primary" value="重置/验证"
+                                       data-toggle="modal" data-target="#setMail" >
+
 
                             </td>
                         </tr>
@@ -192,25 +196,329 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <input type="submit" class="btn btn-default btn-danger" value="保存" onclick="save()">
-                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </form>
-
             </div>
 
         </div>
     </div>
 </div>
 
+
+
+<!--绑定手机小窗口-->
+<div class="modal fade" id="setPhone" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+    <div class="modal-dialog" style="width: 340px">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 50px">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="myModalLabel" align="center">重置手机绑定</h4>
+            </div>
+            <div class="modal-body" style="position: relative;text-align: center; ">
+                <div style="width: 300px;height:200px">
+                    <form action="/person/loginPerson" method="POST"><!--修改-->
+
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="setNewPhone" style="float: left" id="labelUpd">请输入要绑定的手机</label><span id="userWarnLogin"></span>
+                                <input type="text" class="form-control" name="userName1"
+                                       id="setNewPhone" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row" style="margin-top: 0px;">
+                            <div class="form-group col-sm-6  form-horizontal">
+                                <input type="text" style="width: 100px; margin-left: 50px;margin-right: 5px" class="form-control" id="verifyNum2" name="verifyNum2" placeholder="验证码">
+                            </div>
+
+                            <input type="button" id="sendCode" style="margin-left: 5px" class="btn btn-default" value="获取验证码" disabled="true" onclick="settime(this),publish()" />
+                        </div>
+
+                        <div align="center" style="margin-top: 20px">
+                            <input type="button" class="btn  btn-danger" value="保存" align="center"
+                                  onclick="updatePhone()" style="width: 260px"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--绑定邮箱小窗口-->
+<div class="modal fade" id="setMail" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+    <div class="modal-dialog" style="width: 340px">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 50px">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="myModalLabelMail" align="center">重置邮箱绑定</h4>
+            </div>
+            <div class="modal-body" style="position: relative;text-align: center; ">
+                <div style="width: 300px;height:200px">
+                    <form action="/person/loginPerson" method="POST"><!--修改-->
+
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="setNewEmail" style="float: left" >请输入要绑定的邮箱</label><span id="userWarnLoginMail"></span>
+                                <input type="text" class="form-control" name="userName"
+                                       id="setNewEmail" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row" style="margin-top: 0px;">
+                            <div class="form-group col-sm-6  form-horizontal">
+                                <input type="text" style="width: 100px; margin-left: 50px;margin-right: 5px" class="form-control" id="verifyNum" name="verifyNum" placeholder="验证码">
+                            </div>
+
+                            <input type="button"  style="margin-left: 5px" class="btn btn-default" value="获取验证码" disabled="true" onclick="settime(this),publish()" />
+                        </div>
+
+                        <div align="center" style="margin-top: 20px">
+                            <input type="button" class="btn  btn-danger" value="保存" align="center"
+                                   onclick="updateEmail()" style="width: 260px"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--密码重置小窗口-->
+<div class="modal fade" id="setPwd" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+    <div class="modal-dialog" style="width: 340px">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 50px">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="myModalLabelPwd" align="center">密码重置</h4>
+            </div>
+            <div class="modal-body" style="position: relative;text-align: center; ">
+                <div style="width: 300px;height:300px">
+                    <form action="/person/loginPerson" method="POST"><!--修改-->
+
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="oldPassWord" style="float: left" >请输入原密码</label><span id="oldPwdWarn"></span>
+                                <input type="password" class="form-control" name="userName"
+                                       id="oldPassWord" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="newPassWord" style="float: left" >请输入新密码</label><span id="newPwdWarn"></span>
+                                <input type="password" class="form-control" name="userName"
+                                       id="newPassWord" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="newPassWord2" style="float: left" >确认新密码</label><span id="newpwdWarn2"></span>
+                                <input type="password" class="form-control" name="userName"
+                                       id="newPassWord2" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div align="center" style="margin-top: 20px">
+                            <input type="button" class="btn  btn-danger" value="保存" align="center"
+                                   onclick="updatePwd()" style="width: 260px"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--用户名-->
+<div class="modal fade" id="setNewName" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+    <div class="modal-dialog" style="width: 340px">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 50px">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="myModalLabelName" align="center">修改用户名</h4>
+            </div>
+            <div class="modal-body" style="position: relative;text-align: center; ">
+                <div style="width: 300px;height:150px">
+                    <form action="/person/loginPerson" method="POST"><!--修改-->
+
+                        <div >
+                            <div style="display: inline-block">
+                                <label for="setName" style="float: left" >请输入新用户名</label><span id="oldPwdWarn"></span>
+                                <input type="text" class="form-control" name="userName"
+                                       id="setName" placeholder="请保证格式正确" required autofocus/>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div align="center" style="margin-top: 20px">
+                            <input type="button" class="btn  btn-danger" value="保存" align="center"
+                                   onclick="updateName()" style="width: 260px"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
-    function save() {
-        alert("点击保存按钮后执行此方法");
+
+     function updateName(){
+         var userName = $("#setName").val();
+         alert(userName);
+         $.ajax({
+             url: '/person/setPersonInfo',//修改
+             type: 'post',
+             //dataType: 'json',
+             //contentType : 'application/json',
+             data:"userName="+userName,
+             success: success,
+             error: success
+         })
+     }
+
+     function updateEmail() {
+         var newEmail= $("#setNewEmail").val();
+         var verifyNum = $("#verifyNum").val();
+
+         alert("enter")
+         $.ajax({
+             url: '/person/updatePersonEmail',//修改
+             type: 'post',
+             //dataType: 'json',
+             //contentType : 'application/json',
+             data:"newEmail="+newEmail+"&verifyNum="+verifyNum,
+             success: success,
+             error: success
+         })
+     }
+
+     function updatePhone(){
+         var newPhone= $("#setNewPhone").val();
+         var verifyNum= $("#verifyNum2").val();
+
+         alert("enter")
+         $.ajax({
+             url: '/person/updatePersonPhone',//修改
+             type: 'post',
+             //dataType: 'json',
+             //contentType : 'application/json',
+             data:"newPhone="+newPhone+"&verifyNum="+verifyNum,
+             success: success,
+             error: success
+         })
+     }
+
+     function updatePwd(){
+         var oldPassword = $("#oldPassWord").val();
+         var newPassword =$("#newPassWord").val();
+         var newPassword2 = $("#newPassWord2").val();
+
+         alert("enter")
+         $.ajax({
+             url: '/person/updatePersonPwd',//修改
+             type: 'post',
+             //dataType: 'json',
+             //contentType : 'application/json',
+             data:"oldPassword="+oldPassword+"&newPassword="+newPassword+"&newPassword2="+newPassword2,
+             success: success,
+             error: success
+         })
+     }
+
+   /* function setNewName(){
+        alert("enter");
+        var userName = $("#setName").val();
+
+        alert("enter");
+        $.ajax({
+            url: '/person/setPersonInfo',//修改
+            type: 'post',
+            //dataType: 'json',
+            //contentType : 'application/json',
+            data:"userName="+userName,
+            success: success,
+            error: success
+        })
+    }
+
+    <!--修改邮箱-->
+    function setEmail(){
+        var newEmail= $("#setNewEmail").val();
+        var verifyNum = $("#verifyNum").val();
+
+        alert("enter")
+        $.ajax({
+            url: '/person/updatePersonEmail',//修改
+            type: 'post',
+            //dataType: 'json',
+            //contentType : 'application/json',
+            data:"newEmail="+newEmail+"&verifyNum="+verifyNum,
+            success: success,
+            error: success
+        })
+    }
+
+    <!--修改手机-->
+    function setPhone(){
+        var newPhone= $("#setNewPhone").val();
+        var verifyNum= $("#verifyNum2").val();
+
+        alert("enter")
+        $.ajax({
+            url: '/person/updatePersonPhone',//修改
+            type: 'post',
+            //dataType: 'json',
+            //contentType : 'application/json',
+            data:"newPhone="+newPhone+"&verifyNum="+verifyNum,
+            success: success,
+            error: success
+        })
+    }
+
+    <!--修改密码
+    String oldPassword,String newPassword,String newPassword2
+    -->
+    function setPwd(){
+        var oldPassword = $("#oldPassWord").val();
+        var newPassword =$("#newPassWord").val();
+        var newPassword2 = $("#newPassWord2").val();
+
+        alert("enter")
+        $.ajax({
+            url: '/person/updatePersonPwd',//修改
+            type: 'post',
+            //dataType: 'json',
+            //contentType : 'application/json',
+            data:"oldPassword="+oldPassword+"&newPassword="+newPassword+"&newPassword2="+newPassword2,
+            success: success,
+            error: success
+        })
+    }*/
+
+    function success(data) {
+        if(data.status=="success"){
+            alert(data.msg)
+            window.location.href="/job/init";
+        }else{
+            alert(data.msg);
+        }
     }
 </script>
 
