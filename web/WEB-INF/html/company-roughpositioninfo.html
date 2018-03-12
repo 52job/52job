@@ -99,7 +99,7 @@
 <script>
     function table() {
         var person_img=localStorage.getItem("personimg");//修改
-        document.getElementById("person_img").setAttribute("src","../img/profile.jpg");//修改
+        document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
         $('#table').bootstrapTable({
             url: '',//修改
             pagination: true,
@@ -144,7 +144,7 @@
                     validate: function (v) {
                         if (!v) return '招聘人数';
                     }
-            }, {
+            }}, {
                 field: 'salary',
                 title: '薪酬',
                 editable: {

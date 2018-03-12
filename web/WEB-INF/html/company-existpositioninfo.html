@@ -38,7 +38,7 @@
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="" id="person_img"
                          alt="">
 
                 </div>
@@ -102,7 +102,8 @@
 </div>
 <script>
     function table() {
-
+        var person_img=localStorage.getItem("personimg");//修改
+        document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
         $('#table').bootstrapTable({
             url: '',//修改
             method: 'get',
