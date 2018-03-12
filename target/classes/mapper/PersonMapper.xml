@@ -32,7 +32,25 @@
         <include refid="Base_Column_List"/>
         FROM person
         WHERE (user_name = #{userName} OR phone = #{phone} OR email = #{email})
-        AND pass_word = #{passWord}
+        AND pass_word = #{passWord};
+    </select>
+
+
+    <!--通过登录名来查找用户-->
+    <select id="queryPersonByNameCondition" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM person
+        WHERE (user_name = #{value} OR phone = #{value} OR email = #{value});
+    </select>
+
+
+    <!--通过条件来查询用户信息-->
+    <select id="queryPersonByCondition" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM person
+        where user_name LIKE %${value}% OR phone LIKE %${value}% OR email LIKE %${value}%
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >

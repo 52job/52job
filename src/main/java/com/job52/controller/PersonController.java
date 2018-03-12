@@ -1,9 +1,11 @@
 package com.job52.controller;
 
+import com.job52.dao.PersonMapper;
 import com.job52.model.Person;
 import com.job52.service.PersonService;
 import com.job52.util.CaptchaUtil;
 import com.job52.util.FormatUtil;
+import com.job52.util.MD5Util;
 import com.job52.util.SecurityCodeUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,19 @@ public class PersonController {
     public String resetPwd(){
         return "/resetPwd";
     }
+
+    //跳转到信息修改页面
+    @RequestMapping("/updatePersonInfo")
+    public String updatePersonInfo(){
+        return "/updateinfo";
+    }
+
+    //跳转到我的收藏页面
+    @RequestMapping("/mycollection")
+    public String myCollection() {
+        return  "/mycollection";
+    }
+
     /**
      * 得到图形验证码
      * @param request
@@ -69,34 +84,57 @@ public class PersonController {
      */
     @RequestMapping("/sendCode")
     @ResponseBody
-    public  Map<String,Object> sendCode(String userName, HttpSession session) throws Exception{
+    public  Map<String,Object> sendCode(String userName, HttpSession session) throws Exception {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         /**
          * 1.判断用户是邮箱还是手机，如果格式不正确，则认为输入出错
          * 2.如果是邮箱，则向用户的邮箱发送验证码
          * 3.如果是手机，则向用户的手机发送验证码
          */
+
         int format = FormatUtil.verifyPhoneOrEmailFormat(userName);
         String verifyCode = null;
-        if(format==0) {//格式错误
-            modelMap.put("msg","账号格式出错");
-            return modelMap;
-        }else{
-            if(format == 1){//手机
-                //得到手机验证码
-                verifyCode= SecurityCodeUtil.getPhoneCode(userName);
-               //将验证码放入session域中
-               session.setAttribute("verifyCode",verifyCode);
-            }else if(format == 2){//邮箱
-                //得到邮箱验证码
-                 verifyCode = SecurityCodeUtil.getEmailCode(userName);
-                //将验证码放入session域中
-                session.setAttribute("verifyCode",verifyCode);
+        if (format == 0) {//格式错误
+            modelMap.put("msg", "账号格式出错");
+        } else {
+            if (format == 1) {//手机
+                //判断手机是否存在，如果存在，不能进行发送验证码
+                //
+                if (personService.queryPersonByNameCondition(userName) != null) {
+                    //得到手机验证码
+                    verifyCode = SecurityCodeUtil.getPhoneCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到手机,请注意查收");
+                } else {
+                    modelMap.put("msg", "该手机已注册");
+                }
+            } else if (format == 2) {//邮箱
+                //判断邮箱是否存在如果存在，不能进行发送验证码
+                if (personService.queryPersonByNameCondition(userName) != null) {
+                    //得到邮箱验证码
+                    verifyCode = SecurityCodeUtil.getEmailCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到邮箱,请注意查收");
+                } else {
+                    modelMap.put("msg", "该邮箱已注册");
+                }
             }
         }
-        modelMap.put("msg","失败");
         return modelMap;
     }
+
+
+    @RequestMapping("/sendUpdateCode")
+    public String sendUpdateCode(HttpSession session,String userName) throws Exception{
+        //1.如果该手机/邮箱已存在，直接向原手机/邮箱发送验证码
+        //2.如果原信息不存在，则向新的手机发送验证码
+        //3.返回提示信息
+        return null;
+    }
+
+
 
     /**
      * 接收用户的注册信息
@@ -111,6 +149,7 @@ public class PersonController {
         String verifyNum = request.getParameter("verifyNum");
         String pwd = request.getParameter("passWord");
         String pwd2 = request.getParameter("passWord2");
+        //Person p1 = personService.queryPersonByNameCondition(person.getEmail());
         if(!pwd.equals(pwd2)){
             request.setAttribute("verifyMsg","两次密码不一致");
             return "/index";
@@ -132,7 +171,7 @@ public class PersonController {
 
     /**
      * 个人用户登录
-     * @param passWordLogin用户密码
+     * @param passWordLogin 用户密码
      * @param userNameLogin 登录名
      * @param request 请求域
      * @param response 响应域
@@ -179,22 +218,71 @@ public class PersonController {
     }
 
     /**
+     * 重置用户密码
+     * @param userName 登录名
+     * @param passWord  密码
+     * @param passWord2  重输密码
+     * @param verifyNum  验证码
+     * @param session  会话
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/setPwd")
+    public String setPwd(String userName,String passWord,String passWord2,String verifyNum,HttpSession session) throws Exception{
+        /**
+         * 1.在数据库中查找是否有该用户，如果有，则下一步
+         * 2.校验密码格式
+         * 3.校验两次密码是否一致
+         * 4.校验验证码
+         */
+        //1.在数据库中查找是否有该用户，如果有，则下一步,这一要通过ajax执行
+        Person p =personService.queryPersonByNameCondition(userName);
+        String verifyCode = (String) session.getAttribute("verifyCode");
+        //2.校验密码格式
+        //3.校验两次密码是否一致
+        if(passWord.equals(passWord2)){//两次密码一致
+            //操作后返回登录界面
+           //判断用户名的格式
+            if(verifyCode.equals(verifyNum)) {
+                p.setPassWord(passWord);
+                personService.updatePersonInfo(p.getPid(),p);
+                return "/index";
+            }else{
+                return "/resetPwd";
+            }
+        }else{
+            return "/resetPwd";
+        }
+    }
+
+
+
+    /**
      * 更新用户基本信息
-     * @param username 用户名
+     * @param userName 用户名
      * @param imgUrl 用户头像
      * @return  跳转地址
      * @throws Exception 异常信息
      */
-    @RequestMapping("updatePersonInfo")
-   public void updatePersonInfo(String username,String imgUrl) throws  Exception{
-        String pid = new String();
-        Person person = new Person();
-        person.setImgUrl(imgUrl);
-        person.setUserName(username);
+    @RequestMapping("/setPersonInfo")
+    @ResponseBody
+   public Map<String ,String> updatePersonInfo(String userName,String imgUrl,HttpSession session) throws  Exception{
+        Map<String ,String> map = new HashMap<String, String>();
+        Person person = (Person) session.getAttribute("person");
+        if(imgUrl != null) {
+            person.setImgUrl(imgUrl);
+        }
+        person.setUserName(userName);
+       String pid = person.getPid();
         if(personService.updatePersonInfo(pid,person)){
-            //更新成功，给出正确提示，不跳转
+             //更新成功，给出正确提示，不跳转
+            map.put("status","success");
+            map.put("msg","信息修改成功");
+            return map;
         }else{
-            //更新失败，给出错误提示，不跳转
+            map.put("status","fail");
+            map.put("msg","信息修改失败");
+            return map;
         }
    }
 
@@ -205,22 +293,56 @@ public class PersonController {
      * @return
      * @throws Exception 异常信息
      */
-   @RequestMapping("updatePersonPhone")
-   public String UpdatePersonPhone(String newPhone,String verifyNum,HttpSession session)throws Exception{
+   @RequestMapping("/updatePersonPhone")
+   @ResponseBody
+   public Map<String,String> UpdatePersonPhone(String newPhone,String verifyNum,HttpSession session)throws Exception{
         /*
            1.先判断验证码是否正确
            2.验证码正确更新手机
          */
-        String verifyCode = (String) session.getAttribute("verifyCode");
-        if(verifyCode.equals(verifyNum)){
-            //更新手机
-            String pid = new String();
-            personService.UpdatePersonPhone(pid,newPhone);
-        }else{
-            //提示失败
-        }
-     return null;
+       Map<String ,String> map = new HashMap<String, String>();
+       Person person = (Person) session.getAttribute("person");
+       String verifyCode = (String) session.getAttribute("verifyCode");
+       if(verifyCode.equals(verifyNum)){
+           //更新手机
+           String pid = person.getPid();
+           personService.UpdatePersonPhone(pid,newPhone);
+           map.put("status","success");
+           map.put("msg","手机绑定成功");
+           return map;
+       }else{
+           //提示失败
+           map.put("status","fail");
+           map.put("msg","手机绑定失败");
+           return map;
+       }
    }
+
+
+    @RequestMapping("/updatePersonPwd")
+    @ResponseBody
+    public Map<String ,String> updateUserPwd(String oldPassword,String newPassword,String newPassword2,HttpSession session) throws Exception {
+        Map<String ,String> map = new HashMap<String, String>();
+       Person p = (Person) session.getAttribute("person");
+        if(p.getPassWord().equals(MD5Util.md5(oldPassword))){
+           if(newPassword.equals(newPassword2)){
+               p.setPassWord(MD5Util.md5(newPassword));
+               personService.updatePersonInfo(p.getPid(),p);
+               map.put("status","success");
+               map.put("msg","密码修改成功");
+               return map;
+           }else{
+               map.put("status","success");
+               map.put("msg","两次密码不一致");
+               return map;
+           }
+        }
+        map.put("status","success");
+        map.put("msg","原密码不正确");
+        return map;
+    }
+
+
 
     /**
      * 更新用户邮箱
@@ -229,20 +351,29 @@ public class PersonController {
      * @return
      * @throws Exception 异常信息
      */
-    @RequestMapping("updatePersonEmail")
-    public String UpdatePersonEmail(String newEmail,String verifyNum,HttpSession session)throws Exception{
+    @RequestMapping("/updatePersonEmail")
+    @ResponseBody
+    public Map<String,String> UpdatePersonEmail(String newEmail,String verifyNum,HttpSession session)throws Exception{
         /*
            1.先判断验证码是否正确
-           2.验证码正确更新手机
+           2.验证码正确更新邮箱
          */
+        Map<String ,String> map = new HashMap<String, String>();
+        Person p = (Person) session.getAttribute("person");
         String verifyCode = (String) session.getAttribute("verifyCode");
         if(verifyCode.equals(verifyNum)){
             //更新手机
-            String pid = new String();
+            String pid = p.getPid();
             personService.UpdatePersonPhone(pid,newEmail);
+            map.put("status","success");
+            map.put("msg","邮箱绑定成功");
+            return map;
         }else{
             //提示失败
+            map.put("status","fail");
+            map.put("msg","邮箱绑定成失败");
+            return map;
         }
-        return null;
     }
+
 }

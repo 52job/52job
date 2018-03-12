@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -54,7 +55,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public boolean updatePersonInfo(String pid, Person person) throws Exception {
-        return false;
+       personMapper.updateByPrimaryKeySelective(person);
+        return true;
     }
 
     public boolean UpdatePersonPhone(String pid, String phone) throws Exception {
@@ -69,4 +71,24 @@ public class PersonServiceImpl implements PersonService {
         Person p = personMapper.selectByPrimaryKey(pid);
         return p;
     }
+
+    @Override
+    public List<Person> queryPersonByCondition(String condition) throws Exception {
+        return personMapper.queryPersonByCondition(condition);
+    }
+
+    @Override
+    public boolean deletePersonById(String[] ids) throws Exception {
+        for(String id:ids){
+            personMapper.deleteByPrimaryKey(id);
+        }
+        return true;
+    }
+
+    @Override
+    public Person queryPersonByNameCondition(String name) throws Exception {
+        return personMapper.queryPersonByNameCondition(name);
+    }
+
+
 }

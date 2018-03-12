@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="table()">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -26,7 +26,7 @@
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../img/profile.jpg"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
                          alt="">
 
                 </div>
@@ -93,6 +93,7 @@
     </div>
 </div>
 <script>
+    var searchdata="";
     function del2() {
         var row = $("#table").bootstrapTable('getSelections');
         var data = "[";
@@ -129,154 +130,13 @@
             }
         }
     }
-    $(document).ready(function () {
-
-        $("#search").click(function(){
-            var searchdata=$("#searchdata").val();
-           var data={
-               "searchdata":searchdata //修改
-           }
-           data=JSON.stringify(data);
-             $.ajax({
-                 url: '/v1/node/',//修改
-                 type: 'post',
-                 dataType: 'text',
-                 data: data,
-                 success: succFunction,
-                 error: erryFunction   
-             });
-
-
-             function erryFunction() {
-                 alert("搜索失败");
-             }
-
-             function succFunction() {
-                 $('#table').bootstrapTable({
-                     url: "",
-                     method: 'post',
-                     pagination: true,
-                     toolbar: '#toolbar',
-                     striped: true,
-                     pageNumber: 1,
-                     pageSize: 2,
-                     pageList: [1, 2],
-                     showRefresh: true,
-                     showColumns: true,
-                     showToggle: true,
-                     undefinedText: '-',
-                     selectItemName: 'select',
-                     showExport: true,
-                     exportDataType: "basic",
-                     exportTypes: ['excel'],
-                     clickToSelect: true,
-                     maintainSelected: true,
-                     search: true,
-                     showPaginationSwitch: true,
-                     checkboxHeader:true,
-                     columns: [{
-                         checkbox: true,
-                         title: '选择'
-
-                     },{
-                         field:'id',
-                         title:'ID',
-                         visible: false
-                     },{
-                         field: 'username',//命名需与后台一致
-                         title: '用户名'
-                     }, {
-                         field: 'phone',
-                         title: '电话'
-                     }, {
-                         field: 'email',
-                         title: '邮箱'
-                     }, {
-                         field: '操作',
-                         title: 'Item Operate',
-                         formatter: function (value, row, index) {//修改
-
-                             var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\')" >删除</a> ';
-                             return d;
-                         }
-                     }]
-                 });
-             }
-                 function del(index) {
-
-                     var id = index;
-
-
-                     var data={
-                         "id":id, //修改
-
-                     }
-                     data=JSON.stringify(data);
-                     $.ajax({
-                         url: '/v1/node/',//修改
-                         type: 'post',
-                         dataType: 'text',
-                         data: data,
-                         success: succFunction,
-                         error: erryFunction
-                     });
-                     function erryFunction(){
-                         alert("删除失败");
-                     }
-                     function succFunction(){
-                         alert("删除成功");
-                         $("#search").click();
-                     }
-                 }
-
-
-         })
-    });
-    $('#table').bootstrapTable({
-        pagination: true,
-        toolbar: '#toolbar',
-        striped: true,
-        pageNumber: 1,
-        pageSize: 2,
-        pageList: [1, 2],
-        showRefresh: true,
-        showColumns: true,
-        showToggle: true,
-        undefinedText: '-',
-        selectItemName: 'select',
-        sortable: true, showExport: true,
-        exportDataType: "basic",
-        exportTypes: ['excel'],
-        clickToSelect: true,
-        maintainSelected: true,
-        search: true,
-        showPaginationSwitch: true,
-        checkboxHeader:true,
-        columns: [{
-            checkbox: true,
-            title: '选择'
-
-        },{
-            field:'id',
-            title:'ID',
-            visible: false
-        },{
-            field: 'username',//命名需与后台一致
-            title: '用户名'
-        }, {
-            field: 'phone',
-            title: '电话'
-        }, {
-            field: 'email',
-            title: '邮箱'
-        }, {
-            field: 'operate',
-            title: '操作'
-        }]
-
-    });
-      /* $('#table').bootstrapTable({
+    function table() {
+        var url="...?searchdata="+searchdata;
+        $('#table').bootstrapTable({
+            url: url,
+            method: 'post',
             pagination: true,
+            toolbar: '#toolbar',
             striped: true,
             pageNumber: 1,
             pageSize: 2,
@@ -285,10 +145,24 @@
             showColumns: true,
             showToggle: true,
             undefinedText: '-',
-            checkboxHeader: false,
             selectItemName: 'select',
-            sortable: true,
+            showExport: true,
+            exportDataType: "basic",
+            exportTypes: ['excel'],
+            clickToSelect: true,
+            maintainSelected: true,
+            search: true,
+            showPaginationSwitch: true,
+            checkboxHeader:true,
             columns: [{
+                checkbox: true,
+                title: '选择'
+
+            },{
+                field:'id',
+                title:'ID',
+                visible: false
+            },{
                 field: 'username',//命名需与后台一致
                 title: '用户名'
             }, {
@@ -298,40 +172,23 @@
                 field: 'email',
                 title: '邮箱'
             }, {
-                field: '操作',
-                title: 'Item Operate',
-                formatter: function (value, row, index) {
+                field: 'operate',
+                title: '操作',
+                formatter: function (value, row, index) {//修改
 
-                    var d = '<a href="#" mce_href="#" onclick="del(\'' + row.username + '\',\'' + row.phone + '\')" >删除</a> ';
+                    var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\')" >删除</a> ';
                     return d;
                 }
-            }],
-            data: [{
-                username: 1,
-                phone: 'Item 1',
-                email: '$1'
-
-            }, {
-                username: 2,
-                phone: 'Item 2',
-                email: '$2'
-            }, {
-                username: 3,
-                phone: 'Item 3',
-                email: '$2'
             }]
-
-
         });
+        function del(index) {
 
-        function del(index1,index2) {
-            $("#search").click();
-          var username = index1;
-          var phone=index2;
+            var id = index;
+
 
             var data={
-                "username":username, //修改
-                "phone":phone
+                "id":id, //修改
+
             }
             data=JSON.stringify(data);
             $.ajax({
@@ -342,13 +199,25 @@
                 success: succFunction,
                 error: erryFunction
             });
-          function erryFunction(){
-              alert("删除失败");
-          }
-          function succFunction(){
-              alert("删除成功");
-          }
-        }*/
+            function erryFunction(){
+                alert("删除失败");
+            }
+            function succFunction(){
+                alert("删除成功");
+                $("#search").click();
+            }
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#search").click(function(){
+           searchdata=$("#searchdata").val();
+            table();
+
+         })
+    });
+
 
 </script>
 </body>

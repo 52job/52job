@@ -1,8 +1,10 @@
 package com.job52.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.job52.model.Demo;
 import com.job52.model.Test;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,11 +28,12 @@ public class TestContoller {
      pageNumber: 20,  //页码
      name:10
      */
-    public  String Test(int pageSize,int pageNumber,int name){
+    public  String Test(int pageSize, int pageNumber, int name){
         Map<String,Object> map = new HashMap<String,Object>();
       List<Test> list = new ArrayList<Test>();
         System.out.println(pageNumber);
         System.out.println(name);
+       // System.out.println(d.getAge1());
       Test test = new Test();
       test.setID("1");
       test.setName("马云");
@@ -68,5 +71,11 @@ public class TestContoller {
        // {total=200, rows=[{ID=2, Name=om}, {ID=2, Name=om}]}
         //{total=200, rows=[{ID='test1', Name='name1', Sex='sex1'}, {ID='test2', Name='name2', Sex='sex2'}]}
        //{total=200, rows=[{ID='2', Name='om', Sex='null'}, {ID='2', Name='om', Sex='null'}]}
+    }
+
+    @RequestMapping("/demo")
+    public String test1(@RequestBody Map<String,String> map){
+        System.out.println(map);
+        return null;
     }
 }

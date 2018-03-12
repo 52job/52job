@@ -2,13 +2,15 @@ package com.job52.dao;
 
 import com.job52.model.Person;
 
+import java.util.List;
+
 public interface PersonMapper {
     /**
      * 根据主键删除用户信息
      * @param pid 用户id
      * @return 用户信息
      */
-    int deleteByPrimaryKey(String pid);
+    int deleteByPrimaryKey(String pid) throws Exception;
 
     /**
      * 插入用户信息
@@ -57,5 +59,15 @@ public interface PersonMapper {
      * @return 返回最新的一个id
      */
     int findLastId();
+
+    /**
+     * 根据登录名查找用户
+     * @param name 登录名
+     * @return 用户信息
+     * @throws Exception
+     */
+    Person queryPersonByNameCondition(String name) throws Exception;
+
+    List<Person> queryPersonByCondition(String condition) throws Exception;
 
 }
