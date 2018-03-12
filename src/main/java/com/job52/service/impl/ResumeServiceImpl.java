@@ -1,43 +1,43 @@
 package com.job52.service.impl;
 
+import com.job52.dao.ResumeMapper;
 import com.job52.model.Resume;
 import com.job52.service.ResumeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service("resumeService")
+@Transactional
 public class ResumeServiceImpl implements ResumeService {
 
-    public int addResume(Resume resume) {
-        return 0;
+    @Autowired
+    private ResumeMapper resumeMapper;
+
+
+    public int addResume(Resume resume){
+        return resumeMapper.insert(resume);
     }
 
     public int removeResume(String rid) {
-        return 0;
+        return resumeMapper.deleteByPrimaryKey(rid);
     }
 
     public int updateResume(Resume resume) {
-        return 0;
-    }
-
-    public List<Resume> queryAll() {
-        return null;
+        return resumeMapper.updateByPrimaryKey(resume);
     }
 
     public List<Resume> queryAll(Resume resume) {
-        return null;
+        return resumeMapper.queryAll(resume);
     }
 
-    public Resume getResume(String rid) {
-        return null;
+    public Resume getResume(String rid){
+        return resumeMapper.selectByPrimaryKey(rid);
     }
 
-    public int setResumeState(String rid, int ispublic) {
-        return 0;
-    }
-
-    public int setResumeState(Resume resume) {
-        return 0;
+    public int setResumeState(String rid,int ispublic) {
+        return resumeMapper.setStateByPrimaryKey(rid,ispublic);
     }
 }

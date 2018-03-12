@@ -25,15 +25,11 @@
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-                <div>
-                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
-                </div>
                 <br><br>
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="" id="person_img"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
                          alt="">
 
                 </div>
@@ -45,32 +41,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class=" nav nav-sidebar">
                         <li>
-                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                            <a style="color: white" href="#about">企业信息管理</a>
                         </li>
                         <li>
-                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                            <a style="color: white" href="#experience">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a style="color: white" href="#">职位管理</a>
+                            <a style="color: white" href="#education">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a style="color: white" href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a style="color: white" href="#education">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a style="color: white" href="company-roughpositioninfo.html">草稿箱</a>
+                            <a style="color: white" href="#education">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a style="color: white" href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a style="color: white" href="#education">历史职业信息</a>
                         </li>
-                        <li class="apply">
-                            <a style="color: white" href="#">应聘管理</a>
+                        <li>
+                            <a style="color: white" href="#skills">应聘管理</a>
                         </li>
-                        <li style="display: none;color: white" class="f">
-                            <a style="color: white" href="company-applymentmanageF.html">未处理</a>
-                        </li>
-                        <li style="display: none" class="p">
-                            <a style="color: white" href="company-applymentmanageP.html">已处理</a>
-                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -89,8 +80,7 @@
 </div>
 <script>
     function table() {
-        var person_img=localStorage.getItem("personimg");//修改
-        document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
+
         $('#table').bootstrapTable({
             url: '/candidate/uncheckList',         //请求后台的URL（*）
             method: 'get',                      //请求方式（*）
@@ -100,7 +90,7 @@
             pagination: true,                   //是否显示分页（*）
             sortable: false,                     //是否启用排序
             sortOrder: "asc",                   //排序方式
-           // queryParams:queryParams,//传递参数（*）
+            // queryParams:queryParams,//传递参数（*）
             sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                       //初始化加载第一页，默认第一页
             pageSize: 10,                       //每页的记录行数（*）
@@ -131,45 +121,43 @@
                 visible: false
             },
                 {
-                field: 'name',//命名需与后台一致
-                title: '申请人'
-            }, {
-                field: 'resume',
-                title: '简历',
-                formatter: function (value, row, index) {
-                    var l = '<a href="#" mce_href="#" onclick="look(\'' + row.pid + '\',\'' + row.rid + '\' )" >点击查看</a> ';
-                    return l;
-                }
-            }, {
-                field: 'job',
-                title: '申请职位'
-            }, {
-                field: 'operate',
-                title: '操作',
-                formatter: function (value, row, index) {
-
-                    var a = '<a href="#" mce_href="#" onclick="accept1(\'' + row.id + '\' )" >接受</a> ';
-                    var r = '<a href="#" mce_href="#" onclick="refuse(\'' + row.id + '\' )" >拒绝</a> ';
-                    return a + "| " + r;
-                }
-            }],
+                    field: 'name',//命名需与后台一致
+                    title: '申请人'
+                }, {
+                    field: 'resume',
+                    title: '简历',
+                    formatter: function (value, row, index) {
+                        var l = '<a href="#" mce_href="#" onclick="look(\'' + row.rid + '\' )" >点击查看</a> ';
+                        return l;
+                    }
+                }, {
+                    field: 'job',
+                    title: '申请职位'
+                }, {
+                    field: 'operate',
+                    title: '操作',
+                    formatter: function (value, row, index) {
+                        var a = '<a href="#" mce_href="#" onclick="accept1(\'' + row.pid + '\',\'' + row.jid + '\' )" >接受</a> ';
+                        var r = '<a href="#" mce_href="#" onclick="refuse(\'' + row.pid + '\', \'' + row.jid + '\')" >拒绝</a> ';
+                        return a + "| " + r;
+                    }
+                }],
 
 
         });
     }
 
-    function look(pid, rid) {
+    function look( rid) {
         //$("#mymode").modal();
-    var data = {
-            "pid": pid,
+        var data = {
             "rid": rid
         };
         data=JSON.stringify(data);
         $.ajax({
-            url:'',
+            url:'/candidate/getResumeByIdInUncheck/uncheckList?rid='+rid,
             type:'get',
             dataType:'json',
-            data:data,
+//            data:data,
             success:succFunction,
             error:erryFunction
         });
@@ -217,7 +205,7 @@
                 $('#resume_state')[0].selectedIndex = 2;
             }
             $("#experience").val(json.experience);
-document.getElementById("appendix").setAttribute("href",json.appendix);
+            document.getElementById("appendix").setAttribute("href",json.appendix);
             $("#mymode").modal();
 
 
@@ -237,44 +225,48 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
     }
 
 
-            function accept1(index) {
-        var data = {
-            "id": index,
-            "status": 1
-        };
-        data=JSON.stringify(data);
+    function accept1(pid,jid) {
+        //alert("123");
+        //"/{jid}/{pid}/{ispass}/setIsRead/uncheckList"
+       var url="/candidate/setIsRead/uncheckList?jid="+jid+"&pid="+pid+"&ispass="+1;
+       //var url="/candidate/setIsRead/uncheckList?jid="+jid;
+
+       // var url = "/candidate/"+jid+"/"+pid+"/1/setIsRead/uncheckList";
+       // var url = "/candidate/"+jid+"/"+pid+"/1/setIsRead/uncheckList";
+        //alert(url);
         $.ajax({
-            url: '/v1/node/',
-            type: 'delete',
+            url: url,
+            type: 'get',
             dataType: 'text',
-            data: data,
             success: succFunction,
-            error: erryFunction//成功执行方法????
+            //error: erryFunction//成功执行方法????
         });
 
-        function erryFunction() {
-            alert("处理失败");
-        }
+      //function erryFunction() {
+          //alert("处理失败");
+      //s  }
 
-        function succFunction() {
+        function succFunction(data) {
+if (data=="true"){ alert("处理成功");
+    window.location.reload();}
+    else{
+    alert("处理失败");
+}
 
-
-            alert("处理成功");
-            window.location.reload();
+           // alert("处理成功");
+           // window.location.reload();
 
         }
     }
 
-    function refuse(index) {
-        var data = {
-            "id": index,
-            "status": 2
-        };
+    function refuse(pid,jid) {
+        var url="/candidate/setIsRead/uncheckList?jid="+jid+"&pid="+pid+"&ispass="+0;
         $.ajax({
-            url: '/v1/node/',
-            type: 'delete',
+            url: url,
+            type: 'get',
+            type: 'get',
             dataType: 'text',
-            data: data,
+
 
             success: succFunction,
             error: erryFunction//成功执行方法????
@@ -307,7 +299,7 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
                             <div class="col-md-3">
                                 <img alt="请添加图片" class="img-thumbnail" id="img" src="#"
                                      style="width: 160px;height: 160px ;text-align: center;line-height: 140px"
-                                     />
+                                />
 
                             </div>
 
@@ -373,7 +365,7 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
 
                             <div style="float: right">
                                 <a href="" target="_blank" id="appendix">附件</a>
-                               </div>
+                            </div>
 
                             <br>
                             <textarea style="height: 100px;width: 100%"
@@ -388,6 +380,7 @@ document.getElementById("appendix").setAttribute("href",json.appendix);
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">关闭</button>
             </div>
+
         </div>
     </div>
 </div>

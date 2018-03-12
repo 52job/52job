@@ -10,6 +10,24 @@ import java.util.Date;
  * @date 2018-03-06
  */
 public class Job {
+    public Job(String jid, Enterprise enterprise, String pid, Integer requiredNumber, String jname, Integer requiredWorkyear, Integer requiredEducation, Integer minSalary, Integer maxSalary, String benefit, String jobDesc, String jobType, String workPlace, Integer jobStatue, Date createTime) {
+        this.jid = jid;
+        this.enterprise = enterprise;
+        this.pid = pid;
+        this.requiredNumber = requiredNumber;
+        this.jname = jname;
+        this.requiredWorkyear = requiredWorkyear;
+        this.requiredEducation = requiredEducation;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.benefit = benefit;
+        this.jobDesc = jobDesc;
+        this.jobType = jobType;
+        this.workPlace = workPlace;
+        this.jobStatue = jobStatue;
+        this.createTime = createTime;
+    }
+
     /**
      * ְλid
      */

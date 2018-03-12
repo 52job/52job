@@ -8,9 +8,14 @@ package com.job52.model;
  * @date 2018-02-27
  */
 public class Enterprise {
+    public Enterprise(String eid) {
+        this.eid = eid;
+    }
+
     public Enterprise(String eid, String eUsername, String ePassword, String ename, String adddress, String eType, Integer eNumber, String email, String imageUrl, String descriptionte, String contact) {
         this.eid = eid;
         this.eUsername = eUsername;
+
         this.ePassword = ePassword;
         this.ename = ename;
         this.adddress = adddress;

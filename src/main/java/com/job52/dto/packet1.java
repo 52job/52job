@@ -6,6 +6,18 @@ public class packet1 {
     String rid;
     Integer ispass;
 
+    @Override
+    public String toString() {
+        return "packet1{" +
+                "jid='" + jid + '\'' +
+                ", pid='" + pid + '\'' +
+                ", rid='" + rid + '\'' +
+                ", ispass=" + ispass +
+                ", name='" + name + '\'' +
+                ", job='" + job + '\'' +
+                '}';
+    }
+
     public packet1(String jid, String pid, String rid, Integer ispass, String name, String job) {
         this.jid = jid;
         this.pid = pid;
@@ -36,6 +48,14 @@ public class packet1 {
 
     public String getPid() {
         return pid;
+    }
+
+    public Integer getIspass() {
+        return ispass;
+    }
+
+    public void setIspass(Integer ispass) {
+        this.ispass = ispass;
     }
 
     public void setPid(String pid) {

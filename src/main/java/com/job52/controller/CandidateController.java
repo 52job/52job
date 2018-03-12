@@ -39,8 +39,12 @@ public class CandidateController {
     private PersonService personService;
 
     @RequestMapping("/candidate_1")
-    public String index() {
+    public String index1() {
         return "/company-applymentmanageF";
+    }
+    @RequestMapping("/candidate_2")
+    public String index2() {
+        return "/company-applymentmanageP";
     }
 
     /**
@@ -51,10 +55,10 @@ public class CandidateController {
     @ResponseBody
     public  String uncheckList() throws Exception {
         List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(0,0));
-        for (Candidate tmp : candidates) {
-            System.out.println(tmp);
-            System.out.println("___________________________________________________________get");
-        }
+//        for (Candidate tmp : candidates) {
+//            System.out.println(tmp);
+//            System.out.println("___________________________________________________________get");
+//        }
 
         List<packet1> packet1s = new ArrayList<packet1>();
         Map<String,Object> map = new HashMap<String, Object>();
@@ -72,89 +76,97 @@ public class CandidateController {
         map.put("total",len);
         map.put("rows",packet1s);
         String jsonString = JSON.toJSONString(map);
-        System.out.println("!!!"+jsonString);
+        //System.out.println("!!!"+jsonString);
         return jsonString;
     }
 
 
     /**
      * set candidate isread
-     * @param jid
-     * @param pid
-     * @param ispass
      * @return
      */
-    @RequestMapping(value = "/{jid}:{pid}/{ispass}/setIsRead/uncheckList",method = RequestMethod.GET)
-    public String setIsRead(@PathVariable("jid") String jid, @PathVariable("pid") String pid,@PathVariable("ispass") Integer ispass ) {
-        if(jid == null ||pid == null) {
-            return "redirect:/uncheckList" ;
-        }
+    @RequestMapping(value = "/setIsRead/uncheckList",method = RequestMethod.GET)
+    @ResponseBody
+    public String setIsRead(HttpServletRequest request) {
+        String jid = request.getParameter("jid");
+        String pid = request.getParameter("pid");
+        Integer ispass = Integer.parseInt(request.getParameter("ispass"));
         Candidate c=candidateInfoService.getCandidate(new Candidate(jid,pid));
         c.setIsread(1);
         c.setIspass(ispass);
         try {
             candidateInfoService.updateCandidate(c);
         } catch (Exception e) {
-            e.printStackTrace();
+            return "false";
         }
-        return "uncheckList";
+        return "true";
     }
 
     /**
      * get resume
-     * @param rid
      * @return
      */
-    @RequestMapping(value = "/{rid}/getResumeByIdInUncheck/uncheckList",method = RequestMethod.POST,
+    @RequestMapping(value = "/getResumeByIdInUncheck/uncheckList",method = RequestMethod.GET,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Resume getResumeByIdInUncheck(@PathVariable("rid") String rid) {
+    public String getResumeByIdInUncheck(HttpServletRequest request) {
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!1___");
+        String rid = request.getParameter("rid");
+        System.out.println(rid+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         Resume r = resumeService.getResume(rid);
-        return r;
+        String JsonString = JSON.toJSONString(r);
+        System.out.println(JsonString);
+        return JsonString;
     }
 
 
     /**
      * get check list
-     * @param model
      * @return
      */
     @RequestMapping(value = "/checkList",method = RequestMethod.GET)
     @ResponseBody
-    public String checkList(Model model) throws Exception {
-        List<Candidate> candidates = candidateInfoService.queryContainsCandidate(new Candidate(1));
+    public String checkList() throws Exception {
+        List<Candidate> candidates1 = candidateInfoService.queryContainsCandidate(new Candidate(1,0));
+        List<Candidate> candidates2 = candidateInfoService.queryContainsCandidate(new Candidate(1,1));
+        candidates1.addAll(candidates2);
         List<packet1> packet1s = new ArrayList<packet1>();
         Map<String,Object> map = new HashMap<String, Object>();
-        int len = candidates.size();
+        int len = candidates1.size();
         String jid,pid,rid,name,job;
         Integer ispass;
         for (int i = 0; i < len; i++) {
-            Candidate c = candidates.get(i);
+            Candidate c = candidates1.get(i);
             jid = c.getJid();
             pid = c.getPid();
             rid = c.getRid();
             ispass = c.getIspass();
+            System.out.println("ispass_______________"+ispass);
             name = personService.queryPerson(c.getPid()).getUserName();
             job = jobService.getJob(c.getJid()).getJname();
-            packet1s.add(i,new packet1(jid,pid,rid,ispass,name,job));
+            packet1 p = new packet1(jid,pid,rid,ispass,name,job);
+            packet1s.add(i,p);
+            System.out.println(p);
         }
         map.put("total",len);
         map.put("rows",packet1s);
         String jsonString = JSON.toJSONString(map);
+        System.out.println(jsonString);
         return jsonString;
     }
 
     /**
      * get rusume
-     * @param rid
      * @return
      */
-    @RequestMapping(value = "/{rid}/getResumeByIdInCheck/uncheckList",method = RequestMethod.POST,
+    @RequestMapping(value = "/getResumeByIdInCheck/uncheckList",method = RequestMethod.GET,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Resume getResumeByIdInCheck(@PathVariable("rid") String rid) {
+    public String getResumeByIdInCheck(HttpServletRequest request) {
+        String rid = request.getParameter("rid");
         Resume r = resumeService.getResume(rid);
-        return r;
+        String JsonString = JSON.toJSONString(r);
+        return JsonString;
     }
 
     /**
@@ -162,8 +174,8 @@ public class CandidateController {
      * @param request
      */
     @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
-    @Transactional
-    public void delectCandidates(HttpServletRequest request) {
+    @ResponseBody
+    public String delectCandidates(HttpServletRequest request) {
         List<String> jids = new ArrayList<String>();
         List<String> pids = new ArrayList<String>();
         jids = (List<String>) request.getAttribute("jids");
@@ -172,8 +184,9 @@ public class CandidateController {
             candidateInfoService.removeCandidates(jids,pids);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
@@ -181,7 +194,8 @@ public class CandidateController {
      * @param request
      */
     @RequestMapping(value = "/delectCandidate/checkList",method = RequestMethod.DELETE)
-    public void delectCandidate(HttpServletRequest request) {
+    @ResponseBody
+    public String delectCandidate(HttpServletRequest request) {
         String jid = null;
         String pid = null;
         jid = (String) request.getAttribute("jid");
@@ -190,8 +204,9 @@ public class CandidateController {
             candidateInfoService.removeCandidate(new Candidate(jid,pid));
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException();
+            return "false";
         }
+        return "true";
     }
 
     /**
