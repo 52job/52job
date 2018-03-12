@@ -53,6 +53,7 @@ public class ResumeController {
 //        resume.setName(request.getParameter("name"));
 //        resume.setName(request.getParameter("name"));
 //        resume.setName(request.getParameter("name"));
+        System.out.println(resume.toString());
         if(resumeService.addResume(resume)>0){
             return "success!";
         }else{
