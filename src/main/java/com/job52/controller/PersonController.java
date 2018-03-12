@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -85,34 +84,57 @@ public class PersonController {
      */
     @RequestMapping("/sendCode")
     @ResponseBody
-    public  Map<String,Object> sendCode(String userName, HttpSession session) throws Exception{
+    public  Map<String,Object> sendCode(String userName, HttpSession session) throws Exception {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         /**
          * 1.判断用户是邮箱还是手机，如果格式不正确，则认为输入出错
          * 2.如果是邮箱，则向用户的邮箱发送验证码
          * 3.如果是手机，则向用户的手机发送验证码
          */
+
         int format = FormatUtil.verifyPhoneOrEmailFormat(userName);
         String verifyCode = null;
-        if(format==0) {//格式错误
-            modelMap.put("msg","账号格式出错");
-            return modelMap;
-        }else{
-            if(format == 1){//手机
-                //得到手机验证码
-                verifyCode= SecurityCodeUtil.getPhoneCode(userName);
-               //将验证码放入session域中
-               session.setAttribute("verifyCode",verifyCode);
-            }else if(format == 2){//邮箱
-                //得到邮箱验证码
-                 verifyCode = SecurityCodeUtil.getEmailCode(userName);
-                //将验证码放入session域中
-                session.setAttribute("verifyCode",verifyCode);
+        if (format == 0) {//格式错误
+            modelMap.put("msg", "账号格式出错");
+        } else {
+            if (format == 1) {//手机
+                //判断手机是否存在，如果存在，不能进行发送验证码
+                //
+                if (personService.queryPersonByNameCondition(userName) != null) {
+                    //得到手机验证码
+                    verifyCode = SecurityCodeUtil.getPhoneCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到手机,请注意查收");
+                } else {
+                    modelMap.put("msg", "该手机已注册");
+                }
+            } else if (format == 2) {//邮箱
+                //判断邮箱是否存在如果存在，不能进行发送验证码
+                if (personService.queryPersonByNameCondition(userName) != null) {
+                    //得到邮箱验证码
+                    verifyCode = SecurityCodeUtil.getEmailCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到邮箱,请注意查收");
+                } else {
+                    modelMap.put("msg", "该邮箱已注册");
+                }
             }
         }
-        modelMap.put("msg","失败");
         return modelMap;
     }
+
+
+    @RequestMapping("/sendUpdateCode")
+    public String sendUpdateCode(HttpSession session,String userName) throws Exception{
+        //1.如果该手机/邮箱已存在，直接向原手机/邮箱发送验证码
+        //2.如果原信息不存在，则向新的手机发送验证码
+        //3.返回提示信息
+        return null;
+    }
+
+
 
     /**
      * 接收用户的注册信息

@@ -30,11 +30,15 @@
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                <div>
+                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
+                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
+                </div>
                 <br><br>
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../img/profile.jpg"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="" id="person_img"
                          alt="">
 
                 </div>
@@ -46,25 +50,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class=" nav nav-sidebar">
                         <li>
-                            <a style="color: white" href="#about">企业信息管理</a>
+                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
                         </li>
                         <li>
-                            <a style="color: white" href="#experience">简历搜索</a>
+                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a style="color: white" href="#education">职位管理</a>
+                            <a style="color: white" href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a style="color: white" href="#education">已发布职业信息</a>
+                            <a style="color: white" href="company-existpositioninfo.html">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a style="color: white" href="#education">草稿箱</a>
+                            <a style="color: white" href="company-roughpositioninfo.html">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a style="color: white" href="#education">历史职业信息</a>
+                            <a style="color: white" href="company-pastpositioninfo.html">历史职业信息</a>
                         </li>
-                        <li>
-                            <a style="color: white" href="#skills">应聘管理</a>
+                        <li class="apply">
+                            <a style="color: white" href="#">应聘管理</a>
+                        </li>
+                        <li style="display: none;color: white" class="f">
+                            <a style="color: white" href="company-applymentmanageF.html">未处理</a>
+                        </li>
+                        <li style="display: none" class="p">
+                            <a style="color: white" href="company-applymentmanageP.html">已处理</a>
                         </li>
 
                     </ul>
@@ -92,7 +102,8 @@
 </div>
 <script>
     function table() {
-
+        var person_img=localStorage.getItem("personimg");//修改
+        document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
         $('#table').bootstrapTable({
             url: '',//修改
             method: 'get',
@@ -129,6 +140,9 @@
                 field: 'position',//命名需与后台一致
                 title: '职位'
             }, {
+                field: 'number',//命名需与后台一致
+                title: '招聘人数'
+            }, {
                 field: 'salary',
                 title: '薪酬'
             }, {
@@ -148,36 +162,38 @@
                 title: '操作',
                 formatter: function (value, row, index) {
 
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
 
                     return u;
                 }
             }],
             data: [{
                 id: 3,
-                position: 12,
-                salary: 100,
-                education: 111,
-                experience: 333,
-                city: 111,
-                introduction: 444
+                position: "数据分析师",
+                salary: "0.7-1万/月",
+                education: "本科以上",
+                experience: "无工作经验",
+                city: "武汉",
+                introduction: "计算机专业优先"
 
             }, {
-
-                position: 2
-
-            }, {
-                id: 4,
-                position: 3
-            }]
+                id: 3,
+                position: "数据分析师",
+                salary: "0.7-1万/月",
+                education: "本科以上",
+                experience: "无工作经验",
+                city: "武汉",
+                introduction: "计算机专业优先"
+            }, ]
 
         });
 
 
     }
 
-    function update(id, position, salary, education, experience, city, introduction) {
+    function update(id, position,number, salary, education, experience, city, introduction) {
         $("#position2").val(position);
+        $("#number2").val(number);
         $("#salary2").val(salary);
         $("#education2").val(education);
         $("#experience2").val(experience);
@@ -243,6 +259,8 @@
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position" type="text" class="inp"
                 ></div>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
+                ></div>
                 <br>
                 <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary" type="text" class="inp">
                 </div>
@@ -272,6 +290,7 @@
 <script>
     function publish() {
         var position = $("#position").val();
+        var number=$("#number").val();
         var salary = $("#salary").val();
         var education = $("#education").val();
         var experience = $("#experience").val();
@@ -280,6 +299,7 @@
         var data = {
             "id":id,
             "position": position,
+            "number":number,
             "salary": salary,
             "education": education,
             "experience": experience,
@@ -321,6 +341,9 @@
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position2" type="text" class="inp"
                 ></div>
                 <br>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number2" type="text" class="inp"
+                ></div>
+                <br>
                 <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
                 </div>
                 <br>
@@ -350,6 +373,7 @@
     function finish() {
         var id=window.localStorage.getItem("uid");
         var position = $("#position2").val();
+        var number=$("#number2").val();
         var salary = $("#salary2").val();
         var education = $("#education2").val();
         var experience = $("#experience2").val();
@@ -359,6 +383,7 @@
         var data={
             "id":id,
             "position":position,
+            "number":number,
             "salary":salary,
             "education":education,
             "experience":experience,
