@@ -70,6 +70,14 @@ public class JobServiceImpl implements JobService {
 
     }
 
+    public List<Job> queryByJobIds(List<String> jids) {
+        List<Job> list = new ArrayList<Job>();
+        for (int i = 0; i < jids.size(); i++) {
+            list.add(getJob(jids.get(i)));
+        }
+        return list;
+    }
+
     public List<Job> queryString(String str) {
         return jobMapper.queryString(str);
     }

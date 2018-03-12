@@ -28,32 +28,32 @@ public class Enterprise {
     /**
      * 公司id
      */
-    private String eid;
+    private String eid ;
 
     /**
      * 公司用户名
      */
-    private String eUsername;
+    private String eUsername ;
 
     /**
      * 公司密码
      */
-    private String ePassword;
+    private String ePassword ;
 
     /**
      * 公司名称
      */
-    private String ename;
+    private String ename = "";
 
     /**
      * 公司地址
      */
-    private String adddress;
+    private String adddress = "";
 
     /**
      * 企业类型
      */
-    private String eType;
+    private String eType = "";
 
     /**
      * 员工人数
@@ -67,7 +67,7 @@ public class Enterprise {
     /**
      * 公司描述
      */
-    private String descriptionte;
+    private String descriptionte = "";
 
     /**
      * 备注:联系人，电话等等

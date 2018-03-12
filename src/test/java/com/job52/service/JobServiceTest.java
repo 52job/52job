@@ -25,7 +25,7 @@ public class JobServiceTest {
     public void addJob() throws Exception {
         Job job = new Job();
         job.setJid(CommonUtil.getJobId());
-        job.setJname("销售2222");
+        job.setJname("销售11333");
         job.setMinSalary(6);
         job.setMaxSalary(8);
         job.setJobStatue(1);

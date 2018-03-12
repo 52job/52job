@@ -1,6 +1,8 @@
 package com.job52.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.job52.model.Enterprise;
 import com.job52.model.Job;
 import com.job52.model.Person;
@@ -49,7 +51,7 @@ public class AdminController {
         return "/admin-person";
     }
 
-    @RequestMapping("/company")
+    @RequestMapping("/enterprise")
     public String company() {
         return "/admin-company";
     }
@@ -57,6 +59,8 @@ public class AdminController {
     @RequestMapping("/job/search/{value}")
     @ResponseBody
     public String searchJob(@PathVariable("value") String value) {
+        System.out.println("------");
+        System.out.println(value);
         List<Job> list = jobService.queryString(value);
         Map<String, Object> map = new HashMap();
         map.put("total", list.size());
@@ -67,30 +71,43 @@ public class AdminController {
     }
 
     @RequestMapping("/job/delete")
-    @ResponseBody
-    public void deleteJob(HttpServletRequest request) {
-        //TODO
-        //JSONParser json = new JSONParser();
-        List<Job> jobs = new ArrayList<Job>();
-        jobService.removeJobs(jobs);
+    public String deleteJob(String jids) {
+        System.out.println(jids);
+        jobService.removeJobs(jobService.queryByJobIds(jids.split(",")));
+        return "/admin-position";
     }
     @RequestMapping("/person/search/{value}")
+    @ResponseBody
     public String searchPerson(@PathVariable("value") String value) throws Exception {
-       //TODO List<Person> list = personService.;
-        return "";
+        System.out.println("---");
+        System.out.println(value);
+        List<Person> list = personService.queryPersonByCondition(value);
+        Map<String, Object> map = new HashMap();
+        map.put("total", list.size());
+        map.put("rows", list);
+        System.out.println(map.toString());
+        String jsonString = JSON.toJSONString(map);
+        return jsonString;
     }
 
     @RequestMapping("/person/delete")
     @ResponseBody
-    public void deletePerson(HttpServletRequest request) {
-
+    public void deletePerson(String pids) throws Exception {
+        System.out.println("---");
+        System.out.println(pids);
+        personService.deletePersonById(pids.split(","));
     }
 
     @RequestMapping("/enterprise/search/{value}")
     @ResponseBody
     public String searchEnterprise(@PathVariable("value") String value) {
+        System.out.println(value);
         Enterprise enterprise = new Enterprise();
         enterprise.setEname(value);
+        enterprise.setEid(value);
+        enterprise.seteType(value);
+        enterprise.setAdddress(value);
+        enterprise.setDescriptionte(value);
         List<Enterprise> list = enterpriseService.queryContainsEnterprise(enterprise);
         Map<String, Object> map = new HashMap();
         map.put("total", list.size());
@@ -101,10 +118,13 @@ public class AdminController {
     }
     @RequestMapping("/enterprise/delete")
     @ResponseBody
-    public void deleteEnterprise() {
-        //TODO
-        List<String> eids = new ArrayList();
-        enterpriseService.removeEnterpeises(eids);
+    public void deleteEnterprise(String eids) {
+        System.out.println(eids);
+        List<String> list = new ArrayList<String>();
+        for (String s : eids.split(",")) {
+            list.add(s);
+        }
+        enterpriseService.removeEnterpeises(list);
     }
 
 }
