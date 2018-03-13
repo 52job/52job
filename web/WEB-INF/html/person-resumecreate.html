@@ -30,7 +30,7 @@
         }
         .p1{
             color: #343a40;
-            font-weight: 650;
+            font-weight: 600;
         }
     </style>
     <script>
@@ -39,6 +39,7 @@
             var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
             return this.optional(element) || (length == 11 && mobile.test(value));
         }, "请正确填写您的手机号码");
+
        function check() {
            var src = document.getElementById("img").getAttribute("src");
            var fileVal = document.getElementById("appendix").value;
@@ -69,7 +70,7 @@
                    },
                    email:{
                        required:true,
-                       eamil:true
+                      email:true
                    },
                    address:{
                        required:true
@@ -87,6 +88,12 @@
                        required:true
                    },
                    resume_state:{
+                       required:true
+                   },
+                  resumename:{
+                       required:true
+                  } ,
+                   purpose:{
                        required:true
                    }
                },
@@ -110,7 +117,7 @@
                    },
                    email:{
                        required:"请输入邮箱",
-                       eamil:"请输入正确的邮箱"
+                       email:"请输入正确的邮箱"
                    },
                    address:{
                        required:"请输入居住地址"
@@ -129,6 +136,12 @@
                    },
                    resume_state:{
                        required:"请选择简历状态"
+                   },
+                   resumename:{
+                       required:"请输入简历名称"
+                   },
+                   purpose:{
+                       required:"请输入求职意向"
                    }
                },
                submitHandler: function (form) {
@@ -202,7 +215,7 @@
         </div>
 
 
-        <div class="col-md-10">
+        <div class="col-md-10" style="margin-top: -15px">
             <br><br>
 
             <div class="container-fluid">
@@ -254,21 +267,28 @@
                     </div>
                     <br>
                     <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
+                        简历名称：<input type="text" style="width: 260px" name="resumename" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        求职意向：<input type="text" style="width: 260px" name="purpose">
+                    </div>
+                    <br>
+                       <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
                         &nbsp; 简历状态：<select style="width: 100px;text-align: center;" name="resume_state">
                         <option value="">请选择</option>
                         <option value="公开">公开</option>
                         <option value="不公开">不公开</option>
                     </select>
+
                     </div>
 
 
-                    <div style="position: relative;left: -50px" class="p1">
+
+            <div style="position: relative;left: -50px" class="p1">
                         <input type="file" style="float: right;display: none" value="添加附件" id="appendix"/>
                         <input type="button" value="添加附件" style="float: right" onclick="app()"/>
                         <br><br>
                         <textarea style="height: 100px;width: 100%" placeholder="此处填写工作经历，可上传附件" required></textarea>
                     </div>
-                    <br>
+
                     <div align="center" class="p1">
                         <button class="btn-default" style="width: 80px" type="submit" onclick="ref()" id="save" hidden>
                             保存
@@ -317,7 +337,7 @@
 
 </script>
 </div>
-</body>
+</div>
 </body>
 
 </html>
