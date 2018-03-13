@@ -105,101 +105,93 @@
         var person_img=localStorage.getItem("personimg");//修改
         document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
         $('#table').bootstrapTable({
-            url: '',//修改
-            method: 'get',
-            pagination: true,
-            cache: false,
-            striped: true,
-            toolbar: '#toolbar',
-            pageNumber: 1,
-            pageSize: 3,
-            pageList: [1, 2],
-            showRefresh: true,
-            showColumns: true,
-            showToggle: true,
-            undefinedText: '-',
-            selectItemName: 'select',
-            sortable: true,
-            showExport: true,
-            exportDataType: "basic",
-            exportTypes: ['excel'],
-            clickToSelect: true,
-            maintainSelected: true,
-            search: true,
-            showPaginationSwitch: true,
-            checkboxHeader:true,
+            url: '/enterprise/jobList',//修改
+            method: 'get',                      //请求方式（*）
+            toolbar: '#toolbar',                //工具按钮用哪个容器
+            striped: true,                      //是否显示行间隔色
+            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   //是否显示分页（*）
+            sortable: false,                     //是否启用排序
+            sortOrder: "asc",                   //排序方式
+            // queryParams:queryParams,//传递参数（*）
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
+            pageSize: 10,                       //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            contentType: "application/x-www-form-urlencoded",
+            strictSearch: true,
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: true,                  //是否显示刷新按钮
+            minimumCountColumns: 2,             //最少允许的列数
+            clickToSelect: true,                //是否启用点击选中行
+            height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            uniqueId: "no",                     //每一行的唯一标识，一般为主键列
+            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            detailView: false,                   //是否显示父子表
+
             columns: [{
                 checkbox: true,
                 title: '选择'
             }, {
-                field: 'id',
+                field: 'jid',
                 title: 'ID',
                 visible: false
             }, {
-                field: 'position',//命名需与后台一致
+                field: 'jname',//命名需与后台一致
                 title: '职位'
             }, {
-                field: 'number',//命名需与后台一致
+                field: 'requiredNumber',//命名需与后台一致
                 title: '招聘人数'
             }, {
-                field: 'salary',
-                title: '薪酬'
-            }, {
-                field: 'education',
+                field: 'minSalary',
+                title: '低薪酬'
+            },
+                {
+                    field: 'maxSalary',
+                    title: '高薪酬'
+                },{
+                field: 'requiredEducation',
                 title: '学历'
             }, {
-                field: 'experience',
+                field: 'requiredWorkyear',
                 title: '工作经验'
             }, {
-                field: 'city',
+                field: 'workPlace',
                 title: '工作城市'
             }, {
-                field: 'introduction',
+                field: 'jobDesc',
                 title: '简介'
-            }, {
+            },{
                 field: 'operate',
                 title: '操作',
                 formatter: function (value, row, index) {
 
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber +
+                        '\',\'' + row.minSalary+ '\',\'' + row.maxSalary  + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\''
+                        + row.workPlace + '\',\'' + row.jobDesc + '\')" >修改</a> ';
 
                     return u;
                 }
             }],
-            data: [{
-                id: 3,
-                position: "数据分析师",
-                salary: "0.7-1万/月",
-                education: "本科以上",
-                experience: "无工作经验",
-                city: "武汉",
-                introduction: "计算机专业优先"
-
-            }, {
-                id: 3,
-                position: "数据分析师",
-                salary: "0.7-1万/月",
-                education: "本科以上",
-                experience: "无工作经验",
-                city: "武汉",
-                introduction: "计算机专业优先"
-            }, ]
 
         });
 
 
     }
 
-    function update(id, position,number, salary, education, experience, city, introduction) {
+    function update(jid, position,number, minSalary, maxSalary, education, experience, city, introduction) {
+        //alert("123");
+        localStorage.setItem("jid",jid);
         $("#position2").val(position);
         $("#number2").val(number);
-        $("#salary2").val(salary);
+        $("#salary2").val(minSalary);
+        $("#salary3").val(maxSalary);
         $("#education2").val(education);
         $("#experience2").val(experience);
         $("#city2").val(city);
         $("#introduction2").val(introduction);
-        window.localStorage.setItem("upid", id);
-        // alert( window.localStorage.getItem("upid"));
         $("#mymodel2").modal();
     }
 
@@ -288,6 +280,7 @@
 </div>
 <script>
     function publish() {
+
         var position = $("#position").val();
         var number=$("#number").val();
         var salary = $("#salary").val();
@@ -296,7 +289,7 @@
         var city = $("#city").val();
         var introduction = $("#introduction").val();
         var data = {
-            "id":id,
+            "id":jid,
             "position": position,
             "number":number,
             "salary": salary,
@@ -343,7 +336,10 @@
                 <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number2" type="text" class="inp"
                 ></div>
                 <br>
-                <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
+                <div><b>最高薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
+                </div>
+                <br>
+                <div><b>最低薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary3" type="text" class="inp">
                 </div>
                 <br>
                 <div><b>学历：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="education2" type="text" class="inp"
@@ -370,42 +366,46 @@
 </div>
 <script>
     function finish() {
-        var id=window.localStorage.getItem("uid");
+        var jid=window.localStorage.getItem("jid");
+
         var position = $("#position2").val();
         var number=$("#number2").val();
-        var salary = $("#salary2").val();
+        var salary2 = $("#salary2").val();
+        var salary3 = $("#salary3").val();
         var education = $("#education2").val();
         var experience = $("#experience2").val();
         var city = $("#city2").val();
         var introduction = $("#introduction2").val();
         window.localStorage.clear();
-        var data={
-            "id":id,
-            "position":position,
-            "number":number,
-            "salary":salary,
-            "education":education,
-            "experience":experience,
-            "city":city,
-            "introducation":introduction
-        };
-        data=JSON.stringify(data);
+
+
         $.ajax({
-            url:"",
+            url:"/enterprise/updateJob2",
             type:"post",
             dataType:"text",
-            data:data,
+            data:{
+                "jid":jid,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":salary2,
+                "maxSalary":salary3,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
             success: succFunction,
-            error: erryFunction
         });
-        function succFunction(){
-            alert("修改失败");
+        function succFunction(data){
+            if(data == "false")
 
-        }
-        function erryFunction() {
-            alert("修改成功");
-            $("#close").click();
-            window.location.reload();
+            {alert("修改失败");}
+            else {
+                alert("修改成功");
+                $("#close").click();
+                window.location.reload();
+            }
+
         }
     }
 

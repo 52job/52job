@@ -110,9 +110,12 @@ public class CandidateController {
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String getResumeByIdInUncheck(HttpServletRequest request) {
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!1___");
         String rid = request.getParameter("rid");
+        System.out.println(rid+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         Resume r = resumeService.getResume(rid);
         String JsonString = JSON.toJSONString(r);
+        System.out.println(JsonString);
         return JsonString;
     }
 
