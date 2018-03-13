@@ -98,55 +98,64 @@
         document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
 
         $('#table').bootstrapTable({
-            url: '',//修改
-            pagination: true,
-            striped: true,
-            toolbar: '#toolbar',
-            pageNumber: 1,
-            pageSize: 2,
-            pageList: [1, 2],
-            showRefresh: true,
-            showColumns: true,
-            showToggle: true,
-            undefinedText: '-',
-            selectItemName: 'select',
-            sortable: true,
-            showExport: true,
-            exportDataType: "basic",
-            exportTypes: ['excel'],
-            clickToSelect: true,
-            maintainSelected: true,
-            search: true,
-            showPaginationSwitch: true,
-            checkboxHeader: true,
+            url: '/enterprise/jobPassedList',//修改
+            method: 'get',                      //请求方式（*）
+            toolbar: '#toolbar',                //工具按钮用哪个容器
+            striped: true,                      //是否显示行间隔色
+            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   //是否显示分页（*）
+            sortable: false,                     //是否启用排序
+            sortOrder: "asc",                   //排序方式
+            // queryParams:queryParams,//传递参数（*）
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
+            pageSize: 10,                       //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            contentType: "application/x-www-form-urlencoded",
+            strictSearch: true,
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: true,                  //是否显示刷新按钮
+            minimumCountColumns: 2,             //最少允许的列数
+            clickToSelect: true,                //是否启用点击选中行
+            height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            uniqueId: "no",                     //每一行的唯一标识，一般为主键列
+            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            detailView: false,                   //是否显示父子表
+
             columns: [{
                 checkbox: true,
                 title: '选择'
 
             }, {
-                field: 'id',
+                field: 'jid',
                 title: 'ID',
                 visible: false
             }, {
-                field: 'position',//命名需与后台一致
+                field: 'jname',//命名需与后台一致
                 title: '职位'
             },{
-                field: 'number',//命名需与后台一致
+                field: 'requiredNumber',//命名需与后台一致
                 title: '招聘人数'
             },  {
-                field: 'salary',
-                title: '薪酬'
-            }, {
-                field: 'education',
+                field: 'minSalary',
+                title: '低薪酬'
+            },  {
+                field: 'maxSalary',
+                title: '高薪酬'
+            },
+                {
+                field: 'requiredEducation',
                 title: '学历'
             }, {
-                field: 'experience',
+                field: 'requiredWorkyear',
                 title: '工作经验'
             }, {
-                field: 'city',
+                field: 'workPlace',
                 title: '工作城市'
             }, {
-                field: 'introduction',
+                field: 'jobDesc',
                 title: '简介'
             }, {
                 field: 'operate',
@@ -157,14 +166,6 @@
                     return d;
                 }
             }],
-            data: [{
-                username: 1,
-
-
-            }, {
-                username: 2,
-
-            }]
 
         });
 
@@ -173,24 +174,20 @@
         var data = {"id": index};
         data = JSON.stringify(data);
         $.ajax({
-            url: '',
+            url: '/enterprise/delectPassedJob',
             type: 'delete',
             dataType: 'text',
             data: data,
-            success: succFunction,
             error: erryFunction
         });
 
-        function erryFunction() {
-            alert("删除失败");
-
-        }
-
-        function succFunction() {
-
-
-            alert("删除成功");
-            window.location.reload();
+        function erryFunction(date) {
+            if(date == "false")
+                alert("删除失败");
+            else {
+                alert("删除成功");
+                window.location.reload();
+            }
 
         }
     }

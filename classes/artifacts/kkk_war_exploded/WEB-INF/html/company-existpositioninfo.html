@@ -29,16 +29,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-                <div>
-                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
+                <div class="color">
+                    <div><a style="position: relative;float: left;" href="PositionInfoSearch.html">首页</a></div>
+                    <div><a style="position: relative;float: right;" href="index.html">退出</a></div>
                 </div>
                 <br><br>
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="" id="person_img"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src=" " id="person_img"
                          alt="">
 
                 </div>
@@ -48,33 +48,33 @@
                 <br>
                 <br>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class=" nav nav-sidebar">
+                    <ul class=" nav nav-sidebar color">
                         <li>
-                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                            <a  href="FirmInfoManagement.html">企业信息管理</a>
                         </li>
                         <li>
-                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                            <a  href="ResumeSearch.html">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a style="color: white" href="#">职位管理</a>
+                            <a  href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a style="color: white" href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="company-existpositioninfo.html">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a style="color: white" href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="company-roughpositioninfo.html">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a style="color: white" href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="company-pastpositioninfo.html">历史职业信息</a>
                         </li>
                         <li class="apply">
-                            <a style="color: white" href="#">应聘管理</a>
+                            <a  href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a style="color: white" href="company-applymentmanageF.html">未处理</a>
+                            <a  href="company-applymentmanageF.html">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a style="color: white" href="company-applymentmanageP.html">已处理</a>
+                            <a  href="company-applymentmanageP.html">已处理</a>
                         </li>
 
                     </ul>
@@ -134,7 +134,6 @@
             columns: [{
                 checkbox: true,
                 title: '选择'
-
             }, {
                 field: 'jid',
                 title: 'ID',
@@ -218,20 +217,17 @@
                 dataType: 'text',
                 data: data,
 
-                success: succFunction,
                 error: erryFunction//成功执行方法????
             });
 
 
-            function erryFunction() {
-                alert("删除失败");
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                window.location.reload();
+            function erryFunction(date) {
+                if(date == "false")
+                    alert("删除失败");
+                else {
+                    alert("删除成功");
+                    window.location.reload();
+                }
 
             }
         }
@@ -250,12 +246,21 @@
             </div>
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position" type="text" class="inp"
-                ></div>
+                ></div><br>
                 <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
                 ></div>
                 <br>
-                <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary" type="text" class="inp">
+                <div><b>最低薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="minsalary" type="text" class="inp">
                 </div>
+                <br>
+                <div><b>最高薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="maxsalary" type="text" class="inp">
+                </div>
+                <br>
+                <div><b>福利：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="benefit" type="text" class="inp"
+                ></div>
+                <br>
+                <div><b>工作种类：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="jobType" type="text" class="inp"
+                ></div>
                 <br>
                 <div><b>学历：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="education" type="text" class="inp"
                 ></div>
@@ -281,42 +286,49 @@
 </div>
 <script>
     function publish() {
-
+        localStorage.setItem("eid",4); //get from login
+        var eid=localStorage.getItem("eid");
+        alert(eid);
         var position = $("#position").val();
         var number=$("#number").val();
-        var salary = $("#salary").val();
+        var minsalary = $("#minsalary").val();
+        var maxsalary = $("#maxsalary").val();
         var education = $("#education").val();
+        var benefit = $("#benefit").val();
+        var jobType = $("#jobType").val();
         var experience = $("#experience").val();
         var city = $("#city").val();
         var introduction = $("#introduction").val();
-        var data = {
-            "id":jid,
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
+
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
+            url: '/enterprise/addJob',//修改
+            type: 'get',
             dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
+            data:
+
+        {
+            "eid":eid,
+            "jname": position,
+            "requiredNumber":number,
+            "minSalary": minsalary,
+            "maxSalary": maxsalary,
+            "requiredEducation": education,
+            "requiredWorkyear": experience,
+            "benefit": benefit,
+            "jobType":jobType,
+            "workPlace": city,
+            "jobDesc": introduction
+        },
+            success: erryFunction
         });
 
-        function erryFunction() {
-            alert("发布失败");
-        }
-
-        function succFunction() {
-            alert("发布成功");
-            $("#close2").click();
-            window.location.reload();
+        function erryFunction(data) {
+            if(data == "false")
+                alert("插入失败");
+            else {
+                alert("插入成功");
+                window.location.reload();
+            }
         }
     }
 
