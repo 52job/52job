@@ -26,10 +26,19 @@ public class EnterpriseController {
     private JobService jobService;
 
     @RequestMapping("/enterprise_1")
-    public String index() {
+    public String index1() {
         return "/company-existpositioninfo";
     }
 
+    @RequestMapping("/enterprise_2")
+    public String index2() {
+        return "/company-pastpositioninfo";
+    }
+
+    @RequestMapping("/enterprise_3")
+    public String index3() {
+        return "/company-roughpositioninfo";
+    }
     /**
      * show joblist
      * @return
@@ -95,6 +104,7 @@ public class EnterpriseController {
         map.put("total",jobs.size());
         map.put("rows",jobs);
         String JsonString = JSON.toJSONString(map);
+        System.out.println(JsonString);
         return  JsonString;
     }
 
