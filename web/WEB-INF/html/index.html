@@ -23,13 +23,15 @@
                     isContact = true;
                     isSend(); //验证码错误不能点击发送验证码
                     is_check();//不能点击注册按钮
-                    document.getElementById("userWarn").setAttribute("style","color: green;margin-left: 20px;");
+                    document.getElementById("userWarn").setAttribute("style","color: green;position:relative;left: -70px");
+                    document.getElementById("name").setAttribute("style","position: relative;right: -8px");
                     return document.getElementById('userWarn').innerHTML = 'ok';
                 } else {
                     isContact=false;
                     isSend(); //不能发送验证码
                     is_check();//不能点击注册按钮
-                    document.getElementById("userWarn").setAttribute("style","color: red;margin-left: 20px;");
+                    document.getElementById("userWarn").setAttribute("style","color: red;position:relative;left: -70px");
+                    document.getElementById("name").setAttribute("style","position: relative;right: -90px");
                     return document.getElementById('userWarn').innerHTML = '请输入正确格式的手机或邮箱';
                     return false;
                 }
@@ -43,7 +45,8 @@
                     isPwd = false;
                     isSend();
                     is_check();
-                    document.getElementById("pwdWarn").setAttribute("style","color: red;margin-left: 20px;");
+                    document.getElementById("pwdWarn").setAttribute("style","color: red;position:relative;left: -70px");
+                    document.getElementById("pwd").setAttribute("style","position: relative;right: -70px");
                     return document.getElementById('pwdWarn').innerHTML = '请输入符合要求的密码';
                     return false;
                 }
@@ -52,7 +55,8 @@
                     isPwd = true;
                     isSend();
                     is_check();
-                    document.getElementById("pwdWarn").setAttribute("style","color: green;margin-left: 20px;");
+                    document.getElementById("pwdWarn").setAttribute("style","color: green;position:relative;left: -70px");
+                    document.getElementById("pwd").setAttribute("style","position: relative;right: -8px");
                     return document.getElementById('pwdWarn').innerHTML = 'ok';
                 }
 
@@ -70,13 +74,13 @@
                         isPwd2 = true;
                         isSend();
                         is_check();
-                        document.getElementById("pwdWarn2").setAttribute("style","color: green;margin-left: 20px;");
+                        document.getElementById("pwdWarn2").setAttribute("style","color: green;position:relative;left: -70px");
                         return document.getElementById('pwdWarn2').innerHTML = 'ok';
                     }else{
                         isPwd2 = false;
                         isSend();
                         is_check();
-                        document.getElementById("pwdWarn2").setAttribute("style","color: red;margin-left: 20px;");
+                        document.getElementById("pwdWarn2").setAttribute("style","color: red;");
                         return document.getElementById('pwdWarn2').innerHTML = '两次密码不一致';
                         return false;
                     }
@@ -193,68 +197,76 @@
 <style>
     .bg1{
         background-size: cover;
-        background-image: url(../../img/bg6.jpg);
-
-            position: relative;
-
+        position: relative;
 
     }
 </style>
+    <script>
+
+        window.onload=function(){
+            var imgs =["../../img/bg1.jpg", "../../img/bg2.jpg", "../../img/bg3.jpg"];    //（设定想要显示的图片）
+            var i = 0;
+            var head=document.getElementById("bg1");//获取DIV对象
+            head.style.backgroundSize="cover";
+            head.style.background="url(../../img/bg1.jpg)"; 
+            //设置图片的初始图片为该路径的图片
+            function time(){
+                i++;
+                i=i%3; // 超过2则取余数，保证循环在0、1、2之间
+                head.style.backgroundSize="cover"; 
+                head.style.backgroundImage="url("+imgs[i]+")";
+               // head.style.background="url("+imgs[i]+")";
+
+            }
+            setInterval(time,3000);//循环调用time1()函数，时间间隔为2000ms
+            //setInterval()函数，按照指定的周期（按毫秒计）来调用函数或表达式
+        }
+    </script>
 </head>
 
 <body style="background:#f8f6e9;background-size: 100% 100%;margin: auto;">
-<div class="bg1" style="width: 100%;height:610px;position: relative;" >
-    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
-         background:rgba(255,255,255,0.5);" class="bg2" >
+<div class="bg1" style="width: 100%;height:610px;position: relative;" id="bg1" >
+    <div ystyle="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.4);" class="bg2" >
 <div style="border-bottom: 1px solid;height: auto;">
-    <div style="border-bottom:1px solid ;height: 40px;line-height: 40px; text-align: left;">
-        <p class="sweet">52job:爱我所爱</p>
+    <div style="height: 40px;line-height: 40px; text-align: left;">
+        <p class="sweet" style="color: white">52job:爱我所爱</p>
 
     </div>
-    <div id="mid" >
-        <div style="margin-top: 20px;margin-bottom: 20px;">
-            <div id="mid_left" >
-                <form class="form-inline" role="form">
-                    <div class="form-group">
+    <div >
+        <div >
 
-                        <input type="text" class="form-control" id="" placeholder="输入关键字">
-                    </div>
+            <div   style="width: 350px;height: 470px;position: relative;right: -460px;background-image: url()">
 
-                    <button type="submit" class="btn btn-default">全站搜索</button>
-                </form>
-
-            </div>
-            <div id="mid_right" class="container" >
-
-                <p style="font-family: '微软雅黑';font-size: 20px;color: red;text-align: center;height: 20px;line-height: 20px;margin-top: 20px">
+                <p style="font-family: '微软雅黑';font-size: 20px;color: white;text-align: center;height: 20px;line-height: 20px;margin-top: 20px">
                     极速注册，找到适合你的职位
                 </p>
-
+<br><br>
                 <form role="form" action="/person/register" method="POST">
-                    <div class="row" style="margin-top: 15px;">
-                        <div class="form-group col-sm-12">
-                            <label for="userName">账号</label><span id="userWarn" ></span>
-                            <input type="text" class="form-control" id="userName" name="userName" placeholder="手机号/邮箱号" onblur="isSend()">
+                    <div >
+                        <div align="center" class="form-group">
+                           <div  id="name"> <label for="userName" style="position: relative;left: -110px;color: white">账号</label><span id="userWarn"></span></div>
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="手机号/邮箱号" style="width: 260px" onblur="isSend()">
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: 0px;">
-                        <div class="form-group col-sm-12">
-                            <label for="passWord">密码</label><span id="pwdWarn" ></span>
-                            <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" onblur="isSend()">
+                    <div >
+                        <div class="form-group " align="center">
+                            <div id="pwd"><label for="passWord" style="position: relative;left: -110px;color: white">密码</label><span id="pwdWarn" ></span></div>
+                            <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" style="width: 260px" onblur="isSend()">
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: 0px;">
-                        <div class="form-group col-sm-12">
-                            <label for="passWord2">确认密码</label><span id="pwdWarn2" ></span>
-                            <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="重新输入密码" onblur="isSend()">
+                    <div  >
+                        <div class="form-group " align="center">
+                            <label for="passWord2" style="position: relative;left: -100px;color: white">确认密码</label><span id="pwdWarn2" ></span>
+                            <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="重新输入密码" style="width: 260px" onblur="isSend()">
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: 0px;">
-                        <div class="form-group col-sm-6  form-horizontal">
-                            <input type="text" class="form-control" id="safecode" name="verifyNum" placeholder="验证码">
+                    <div class="form-group" align="center">
+                        <div class="form-group" style="float: left;position: relative;right: -43px">
+                            <input type="text" class="form-control" id="safecode" name="verifyNum" placeholder="验证码" style="width: 100px">
                         </div>
                         <!--
                             作者：offline
@@ -262,22 +274,22 @@
                             描述：
                             <button class="btn btn-default" id="btn" onclick="settime(this)>获取验证码</button>
                         -->
-                        <input type="button" id="sendCode" class="btn btn-default" value="免费获取验证码" disabled="true" onclick="settime(this),publish()" />
+                       <div> <input type="button" id="sendCode" class="btn btn-default" value="免费获取验证码" disabled="true" onclick="settime(this),publish()" /></div>
                     </div>
-
-                    <div class="row" style="margin-top: 10px;text-align: center;">
+<br>
+                    <div class="row" style="text-align: center;">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default btn-danger" style="width: 300px;" id="register"  disabled="true">免费注册</button>
+                            <button type="submit" class="btn btn-default " style="width: 300px;" id="register"  disabled="true">免费注册</button>
                         </div>
                     </div>
 
                     <div class="row" style="margin-top: 0px;text-align: center;">
                         <input type="checkbox" class="" value="我已阅读并同意用户协议" id="cbox" onchange="is_check()">
-                        <label>我已阅读并同意<a href="../../docs/user.html" style="text-decoration: none">用户协议</a></label>
+                        <label style="color: white">我已阅读并同意<a href="../../docs/user.html" style="text-decoration: none">用户协议</a></label>
                     </div>
 
-                    <div class="row" style="margin-top: 5px;text-align: center;">
-                        <label>已有账号</label>
+                    <div class="row" style="text-align: center;">
+                        <label style="color: white">已有账号</label>
 
                         <a href="#myMode" data-toggle="modal">点击登录</a>
                     </div>
@@ -287,12 +299,12 @@
     </div>
 </div>
 
-<div class="modal fade" id="myMode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade" id="myMode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px;">
     <div class="modal-dialog" style="width: 340px">
-        <div class="modal-content">
+        <div class="modal-content" style="background-image: url(../../img/bg4.jpg);background-size: cover">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="myModalLabel" align="center">用户登录</h4>
+                    <h4 id="myModalLabel" align="center" style="font-weight:600;font-size: 25px">用户登录</h4>
             </div>
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div style="width: 300px;height:280px">
@@ -334,7 +346,7 @@
 
                             <input type="button" class="btn  btn-danger" value="登录" align="center" onclick="login()" style="width: 260px"/>
                             <br>
-                            <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="aqua">忘记密码？</font></a>
+                            <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="black">忘记密码？</font></a>
                         </div>
 
                     </form>
