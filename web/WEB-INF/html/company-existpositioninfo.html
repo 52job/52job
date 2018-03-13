@@ -217,12 +217,11 @@
                 dataType: 'text',
                 data: data,
 
-                error: erryFunction//成功执行方法????
+                success: erryFunction
             });
 
-
             function erryFunction(date) {
-                if(date == "false")
+                if (date == "false")
                     alert("删除失败");
                 else {
                     alert("删除成功");
@@ -231,7 +230,6 @@
 
             }
         }
-
 
     }
 
@@ -288,7 +286,7 @@
     function publish() {
         localStorage.setItem("eid",4); //get from login
         var eid=localStorage.getItem("eid");
-        alert(eid);
+        var jobStatue = 1;
         var position = $("#position").val();
         var number=$("#number").val();
         var minsalary = $("#minsalary").val();
@@ -307,6 +305,7 @@
             data:
 
         {
+            "jobStatue":jobStatue,
             "eid":eid,
             "jname": position,
             "requiredNumber":number,
@@ -322,13 +321,14 @@
             success: erryFunction
         });
 
-        function erryFunction(data) {
-            if(data == "false")
-                alert("插入失败");
+        function erryFunction(date) {
+            if(date == "false")
+                alert("删除失败");
             else {
-                alert("插入成功");
+                alert("删除成功");
                 window.location.reload();
             }
+
         }
     }
 

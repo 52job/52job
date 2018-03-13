@@ -252,7 +252,7 @@
             type: 'post',
             dataType: 'text',
             data: data,
-            error: erryFunction
+            success: erryFunction
         });
 
         function erryFunction(date) {
@@ -318,8 +318,18 @@ function del() {
             dataType: 'text',
             data: data,
 
-            error: erryFunction//成功执行方法????
+            success: erryFunction
         });
+
+        function erryFunction(date) {
+            if(date == "false")
+                alert("删除失败");
+            else {
+                alert("删除成功");
+                window.location.reload();
+            }
+
+        }
 
 
 
@@ -345,13 +355,21 @@ function del() {
             </div>
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position" type="text" class="inp"
+                ></div><br>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
                 ></div>
                 <br>
-                <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
-                ></div>
-                <br>
-                <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary" type="text" class="inp">
+                <div><b>最低薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="minsalary" type="text" class="inp">
                 </div>
+                <br>
+                <div><b>最高薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="maxsalary" type="text" class="inp">
+                </div>
+                <br>
+                <div><b>福利：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="benefit" type="text" class="inp"
+                ></div>
+                <br>
+                <div><b>工作种类：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="jobType" type="text" class="inp"
+                ></div>
                 <br>
                 <div><b>学历：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="education" type="text" class="inp"
                 ></div>
@@ -377,21 +395,32 @@ function del() {
 </div>
 <script>
     function addto() {
+        localStorage.setItem("eid",4); //get from login
+        var eid=localStorage.getItem("eid");
+        var jobStatue = 1;
         var position = $("#position").val();
         var number=$("#number").val();
-        var salary = $("#salary").val();
+        var minsalary = $("#minsalary").val();
+        var maxsalary = $("#maxsalary").val();
         var education = $("#education").val();
+        var benefit = $("#benefit").val();
+        var jobType = $("#jobType").val();
         var experience = $("#experience").val();
         var city = $("#city").val();
         var introduction = $("#introduction").val();
         var data = {
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
+            "jobStatue":jobStatue,
+            "eid":eid,
+            "jname": position,
+            "requiredNumber":number,
+            "minSalary": minsalary,
+            "maxSalary": maxsalary,
+            "requiredEducation": education,
+            "requiredWorkyear": experience,
+            "benefit": benefit,
+            "jobType":jobType,
+            "workPlace": city,
+            "jobDesc": introduction
         };
         data = JSON.stringify(data);
         $.ajax({
@@ -399,8 +428,9 @@ function del() {
             type: 'post',
             dataType: 'text',
             data: data,
-            error: erryFunction
+            success: erryFunction
         });
+
         function erryFunction(date) {
             if(date == "false")
                 alert("删除失败");

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -40,6 +41,12 @@ public class EnterpriseController {
     public String index3() {
         return "/company-roughpositioninfo";
     }
+
+    @RequestMapping("/index")
+    public String index() {
+        return "/FirmInfoManagement";
+    }
+
     /**
      * show joblist
      * @return
@@ -75,8 +82,9 @@ public class EnterpriseController {
         String jobDesc = request.getParameter("jobDesc");
         String jobType = request.getParameter("jobType");
         String workPlace = request.getParameter("workPlace");
+        Integer jobStatue = Integer.parseInt(request.getParameter("jobStatue"));
         Job j = new Job(jid,enterprise,"0",requiredNumber,jname,requiredWorkyear,requiredEducation,minSalary,
-                maxSalary,benefit,jobDesc,jobType,workPlace,1,new Date(1,1,1));
+                maxSalary,benefit,jobDesc,jobType,workPlace,jobStatue,new Date(1,1,1));
         try{
             jobService.addJob(j);
         }catch (Exception e){
@@ -173,23 +181,23 @@ public class EnterpriseController {
         return  JsonString;
     }
 
-    /**
-     * add prepared job
-     * @param request
-     */
-    @RequestMapping(value = "/addPreparedJobs",method = RequestMethod.GET)
-    @ResponseBody
-    public String addPreparedJobs(HttpServletRequest request) {
-        Job j = null;
-        j = (Job) request.getAttribute("job");
-        try{
-            jobService.addJob(j);
-        }catch (Exception e){
-            e.printStackTrace();
-            return "false";
-        }
-        return "true";
-    }
+//    /**
+//     * add prepared job
+//     * @param request
+//     */
+//    @RequestMapping(value = "/addPreparedJobs",method = RequestMethod.GET)
+//    @ResponseBody
+//    public String addPreparedJobs(HttpServletRequest request) {
+//        Job j = null;
+//        j = (Job) request.getAttribute("job");
+//        try{
+//            jobService.addJob(j);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "false";
+//        }
+//        return "true";
+//    }
 
     /**
      * delect prepared jobs
@@ -287,26 +295,37 @@ public class EnterpriseController {
         return enterprise;
     }
 
-    @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.GET)
+    @RequestMapping("/MyEnterprise")
+    @ResponseBody
+    public Enterprise getEnterprise(HttpSession session) {
+        //String eid = String.valueOf(session.getAttribute("eid"));
+        String eid = "aaa";
+        Enterprise enterprise = enterpriseService.getEnterprise(eid);
+        return enterprise;
+    }
+
+    @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.POST)
     public String updateEnterpriseInfo(HttpServletRequest request) {
-        String eid = request.getParameter("eid");
-        String username =  request.getParameter("username");
-        String password =  request.getParameter("password");
-        String name =  request.getParameter("name");
-        String address =  request.getParameter("address");
-        String type =  request.getParameter("type");
-        Integer number =  Integer.parseInt(request.getParameter("number"));
-        String email =  request.getParameter("email");
-        String contact =  request.getParameter("contact");
-        String imgurl =  request.getParameter("imgurl");
-        String description =  request.getParameter("description");
-        Enterprise enterprise = new Enterprise(eid,username,password,name,address,type,number,email,contact,imgurl,description);
+        String eid = String.valueOf(request.getParameter("eid"));
+        Enterprise enterprise = enterpriseService.getEnterprise(eid);
+        enterprise.seteUsername(request.getParameter("eUsername"));
+        enterprise.setePassword(request.getParameter("ePassword"));
+        enterprise.setEname(request.getParameter("ename"));
+        enterprise.setAdddress(request.getParameter("adddress"));
+        enterprise.seteType(request.getParameter("eType"));
+        enterprise.seteNumber(Integer.parseInt(request.getParameter("eNumber")));
+        enterprise.setEmail(request.getParameter("email"));
+        enterprise.setContact(request.getParameter("contact"));
+        enterprise.setImageUrl(String.valueOf(request.getParameter("imgurl")));
+        enterprise.setDescriptionte(request.getParameter("descriptionte"));
+        System.out.println(enterprise);
         try{
             enterpriseService.updateEnterprise(enterprise);
         }catch (Exception e){
             e.printStackTrace();
-            return "false";
+            return "/FirmInfoManagement";
         }
-        return "true";
+        return "/FirmInfoManagement";
     }
+
 }
