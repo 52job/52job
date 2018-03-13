@@ -42,7 +42,7 @@ public class EnterpriseController {
         return "/company-roughpositioninfo";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/enterprise_4")
     public String index() {
         return "/FirmInfoManagement";
     }
@@ -181,24 +181,6 @@ public class EnterpriseController {
         return  JsonString;
     }
 
-//    /**
-//     * add prepared job
-//     * @param request
-//     */
-//    @RequestMapping(value = "/addPreparedJobs",method = RequestMethod.GET)
-//    @ResponseBody
-//    public String addPreparedJobs(HttpServletRequest request) {
-//        Job j = null;
-//        j = (Job) request.getAttribute("job");
-//        try{
-//            jobService.addJob(j);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return "false";
-//        }
-//        return "true";
-//    }
-
     /**
      * delect prepared jobs
      * @param request
@@ -242,8 +224,10 @@ public class EnterpriseController {
         String jid = request.getParameter("jid");
         Enterprise enterprise  = new Enterprise(request.getParameter("eid"));
         String pid = request.getParameter("pid");
-        Integer requiredNumber = Integer.parseInt(request.getParameter("requiredNumber"));
         String jname = request.getParameter("jname");
+        System.out.println("---------------------requiredNumber:"+request.getParameter("requiredNumber"));
+        Integer requiredNumber = Integer.parseInt(request.getParameter("requiredNumber"));
+
         Integer requiredWorkyear = Integer.parseInt(request.getParameter("requiredWorkyear"));
         Integer requiredEducation = Integer.parseInt(request.getParameter("requiredEducation"));
         Integer minSalary = Integer.parseInt(request.getParameter("minSalary"));
@@ -252,13 +236,14 @@ public class EnterpriseController {
         String jobDesc = request.getParameter("jobDesc");
         String jobType = request.getParameter("jobType");
         String workPlace = request.getParameter("workPlace");
+        Integer jobStatue = Integer.parseInt(request.getParameter("jobStatue"));
         System.out.println("Date-------------"+request.getParameter("createTime"));
         //Date createTime = new Date(request.getParameter("createTime"));
 
         try{
             System.out.println("out1----------------------------------");
             jobService.updateJob(new Job(jid,enterprise,pid,requiredNumber,jname,requiredWorkyear,requiredEducation,minSalary
-                    ,maxSalary,benefit,jobDesc,jobType,workPlace,1,new Date()));
+                    ,maxSalary,benefit,jobDesc,jobType,workPlace,jobStatue,new Date()));
 
             System.out.println("out2----------------------------------");
         }catch (Exception e){

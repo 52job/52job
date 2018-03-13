@@ -219,8 +219,8 @@
                 field: 'operate',
                 title: '操作',
                 formatter: function (value, row, index) {
-                    var a = '<a href="#" mce_href="#" onclick="add1(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number+ '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >发布</a> ';
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var a = '<a href="#" mce_href="#" onclick="add1(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber+ '\',\'' + row.minSalary + '\',\''+row.maxSalary + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\'' + row.workPlace + '\',\'' + row.jobDesc + '\' )" >发布</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber + '\',\'' + row.minSalary + '\',\''+row.maxSalary + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\'' + row.workPlace + '\',\'' + row.jobDesc + '\' )" >修改</a> ';
 
                     return a + u;
                 }
@@ -235,62 +235,66 @@
 
     }
 
-    function add1(id, position, number,salary, education, experience, city, introduction) {
-        var data = {
-            "id": id,
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
+    function add1(id, position, number, minsalary, maxsalary, education, experience, city, introduction) {
+        var jobStatue = 1;
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            success: erryFunction
+            url:"/enterprise/updateJob2",
+            type:"post",
+            dataType:"text",
+            data:{
+                "jobStatue":jobStatue,
+                "jid":id,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":minsalary,
+                "maxSalary":maxsalary,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
+            success: succFunction,
         });
+        function succFunction(data){
+            if(data == "false")
 
-        function erryFunction(date) {
-            if(date == "false")
-                alert("删除失败");
+            {alert("发布失败");}
             else {
-                alert("删除成功");
+                alert("发布成功");
+                $("#close").click();
                 window.location.reload();
             }
 
         }
     }
 
-    function update(id, position,number, salary, education, experience, city, introduction) {
-        var data = {
-            "id": id,
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
+    function update(id, position,number, minsalary, maxsalary, education, experience, city, introduction) {
+        var jobStatue = 2;
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            error: erryFunction
+            url:"/enterprise/updateJob2",
+            type:"post",
+            dataType:"text",
+            data:{
+                "jobStatue":jobStatue,
+                "jid":id,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":minsalary,
+                "maxSalary":maxsalary,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
+            success: succFunction,
         });
+        function succFunction(data){
+            if(data == "false")
 
-        function erryFunction(date) {
-            if(date == "false")
-                alert("删除失败");
+            {alert("修改失败");}
             else {
-                alert("删除成功");
+                alert("修改成功");
+                $("#close").click();
                 window.location.reload();
             }
 
@@ -397,7 +401,7 @@ function del() {
     function addto() {
         localStorage.setItem("eid",4); //get from login
         var eid=localStorage.getItem("eid");
-        var jobStatue = 1;
+        var jobStatue = 0;
         var position = $("#position").val();
         var number=$("#number").val();
         var minsalary = $("#minsalary").val();
@@ -408,34 +412,34 @@ function del() {
         var experience = $("#experience").val();
         var city = $("#city").val();
         var introduction = $("#introduction").val();
-        var data = {
-            "jobStatue":jobStatue,
-            "eid":eid,
-            "jname": position,
-            "requiredNumber":number,
-            "minSalary": minsalary,
-            "maxSalary": maxsalary,
-            "requiredEducation": education,
-            "requiredWorkyear": experience,
-            "benefit": benefit,
-            "jobType":jobType,
-            "workPlace": city,
-            "jobDesc": introduction
-        };
-        data = JSON.stringify(data);
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
+            url: '/enterprise/addJob',//修改
+            type: 'get',
             dataType: 'text',
-            data: data,
+            data:
+
+                {
+                    "jobStatue":jobStatue,
+                    "eid":eid,
+                    "jname": position,
+                    "requiredNumber":number,
+                    "minSalary": minsalary,
+                    "maxSalary": maxsalary,
+                    "requiredEducation": education,
+                    "requiredWorkyear": experience,
+                    "benefit": benefit,
+                    "jobType":jobType,
+                    "workPlace": city,
+                    "jobDesc": introduction
+                },
             success: erryFunction
         });
 
         function erryFunction(date) {
             if(date == "false")
-                alert("删除失败");
+                alert("添加失败");
             else {
-                alert("删除成功");
+                alert("添加成功");
                 window.location.reload();
             }
 

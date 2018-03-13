@@ -192,7 +192,7 @@
         $("#experience2").val(experience);
         $("#city2").val(city);
         $("#introduction2").val(introduction);
-        $("#mymodel2").modal();
+        $("#mymode2").modal();
     }
 
     function add() {
@@ -323,9 +323,9 @@
 
         function erryFunction(date) {
             if(date == "false")
-                alert("删除失败");
+                alert("添加失败");
             else {
-                alert("删除成功");
+                alert("添加成功");
                 window.location.reload();
             }
 
@@ -335,7 +335,7 @@
 
 </script>
 
-<div class="modal fade" id="mymodel2" aria-hidden="true" aria-labelledby="myModalLabel">
+<div class="modal fade" id="mymode2" aria-hidden="true" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -380,7 +380,7 @@
 <script>
     function finish() {
         var jid=window.localStorage.getItem("jid");
-
+        var jobStatue = 1;
         var position = $("#position2").val();
         var number=$("#number2").val();
         var salary2 = $("#salary2").val();
@@ -397,6 +397,7 @@
             type:"post",
             dataType:"text",
             data:{
+                "jobStatue":jobStatue,
                 "jid":jid,
                 "jname":position,
                 "requiredNumber":number,
