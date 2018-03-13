@@ -50,7 +50,7 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM person
-        where user_name LIKE %${value}% OR phone LIKE %${value}% OR email LIKE %${value}%
+        where user_name LIKE %${value}% OR phone LIKE %${value}% OR email LIKE %${value}%;
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >

@@ -164,12 +164,14 @@
             }, {
                 field: 'jobDesc',
                 title: '简介'
-            }, {
+            },{
                 field: 'operate',
                 title: '操作',
                 formatter: function (value, row, index) {
 
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber +
+                        '\',\'' + row.minSalary+ '\',\'' + row.maxSalary  + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\''
+                        + row.workPlace + '\',\'' + row.jobDesc + '\')" >修改</a> ';
 
                     return u;
                 }
@@ -180,16 +182,17 @@
 
     }
 
-    function update(id, position,number, salary, education, experience, city, introduction) {
+    function update(jid, position,number, minSalary, maxSalary, education, experience, city, introduction) {
+        //alert("123");
+        localStorage.setItem("jid",jid);
         $("#position2").val(position);
         $("#number2").val(number);
-        $("#salary2").val(salary);
+        $("#salary2").val(minSalary);
+        $("#salary3").val(maxSalary);
         $("#education2").val(education);
         $("#experience2").val(experience);
         $("#city2").val(city);
         $("#introduction2").val(introduction);
-        window.localStorage.setItem("upid", id);
-        // alert( window.localStorage.getItem("upid"));
         $("#mymodel2").modal();
     }
 
@@ -278,6 +281,7 @@
 </div>
 <script>
     function publish() {
+
         var position = $("#position").val();
         var number=$("#number").val();
         var salary = $("#salary").val();
@@ -286,7 +290,7 @@
         var city = $("#city").val();
         var introduction = $("#introduction").val();
         var data = {
-            "id":id,
+            "id":jid,
             "position": position,
             "number":number,
             "salary": salary,
@@ -333,7 +337,10 @@
                 <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number2" type="text" class="inp"
                 ></div>
                 <br>
-                <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
+                <div><b>最高薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary2" type="text" class="inp">
+                </div>
+                <br>
+                <div><b>最低薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary3" type="text" class="inp">
                 </div>
                 <br>
                 <div><b>学历：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="education2" type="text" class="inp"
@@ -360,42 +367,46 @@
 </div>
 <script>
     function finish() {
-        var id=window.localStorage.getItem("uid");
+        var jid=window.localStorage.getItem("jid");
+
         var position = $("#position2").val();
         var number=$("#number2").val();
-        var salary = $("#salary2").val();
+        var salary2 = $("#salary2").val();
+        var salary3 = $("#salary3").val();
         var education = $("#education2").val();
         var experience = $("#experience2").val();
         var city = $("#city2").val();
         var introduction = $("#introduction2").val();
         window.localStorage.clear();
-        var data={
-            "id":id,
-            "position":position,
-            "number":number,
-            "salary":salary,
-            "education":education,
-            "experience":experience,
-            "city":city,
-            "introducation":introduction
-        };
-        data=JSON.stringify(data);
+
+
         $.ajax({
-            url:"",
+            url:"/enterprise/updateJob2",
             type:"post",
             dataType:"text",
-            data:data,
+            data:{
+                "jid":jid,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":salary2,
+                "maxSalary":salary3,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
             success: succFunction,
-            error: erryFunction
         });
-        function succFunction(){
-            alert("修改失败");
+        function succFunction(data){
+            if(data == "false")
 
-        }
-        function erryFunction() {
-            alert("修改成功");
-            $("#close").click();
-            window.location.reload();
+            {alert("修改失败");}
+            else {
+                alert("修改成功");
+                $("#close").click();
+                window.location.reload();
+            }
+
         }
     }
 

@@ -147,8 +147,8 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.job52.model.Job" >
         update job
         <set >
-            <if test="eid != null" >
-                eid = #{eid,jdbcType=VARCHAR},
+            <if test="enterprise.eid != null" >
+                eid = #{enterprise.eid,jdbcType=VARCHAR},
             </if>
             <if test="pid != null" >
                 pid = #{pid,jdbcType=VARCHAR},

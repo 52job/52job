@@ -37,7 +37,6 @@ public class EnterpriseController {
     @RequestMapping(value = "/jobList",method = RequestMethod.GET)
     @ResponseBody
     public String jobList() {
-        System.out.println("in___________________________________________");
         List<Job> jobs = jobService.queryJobs(new Job(1));
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("total",jobs.size());
@@ -187,27 +186,28 @@ public class EnterpriseController {
         return "true";
     }
 
-    /**
-     * update job1
-     * @return
-     */
-    @RequestMapping(value = "/updateJob1",method = RequestMethod.GET,
-            produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public String updatePreparedJob1(HttpServletRequest request) {
-        String jid = request.getParameter("jid");
-        Job j = jobService.getJob(jid);
-        String JsonString = JSON.toJSONString(j);
-        return JsonString;
-    }
+//    /**
+//     * update job1
+//     * @return
+//     */
+//    @RequestMapping(value = "/updateJob1",method = RequestMethod.GET,
+//            produces = {"application/json;charset=UTF-8"})
+//    @ResponseBody
+//    public String updatePreparedJob1(HttpServletRequest request) {
+//        String jid = request.getParameter("jid");
+//        Job j = jobService.getJob(jid);
+//        String JsonString = JSON.toJSONString(j);
+//        return JsonString;
+//    }
 
     /**
      * update job2
      * @param request
      */
-    @RequestMapping(value = "/updateJob2",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateJob2",method = RequestMethod.POST)
     @ResponseBody
     public String updatePreparedJob2(HttpServletRequest request) {
+        System.out.println("in--------------------");
         String jid = request.getParameter("jid");
         Enterprise enterprise  = new Enterprise(request.getParameter("eid"));
         String pid = request.getParameter("pid");
@@ -221,13 +221,15 @@ public class EnterpriseController {
         String jobDesc = request.getParameter("jobDesc");
         String jobType = request.getParameter("jobType");
         String workPlace = request.getParameter("workPlace");
-        Integer jobStatue = Integer.parseInt(request.getParameter("jobStatue"));
-        Date createTime = new Date(request.getParameter("createTime"));
+        System.out.println("Date-------------"+request.getParameter("createTime"));
+        //Date createTime = new Date(request.getParameter("createTime"));
 
         try{
-            //todo
+            System.out.println("out1----------------------------------");
             jobService.updateJob(new Job(jid,enterprise,pid,requiredNumber,jname,requiredWorkyear,requiredEducation,minSalary
-                    ,maxSalary,benefit,jobDesc,jobType,workPlace,jobStatue,createTime));
+                    ,maxSalary,benefit,jobDesc,jobType,workPlace,1,new Date()));
+
+            System.out.println("out2----------------------------------");
         }catch (Exception e){
             e.printStackTrace();
             return "false";

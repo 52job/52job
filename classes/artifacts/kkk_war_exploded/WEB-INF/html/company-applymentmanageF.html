@@ -127,7 +127,7 @@
                     field: 'resume',
                     title: '简历',
                     formatter: function (value, row, index) {
-                        var l = '<a href="#" mce_href="#" onclick="look(\'' + row.pid + '\',\'' + row.rid + '\' )" >点击查看</a> ';
+                        var l = '<a href="#" mce_href="#" onclick="look(\'' + row.rid + '\' )" >点击查看</a> ';
                         return l;
                     }
                 }, {
@@ -147,18 +147,17 @@
         });
     }
 
-    function look(pid, rid) {
+    function look( rid) {
         //$("#mymode").modal();
         var data = {
-            "pid": pid,
             "rid": rid
         };
         data=JSON.stringify(data);
         $.ajax({
-            url:'',
+            url:'/candidate/getResumeByIdInUncheck/uncheckList?rid='+rid,
             type:'get',
             dataType:'json',
-            data:data,
+//            data:data,
             success:succFunction,
             error:erryFunction
         });
@@ -171,41 +170,44 @@
             var json = eval(result);
             document.getElementById("img").setAttribute("src", json.img);//img需与后台对应
             $("#name").val(json.name);
-            $("#born").val(json.born);
+
+            $("#born").val(json.birthday);
             if (json.sex == "男") {
                 $('.sex').get(0).checked = true;
             }
             else {
                 $('.sex').get(1).checked = true;
             }
-            $("#work_date").val(json.work_date);
+            $("#work_date").val(json.startWorkTime);
+            alert(json.startWorkTime);
             $("#tel").val(json.tel);
-            $("#job_state").val(json.job_state);
+            $("#job_state").val(json.jobState);
             $("#email").val(json.email);
             $("#address").val(json.address);
-            $("#school").val(json.school);
+            $("#school").val(json.graduationUniversity);
             $("#major").val(json.major);
-            if (json.education == "小学") {
+            $("#graduate-time").val(json.graduationTime)
+            if (json.highestEducation == "小学") {
                 $('#education')[0].selectedIndex = 1;
-            } else if (json.education == "初中") {
+            } else if (json.highestEducation == "初中") {
                 $('#education')[0].selectedIndex = 2;
-            } else if (json.education == "高中") {
+            } else if (json.highestEducation == "高中") {
                 $('#education')[0].selectedIndex = 3;
-            } else if (json.education == "大专") {
+            } else if (json.highestEducation == "大专") {
                 $('#education')[0].selectedIndex = 4;
-            } else if (json.education == "大学") {
+            } else if (json.highestEducation == "大学") {
                 $('#education')[0].selectedIndex = 5;
-            } else if (json.education == "硕士研究生") {
+            } else if (json.highestEducation == "硕士研究生") {
                 $('#education')[0].selectedIndex = 6;
             } else {
                 $('#education')[0].selectedIndex = 7;
             }
-            if (json.resume_state == "公开") {
+            if (json.isPublic == "1") {
                 $('#resume_state')[0].selectedIndex = 1;
             } else {
                 $('#resume_state')[0].selectedIndex = 2;
             }
-            $("#experience").val(json.experience);
+            $("#experience").val(json.careerIntention);
             document.getElementById("appendix").setAttribute("href",json.appendix);
             $("#mymode").modal();
 
@@ -368,7 +370,7 @@ if (data=="true"){ alert("处理成功");
                                 <a href="" target="_blank" id="appendix">附件</a>
                             </div>
 
-                            <br>
+                            <br><br>
                             <textarea style="height: 100px;width: 100%"
                                       id="experience" readonly="readonly"></textarea>
 
