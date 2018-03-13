@@ -11,14 +11,7 @@
 
 }
 
-#mid_left{
-	height: 462px;
-	width: 43%;
-	display: inline-block;
-	border: 1px solid white;
-	margin-left: 50px;
-	float: left;
-}
+
 
 #mid_right{
 	height:462px;
@@ -34,9 +27,9 @@
 
 .sweet{
     font-family: mySweet;
-    color:#FF891F;
-    font-size: 22px;
-    width: 200px;
+    color:white;
+    font-size: 30px;
+    width: 400px;
     margin-left:100px ;
 }
 
