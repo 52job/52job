@@ -212,40 +212,42 @@
         <include refid="Base_Column_List"/>
         from job,enterprise where job.eid = enterprise.eid
 
-            <trim prefixOverrides="and">
-                <if test="jid != null" >
-                    and jid = #{jid}
-                </if>
-                <if test="requiredNumber != null" >
-                    and required_number = #{requiredNumber,jdbcType=INTEGER}
-                </if>
-                <if test="jname != null" >
-                    and jname = #{jname,jdbcType=VARCHAR}
-                </if>
-                <if test="requiredWorkyear != null" >
-                    required_workyear = #{requiredWorkyear,jdbcType=INTEGER}
-                </if>
-                <if test="requiredEducation != null" >
-                    and required_education = #{requiredEducation,jdbcType=INTEGER}
-                </if>
-                <if test="benefit != null" >
-                    and benefit = #{benefit,jdbcType=VARCHAR}
-                </if>
-                <if test="jobDesc != null" >
-                    and job_desc = #{jobDesc,jdbcType=LONGVARCHAR}
-                </if>
-                <if test="jobType != null" >
-                    and job_type = #{jobType,jdbcType=VARCHAR}
-                </if>
-                <if test="jobStatue != null">
-                    and job_statue = #{jobStatue,jdbcType=INTEGER}
-                </if>
-                <if test="workPlace != null" >
-                    and work_place = #{workPlace,jdbcType=VARCHAR}
-                </if>
-            </trim>
+        <trim>
+            <if test="jid != null" >
+                and jid = #{jid}
+            </if>
+            <if test="requiredNumber != null and requiredNumber != 0" >
+                and required_number = #{requiredNumber,jdbcType=INTEGER}
+            </if>
+            <if test="jname != null and jname != '' " >
+                and jname = #{jname,jdbcType=VARCHAR}
+            </if>
+            <if test="requiredWorkyear != null and requiredWorkyear != 0" >
+                required_workyear = #{requiredWorkyear,jdbcType=INTEGER}
+            </if>
+            <if test="requiredEducation != null and requiredEducation != 0" >
+                and required_education = #{requiredEducation,jdbcType=INTEGER}
+            </if>
+            <if test="benefit != null and benefit != '' "  >
+                and benefit = #{benefit,jdbcType=VARCHAR}
+            </if>
+            <if test="jobDesc != null and jobDesc != ''"  >
+                and job_desc = #{jobDesc,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="jobType != null and jobType != ''" >
+                and job_type = #{jobType,jdbcType=VARCHAR}
+            </if>
+            <if test="jobStatue != null">
+                and job_statue = #{jobStatue,jdbcType=INTEGER}
+            </if>
+            <if test="workPlace != null and workPlace != ''" >
+                and work_place = #{workPlace,jdbcType=VARCHAR}
+            </if>
+        </trim>
 
     </select>
+
+
     <select id="queryContains" parameterType="com.job52.model.Job" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

@@ -5,6 +5,7 @@ import com.job52.model.Enterprise;
 import com.job52.model.Job;
 import com.job52.service.EnterpriseService;
 import com.job52.service.JobService;
+import com.job52.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +47,7 @@ public class EnterpriseController {
     @RequestMapping(value = "/jobList",method = RequestMethod.GET)
     @ResponseBody
     public String jobList() {
-        List<Job> jobs = jobService.queryJobs(new Job(1));
+        List<Job> jobs = jobService.query(new Job(1));
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("total",jobs.size());
         map.put("rows",jobs);
@@ -62,8 +63,20 @@ public class EnterpriseController {
     @RequestMapping(value = "/addJob",method = RequestMethod.GET)
     @ResponseBody
     public String addJobs(HttpServletRequest request) {
-        Job j = null;
-        j = (Job) request.getAttribute("job");
+        String jid = CommonUtil.getJobId();
+        Enterprise enterprise  = new Enterprise(request.getParameter("eid"));
+        Integer requiredNumber = Integer.parseInt(request.getParameter("requiredNumber"));
+        String jname = request.getParameter("jname");
+        Integer requiredWorkyear = Integer.parseInt(request.getParameter("requiredWorkyear"));
+        Integer requiredEducation = Integer.parseInt(request.getParameter("requiredEducation"));
+        Integer minSalary = Integer.parseInt(request.getParameter("minSalary"));
+        Integer maxSalary = Integer.parseInt(request.getParameter("maxSalary"));
+        String benefit = request.getParameter("benefit");
+        String jobDesc = request.getParameter("jobDesc");
+        String jobType = request.getParameter("jobType");
+        String workPlace = request.getParameter("workPlace");
+        Job j = new Job(jid,enterprise,"0",requiredNumber,jname,requiredWorkyear,requiredEducation,minSalary,
+                maxSalary,benefit,jobDesc,jobType,workPlace,1,new Date(1,1,1));
         try{
             jobService.addJob(j);
         }catch (Exception e){
