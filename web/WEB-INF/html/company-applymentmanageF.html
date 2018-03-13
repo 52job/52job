@@ -241,23 +241,16 @@
             url: url,
             type: 'get',
             dataType: 'text',
-            success: succFunction,
-            //error: erryFunction//成功执行方法????
+            success: erryFunction
         });
 
-      //function erryFunction() {
-          //alert("处理失败");
-      //s  }
-
-        function succFunction(data) {
-if (data=="true"){ alert("处理成功");
-    window.location.reload();}
-    else{
-    alert("处理失败");
-}
-
-           // alert("处理成功");
-           // window.location.reload();
+        function erryFunction(date) {
+            if(date == "false")
+                alert("删除失败");
+            else {
+                alert("删除成功");
+                window.location.reload();
+            }
 
         }
     }
@@ -271,19 +264,16 @@ if (data=="true"){ alert("处理成功");
             dataType: 'text',
 
 
-            success: succFunction,
-            error: erryFunction//成功执行方法????
+            success: erryFunction
         });
 
-        function erryFunction() {
-            alert("处理失败");
-        }
-
-        function succFunction() {
-
-
-            alert("处理成功");
-            window.location.reload();
+        function erryFunction(date) {
+            if(date == "false")
+                alert("删除失败");
+            else {
+                alert("删除成功");
+                window.location.reload();
+            }
 
         }
     }

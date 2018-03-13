@@ -178,7 +178,7 @@
             type: 'delete',
             dataType: 'text',
             data: data,
-            error: erryFunction
+            success: erryFunction
         });
 
         function erryFunction(date) {
@@ -210,20 +210,16 @@
                 dataType: 'text',
                 data: data,
 
-                success: succFunction,
-                error: erryFunction//成功执行方法????
+                success: erryFunction
             });
 
-            function erryFunction() {
-                alert("删除失败");
-
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                window.location.reload();
+            function erryFunction(date) {
+                if(date == "false")
+                    alert("删除失败");
+                else {
+                    alert("删除成功");
+                    window.location.reload();
+                }
 
             }
         }
