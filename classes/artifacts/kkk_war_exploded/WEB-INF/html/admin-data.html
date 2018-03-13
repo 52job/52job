@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="table()">
+<body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
@@ -62,19 +62,19 @@
         <div class="col-md-10 col-md-offset-2">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="" method="get">
+
                         <div id="searchbox" class="col-md-6 ">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入检索关键字" id="searchdata">
+                                <input type="text" class="form-control" placeholder="请输入检索关键字" id="searchdata" >
                                 <span class="input-group-btn">
-                    <button class="btn btn-default" style="width: 75px" id="search">检索</button>
+                    <button class="btn btn-default" style="width: 75px" id="search" onclick="search1()">检索</button>
                 </span>
                             </div>
                         </div>
                         <div class="col-md-4 col-md-offset-1">
                             <p>按：发布时间、职位类别、企业、日搜索量、周搜索量 排序</p>
                         </div>
-                    </form>
+
                 </div>
             </div>
 
@@ -94,16 +94,87 @@
     </div>
 </div>
 <script>
-    var searchdata = "";
+    function search1() {
+        alert("hello");
+       //  table();
+        $('#table').bootstrapTable({
+            // url: url,//修改
+            method: 'post',
+            pagination: true,
+            striped: true,
+            toolbar: '#toolbar',
+            pageNumber: 1,
+            pageSize: 2,
+            pageList: [1, 2],
+            showRefresh: true,
+            showColumns: true,
+            showToggle: true,
+            undefinedText: '-',
+            selectItemName: 'select',
+            sortable: true, showExport: true,
+            exportDataType: "basic",
+            exportTypes: ['excel'],
+            clickToSelect: true,
+            maintainSelected: true,
+            search: true,
+            showPaginationSwitch: true,
+            checkboxHeader: true,
+            columns: [{
+                checkbox: true,
+                title: '选择'
+
+            }, {
+                field: 'id',
+                title: 'ID',
+                visible: false
+            }, {
+                field: 'position',//命名需与后台一致
+                title: '职位'
+            }, {
+                field: 'company',
+                title: '企业'
+            }, {
+                field: 'department',
+                title: '部门'
+            }, {
+                field: 'data',
+                title: '被搜索数据'
+            }, {
+                field: 'operate',
+                title: '操作',
+                formatter: function (value, row, index) {
+
+                    var t = '<a href="#" mce_href="#" onclick="top2(\'' + row.id + '\' )" >置顶</a> ';
+                    return t;
+                }
+            }],
+            data: [{
+                id: 1,
+                position: 'Item 1'
+
+
+            },
+                {
+                    id:2 ,
+                    position: 'Item 2'
+
+
+                }]
+
+        });
+    }
+    //var searchdata = "";
 
     function del2() {
         var row = $("#table").bootstrapTable('getSelections');
+        alert(row.length);
         var data = "[";
         if (row == "") {
             alert("请选择要删除的数据");
         } else {
             for (var i = 0; i < row.length; i++) {
                 data += ' {"id":"' + row[i].id + '" },';
+                alert(row[i].id);
             }
             var reg = /,$/gi;
             data = data.replace(reg, "");
@@ -134,9 +205,9 @@
     }
 
     function table() {
-        var url = "?searchdata=" + searchdata;
+        //var url = "?searchdata=" + searchdata;
         $('#table').bootstrapTable({
-            url: url,//修改
+           // url: url,//修改
             method: 'post',
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -189,12 +260,18 @@
                     var t = '<a href="#" mce_href="#" onclick="top2(\'' + row.id + '\' )" >置顶</a> ';
                     return t;
                 }
+            }],
+            data: [{
+                id: 1,
+                position: 'Item 1'
+
+
             }]
 
         });
     }
 
-    function top2(index) {
+    /*function top2(index) {
         var id = index;
         var data = {
             "id": id   //修改
@@ -217,14 +294,15 @@
         function succFunction() {
             alert("置顶成功");
         }
-    }
+    }*/
 
-    $(document).ready(function () {
+
+  /*  $(document).ready(function () {
         $("#search").click(function () {
             searchdata = $("#searchdata").val();
-            table();
+           table();
         });
-    })
+    })*/
 
 
 </script>

@@ -271,15 +271,6 @@
             }, {
                 field: 'maxSalary',
                 title: '最高工资(千)'
-            }, {
-                field: 'operate',
-                title: '操作',
-                formatter: function (value, row, index) {
-                    var s = '<a href="#" mce_href="#" onclick="searchinfo(\'' + index + '\' )" data-toggle="modal">查看详细</a> ';
-                    var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\' )" >删除</a> ';
-                    var t = '<a href="#" mce_href="#" onclick="top1(\'' + row.id + '\' )" >置顶操作</a> ';
-                    return s + d + t;
-                }
             }]
 
         });

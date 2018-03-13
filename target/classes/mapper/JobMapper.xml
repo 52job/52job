@@ -147,8 +147,8 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.job52.model.Job" >
         update job
         <set >
-            <if test="eid != null" >
-                eid = #{eid,jdbcType=VARCHAR},
+            <if test="enterprise.eid != null" >
+                eid = #{enterprise.eid,jdbcType=VARCHAR},
             </if>
             <if test="pid != null" >
                 pid = #{pid,jdbcType=VARCHAR},
@@ -212,35 +212,35 @@
         <include refid="Base_Column_List"/>
         from job,enterprise where job.eid = enterprise.eid
 
-            <trim prefixOverrides="and">
+            <trim>
                 <if test="jid != null" >
                     and jid = #{jid}
                 </if>
-                <if test="requiredNumber != null" >
+                <if test="requiredNumber != null and requiredNumber != 0" >
                     and required_number = #{requiredNumber,jdbcType=INTEGER}
                 </if>
-                <if test="jname != null" >
+                <if test="jname != null and jname != '' " >
                     and jname = #{jname,jdbcType=VARCHAR}
                 </if>
-                <if test="requiredWorkyear != null" >
+                <if test="requiredWorkyear != null and requiredWorkyear != 0" >
                     required_workyear = #{requiredWorkyear,jdbcType=INTEGER}
                 </if>
-                <if test="requiredEducation != null" >
+                <if test="requiredEducation != null and requiredEducation != 0" >
                     and required_education = #{requiredEducation,jdbcType=INTEGER}
                 </if>
-                <if test="benefit != null" >
+                <if test="benefit != null and benefit != '' "  >
                     and benefit = #{benefit,jdbcType=VARCHAR}
                 </if>
-                <if test="jobDesc != null" >
+                <if test="jobDesc != null and jobDesc != ''"  >
                     and job_desc = #{jobDesc,jdbcType=LONGVARCHAR}
                 </if>
-                <if test="jobType != null" >
+                <if test="jobType != null and jobType != ''" >
                     and job_type = #{jobType,jdbcType=VARCHAR}
                 </if>
                 <if test="jobStatue != null">
                     and job_statue = #{jobStatue,jdbcType=INTEGER}
                 </if>
-                <if test="workPlace != null" >
+                <if test="workPlace != null and workPlace != ''" >
                     and work_place = #{workPlace,jdbcType=VARCHAR}
                 </if>
             </trim>
@@ -250,32 +250,32 @@
         select
         <include refid="Base_Column_List"/>
         from job,enterprise where job.eid = enterprise.eid
-            <trim prefixOverrides="and">
-                <if test="requiredNumber != null" >
+            <trim>
+                <if test="requiredNumber != null and requiredNumber != 0" >
                     and  required_number = #{requiredNumber,jdbcType=INTEGER}
                 </if>
-                <if test="jname != null" >
+                <if test="jname != null and jname != '' " >
                     and  jname like "%"#{jname,jdbcType=VARCHAR}"%"
                 </if>
-                <if test="requiredWorkyear != null" >
+                <if test="requiredWorkyear != null and requiredWorkyear != 0" >
                     and  required_workyear like "%"#{requiredWorkyear,jdbcType=INTEGER}"%"
                 </if>
-                <if test="requiredEducation != null" >
+                <if test="requiredEducation != null and requiredEducation != 0" >
                     and  required_education like "%"#{requiredEducation,jdbcType=INTEGER}"%"
                 </if>
-                <if test="benefit != null" >
+                <if test="benefit != null and benefit != '' "  >
                     and  benefit like "%"#{benefit,jdbcType=VARCHAR}"%"
                 </if>
-                <if test="jobDesc != null" >
+                <if test="jobDesc != null and jobDesc != ''"  >
                     and  job_desc like "%"#{jobDesc,jdbcType=LONGVARCHAR}"%"
                 </if>
-                <if test="jobType != null" >
+                <if test="jobType != null and jobType != ''" >
                     and  job_type like "%"#{jobType,jdbcType=VARCHAR}"%"
                 </if>
                 <if test="jobStatue != null">
                     and job_statue = #{jobStatue,jdbcType=INTEGER}
                 </if>
-                <if test="workPlace != null" >
+                <if test="workPlace != null and workPlace != ''" >
                     and  work_place like "%"#{workPlace,jdbcType=VARCHAR}"%"
                 </if>
             </trim>

@@ -217,14 +217,6 @@
             }, {
                 field: 'email',
                 title: '邮箱'
-            }, {
-                field: 'operate',
-                title: '操作',
-                formatter: function (value, row, index) {//修改
-
-                    var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\')" >删除</a> ';
-                    return d;
-                }
             }]
         });
         function del(index) {

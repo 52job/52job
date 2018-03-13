@@ -5,6 +5,7 @@ import com.job52.model.Enterprise;
 import com.job52.model.Job;
 import com.job52.service.EnterpriseService;
 import com.job52.service.JobService;
+import com.sun.tools.javac.comp.Enter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -24,6 +26,11 @@ public class EnterpriseController {
     private EnterpriseService enterpriseService;
     @Autowired
     private JobService jobService;
+
+    @RequestMapping("/index")
+    public String index() {
+        return "/FirmInfoManagement";
+    }
 
     @RequestMapping("/enterprise_1")
     public String index1() {
@@ -274,26 +281,36 @@ public class EnterpriseController {
         return enterprise;
     }
 
-    @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.POST)
     public String updateEnterpriseInfo(HttpServletRequest request) {
-        String eid = request.getParameter("eid");
-        String username =  request.getParameter("username");
-        String password =  request.getParameter("password");
-        String name =  request.getParameter("name");
-        String address =  request.getParameter("address");
-        String type =  request.getParameter("type");
-        Integer number =  Integer.parseInt(request.getParameter("number"));
-        String email =  request.getParameter("email");
-        String contact =  request.getParameter("contact");
-        String imgurl =  request.getParameter("imgurl");
-        String description =  request.getParameter("description");
-        Enterprise enterprise = new Enterprise(eid,username,password,name,address,type,number,email,contact,imgurl,description);
+        String eid = String.valueOf(request.getParameter("eid"));
+        Enterprise enterprise = enterpriseService.getEnterprise(eid);
+        enterprise.seteUsername(request.getParameter("eUsername"));
+        enterprise.setePassword(request.getParameter("ePassword"));
+        enterprise.setEname(request.getParameter("ename"));
+        enterprise.setAdddress(request.getParameter("adddress"));
+        enterprise.seteType(request.getParameter("eType"));
+        enterprise.seteNumber(Integer.parseInt(request.getParameter("eNumber")));
+        enterprise.setEmail(request.getParameter("email"));
+        enterprise.setContact(request.getParameter("contact"));
+        enterprise.setImageUrl(String.valueOf(request.getParameter("imgurl")));
+        enterprise.setDescriptionte(request.getParameter("descriptionte"));
+        System.out.println(enterprise);
         try{
             enterpriseService.updateEnterprise(enterprise);
         }catch (Exception e){
             e.printStackTrace();
-            return "false";
+            return "/FirmInfoManagement";
         }
-        return "true";
+        return "/FirmInfoManagement";
+    }
+
+    @RequestMapping("/MyEnterprise")
+    @ResponseBody
+    public Enterprise getEnterprise(HttpSession session) {
+        //String eid = String.valueOf(session.getAttribute("eid"));
+        String eid = "aaa";
+        Enterprise enterprise = enterpriseService.getEnterprise(eid);
+        return enterprise;
     }
 }
