@@ -16,13 +16,29 @@
 
 
 </head>
+<style>
+    .bg1{
+        background-size: cover;
+        background-image: url(../../img/home-bg.jpg);
 
+            position: relative;
+
+
+    }
+    .p1{
+        color: #343a40;
+        font-weight: 650;
+    }
+</style>
 <body onload="table()">
-<div class="container-fluid">
+<div class="bg1" style="width: 100%;height:610px;position: relative;" >
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2" >
+<div class="container-fluid p1">
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-                <div>
+                <div >
                     <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
                     <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
                 </div>
@@ -65,12 +81,14 @@
         </div>
 
         <div class="col-md-10">
+            <br><br>
+            <label class="p1" style="font-size: 30px">简历管理</label>
             <br><br><br><br>
 
-            <div class="table-responsive " style="position:relative;left: -40px">
+            <div class="table-responsive p1" style="position:relative;left: -40px">
                 <div id="toolbar" class="btn-group">
 
-                    <button id="btn_delete" type="button" class="btn btn-default" onclick="delal1()">
+                    <button id="btn_delete" type="button" class="btn btn-default p1" onclick="delal1()">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量删除
                     </button>
                 </div>
@@ -364,7 +382,7 @@ function delall() {
 
 
 </script>
-<div class="modal fade" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel">
+<div class="modal fade p1" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -496,7 +514,8 @@ function delall() {
     }
 
 </script>
-
+    </div>
+</div>
 </body>
 
 </html>

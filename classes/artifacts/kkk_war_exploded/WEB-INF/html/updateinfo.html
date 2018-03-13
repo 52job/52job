@@ -85,11 +85,27 @@
 
 
     </script>
+    <style>
+        .bg1{
+            background-size: cover;
+            background-image: url(../../img/home-bg.jpg);
 
+                position: relative;
+
+
+        }
+        .p1{
+            color: #343a40;
+            font-weight: 650;
+        }
+    </style>
 </head>
 
 <body onload="table()">
-<div class="container-fluid">
+<div class="bg1" style="width: 100%;height:610px;position: relative;" >
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2" >
+<div class="container-fluid p1">
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
@@ -136,8 +152,8 @@
         </div>
         <div class="col-md-10">
             <br><br><br><br>
-            <label>信息修改</label>
-            <br>
+            <label class="p1" style="font-size: 30px">信息修改</label>
+            <br><br><br><br>
             <div style="text-align: center">
 
                 <form>
@@ -219,7 +235,7 @@
 
 
 <!--绑定手机小窗口-->
-<div class="modal fade" id="setPhone" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade p1" id="setPhone" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
     <div class="modal-dialog" style="width: 340px">
         <div class="modal-content">
             <div class="modal-header" style="height: 50px">
@@ -261,7 +277,7 @@
 
 
 <!--绑定邮箱小窗口-->
-<div class="modal fade" id="setMail" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade p1" id="setMail" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
     <div class="modal-dialog" style="width: 340px">
         <div class="modal-content">
             <div class="modal-header" style="height: 50px">
@@ -304,7 +320,7 @@
 
 
 <!--密码重置小窗口-->
-<div class="modal fade" id="setPwd" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade p1" id="setPwd" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
     <div class="modal-dialog" style="width: 340px">
         <div class="modal-content">
             <div class="modal-header" style="height: 50px">
@@ -354,7 +370,7 @@
 
 
 <!--用户名-->
-<div class="modal fade" id="setNewName" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
+<div class="modal fade p1" id="setNewName" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px">
     <div class="modal-dialog" style="width: 340px">
         <div class="modal-content">
             <div class="modal-header" style="height: 50px">
@@ -531,7 +547,8 @@
     }
 </script>
 
-
+    </div>
+</div>
 </body>
 
 </html>
