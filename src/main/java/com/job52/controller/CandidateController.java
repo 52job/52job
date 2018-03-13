@@ -226,5 +226,25 @@ public class CandidateController {
         return  JsonString;
     }
 
+    @RequestMapping(value = "/delect")
+    @ResponseBody
+    public String delectCandidate(String ids) {
+        System.out.println(ids);
+        List<String> jids = new ArrayList<String>();
+        List<String> pids = new ArrayList<String>();
+        String[] jp;
+        for (String s : ids.split(",")) {
+            jp = s.split("-");
+            jids.add(jp[0]);
+            pids.add(jp[1]);
+        }
+        try {
+            candidateInfoService.removeCandidates(jids, pids);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "false";
+        }
+        return "true";
+    }
 
 }
