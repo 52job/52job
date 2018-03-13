@@ -33,10 +33,12 @@
         <include refid="Base_Column_List" />
         from enterprise
         where ename LIKE "%"#{ename,jdbcType=VARCHAR}"%"
-        and adddress LIKE "%"#{adddress,jdbcType=VARCHAR}"%"
-        and e_type LIKE "%"#{eType,jdbcType=VARCHAR}"%"
-        and descriptionte LIKE "%"#{descriptionte,jdbcType=VARCHAR}"%"
+        or adddress LIKE "%"#{adddress,jdbcType=VARCHAR}"%"
+        or e_type LIKE "%"#{eType,jdbcType=VARCHAR}"%"
+        or descriptionte LIKE "%"#{descriptionte,jdbcType=VARCHAR}"%"
     </select>
+
+
 
     <select id="selectAllInfo" resultMap="BaseResultMap" parameterType="com.job52.model.Enterprise" >
         select

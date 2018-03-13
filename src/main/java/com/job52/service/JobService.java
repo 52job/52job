@@ -68,6 +68,8 @@ public interface JobService {
      */
     List<Job> queryByJobIds(String[] jobIds);
 
+    List<Job> queryByJobIds(List<String> jids);
+
     /**
      * 返回包含有这个str在的记录，如下字段进入搜索：
      * @param str 搜索的选项
