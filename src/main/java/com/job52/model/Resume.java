@@ -11,7 +11,8 @@ public class Resume {
 
     private String rid;
     private String pid;
-    private String name;
+    private String pname;
+    private String resumeName;
     private String sex;
     private String portrait;
     private String birthday;
@@ -27,15 +28,17 @@ public class Resume {
     private String major;
     private String workExp;
     private int isPublic;
+    private String resumeState;
     private String accessory;
 
     public Resume() {
     }
 
-    public Resume(String rid, String pid, String name, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String careerIntention, String major, String workExp, int isPublic, String accessory) {
+    public Resume(String rid, String pid, String pname, String resumeName, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String careerIntention, String major, String workExp, int isPublic, String resumeState, String accessory) {
         this.rid = rid;
         this.pid = pid;
-        this.name = name;
+        this.pname = pname;
+        this.resumeName = resumeName;
         this.sex = sex;
         this.portrait = portrait;
         this.birthday = birthday;
@@ -51,6 +54,7 @@ public class Resume {
         this.major = major;
         this.workExp = workExp;
         this.isPublic = isPublic;
+        this.resumeState = resumeState;
         this.accessory = accessory;
     }
 
@@ -70,12 +74,20 @@ public class Resume {
         this.pid = pid;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public String getResumeName() {
+        return resumeName;
+    }
+
+    public void setResumeName(String resumeName) {
+        this.resumeName = resumeName;
     }
 
     public String getSex() {
@@ -198,6 +210,14 @@ public class Resume {
         this.isPublic = isPublic;
     }
 
+    public String getResumeState() {
+        return resumeState;
+    }
+
+    public void setResumeState(String resumeState) {
+        this.resumeState = resumeState;
+    }
+
     public String getAccessory() {
         return accessory;
     }
@@ -211,22 +231,24 @@ public class Resume {
         return "Resume{" +
                 "rid='" + rid + '\'' +
                 ", pid='" + pid + '\'' +
-                ", name='" + name + '\'' +
+                ", pname='" + pname + '\'' +
+                ", resumeName='" + resumeName + '\'' +
                 ", sex='" + sex + '\'' +
                 ", portrait='" + portrait + '\'' +
-                ", birthday=" + birthday +
+                ", birthday='" + birthday + '\'' +
                 ", tel='" + tel + '\'' +
-                ", startWorkTime=" + startWorkTime +
+                ", startWorkTime='" + startWorkTime + '\'' +
                 ", jobState='" + jobState + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", highestEducation='" + highestEducation + '\'' +
                 ", graduationUniversity='" + graduationUniversity + '\'' +
-                ", graduationTime=" + graduationTime +
+                ", graduationTime='" + graduationTime + '\'' +
                 ", careerIntention='" + careerIntention + '\'' +
                 ", major='" + major + '\'' +
                 ", workExp='" + workExp + '\'' +
                 ", isPublic=" + isPublic +
+                ", resumeState='" + resumeState + '\'' +
                 ", accessory='" + accessory + '\'' +
                 '}';
     }

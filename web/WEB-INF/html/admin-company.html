@@ -17,6 +17,7 @@
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
     <script src="../../javascript/model.js"></script>
+    <script src="../../javascript/admin-company.js"></script>
 
 
 </head>
@@ -25,7 +26,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary2 fixed-top" id="sideNav" style="width: 20%">
                 <br><br>
 
                 <div>
@@ -35,6 +36,8 @@
 
                 </div>
 
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>
@@ -51,9 +54,7 @@
                             <a style="color: white" href="admin-position.html" class="js-scroll-trigger">职位信息管理</a>
                         </li>
 
-                        <li>
-                            <a style="color: white" href="admin-data.html" class="js-scroll-trigger">数据统计管理</a>
-                        </li>
+
 
                     </ul>
                 </div>
@@ -65,7 +66,8 @@
         <div class="col-md-10 col-md-offset-2">
             <div class="container-fluid">
                 <div class="row">
-
+                    <div><p style="color: black;margin-top: -20px;font-weight: 600;font-size: 20px">企业用户管理</p></div>
+                    <br><br>
                     <div id="searchbox" class="col-md-6 " style="position: relative;right: -40px">
                         <div class="input-group">
                             <input type="text" class="form-control" id="username" placeholder="请输入检索关键字">
@@ -93,178 +95,7 @@
 
     </div>
 </div>
-<script>
-    var searchdata = "";
 
-    function del2() {
-        var row = $("#table").bootstrapTable('getSelections');
-        var data = "[";
-        if (row == "") {
-            alert("请选择要删除的数据");
-        } else {
-            for (var i = 0; i < row.length; i++) {
-                data += ' {"id":"' + row[i].id + '" },';
-            }
-            var reg = /,$/gi;
-            data = data.replace(reg, "");
-            data += "]";
-            $.ajax({
-                url: '/v1/node/',
-                type: 'delete',
-                dataType: 'text',
-                data: data,
-
-                success: succFunction,
-                error: erryFunction//成功执行方法????
-            });
-
-
-            function erryFunction() {
-                alert("删除失败");
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                $("#search").click();
-
-            }
-        }
-    }
-    function deleteList() {
-        //获取所有被选中的记录
-        var rows = $("#table").bootstrapTable('getSelections');
-        if (rows.length== 0) {
-            alert("请先选择要删除的记录!");
-            return;
-        }
-        var ids = '';
-        for (var i = 0; i < rows.length; i++) {
-            ids += rows[i]['eid'] + ",";
-        }
-        ids = ids.substring(0, ids.length - 1);
-        deleteIds(ids);
-    }
-
-    //单个删除
-    function deleteUserById(id) {
-        deleteUser(id);
-    }
-
-
-    //删除
-    function deleteIds(ids) {
-        var msg = "您真的确定要删除吗？";
-        if (confirm(msg) == true) {
-            $.ajax({
-                url: "/admin/enterprise/delete",
-                type: "post",
-                data: {
-                    eids: ids
-                },
-                success: function (data) {
-                    alert(data.msg);
-                    //重新加载记录
-                    //重新加载数据
-                    $("#table").bootstrapTable('refresh', {url: '/admin/enterprise'});
-                    table();
-                }
-            });
-        }
-    }
-    function table() {
-        var url = "/admin/enterprise/search/" + searchdata;
-        $('#table').bootstrapTable('destroy');
-        $('#table').bootstrapTable({
-            url: url,//修改
-            method: 'post',
-            toolbar: '#toolbar',                //工具按钮用哪个容器
-            striped: true,                      //是否显示行间隔色
-            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-            pagination: true,                   //是否显示分页（*）
-            sortable: false,                     //是否启用排序
-            sortOrder: "asc",                   //排序方式
-            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
-            pageNumber: 1,                       //初始化加载第一页，默认第一页
-            pageSize: 10,                       //每页的记录行数（*）
-            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-            contentType: "application/x-www-form-urlencoded",
-            strictSearch: true,
-            //showColumns: true,                  //是否显示所有的列
-            showRefresh: true,                  //是否显示刷新按钮
-            minimumCountColumns: 2,             //最少允许的列数
-            clickToSelect: true,                //是否启用点击选中行
-            height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-            uniqueId: "no",                     //每一行的唯一标识，一般为主键列
-            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
-            cardView: false,                    //是否显示详细视图
-            detailView: false,                   //是否显示父子表
-            columns: [{
-                checkbox: true,
-                title: '选择'
-
-            }, {
-                field: 'id',
-                title: 'ID',
-                visible: false
-            }, {
-                field: 'eUsername',//命名需与后台一致
-                title: '用户名'
-            }, {
-                field: 'ename',
-                title: '企业名'
-            }, {
-                field: 'adddress',
-                title: '企业地址'
-            }, {
-                field: 'eType',
-                title: '企业类型'
-            }, {
-                field: 'email',
-                title: '邮箱'
-            }, {
-                field: 'contact',
-                title: '联系方式'
-            }]
-        });
-    }
-
-    function del(index) {
-        var id = index1;
-        var data = {
-            "id": id, //修改
-        }
-        data = JSON.stringify(data);
-        $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
-        });
-
-        function erryFunction() {
-            alert("删除失败");
-        }
-
-        function succFunction() {
-            alert("删除成功");
-            $("#search").click();
-        }
-    }
-
-    $(document).ready(function () {
-
-        $("#search").click(function () {
-            searchdata = $("#username").val();
-            table();
-        })
-    });
-
-</script>
 </body>
 
 </html>
