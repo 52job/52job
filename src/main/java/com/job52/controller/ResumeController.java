@@ -88,7 +88,7 @@ public class ResumeController {
                 request.getParameter("highestEducation"),request.getParameter("graduationUniversity"),
                 request.getParameter("graduationTime"),request.getParameter("careerIntention"),
                 request.getParameter("major"),request.getParameter("workExp"),
-                Integer.parseInt(request.getParameter("isPublic")),urls[1]);
+                Integer.parseInt(request.getParameter("isPublic")),"未读",urls[1]);
         System.out.println(resume.toString());
         if(resumeService.addResume(resume)>0){
             return "success";
@@ -103,8 +103,13 @@ public class ResumeController {
     }
 
     @RequestMapping("/delete/{rid}")
-    public int removeResume(@PathVariable("rid") String rid){
-        return resumeService.removeResume(rid);
+    @ResponseBody
+    public String removeResume(@PathVariable("rid") String rid){
+        if(resumeService.removeResume(rid)>0){
+            return "success!";
+        }else{
+            return "fail";
+        }
     }
 
     @RequestMapping("/update")
@@ -138,38 +143,20 @@ public class ResumeController {
 
     @RequestMapping("/query")
     @ResponseBody
-//    public String searchResume(HttpServletRequest request){
-//        Map<String, Object> map = new HashMap();
-//        Resume resume = null;
-//        resume.setRid(request.getParameter("careerIntention"));
-//        resume.setRid(request.getParameter("graduationUniversity"));
-//        resume.setRid(request.getParameter("highestEducation"));
-//        resume.setRid(request.getParameter("workExp"));
-//        System.out.println("--------");
-//        System.out.println(request.getParameter("careerIntention").toString());
-//        System.out.println(request.getParameter("graduationUniversity").toString());
-//        System.out.println(request.getParameter("searchKey1").toString());
-//        System.out.println(request.getParameter("highestEducation").toString());
-//        System.out.println(request.getParameter("workExp").toString());
-//        List<Resume> list = resumeService.queryAll(resume);
-//
-//        map.put("total", list.size());
-//        map.put("rows", list);
-//        System.out.println(map.toString());
-//        String jsonString = JSON.toJSONString(map);
-//        return jsonString;
-//    }
-    public String query(Resume resume){
-        Resume resume1 = null;
+    public String query(String careerIntention,String graduationUniversity,String highestEducation){
+        Resume resume = new Resume();
+        resume.setCareerIntention(careerIntention);
+        resume.setGraduationUniversity(graduationUniversity);
+        resume.setHighestEducation(highestEducation);
         Map<String, Object> map = new HashMap();
-        List<Resume> resumeList =  resumeService.queryAll(resume1);
+        List<Resume> resumeList =  resumeService.queryAll(resume);
         map.put("total", resumeList.size());
         map.put("rows", resumeList);
         String jsonString = JSON.toJSONString(map);
         return jsonString;
     }
     @RequestMapping("/search")
-    public String sss(){
+    public String search(){
         return "/ResumeSearch";
     }
 
