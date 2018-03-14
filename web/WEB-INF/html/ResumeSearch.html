@@ -89,11 +89,11 @@
                             <div class="form-group" style="margin-top:5px">
                                 <label class="control-label col-sm-2" for="aimPosition">意向职位</label>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="aimPosition" name="">
+                                    <input type="text" class="form-control" id="aimPosition" name="careerIntention">
                                 </div>
                                 <label class="control-label col-sm-2" for="graduatedSchool">毕业院校</label>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="graduatedSchool" name="">
+                                    <input type="text" class="form-control" id="graduatedSchool" name="graduationUniversity">
                                 </div>
                                 <div class="col-sm-4" style="text-align:left;">
                                     <button type="button" style="margin-left:5px" id="btn_query"
@@ -106,7 +106,7 @@
                             <div class="form-group" style="margin-top:5px">
                                 <label class="control-label col-sm-2" for="edu">学历</label>
                                 <div class="col-sm-2">
-                                    <select id="edu" class="form-control" name="">
+                                    <select id="edu" class="form-control" name="highestEducation">
                                         <option>小学</option>
                                         <option>初中</option>
                                         <option>高中</option>
@@ -136,34 +136,38 @@
 </div>
 
 <script>
-    $(function () {
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = new Object();
+    Request = GetRequest();
+    var a,b,c;
+    a = Request['careerIntention'];
+    b = Request['graduationUniversity'];
+    c = Request['highestEducation'];
+    function table() {
 
-        //1.初始化Table
-        var oTable = new TableInit();
-        oTable.Init();
 
-        //2.初始化Button的点击事件
-        var oButtonInit = new ButtonInit();
-        oButtonInit.Init();
-
-    });
-
-
-    var TableInit = function () {
-        var oTableInit = new Object();
-        //初始化Table
-        oTableInit.Init = function () {
             $('#resumeTable').bootstrapTable({
-                url: '',       //请求后台的URL（*）
-                method: 'get',                      //请求方式（*）
+                url: '/resume/query?careerIntention=' + a + '&graduationUniversity=' + b + '&highestEducation=' + c,         //请求后台的URL（*）
+                method: 'post',                      //请求方式（*）
                 //toolbar: '#toolbar',                //工具按钮用哪个容器
                 striped: true,                      //是否显示行间隔色
                 cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
                 pagination: true,                   //是否显示分页（*）
                 sortable: false,                     //是否启用排序
                 sortOrder: "asc",                   //排序方式
-                queryParams: oTableInit.queryParams,//传递参数（*）
-                //sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                queryParams: queryParams,//传递参数（*）
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                 pageNumber: 1,                       //初始化加载第一页，默认第一页
                 pageSize: 3,                       //每页的记录行数（*）
                 pageList: [1,2],        //可供选择的每页的行数（*）
@@ -176,7 +180,7 @@
                 exportDataType: "basic",
                 exportTypes: ['excel'],
                 clickToSelect: false,                //是否启用点击选中行
-                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+               // height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
                 uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
                 showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
                 cardView: false,                    //是否显示详细视图
@@ -184,76 +188,42 @@
                 columns: [{
                     checkbox: true
                 },  {
-                    field: 'id',//命名需要和后台一致
+                    field: 'rid',//命名需要和后台一致
                     title: 'ID',
                     visible: false
                 },{
-                    field: 'aimPosition',//命名需要和后台一致
+                    field: 'careerIntention',//命名需要和后台一致
                     title: '意向职位'
                 }, {
-                    field: 'graduatedSchool',
+                    field: 'graduationUniversity',
                     title: '毕业院校'
                 }, {
-                    field: 'edu',
+                    field: 'highestEducation',
                     title: '学历'
                 }, {
-                    field: 'exp',
+                    field: 'workExp',
                     title: '工作经验'
                 },{
-                    field: 'des',
+                    field: 'workExp',
                     title: '描述'
-                }],
-                data:[{
-                    id: 2,
-                    aimPosition:"总经理",
-                    graduatedSchool:"华中科技大学",
-                    edu:"硕士",
-                    exp:5,
-                    des:"实习两年"
-                },{
-                    id: 3,
-                    aimPosition:"部门经理",
-                    graduatedSchool:"华中科技大学",
-                    edu:"博士",
-                    exp:5,
-                    des:"实习三年啦"
-                },{
-                    id: 4,
-                    aimPosition:"项目经理",
-                    graduatedSchool:"北京大学",
-                    edu:"硕士",
-                    exp:7,
-                    des:"工作七年啦"
                 }]
             });
         };
 
-        //得到查询的参数
-        oTableInit.queryParams = function (params) {
-            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-                limit: params.limit,   //页面大小
-                offset: params.offset,  //页码
-                departmentname: $("#txt_search_departmentname").val(),
-                statu: $("#txt_search_statu").val()
+        function queryParams() {
+            var careerIntention=$('careerIntention').val();
+            var graduationUniversity=$('graduationUniversity').val();
+            var highestEducation=$('highestEducation').val();
+            alert(careerIntention);
+            var temp = {
+                'careerIntention':careerIntention,               //搜索框
+                'graduationUniversity':graduationUniversity,               //最低薪资
+                'highestEducation':highestEducation
             };
             return temp;
-        };
-        return oTableInit;
-    };
+        }
 
-
-    var ButtonInit = function () {
-        var oInit = new Object();
-        var postdata = {};
-
-        oInit.Init = function () {
-            //初始化页面上面的按钮事件
-        };
-
-        return oInit;
-    };
 </script>
-
 </body>
 
 </html>
