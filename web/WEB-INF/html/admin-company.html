@@ -25,7 +25,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary2 fixed-top" id="sideNav" style="width: 20%">
                 <br><br>
 
                 <div>
@@ -35,6 +35,8 @@
 
                 </div>
 
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>
@@ -51,9 +53,7 @@
                             <a style="color: white" href="admin-position.html" class="js-scroll-trigger">职位信息管理</a>
                         </li>
 
-                        <li>
-                            <a style="color: white" href="admin-data.html" class="js-scroll-trigger">数据统计管理</a>
-                        </li>
+
 
                     </ul>
                 </div>
@@ -65,7 +65,8 @@
         <div class="col-md-10 col-md-offset-2">
             <div class="container-fluid">
                 <div class="row">
-
+                    <div><p style="color: black;margin-top: -20px;font-weight: 600;font-size: 20px">企业用户管理</p></div>
+                    <br><br>
                     <div id="searchbox" class="col-md-6 " style="position: relative;right: -40px">
                         <div class="input-group">
                             <input type="text" class="form-control" id="username" placeholder="请输入检索关键字">
@@ -96,42 +97,7 @@
 <script>
     var searchdata = "";
 
-    function del2() {
-        var row = $("#table").bootstrapTable('getSelections');
-        var data = "[";
-        if (row == "") {
-            alert("请选择要删除的数据");
-        } else {
-            for (var i = 0; i < row.length; i++) {
-                data += ' {"id":"' + row[i].id + '" },';
-            }
-            var reg = /,$/gi;
-            data = data.replace(reg, "");
-            data += "]";
-            $.ajax({
-                url: '/v1/node/',
-                type: 'delete',
-                dataType: 'text',
-                data: data,
 
-                success: succFunction,
-                error: erryFunction//成功执行方法????
-            });
-
-
-            function erryFunction() {
-                alert("删除失败");
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                $("#search").click();
-
-            }
-        }
-    }
     function deleteList() {
         //获取所有被选中的记录
         var rows = $("#table").bootstrapTable('getSelections');
@@ -231,30 +197,6 @@
         });
     }
 
-    function del(index) {
-        var id = index1;
-        var data = {
-            "id": id, //修改
-        }
-        data = JSON.stringify(data);
-        $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
-        });
-
-        function erryFunction() {
-            alert("删除失败");
-        }
-
-        function succFunction() {
-            alert("删除成功");
-            $("#search").click();
-        }
-    }
 
     $(document).ready(function () {
 

@@ -27,7 +27,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary2 fixed-top" id="sideNav" style="width: 20%">
                 <br><br>
 
                 <div>
@@ -37,6 +37,8 @@
 
                 </div>
 
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>
@@ -53,9 +55,6 @@
                             <a style="color: white" href="admin-position.html">职位信息管理</a>
                         </li>
 
-                        <li>
-                            <a style="color: white" href="admin-data.html">数据统计管理</a>
-                        </li>
 
                     </ul>
                 </div>
@@ -67,7 +66,8 @@
         <div class="col-md-10 col-md-offset-2">
             <div class="container-fluid">
                 <div class="row">
-
+                    <div><p style="color: black;margin-top: -20px;font-weight: 600;font-size: 20px">职位信息管理</p></div>
+                    <br><br>
                         <div id="searchbox" class="col-md-6 ">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="请输入检索关键字" id="searchdata">
@@ -139,42 +139,6 @@
 <script>
     var searchdata = "";
 
-    function del2() {
-        var row = $("#table").bootstrapTable('getSelections');
-
-        var data = '[';
-        if (row == "") {
-            alert("请选择要删除的数据");
-        } else {
-            for (var i = 0; i < row.length; i++) {
-                data += '{"jid":"' + row[i].jid + '"},';
-            }
-            var reg = /,$/gi;
-            data = data.replace(reg, "");
-            data += "]";
-            alert(data);
-            $.ajax({
-                url: '/admin/job/delete/',
-                type: 'delete',
-                data: {ids:"data"},
-                success: succFunction,
-                error: erryFunction//成功执行方法????
-            });
-
-
-            function erryFunction() {
-                alert("删除失败");
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                $("#search").click();
-
-            }
-        }
-    }
     function deleteList() {
         //获取所有被选中的记录
         var rows = $("#table").bootstrapTable('getSelections');
@@ -218,7 +182,7 @@
     }
     function table() {
         var url = "/admin/job/search/" + searchdata;
-        $('#table').bootstrapTable('destroy')
+        $('#table').bootstrapTable('destroy');
         $('#table').bootstrapTable({
             url: url,//修改
             method: 'get',
@@ -277,74 +241,20 @@
 
     }
 
-    function searchinfo(index) {
-        $("#position").val(position[index]["position"]);//修改
-        $("#number").val(position[index]["number"]);
-        $("#requirement").val(position[index]["requirement"]);
-        $("#company").val(position[index]["company"]);
-        $("#department").val(position[index]["department"]);
-        $("#Pintroduction").val(position[index]["Pintroduction"]);
-        $("#location").val(position[index]["location"]);
-        $("#Cintroduction").val(position[index]["Cintroduction"]);
-        $("#mymodel").modal();
-    }
-
-    function del(index) {
-
-        var id = index;
+//    function searchinfo(index) {
+//        $("#position").val(position[index]["position"]);//修改
+//        $("#number").val(position[index]["number"]);
+//        $("#requirement").val(position[index]["requirement"]);
+//        $("#company").val(position[index]["company"]);
+//        $("#department").val(position[index]["department"]);
+//        $("#Pintroduction").val(position[index]["Pintroduction"]);
+//        $("#location").val(position[index]["location"]);
+//        $("#Cintroduction").val(position[index]["Cintroduction"]);
+//        $("#mymodel").modal();
+//    }
 
 
-        var data = {
-            "id": id, //修改
 
-        }
-        data = JSON.stringify(data);
-        $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
-        });
-
-        function erryFunction() {
-            alert("删除失败");
-        }
-
-        function succFunction() {
-            alert("删除成功");
-            $("#search").click();
-        }
-    }
-
-    function top1(index) {
-        var id = index;
-
-
-        var data = {
-            "id": id //修改
-
-        };
-        data = JSON.stringify(data);
-        $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
-        });
-
-        function erryFunction() {
-            alert("置顶失败");
-        }
-
-        function succFunction() {
-            alert("置顶成功");
-
-        }
-    }
 
     $(document).ready(function () {
         $("#search").click(function () {
