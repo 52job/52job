@@ -29,11 +29,18 @@ public class CollectionServiceImpl implements CollectionService {
         return jobs;
     }
 
-    public boolean deleteCollection(List<CollectionKey> ids) throws Exception {
-        for (CollectionKey id: ids) {
-            collectionMapper.deleteByPrimaryKey(id);
+    public long deleteCollection(String jids,String pid) throws Exception {
+        String[] ids = jids.split(",");
+        long count = 0;
+
+        for (String id: ids) {
+            CollectionKey key = new CollectionKey();
+            key.setPid(pid);
+            key.setGid(id);
+            collectionMapper.deleteByPrimaryKey(key);
+            count++;
         }
-        return true;
+        return count;
     }
 
     @Override

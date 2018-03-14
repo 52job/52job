@@ -15,16 +15,29 @@
     <script src="../../bootstrap/bootstrap-table-zh-CN.js"></script>
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
+    <style>
 
+        .bg1 {
+            background-size: cover;
+            background-image: url(../../img/timg.jpg);
+            position: relative;
+
+        }
+
+    </style>
 
 </head>
 
 <body onload="table()">
+
+<div class="bg1" style="width: 100%;height:770px;position: relative;">
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-                <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
+                <div class="color">
                     <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
                     <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
                 </div>
@@ -42,33 +55,33 @@
                 <br>
                 <br>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class=" nav nav-sidebar">
+                    <ul class=" nav nav-sidebar color">
                         <li>
-                            <a style="color: white" href="FirmInfoManagement.html">企业信息管理</a>
+                            <a style="color: white" href="/enterprise/enterprise_4">企业信息管理</a>
                         </li>
                         <li>
-                            <a style="color: white" href="ResumeSearch.html">简历搜索</a>
+                            <a style="color: white" href="/resume/search">简历搜索</a>
                         </li>
                         <li class="management">
                             <a style="color: white" href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a style="color: white" href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="/enterprise/enterprise_1">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a style="color: white" href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="/enterprise/enterprise_3">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a style="color: white" href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="/enterprise/enterprise_2">历史职业信息</a>
                         </li>
                         <li class="apply">
                             <a style="color: white" href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a style="color: white" href="company-applymentmanageF.html">未处理</a>
+                            <a  href="/candidate/candidate_1">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a style="color: white" href="company-applymentmanageP.html">已处理</a>
+                            <a  href="/candidate/candidate_2">已处理</a>
                         </li>
 
                     </ul>
@@ -77,12 +90,14 @@
         </div>
 
         <div class="col-md-10">
+            <br><br>
+            <label class="p1" style="font-size: 30px">应聘信息-已处理</label>
             <br><br><br><br>
 
             <div class="table-responsive " style="position:relative;left: -40px">
                 <div id="toolbar" class="btn-group">
 
-                    <button id="btn_delete" type="button" class="btn btn-default" onclick="del1()">
+                    <button id="btn_delete" type="button" class="btn btn-default" onclick="deleteList()">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量删除
                     </button>
                 </div>
@@ -93,57 +108,109 @@
     </div>
 </div>
 <script>
+    function deleteList() {
+        //获取所有被选中的记录
+        var rows = $("#table").bootstrapTable('getSelections');
+        if (rows.length== 0) {
+            alert("请先选择要删除的记录!");
+            return;
+        }
+        var ids = '';
+        for (var i = 0; i < rows.length; i++) {
+            ids += rows[i]['jid'] + "-" + rows[i]['pid'] + ",";
+        }
+        ids = ids.substring(0, ids.length - 1);
+        //alert(ids);
+        deleteIds(ids);
+    }
+
+
+    //删除
+    function deleteIds(ids) {
+            var msg = "您真的确定要删除吗？";
+            if (confirm(msg) == true) {
+                $.ajax({
+                    url: "/candidate/delete",
+                    type: "post",
+                    data: {
+                        ids: ids
+                    },
+                    success: function erryFunction(date) {
+                        if(date == "false")
+                            alert("删除失败");
+                        else {
+                            alert("删除成功");
+                            window.location.reload();
+                        }
+
+                    }
+                });
+            }
+    }
+
     function table() {
 
-        var person_img=localStorage.getItem("personimg");//修改
-        document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
+        var person_img = localStorage.getItem("personimg");//修改
+        document.getElementById("person_img").setAttribute("src", "../../img/profile.jpg");//修改
+        $('#table').bootstrapTable('destroy');
         $('#table').bootstrapTable({
-            url: '',//修改
-            pagination: true,
-            striped: true,
-            toolbar: '#toolbar',
-            pageNumber: 1,
-            pageSize: 2,
-            pageList: [1, 2],
-            showRefresh: true,
-            showColumns: true,
-            showToggle: true,
-            undefinedText: '-',
-            selectItemName: 'select',
-            sortable: true,
-            showExport: true,
-            exportDataType: "basic",
-            exportTypes: ['excel'],
-            clickToSelect: true,
-            search: true,
-            showPaginationSwitch: true,
-            checkboxHeader:true,
+            url: '/candidate/checkList',//修改
+            method: 'get',                      //请求方式（*）
+            toolbar: '#toolbar',                //工具按钮用哪个容器
+            striped: true,                      //是否显示行间隔色
+            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   //是否显示分页（*）
+            sortable: false,                     //是否启用排序
+            sortOrder: "asc",                   //排序方式
+            // queryParams:queryParams,//传递参数（*）
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
+            pageSize: 10,                       //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            contentType: "application/x-www-form-urlencoded",
+            strictSearch: true,
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: true,                  //是否显示刷新按钮
+            minimumCountColumns: 2,             //最少允许的列数
+            clickToSelect: true,                //是否启用点击选中行
+            height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            uniqueId: "no",                     //每一行的唯一标识，一般为主键列
+            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            detailView: false,                   //是否显示父子表
             columns: [{
                 checkbox: true,
                 title: '选择'
 
             }, {
-                field: "id",
+                field: "jid",
                 title: "ID",
                 visible: false
-            }, {
-                field: 'name',//命名需与后台一致
-                title: '申请人'
-            }, {
-                field: 'resume',
-                title: '简历',
-                formatter: function (value, row, index) {
-                    var l = '<a href="#" mce_href="#" onclick="look(\'' + row.phone + '\' )" >点击查看</a> ';
-                    return l;
-                }
-            }, {
-                field: 'position',
-                title: '申请职位'
-            }, {
-                field: 'operate',
-                title: '状态',
 
-            }]
+            },
+                {
+                    field: "pid",
+                    title: "ID",
+                    visible: false
+                },
+                {
+                    field: "rid",
+                    title: "ID",
+                    visible: false
+                },
+                {
+                    field: 'name',//命名需与后台一致
+                    title: '申请人'
+                },
+                {
+                    field: 'job',
+                    title: '申请职位'
+                }, {
+                    field: 'ispass',
+                    title: '状态',
+
+                }]
 
         });
     }
@@ -165,20 +232,16 @@
                 dataType: 'text',
                 data: data,
 
-                success: succFunction,
-                error: erryFunction//成功执行方法????
+                success: erryFunction
             });
 
-
-            function erryFunction() {
-                alert("删除失败");
-            }
-
-            function succFunction() {
-
-
-                alert("删除成功");
-                window.location.reload();
+            function erryFunction(date) {
+                if(date == "false")
+                    alert("删除失败");
+                else {
+                    alert("删除成功");
+                    window.location.reload();
+                }
 
             }
         }
@@ -187,6 +250,7 @@
     }
     
 </script>
+    </div></div>
 </body>
 
 </html>

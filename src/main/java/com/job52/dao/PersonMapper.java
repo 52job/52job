@@ -58,7 +58,7 @@ public interface PersonMapper {
      * 查找最后一个id
      * @return 返回最新的一个id
      */
-    int findLastId();
+    String findLastId();
 
     /**
      * 根据登录名查找用户
@@ -68,6 +68,12 @@ public interface PersonMapper {
      */
     Person queryPersonByNameCondition(String name) throws Exception;
 
+    /**
+     * 条件查询用户信息
+     * @param condition 条件
+     * @return 用户信息
+     * @throws Exception
+     */
     List<Person> queryPersonByCondition(String condition) throws Exception;
 
 }

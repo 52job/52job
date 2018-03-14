@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 
@@ -128,11 +129,11 @@
         }
 
         function success(data) {
-          if(data=="success"){
-              window.location.href="/job/init";
-          }else{
-              alert("fail");
-          }
+            if(data=="success"){
+                window.location.href="/job/init";
+            }else{
+                alert("fail");
+            }
         }
 
 
@@ -165,7 +166,7 @@
 
             function succFunction(data) {
                 if(data.msg!=null){
-                    alert("成功了，但是没有信息返回");
+                    alert("发送成功，注意查收");
                 }else{
                     if(data==null){
                         alert("数据为空");
@@ -194,28 +195,28 @@
 
         }
     </script>
-<style>
-    .bg1{
-        background-size: cover;
-        position: relative;
+    <style>
+        .bg1{
+            background-size: cover;
+            position: relative;
 
-    }
-</style>
+        }
+    </style>
     <script>
 
         window.onload=function(){
-            var imgs =["../../img/bg1.jpg", "../../img/bg2.jpg", "../../img/bg3.jpg"];    //（设定想要显示的图片）
+            var imgs =["../../img/bg1.jpg", "../../img/bg2.jpg"];    //（设定想要显示的图片）
             var i = 0;
             var head=document.getElementById("bg1");//获取DIV对象
             head.style.backgroundSize="cover";
-            head.style.background="url(../../img/bg1.jpg)"; 
+            head.style.background="url(../../img/bg2.jpg)";
             //设置图片的初始图片为该路径的图片
             function time(){
                 i++;
-                i=i%3; // 超过2则取余数，保证循环在0、1、2之间
-                head.style.backgroundSize="cover"; 
-                head.style.backgroundImage="url("+imgs[i]+")";
-               // head.style.background="url("+imgs[i]+")";
+                i=i%2; // 超过2则取余数，保证循环在0、1、2之间
+                head.style.backgroundSize="cover";
+                head.style.backgroundImage="url("+imgs[i]+")";
+                // head.style.background="url("+imgs[i]+")";
 
             }
             setInterval(time,4000);//循环调用time1()函数，时间间隔为2000ms
@@ -228,133 +229,133 @@
 <div class="bg1" style="width: 100%;height:610px;position: relative;" id="bg1" >
     <div ystyle="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
          background:rgba(255,255,255,0.4);" class="bg2" >
-<div style="border-bottom: 1px solid;height: auto;">
-    <div style="height: 40px;line-height: 40px; text-align: left;">
-        <p class="sweet" style="color: white">52job:爱我所爱</p>
+        <div style="border-bottom: 1px solid;height: auto;">
+            <div style="height: 40px;line-height: 40px; text-align: left;">
+                <p class="sweet" style="color: black">52job:爱我所爱</p>
 
-    </div>
-    <div >
-        <div >
+            </div>
+            <div >
+                <div >
 
-            <div   style="width: 350px;height: 470px;position: relative;right: -460px;background-image: url()">
+                    <div   style="width: 350px;height: 470px;position: relative;right: -460px;background-image: url()">
 
-                <p style="font-family: '微软雅黑';font-size: 20px;color: white;text-align: center;height: 20px;line-height: 20px;margin-top: 20px">
-                    极速注册，找到适合你的职位
-                </p>
-<br><br>
-                <form role="form" action="/person/register" method="POST">
-                    <div >
-                        <div align="center" class="form-group">
-                           <div  id="name"> <label for="userName" style="position: relative;left: -110px;color: white">账号</label><span id="userWarn"></span></div>
-                            <input type="text" class="form-control" id="userName" name="userName" placeholder="手机号/邮箱号" style="width: 260px" onblur="isSend()">
-                        </div>
+                        <p style="font-family: '微软雅黑';font-size: 20px;color: black;text-align: center;height: 20px;line-height: 20px;margin-top: 20px">
+                            极速注册，找到适合你的职位
+                        </p>
+                        <br><br>
+                        <form role="form" action="/person/register" method="POST">
+                            <div >
+                                <div align="center" class="form-group">
+                                    <div  id="name"> <label for="userName" style="position: relative;left: -110px;color: black">账号</label><span id="userWarn"></span></div>
+                                    <input type="text" class="form-control" id="userName" name="userName" placeholder="手机号/邮箱号" style="width: 260px" onblur="isSend()">
+                                </div>
+                            </div>
+
+                            <div >
+                                <div class="form-group " align="center">
+                                    <div id="pwd"><label for="passWord" style="position: relative;left: -110px;color: black">密码</label><span id="pwdWarn" ></span></div>
+                                    <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" style="width: 260px" onblur="isSend()">
+                                </div>
+                            </div>
+
+                            <div  >
+                                <div class="form-group " align="center">
+                                    <label for="passWord2" style="position: relative;left: -100px;color: black">确认密码</label><span id="pwdWarn2" ></span>
+                                    <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="重新输入密码" style="width: 260px" onblur="isSend()">
+                                </div>
+                            </div>
+
+                            <div class="form-group" align="center">
+                                <div class="form-group" style="float: left;position: relative;right: -43px">
+                                    <input type="text" class="form-control" id="safecode" name="verifyNum" placeholder="验证码" style="width: 100px">
+                                </div>
+                                <!--
+                                    作者：offline
+                                    时间：2018-02-28
+                                    描述：
+                                    <button class="btn btn-default" id="btn" onclick="settime(this)>获取验证码</button>
+                                -->
+                                <div> <input type="button" id="sendCode" class="btn btn-default" value="免费获取验证码" disabled="true" onclick="settime(this),publish()" /></div>
+                            </div>
+                            <br>
+                            <div class="row" style="text-align: center;">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default " style="width: 300px;" id="register"  disabled="true">免费注册</button>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 0px;text-align: center;">
+                                <input type="checkbox" class="" value="我已阅读并同意用户协议" id="cbox" onchange="is_check()">
+                                <label style="color: black">我已阅读并同意<a href="../../docs/user.html" style="text-decoration: none">用户协议</a></label>
+                            </div>
+
+                            <div class="row" style="text-align: center;">
+                                <label style="color: black">已有账号</label>
+
+                                <a href="#myMode" data-toggle="modal">点击登录</a>
+                            </div>
+                        </form>
                     </div>
-
-                    <div >
-                        <div class="form-group " align="center">
-                            <div id="pwd"><label for="passWord" style="position: relative;left: -110px;color: white">密码</label><span id="pwdWarn" ></span></div>
-                            <input type="password" class="form-control" id ="passWord" name="passWord" placeholder="密码(6-16位字母、数字、无空格)" style="width: 260px" onblur="isSend()">
-                        </div>
-                    </div>
-
-                    <div  >
-                        <div class="form-group " align="center">
-                            <label for="passWord2" style="position: relative;left: -100px;color: white">确认密码</label><span id="pwdWarn2" ></span>
-                            <input type="password" class="form-control" id ="passWord2" name="passWord2" placeholder="重新输入密码" style="width: 260px" onblur="isSend()">
-                        </div>
-                    </div>
-
-                    <div class="form-group" align="center">
-                        <div class="form-group" style="float: left;position: relative;right: -43px">
-                            <input type="text" class="form-control" id="safecode" name="verifyNum" placeholder="验证码" style="width: 100px">
-                        </div>
-                        <!--
-                            作者：offline
-                            时间：2018-02-28
-                            描述：
-                            <button class="btn btn-default" id="btn" onclick="settime(this)>获取验证码</button>
-                        -->
-                       <div> <input type="button" id="sendCode" class="btn btn-default" value="免费获取验证码" disabled="true" onclick="settime(this),publish()" /></div>
-                    </div>
-<br>
-                    <div class="row" style="text-align: center;">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-default " style="width: 300px;" id="register"  disabled="true">免费注册</button>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin-top: 0px;text-align: center;">
-                        <input type="checkbox" class="" value="我已阅读并同意用户协议" id="cbox" onchange="is_check()">
-                        <label style="color: white">我已阅读并同意<a href="../../docs/user.html" style="text-decoration: none">用户协议</a></label>
-                    </div>
-
-                    <div class="row" style="text-align: center;">
-                        <label style="color: white">已有账号</label>
-
-                        <a href="#myMode" data-toggle="modal">点击登录</a>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="modal fade" id="myMode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px;">
-    <div class="modal-dialog" style="width: 340px">
-        <div class="modal-content" style="background-image: url(../../img/bg4.jpg);background-size: cover">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="myModalLabel" align="center" style="font-weight:600;font-size: 25px">用户登录</h4>
+        <div class="modal fade" id="myMode" aria-hidden="true" aria-labelledby="myModalLabel" style="margin-top: 100px;">
+            <div class="modal-dialog" style="width: 340px">
+                <div class="modal-content" style="background-image: url(../../img/bg5.jpg);background-size: cover">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 id="myModalLabel" align="center" style="font-weight:600;font-size: 25px">用户登录</h4>
+                    </div>
+                    <div class="modal-body" style="position: relative;text-align: center; ">
+                        <div style="width: 300px;height:280px">
+                            <form action="/person/loginPerson" method="POST"><!--修改-->
+
+                                <div >
+                                    <div style="display: inline-block">
+                                        <label for="userNameLogin" style="float: left">请输入登录名</label><span id="userWarnLogin"></span>
+                                        <input type="text" class="form-control" name="userName1"
+                                               id="userNameLogin" placeholder="用户名/手机/邮箱" required autofocus
+                                        />
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div>
+
+                                    <div style="display: inline-block">
+                                        <label for="passWordLogin" style="float: left;">请输入密码</label><span id="pwdWarnLogin"></span>
+                                        <input type="password" class="form-control" name="passWord1"
+                                               id="passWordLogin" placeholder="请输入密码" required autofocus/>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div>
+                                    <input type="text" style="height:30px;width:100px;margin-left: 30px;margin-right: 5px;text-align: center"  placeholder="验证码" required autofocus
+                                           name="randomNum" id="randomNum"/><img src="/person/captcha" tyle="cursor: pointer;"
+                                                                                 onclick="changeImg(this)"/>
+
+                                </div>
+
+                                <div class="col-lg-10 mycheckbox checkbox">
+                                    <input type="checkbox" class="col-lg-1" name="autoLogin">七天内自动登录</input>
+                                </div>
+                                <br><br>
+
+                                <div align="center">
+
+                                    <input type="button" class="btn  btn-danger" value="登录" align="center" onclick="login()" style="width: 260px"/>
+                                    <br>
+                                    <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="black">忘记密码？</font></a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body" style="position: relative;text-align: center; ">
-                <div style="width: 300px;height:280px">
-                    <form action="/person/loginPerson" method="POST"><!--修改-->
-
-                        <div >
-                            <div style="display: inline-block">
-                                <label for="userNameLogin" style="float: left">请输入登录名</label><span id="userWarnLogin"></span>
-                                <input type="text" class="form-control" name="userName1"
-                                       id="userNameLogin" placeholder="用户名/手机/邮箱" required autofocus
-                            />
-                            </div>
-                        </div>
-                        <br>
-
-                        <div>
-
-                            <div style="display: inline-block">
-                                <label for="passWordLogin" style="float: left;">请输入密码</label><span id="pwdWarnLogin"></span>
-                                <input type="password" class="form-control" name="passWord1"
-                                       id="passWordLogin" placeholder="请输入密码" required autofocus/>
-                            </div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <input type="text" style="height:30px;width:100px;margin-left: 30px;margin-right: 5px;text-align: center"  placeholder="验证码" required autofocus
-                                   name="randomNum" id="randomNum"/><img src="/person/captcha" tyle="cursor: pointer;"
-                                                          onclick="changeImg(this)"/>
-
-                        </div>
-
-                        <div class="col-lg-10 mycheckbox checkbox">
-                            <input type="checkbox" class="col-lg-1" name="autoLogin">七天内自动登录</input>
-                        </div>
-                        <br><br>
-
-                        <div align="center">
-
-                            <input type="button" class="btn  btn-danger" value="登录" align="center" onclick="login()" style="width: 260px"/>
-                            <br>
-                            <a href="/person/resetPwd" style="position: relative;left: -90px"><font color="black">忘记密码？</font></a>
-                        </div>
-
-                    </form>
-             </div>
-           </div>
-      </div>
-    </div>
-</div>
+        </div>
     </div>
 </div>
 </body>

@@ -20,500 +20,486 @@
     .bg1{
         background-size: cover;
         background-image: url(../../img/home-bg.jpg);
-
-            position: relative;
-
-
+        position: relative;
     }
     .p1{
         color: #343a40;
-        font-weight: 650;
+        font-weight: 600;
     }
 </style>
 <body onload="table()">
 <div class="bg1" style="width: 100%;height:610px;position: relative;" >
     <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
          background:rgba(255,255,255,0.5);" class="bg2" >
-<div class="container-fluid p1">
-    <div class="row">
-        <div class="col-md-2">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
-                <div >
-                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
+        <div class="container-fluid p1">
+            <div class="row">
+                <div class="col-md-2">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="width: 20%">
+                        <div >
+                            <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
+                            <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
+                        </div>
+                        <br><br>
+
+                        <div>
+
+                            <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
+                                 alt="">
+
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class=" nav nav-sidebar">
+                                <li>
+                                    <a style="color: white" href="/person/mycollection">我的收藏</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: white" href="/application/myapplication">我的申请</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: white" href="/person/updatePersonInfo">信息修改</a>
+                                </li>
+                                <li>
+                                    <a style="color: white" href="/resume/personResumeManage">简历管理</a>
+                                </li>
+                                <li>
+                                    <a style="color: white" href="/resume/create">简历创建</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-                <br><br>
 
-                <div>
+                <div class="col-md-10">
+                    <br><br>
+                    <label class="p1" style="font-size: 30px">简历管理</label>
+                    <br><br><br><br>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
-                         alt="">
+                    <div class="table-responsive p1" style="position:relative;left: -40px">
+                        <div id="toolbar" class="btn-group">
 
+                            <button id="btn_delete" type="button" class="btn btn-default p1" onclick="delal1()">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量删除
+                            </button>
+                        </div>
+                        <table class="table table-striped " id="table" style="overflow-x:scroll;width: 200%">
+                        </table>
+                    </div>
                 </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class=" nav nav-sidebar">
-                        <li>
-                            <a style="color: white" href="mycollection.html">我的收藏</a>
-                        </li>
-
-                        <li>
-                            <a style="color: white" href="myapplication.html">我的申请</a>
-                        </li>
-
-                        <li>
-                            <a style="color: white" href="updateinfo.html">信息修改</a>
-                        </li>
-                        <li>
-                            <a style="color: white" href="person-resumemanage.html">简历管理</a>
-                        </li>
-                        <li>
-                            <a style="color: white" href="person-resumecreate.html">简历创建</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-        <div class="col-md-10">
-            <br><br>
-            <label class="p1" style="font-size: 30px">简历管理</label>
-            <br><br><br><br>
-
-            <div class="table-responsive p1" style="position:relative;left: -40px">
-                <div id="toolbar" class="btn-group">
-
-                    <button id="btn_delete" type="button" class="btn btn-default p1" onclick="delal1()">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量删除
-                    </button>
-                </div>
-                <table class="table table-striped " id="table" style="overflow-x:scroll;width: 200%">
-                </table>
             </div>
         </div>
-    </div>
-</div>
-<script>
-    function table() {
-        var id = window.localStorage.getItem("pid");
-
-        $('#table').bootstrapTable({
-            url: '',//修改url+pid传后台
-            pagination: true,
-            toolbar: '#toolbar',
-            striped: true,
-            pageNumber: 1,
-            pageSize: 2,
-            pageList: [1, 2],
-            showRefresh: true,
-            showColumns: true,
-            showToggle: true,
-            undefinedText: '-',
-            selectItemName: 'select',
-            sortable: true,
-            clickToSelect: true,
-            maintainSelected: true,
-            search: true,
-            showPaginationSwitch: true,
-            checkboxHeader: true,
-            columns: [{
-                checkbox: true,
-                title: '选择'
-
-            }, {
-                field: 'id',
-                title: 'ID',
-                visible: false
-            }, {
-                field: 'resumename',//命名需与后台一致
-                title: '简历名称'
-            }, {
-                field: 'resumestate',
-                title: '简历状态'
-            }, {
-                field: 'operate',
-                title: '简历操作',
-                formatter: function (value, row, index) {
-                    var e = '<a href="#" mce_href="#" onclick="edit(\'' + row.id + '\' )" >编辑</a> ';
-                    return e;
+        <script>
+            function GetRequest() {
+                var url = location.search; //获取url中"?"符后的字串
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for(var i = 0; i < strs.length; i ++) {
+                        theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+                    }
                 }
-            }],
-            data:[{
-                "resumename":1
-            }]
-
-
-        });
-    }
-
-    function edit(index) {
-        /*   $("#name").val("hello");
-          document.getElementById("img").setAttribute("src","../img/profile.jpg");
-           $('#education')[0].selectedIndex = 1;
-           $('.sex').get(1).checked = true;
-           $("#born").val("2018-03-02");
-           $("#graduate-time").val("2018-03");*/
-        var data = {
-            "pid": window.localStorage.getItem("pid"),
-            "rid": index
-        };
-        data = JSON.stringify(data);
-        $.ajax({
-            url: "",//从后台获取简历信息
-            type: "get",
-            dataType: "json",
-            data: data,
-            success: succFunction,
-            error: erryFunction
-        });
-
-        function succFunction(result) {
-            var json = eval(result);
-            document.getElementById("img").setAttribute("src", json.img);//img需与后台对应
-            $("#name").val(json.name);
-            $("#born").val(json.born);
-            if (json.sex == "男") {
-                $('.sex').get(0).checked = true;
+                return theRequest;
             }
-            else {
-                $('.sex').get(1).checked = true;
+            var Request = new Object();
+            Request = GetRequest();
+            var pid;
+            pid = Request['pid'];
+            function table() {
+                var id = window.localStorage.getItem("pid");
+                $('#table').bootstrapTable({
+                    url: '/resume/manage?pid=' + pid,//修改url+pid传后台
+                    method: 'post',                      //请求方式（*）
+                    toolbar: '#toolbar',                //工具按钮用哪个容器
+                    striped: true,                      //是否显示行间隔色
+                    cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                    pagination: true,                   //是否显示分页（*）
+                    sortable: false,                     //是否启用排序
+                    sortOrder: "asc",                   //排序方式
+                    // queryParams:queryParams,//传递参数（*）
+                    sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                    pageNumber: 1,                       //初始化加载第一页，默认第一页
+                    pageSize: 10,                       //每页的记录行数（*）
+                    pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                    search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                    contentType: "application/x-www-form-urlencoded",
+                    strictSearch: true,
+                    showColumns: true,                  //是否显示所有的列
+                    showRefresh: true,                  //是否显示刷新按钮
+                    minimumCountColumns: 2,             //最少允许的列数
+                    clickToSelect: true,                //是否启用点击选中行
+                    //height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                    uniqueId: "no",                     //每一行的唯一标识，一般为主键列
+                    showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                    cardView: false,                    //是否显示详细视图
+                    detailView: false,                   //是否显示父子表
+                columns: [{
+                        checkbox: true,
+                        title: '选择'
+                    }, {
+                        field: 'rid',
+                        title: 'ID',
+                        visible: false
+                    }, {
+                        field: 'resumeName',//命名需与后台一致
+                        title: '简历名称'
+                    }, {
+                        field: 'resumeName',
+                        title: '简历状态'
+                    }, {
+                        field: 'operate',
+                        title: '简历操作',
+                        formatter: function (value, row, index) {
+                            var e = '<a href="#" mce_href="#" onclick="edit(\'' + row.rid + '\' )" >编辑</a> <a href="/resume/delete/' + row.rid + '" mce_href="#" onclick="edit(\\\'\' + row.rid + \'\\\' )" >删除</a>';
+                            return e;
+                        }
+                    }]
+                });
             }
-            $("#work_date").val(json.work_date);
-            $("#tel").val(json.tel);
-            $("#job_state").val(json.job_state);
-            $("#email").val(json.email);
-            $("#address").val(json.address);
-            $("#school").val(json.school);
-            $("#major").val(json.major);
-            if (json.education == "小学") {
-                $('#education')[0].selectedIndex = 1;
-            } else if (json.education == "初中") {
-                $('#education')[0].selectedIndex = 2;
-            } else if (json.education == "高中") {
-                $('#education')[0].selectedIndex = 3;
-            } else if (json.education == "大专") {
-                $('#education')[0].selectedIndex = 4;
-            } else if (json.education == "大学") {
-                $('#education')[0].selectedIndex = 5;
-            } else if (json.education == "硕士研究生") {
-                $('#education')[0].selectedIndex = 6;
-            } else {
-                $('#education')[0].selectedIndex = 7;
-            }
-            if (json.resume_state == "公开") {
-                $('#resume_state')[0].selectedIndex = 1;
-            } else {
-                $('#resume_state')[0].selectedIndex = 2;
-            }
-            $("#experience").val(json.experience);
-            $("#mymode").modal();
-        }
+            function edit(rid) {
+                /*   $("#name").val("hello");
+                  document.getElementById("img").setAttribute("src","../img/profile.jpg");
+                   $('#education')[0].selectedIndex = 1;
+                   $('.sex').get(1).checked = true;
+                   $("#born").val("2018-03-02");
+                   $("#graduate-time").val("2018-03");*/
 
-        function erryFunction() {
-            alert("获取数据失败");
-        }
-
-
-    }
-function delall() {
-    var row = $("#table").bootstrapTable('getSelections');
-    var data = "[";
-    if (row == "") {
-        alert("请选择要删除的数据");
-    } else {
-        for (var i = 0; i < row.length; i++) {
-            data += ' {"id":"' + row[i].id + '" },';
-        }
-        var reg = /,$/gi;
-        data = data.replace(reg, "");
-        data += "]";
-        $.ajax({
-            url: '/v1/node/',
-            type: 'delete',
-            dataType: 'text',
-            data: data,
-
-            success: succFunction,
-            error: erryFunction//成功执行方法????
-        });
-
-
-        function erryFunction() {
-            alert("删除失败");
-        }
-
-        function succFunction() {
-
-
-            alert("删除成功");
-            window.location.reload();
-
-        }
-    }
-
-}
-
-</script>
-<style>
-    .error {
-        color: black;
-        font-size: smaller;
-        font-weight: 100;
-
-    }
-</style>
-<script>
-    jQuery.validator.addMethod("isMobile", function (value, element) {
-        var length = value.length;
-        var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
-        return this.optional(element) || (length == 11 && mobile.test(value));
-    }, "请正确填写您的手机号码");
-    function check() {
-        var src = document.getElementById("img").getAttribute("src");
-        var fileVal = document.getElementById("appendix").value;
-        if(src=="")
-        {
-            alert("请选择照片");
-        }else if(!fileVal){
-            alert("没有添加附件！");
-
-            $("#form").validate({
-                rules: {
-                    name:{
-                        required:true
-                    },
-                    date:{
-                        required:true
-                    },
-                    month:{
-                        required:true
-                    },
-                    tel: {
-                        required: true,
-                        minlength: 11,
-                        isMobile: true
-                    },
-                    jobstate:{
-                        required:true
-                    },
-                    email:{
-                        required:true,
-                        eamil:true
-                    },
-                    address:{
-                        required:true
-                    },
-                    school:{
-                        required:true
-                    },
-                    time:{
-                        required:true
-                    },
-                    major:{
-                        required:true
-                    },
-                    education:{
-                        required:true
-                    },
-                    resume_state:{
-                        required:true
+                $.ajax({
+                    url: '/resume/manage?pid=' + pid,//从后台获取简历信息
+                    type: "get",
+                    dataType: "json",
+                    data: {"rid":rid},
+                    success: succFunction,
+                    error: erryFunction
+                });
+                function succFunction(result) {
+                    var json = eval(result);
+                    document.getElementById("img").setAttribute("src", json.img);//img需与后台对应
+                    $("#name").val(json.name);
+                    $("#born").val(json.born);
+                    if (json.sex == "男") {
+                        $('.sex').get(0).checked = true;
                     }
-                },
-                messages: {
-                    name:{
-                        required:"请输入姓名"
-                    },
-                    date:{
-                        required:"请输入出生日期"
-                    },
-                    month:{
-                        required:"请输入工作年份"
-                    },
-                    tel: {
-                        required: "请输入手机号",
-                        minlength: "请输入正确手机号",
-                        isMobile: "请输入正确的手机号"
-                    },
-                    jobstate:{
-                        required:"请输入求职状态"
-                    },
-                    email:{
-                        required:"请输入邮箱",
-                        eamil:"请输入正确的邮箱"
-                    },
-                    address:{
-                        required:"请输入居住地址"
-                    },
-                    school:{
-                        required:"请输入毕业院校"
-                    },
-                    time:{
-                        required:"请输入毕业时间"
-                    },
-                    major:{
-                        required:"请输入专业"
-                    },
-                    education:{
-                        required:"请选择最高学历"
-                    },
-                    resume_state:{
-                        required:"请选择简历状态"
+                    else {
+                        $('.sex').get(1).checked = true;
                     }
-                },
-                submitHandler: function (form) {
-                    $(form).ajaxSubmit({
-                        success: function () {
-                            alert("修改成功");
-                            window.location.reload();
+                    $("#work_date").val(json.work_date);
+                    $("#tel").val(json.tel);
+                    $("#job_state").val(json.job_state);
+                    $("#email").val(json.email);
+                    $("#address").val(json.address);
+                    $("#school").val(json.school);
+                    $("#major").val(json.major);
+                    if (json.education == "小学") {
+                        $('#education')[0].selectedIndex = 1;
+                    } else if (json.education == "初中") {
+                        $('#education')[0].selectedIndex = 2;
+                    } else if (json.education == "高中") {
+                        $('#education')[0].selectedIndex = 3;
+                    } else if (json.education == "大专") {
+                        $('#education')[0].selectedIndex = 4;
+                    } else if (json.education == "大学") {
+                        $('#education')[0].selectedIndex = 5;
+                    } else if (json.education == "硕士研究生") {
+                        $('#education')[0].selectedIndex = 6;
+                    } else {
+                        $('#education')[0].selectedIndex = 7;
+                    }
+                    if (json.resume_state == "公开") {
+                        $('#resume_state')[0].selectedIndex = 1;
+                    } else {
+                        $('#resume_state')[0].selectedIndex = 2;
+                    }
+                    $("#experience").val(json.experience);
+                    $("#mymode").modal();
+                }
+                function erryFunction() {
+                    alert("获取数据失败");
+                }
+            }
+            function delall() {
+                var row = $("#table").bootstrapTable('getSelections');
+                var data = "[";
+                if (row == "") {
+                    alert("请选择要删除的数据");
+                } else {
+                    for (var i = 0; i < row.length; i++) {
+                        data += ' {"id":"' + row[i].id + '" },';
+                    }
+                    var reg = /,$/gi;
+                    data = data.replace(reg, "");
+                    data += "]";
+                    $.ajax({
+                        url: '/resume/delete',
+                        type: 'delete',
+                        dataType: 'text',
+                        data: data,
+                        success: succFunction,
+                        error: erryFunction//成功执行方法????
+                    });
+                    function erryFunction() {
+                        alert("删除失败");
+                    }
+                    function succFunction() {
+                        alert("删除成功");
+                        window.location.reload();
+                    }
+                }
+            }
+        </script>
+        <style>
+            .error {
+                color: black;
+                font-size: smaller;
+                font-weight: 100;
+            }
+        </style>
+        <script>
+            jQuery.validator.addMethod("isMobile", function (value, element) {
+                var length = value.length;
+                var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+                return this.optional(element) || (length == 11 && mobile.test(value));
+            }, "请正确填写您的手机号码");
+            function check() {
+                var src = document.getElementById("img").getAttribute("src");
+                var fileVal = document.getElementById("appendix").value;
+                if(src=="")
+                {
+                    alert("请选择照片");
+                }else if(!fileVal){
+                    alert("没有添加附件！");
+                    $("#form").validate({
+                        rules: {
+                            name:{
+                                required:true
+                            },
+                            date:{
+                                required:true
+                            },
+                            month:{
+                                required:true
+                            },
+                            tel: {
+                                required: true,
+                                minlength: 11,
+                                isMobile: true
+                            },
+                            jobstate:{
+                                required:true
+                            },
+                            email:{
+                                required:true,
+                                eamil:true
+                            },
+                            address:{
+                                required:true
+                            },
+                            school:{
+                                required:true
+                            },
+                            time:{
+                                required:true
+                            },
+                            major:{
+                                required:true
+                            },
+                            education:{
+                                required:true
+                            },
+                            resume_state:{
+                                required:true
+                            }
+                        },
+                        messages: {
+                            name:{
+                                required:"请输入姓名"
+                            },
+                            date:{
+                                required:"请输入出生日期"
+                            },
+                            month:{
+                                required:"请输入工作年份"
+                            },
+                            tel: {
+                                required: "请输入手机号",
+                                minlength: "请输入正确手机号",
+                                isMobile: "请输入正确的手机号"
+                            },
+                            jobstate:{
+                                required:"请输入求职状态"
+                            },
+                            email:{
+                                required:"请输入邮箱",
+                                eamil:"请输入正确的邮箱"
+                            },
+                            address:{
+                                required:"请输入居住地址"
+                            },
+                            school:{
+                                required:"请输入毕业院校"
+                            },
+                            time:{
+                                required:"请输入毕业时间"
+                            },
+                            major:{
+                                required:"请输入专业"
+                            },
+                            education:{
+                                required:"请选择最高学历"
+                            },
+                            resume_state:{
+                                required:"请选择简历状态"
+                            }
+                        },
+                        submitHandler: function (form) {
+                            $(form).ajaxSubmit({
+                                success: function () {
+                                    alert("修改成功");
+                                    window.location.reload();
+                                }
+                            });
                         }
                     });
+                    $("#save").click();
                 }
+            }
+        </script>
+        <div class="modal fade p1" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">简历信息</h4>
+                    </div>
+                    <div class="modal-body" style="position: relative;text-align: center; ">
+                        <form action="#" method="post" enctype="multipart/form-data"><!--修改-->
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img alt="请添加图片" class="img-thumbnail" id="img" src="#"
+                                             style="width: 160px;height: 160px ;text-align: center;line-height: 140px"
+                                             onclick="upload()"/>
+                                        <input type="file" id="fileToUpload" name="fileToUpload" style="display: none"/>
+                                    </div>
 
+                                    <div class="col-md-7">
+                                        <div> 姓名：&nbsp;&nbsp;<input type="text" style="width: 140px" id="name" name="name"></div>
+                                        <br>
+                                        <div>出生日期：&nbsp;<input type="date" id="born" name="date"></div>
+                                        <br>
+                                        <div> 性别：&nbsp;&nbsp;<input type="radio" name="sex"
+                                                                    class="sex">男&nbsp;&nbsp;&nbsp;<input
+                                                type="radio" name="sex" class="sex">女&nbsp;&nbsp;&nbsp;
+                                        </div>
+                                        <br>
+                                        <div>开始工作年份：<input type="month" id="work_date" name="month" ></div>
+                                        <br><br>
 
-            });
-            $("#save").click();
-        }
-    }
-
-
-</script>
-<div class="modal fade p1" id="mymode" aria-hidden="true" aria-labelledby="myModalLabel">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">简历信息</h4>
-            </div>
-            <div class="modal-body" style="position: relative;text-align: center; ">
-                <form action="#" method="post" enctype="multipart/form-data"><!--修改-->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img alt="请添加图片" class="img-thumbnail" id="img" src="#"
-                                     style="width: 160px;height: 160px ;text-align: center;line-height: 140px"
-                                     onclick="upload()"/>
-                                <input type="file" id="fileToUpload" name="fileToUpload" style="display: none"/>
-                            </div>
-
-                            <div class="col-md-7">
-                                <div> 姓名：&nbsp;&nbsp;<input type="text" style="width: 140px" id="name" name="name"></div>
-                                <br>
-                                <div>出生日期：&nbsp;<input type="date" id="born" name="date"></div>
-                                <br>
-                                <div> 性别：&nbsp;&nbsp;<input type="radio" name="sex"
-                                                            class="sex">男&nbsp;&nbsp;&nbsp;<input
-                                        type="radio" name="sex" class="sex">女&nbsp;&nbsp;&nbsp;
+                                    </div>
                                 </div>
-                                <br>
-                                <div>开始工作年份：<input type="month" id="work_date" name="month" ></div>
+                                <div style="white-space:nowrap;">
+                                    <div style="float: left">手机:&nbsp;<input type="tel" id="tel" name="tel" ></div>
+                                    <div style="float: right"> 求职状态：&nbsp;<input type="text" id="job_state" name="jobstate"></div>
+                                </div>
                                 <br><br>
+                                <div style="white-space: nowrap">
+                                    <div style="float: left">邮箱:&nbsp;<input type="email" id="email" name="email"></div>
+                                    <div style="float: right">居住地:&nbsp;<input type="text" id="address" name="address"></div>
+                                </div>
+                                <br><br>
+                                <div style="float: left">
+                                    毕业院校：&nbsp;<input type="text" style="width: 260px" id="school" name="school"></div>
+                                <br><br>
+                                <div style="float: left"> 毕业时间：&nbsp;<input type="month" style="width: 260px"
+                                                                            id="graduate-time" name="time"></div>
+
+                                <br><br>
+                                <div style="float: left">
+
+                                    专业：&nbsp;&nbsp;&nbsp;<input type="text" style="width: 260px" id="major" name="major"></div>
+                                <br><br>
+                                <div style="float: left"> 最高学历：&nbsp;<!--<input type="text" style="width: 260px">-->
+                                    <select
+                                            style="width: 260px;text-align: center;" id="education" name="education">
+                                        <option value="">请选择</option>
+                                        <option value="小学">小学</option>
+                                        <option value="初中">初中</option>
+                                        <option value="高中">高中</option>
+                                        <option value="大专">大专</option>
+                                        <option value="大学">大学</option>
+                                        <option value="硕士研究生">硕士研究生</option>
+                                        <option value="博士研究生">博士研究生</option>
+                                    </select>
+                                </div>
+                                <br><br>
+                                <div style="position: relative;left: -70px;white-space: nowrap" class="p1">
+                                    简历名称：<input type="text" style="width: 260px" name="resumeName" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    求职意向：<input type="text" style="width: 260px" name="careerIntention">
+                                </div>
+                                <div style="white-space: nowrap">
+                                    <div style="float: left">
+                                        简历状态：&nbsp;<select style="width: 100px;text-align: center;" id="resume_state" name="resume_state">
+                                        <option value="">请选择</option>
+                                        <option value="公开">公开</option>
+                                        <option value="不公开">不公开</option>
+                                    </select>
+                                    </div>
+<br><br>
+
+                                    <div style="float: right">
+                                        <input type="file" style="float: right;display: none" value="添加附件" id="appendix"/>
+                                        <input type="button" value="添加附件" style="float: right" onclick="app()"/></div>
+
+                                    <br>
+                                    <textarea style="height: 100px;width: 100%" placeholder="此处填写工作经历，可上传附件"
+                                              id="experience"></textarea>
+                                    <br>
+                                    <div align="center">
+                                        <button class="btn-default" style="width: 80px" type="submit" onclick="ref()" id="save" hidden>
+                                            修改
+                                        </button>
+                                        <button class="btn-default" style="width: 80px" onclick="check()">修改</button>
+                                    </div>
+                                </div>
 
                             </div>
-                        </div>
-                        <div style="white-space:nowrap;">
-                            <div style="float: left">手机:&nbsp;<input type="tel" id="tel" name="tel" ></div>
-                            <div style="float: right"> 求职状态：&nbsp;<input type="text" id="job_state" name="jobstate"></div>
-                        </div>
-                        <br><br>
-                        <div style="white-space: nowrap">
-                            <div style="float: left">邮箱:&nbsp;<input type="email" id="email" name="email"></div>
-                            <div style="float: right">居住地:&nbsp;<input type="text" id="address" name="address"></div>
-                        </div>
-                        <br><br>
-                        <div style="float: left">
-                            毕业院校：&nbsp;<input type="text" style="width: 260px" id="school" name="school"></div>
-                        <br><br>
-                        <div style="float: left"> 毕业时间：&nbsp;<input type="month" style="width: 260px"
-                                                                    id="graduate-time" name="time"></div>
-
-                        <br><br>
-                        <div style="float: left">
-
-                            专业：&nbsp;&nbsp;&nbsp;<input type="text" style="width: 260px" id="major" name="major"></div>
-                        <br><br>
-                        <div style="float: left"> 最高学历：&nbsp;<!--<input type="text" style="width: 260px">-->
-                            <select
-                                    style="width: 260px;text-align: center;" id="education" name="education">
-                                <option value="">请选择</option>
-                                <option value="小学">小学</option>
-                                <option value="初中">初中</option>
-                                <option value="高中">高中</option>
-                                <option value="大专">大专</option>
-                                <option value="大学">大学</option>
-                                <option value="硕士研究生">硕士研究生</option>
-                                <option value="博士研究生">博士研究生</option>
-                            </select>
-                        </div>
-                        <br><br>
-                        <div style="white-space: nowrap">
-                            <div style="float: left">
-                                简历状态：&nbsp;<select style="width: 100px;text-align: center;" id="resume_state" name="resume_state">
-                                <option value="">请选择</option>
-                                <option value="公开">公开</option>
-                                <option value="不公开">不公开</option>
-                            </select>
-                            </div>
-
-
-                            <div style="float: right">
-                                <input type="file" style="float: right;display: none" value="添加附件" id="appendix"/>
-                                <input type="button" value="添加附件" style="float: right" onclick="app()"/></div>
-
-                            <br>
-                            <textarea style="height: 100px;width: 100%" placeholder="此处填写工作经历，可上传附件"
-                                      id="experience"></textarea>
-                            <br>
-                            <div align="center">
-                                <button class="btn-default" style="width: 80px" type="submit" onclick="ref()" id="save" hidden>
-                                   修改
-                                </button>
-                                <button class="btn-default" style="width: 80px" onclick="check()">修改</button>
-                            </div>
-                        </div>
+                        </form>
 
                     </div>
-                </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">关闭</button>
+                    </div>
 
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="close2">关闭</button>
-            </div>
-
         </div>
-    </div>
-</div>
-<script>
-    document.getElementById('fileToUpload').onchange = function () {
-        // alert("hello");
-        var imgFile = document.getElementById('fileToUpload').files[0];
-        var fr = new FileReader();
-
-        fr.onload = function () {
-            img.src = fr.result;
-        };
-        // 注意要先设置回调再读取文件
-        fr.readAsDataURL(imgFile);
-
-
-    }
-
-</script>
-<script>
-    function app() {
-        document.getElementById("appendix").click();
-    }
-
-    function upload() {
-        document.getElementById("fileToUpload").click();
-
-    }
-
-</script>
+        <script>
+            document.getElementById('fileToUpload').onchange = function () {
+                // alert("hello");
+                var imgFile = document.getElementById('fileToUpload').files[0];
+                var fr = new FileReader();
+                fr.onload = function () {
+                    img.src = fr.result;
+                };
+                // 注意要先设置回调再读取文件
+                fr.readAsDataURL(imgFile);
+            }
+        </script>
+        <script>
+            function app() {
+                document.getElementById("appendix").click();
+            }
+            function upload() {
+                document.getElementById("fileToUpload").click();
+            }
+        </script>
     </div>
 </div>
 </body>

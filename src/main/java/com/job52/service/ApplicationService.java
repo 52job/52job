@@ -2,6 +2,8 @@ package com.job52.service;
 
 import com.job52.model.Application;
 import com.job52.model.ApplicationKey;
+import com.job52.model.Job;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ public interface ApplicationService {
      * @param application
      * @return
      */
+    @Transactional
     boolean addApplication(Application application);
 
     /**
@@ -47,5 +50,9 @@ public interface ApplicationService {
      * @return
      */
     List<Application> queryContains(Application application);
+
+
+
+    public List<Job> findAllApplication(String pid) throws Exception;
 
 }

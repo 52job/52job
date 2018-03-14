@@ -142,10 +142,16 @@ public class CandidateController {
             pid = c.getPid();
             rid = c.getRid();
             ispass = c.getIspass();
+            String ispassString;
+            if(ispass==1) {
+                ispassString = "已通过";
+            } else {
+                ispassString = "已拒绝";
+            }
             System.out.println("ispass_______________"+ispass);
             name = personService.queryPerson(c.getPid()).getUserName();
             job = jobService.getJob(c.getJid()).getJname();
-            packet1 p = new packet1(jid,pid,rid,ispass,name,job);
+            packet1 p = new packet1(jid,pid,rid,ispassString,name,job);
             packet1s.add(i,p);
             System.out.println(p);
         }

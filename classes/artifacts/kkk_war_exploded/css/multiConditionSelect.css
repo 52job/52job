@@ -97,3 +97,23 @@ a, img {
 .select .select-result a:hover {
     background-position: right -15px
 }
+
+.boxdown{
+    cursor:pointer;
+    border:1px solid #EEEEEE;
+    width:60px;
+    height:14px;
+    background: #FFFFFF url(../img/down.png) no-repeat 20px;
+    border-top: none;
+    margin:0 auto;
+}
+
+.up{
+    cursor:pointer;
+    border:1px solid #EEEEEE;
+    width:60px;
+    height:14px;
+    background: #FFFFFF url(../img/up.png) no-repeat 20px;
+    border-top: none;
+    margin:0 auto;
+}

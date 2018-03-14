@@ -43,7 +43,8 @@ public class EnterpriseController {
     }
 
     @RequestMapping("/enterprise_4")
-    public String index() {
+    public String index(HttpSession session) {
+        session.setAttribute("eid","1");
         return "/FirmInfoManagement";
     }
 
@@ -69,9 +70,10 @@ public class EnterpriseController {
      */
     @RequestMapping(value = "/addJob",method = RequestMethod.GET)
     @ResponseBody
-    public String addJobs(HttpServletRequest request) {
+    public String addJobs(HttpServletRequest request ,HttpSession session) {
         String jid = CommonUtil.getJobId();
-        Enterprise enterprise  = new Enterprise(request.getParameter("eid"));
+        String eid = (String) session.getAttribute("eid");
+        Enterprise enterprise  = new Enterprise(eid);
         Integer requiredNumber = Integer.parseInt(request.getParameter("requiredNumber"));
         String jname = request.getParameter("jname");
         Integer requiredWorkyear = Integer.parseInt(request.getParameter("requiredWorkyear"));
@@ -284,15 +286,15 @@ public class EnterpriseController {
     @RequestMapping("/MyEnterprise")
     @ResponseBody
     public Enterprise getEnterprise(HttpSession session) {
-        //String eid = String.valueOf(session.getAttribute("eid"));
-        String eid = "aaa";
+        String eid = String.valueOf(session.getAttribute("eid"));
         Enterprise enterprise = enterpriseService.getEnterprise(eid);
         return enterprise;
     }
 
     @RequestMapping(value = "/updateEnterpriseInfo",method = RequestMethod.POST)
-    public String updateEnterpriseInfo(HttpServletRequest request) {
-        String eid = String.valueOf(request.getParameter("eid"));
+    public String updateEnterpriseInfo(HttpServletRequest request,HttpSession session) {
+        String eid = String.valueOf(session.getAttribute("eid"));
+        System.out.println("------------------" + eid);
         Enterprise enterprise = enterpriseService.getEnterprise(eid);
         enterprise.seteUsername(request.getParameter("eUsername"));
         enterprise.setePassword(request.getParameter("ePassword"));

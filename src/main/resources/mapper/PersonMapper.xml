@@ -22,7 +22,7 @@
         where pid = #{pid,jdbcType=VARCHAR}
     </select>
 
-    <select id="findLastId" resultType="java.lang.Integer">
+    <select id="findLastId" resultType="java.lang.String">
         SELECT pid FROM person ORDER BY pid DESC LIMIT 1;
     </select>
 

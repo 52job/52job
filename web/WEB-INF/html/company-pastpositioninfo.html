@@ -15,18 +15,31 @@
     <script src="../../bootstrap/bootstrap-table-zh-CN.js"></script>
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
+    <style>
 
+        .bg1 {
+            background-size: cover;
+            background-image: url(../../img/timg.jpg);
+            position: relative;
+
+        }
+
+    </style>
 
 </head>
 
 <body onload="table()">
+
+<div class="bg1" style="width: 100%;height:770px;position: relative;">
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
                 <div class="color">
-                    <div><a style="position: relative;float: left;" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;" href="index.html">退出</a></div>
+                    <div><a style="position: relative;float: left;color: white" href="/job/init">首页</a></div>
+                    <div><a style="position: relative;float: right;color: white" href="/person/index">退出</a></div>
                 </div>
                 <br><br>
 
@@ -44,31 +57,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class=" nav nav-sidebar color">
                         <li>
-                            <a  href="FirmInfoManagement.html">企业信息管理</a>
+                            <a style="color: white" href="/enterprise/enterprise_4">企业信息管理</a>
                         </li>
                         <li>
-                            <a  href="ResumeSearch.html">简历搜索</a>
+                            <a style="color: white" href="/resume/search">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a  href="#">职位管理</a>
+                            <a style="color: white" href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a  href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="/enterprise/enterprise_1">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a  href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="/enterprise/enterprise_3">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a  href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="/enterprise/enterprise_2">历史职业信息</a>
                         </li>
                         <li class="apply">
-                            <a  href="#">应聘管理</a>
+                            <a style="color: white" href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a  href="company-applymentmanageF.html">未处理</a>
+                            <a  href="/candidate/candidate_1">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a  href="company-applymentmanageP.html">已处理</a>
+                            <a  href="/candidate/candidate_2">已处理</a>
                         </li>
 
                     </ul>
@@ -77,6 +90,8 @@
         </div>
 
         <div class="col-md-10">
+            <br><br>
+            <label class="p1" style="font-size: 30px">历史职业信息</label>
             <br><br><br><br>
 
             <div class="table-responsive " style="position:relative;left: -40px">
@@ -234,6 +249,7 @@
     }
 
 </script>
+    </div></div>
 </body>
 
 </html>

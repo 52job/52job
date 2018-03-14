@@ -15,27 +15,34 @@
     <script src="../../bootstrap/bootstrap-table-export.js"></script>
     <script src="../../bootstrap/tableExport.js"></script>
     <script src="../../javascript/model.js"></script>
-    <script>
-        function getimg() {
-            var person_img=localStorage.getItem("personimg");//修改
-            document.getElementById("person_img").setAttribute("src","../../img/profile.jpg");//修改
+    <style>
+        .bg1 {
+            background-size: cover;
+            background-image: url(../../img/timg.jpg);
+            position: relative;
+
         }
-    </script>
+    </style>
 </head>
-<body onload="getimg()">
+<body  onload="table()">
+
+<div class="bg1" style="width: 100%;height:770px;position: relative;">
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
+
                 <div class="color">
-                    <div><a style="position: relative;float: left;" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;" href="index.html">退出</a></div>
+                    <div><a style="position: relative;float: left;color: white" href="PositionInfoSearch.html">首页</a></div>
+                    <div><a style="position: relative;float: right;color: white" href="index.html">退出</a></div>
                 </div>
                 <br><br>
 
                 <div>
 
-                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src=" " id="person_img"
+                    <img class="img-fluid img-circle" style="width: 160px;height: 160px" src="../../img/profile.jpg"
                          alt="">
 
                 </div>
@@ -47,31 +54,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class=" nav nav-sidebar color">
                         <li>
-                            <a  href="FirmInfoManagement.html">企业信息管理</a>
+                            <a style="color: white" href="/enterprise/enterprise_4">企业信息管理</a>
                         </li>
                         <li>
-                            <a  href="ResumeSearch.html">简历搜索</a>
+                            <a style="color: white" href="/resume/search">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a  href="#">职位管理</a>
+                            <a style="color: white" href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a  href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="/enterprise/enterprise_1">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a  href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="/enterprise/enterprise_3">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a  href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="/enterprise/enterprise_2">历史职业信息</a>
                         </li>
                         <li class="apply">
-                            <a  href="#">应聘管理</a>
+                            <a style="color: white" href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a  href="company-applymentmanageF.html">未处理</a>
+                            <a  href="/candidate/candidate_1">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a  href="company-applymentmanageP.html">已处理</a>
+                            <a  href="/candidate/candidate_2">已处理</a>
                         </li>
 
                     </ul>
@@ -85,7 +92,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">搜索条件</div>
                     <div class="panel-body">
-                        <form id="formSearch" class="form-horizontal" action="">
+                        <form id="formSearch" class="form-horizontal" action="/resume/search" method="get">
                             <div class="form-group" style="margin-top:5px">
                                 <label class="control-label col-sm-2" for="aimPosition">意向职位</label>
                                 <div class="col-sm-2">
@@ -99,8 +106,11 @@
                                     <button type="button" style="margin-left:5px" id="btn_query"
                                             class="btn btn-primary">搜索
                                     </button>
+                                    <input type="submit">
                                 </div>
-
+                                <script>
+                                        document.write(c);
+                                </script>
                             </div>
 
                             <div class="form-group" style="margin-top:5px">
@@ -116,15 +126,11 @@
                                     </select>
                                 </div>
 
-                                <label class="control-label col-sm-2" for="exp">工作经验</label>
-                                <div class="input-group col-sm-2">
-                                    <input type="text" class="form-control" id="exp" name="">
-                                    <div class="input-group-addon">年</div>
-                                </div>
 
 
                             </div>
                         </form>
+
                     </div>
                 </div>
 
@@ -166,7 +172,7 @@
                 pagination: true,                   //是否显示分页（*）
                 sortable: false,                     //是否启用排序
                 sortOrder: "asc",                   //排序方式
-                queryParams: queryParams,//传递参数（*）
+                //queryParams: queryParams,//传递参数（*）
                 sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                 pageNumber: 1,                       //初始化加载第一页，默认第一页
                 pageSize: 3,                       //每页的记录行数（*）
@@ -209,19 +215,6 @@
                 }]
             });
         };
-
-        function queryParams() {
-            var careerIntention=$('careerIntention').val();
-            var graduationUniversity=$('graduationUniversity').val();
-            var highestEducation=$('highestEducation').val();
-            alert(careerIntention);
-            var temp = {
-                'careerIntention':careerIntention,               //搜索框
-                'graduationUniversity':graduationUniversity,               //最低薪资
-                'highestEducation':highestEducation
-            };
-            return temp;
-        }
 
 </script>
 </body>

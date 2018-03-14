@@ -1,6 +1,6 @@
 package com.job52.controller;
 
-import com.job52.dao.PersonMapper;
+import com.alibaba.fastjson.JSON;
 import com.job52.model.Person;
 import com.job52.service.PersonService;
 import com.job52.util.CaptchaUtil;
@@ -100,7 +100,7 @@ public class PersonController {
             if (format == 1) {//手机
                 //判断手机是否存在，如果存在，不能进行发送验证码
                 //
-                if (personService.queryPersonByNameCondition(userName) != null) {
+                if (personService.queryPersonByNameCondition(userName) == null) {
                     //得到手机验证码
                     verifyCode = SecurityCodeUtil.getPhoneCode(userName);
                     //将验证码放入session域中
@@ -111,7 +111,7 @@ public class PersonController {
                 }
             } else if (format == 2) {//邮箱
                 //判断邮箱是否存在如果存在，不能进行发送验证码
-                if (personService.queryPersonByNameCondition(userName) != null) {
+                if (personService.queryPersonByNameCondition(userName) == null) {
                     //得到邮箱验证码
                     verifyCode = SecurityCodeUtil.getEmailCode(userName);
                     //将验证码放入session域中
@@ -127,11 +127,46 @@ public class PersonController {
 
 
     @RequestMapping("/sendUpdateCode")
-    public String sendUpdateCode(HttpSession session,String userName) throws Exception{
-        //1.如果该手机/邮箱已存在，直接向原手机/邮箱发送验证码
-        //2.如果原信息不存在，则向新的手机发送验证码
-        //3.返回提示信息
-        return null;
+    @ResponseBody
+    public Map<String,Object> sendUpdateCode(HttpSession session,String email,String phone) throws Exception {
+
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+
+        if (phone != null&&phone!="") {
+            int format = FormatUtil.verifyPhoneOrEmailFormat(phone);
+            Person p = (Person) session.getAttribute("person");
+            if (format == 1) {
+                //如果原手机存在
+                if (p != null && p.getPhone() != null) {
+                    String verifyCode = SecurityCodeUtil.getPhoneCode(p.getPhone());
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "已向原手机发送验证码，请注意查收");
+                } else {//如果原手机不在
+                    String verifyCode = SecurityCodeUtil.getPhoneCode(phone);
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "已向该手机发送验证码，请注意查收");
+                }
+
+               }
+            } else if (email != null&&email!="") {
+                int format = FormatUtil.verifyPhoneOrEmailFormat(email);
+                Person p = (Person) session.getAttribute("person");
+                if (format == 2) {
+                    //如果原手机存在
+                    if (p != null && p.getEmail() != null) {
+                        String verifyCode = SecurityCodeUtil.getEmailCode(p.getEmail());
+                        session.setAttribute("verifyCode", verifyCode);
+                        modelMap.put("msg", "已向原邮箱发送验证码，请注意查收");
+                    } else {//如果原手机不在
+                        String verifyCode = SecurityCodeUtil.getEmailCode(email);
+                        session.setAttribute("verifyCode", verifyCode);
+                        modelMap.put("msg", "已向该邮箱发送验证码，请注意查收");
+                    }
+            }
+        }else {
+            modelMap.put("msg", "内容为空，请填入信息");
+        }
+        return modelMap;
     }
 
 
@@ -278,12 +313,13 @@ public class PersonController {
              //更新成功，给出正确提示，不跳转
             map.put("status","success");
             map.put("msg","信息修改成功");
-            return map;
+
         }else{
             map.put("status","fail");
             map.put("msg","信息修改失败");
-            return map;
+
         }
+        return map;
    }
 
     /**
@@ -306,16 +342,19 @@ public class PersonController {
        if(verifyCode.equals(verifyNum)){
            //更新手机
            String pid = person.getPid();
-           personService.UpdatePersonPhone(pid,newPhone);
-           map.put("status","success");
-           map.put("msg","手机绑定成功");
-           return map;
-       }else{
-           //提示失败
-           map.put("status","fail");
-           map.put("msg","手机绑定失败");
-           return map;
+           if(personService.UpdatePersonPhone(pid,newPhone)){
+               map.put("status","success");
+               map.put("msg","手机绑定成功");
+               person.setPhone(newPhone);
+               session.setAttribute("person",person);
+           }else{
+               //提示失败
+               map.put("status","fail");
+               map.put("msg","手机绑定失败");
+
+           }
        }
+       return map;
    }
 
 
@@ -330,15 +369,14 @@ public class PersonController {
                personService.updatePersonInfo(p.getPid(),p);
                map.put("status","success");
                map.put("msg","密码修改成功");
-               return map;
            }else{
-               map.put("status","success");
+               map.put("status","fail");
                map.put("msg","两次密码不一致");
-               return map;
            }
+        }else{
+            map.put("status","fail");
+            map.put("msg","原密码不正确");
         }
-        map.put("status","success");
-        map.put("msg","原密码不正确");
         return map;
     }
 
@@ -364,16 +402,28 @@ public class PersonController {
         if(verifyCode.equals(verifyNum)){
             //更新手机
             String pid = p.getPid();
-            personService.UpdatePersonPhone(pid,newEmail);
-            map.put("status","success");
-            map.put("msg","邮箱绑定成功");
-            return map;
-        }else{
-            //提示失败
-            map.put("status","fail");
-            map.put("msg","邮箱绑定成失败");
-            return map;
+            if(personService.updatePersonEmail(pid,newEmail)){
+                map.put("status","success");
+                map.put("msg","邮箱绑定成功");
+                p.setEmail(newEmail);
+                session.setAttribute("person",p);
+
+            }else{
+                //提示失败
+                map.put("status","fail");
+                map.put("msg","邮箱绑定成失败");
+
+            }
         }
+        return map;
+    }
+
+    @RequestMapping("findPersonById")
+    @ResponseBody
+    public String findPersonById(HttpSession session){
+        Person p = (Person) session.getAttribute("person");
+        String jsonString = JSON.toJSONString(p);
+        return jsonString;
     }
 
 }

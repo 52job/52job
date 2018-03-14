@@ -103,4 +103,17 @@ $(document).ready(function(){
         }
     });
 
+    var a =$(".select li:gt(0):not(:last)");
+    //a.hide();
+    $(".up").click(function(){
+        if(a.is(':visible')){
+            a.slideUp('fast');
+            $(this).removeClass('up');
+            $(this).addClass('boxdown');
+        }else{
+            a.slideDown('fast').show();
+            $(this).addClass('up');
+        }
+    });
+
 });

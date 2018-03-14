@@ -27,14 +27,14 @@ public class Resume {
     private String careerIntention;
     private String major;
     private String workExp;
-    private int isPublic;
+    private String isPublic;
     private String resumeState;
     private String accessory;
 
     public Resume() {
     }
 
-    public Resume(String rid, String pid, String pname, String resumeName, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String careerIntention, String major, String workExp, int isPublic, String resumeState, String accessory) {
+    public Resume(String rid, String pid, String pname, String resumeName, String sex, String portrait, String birthday, String tel, String startWorkTime, String jobState, String email, String address, String highestEducation, String graduationUniversity, String graduationTime, String careerIntention, String major, String workExp, String isPublic, String resumeState, String accessory) {
         this.rid = rid;
         this.pid = pid;
         this.pname = pname;
@@ -202,11 +202,11 @@ public class Resume {
         this.workExp = workExp;
     }
 
-    public int getIsPublic() {
+    public String getIsPublic() {
         return isPublic;
     }
 
-    public void setIsPublic(int isPublic) {
+    public void setIsPublic(String isPublic) {
         this.isPublic = isPublic;
     }
 

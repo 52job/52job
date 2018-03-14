@@ -20,18 +20,27 @@
     <script src="../../bootstrap/tableExport.js"></script>
 
 <style>
+    .bg1 {
+        background-size: cover;
+        background-image: url(../../img/timg.jpg);
+        position: relative;
 
+    }
 </style>
 </head>
 
 <body onload="table()">
+
+<div class="bg1" style="width: 100%;height:770px;position: relative;">
+    <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
+         background:rgba(255,255,255,0.5);" class="bg2">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2" >
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary1 fixed-top" id="sideNav" style="width: 20%">
                 <div class="color">
-                    <div><a style="position: relative;float: left;" href="PositionInfoSearch.html">首页</a></div>
-                    <div><a style="position: relative;float: right;" href="index.html">退出</a></div>
+                    <div><a style="position: relative;float: left;color: white" href="/job/init">首页</a></div>
+                    <div><a style="position: relative;float: right;color: white" href="/person/index">退出</a></div>
                 </div>
                 <br><br>
 
@@ -49,31 +58,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class=" nav nav-sidebar color">
                         <li>
-                            <a  href="FirmInfoManagement.html">企业信息管理</a>
+                            <a style="color: white" href="/enterprise/enterprise_4">企业信息管理</a>
                         </li>
                         <li>
-                            <a  href="ResumeSearch.html">简历搜索</a>
+                            <a style="color: white" href="/resume/search">简历搜索</a>
                         </li>
                         <li class="management">
-                            <a  href="#">职位管理</a>
+                            <a style="color: white" href="#">职位管理</a>
                         </li>
                         <li style="display: none;color: white" class="existinfo">
-                            <a  href="company-existpositioninfo.html">已发布职业信息</a>
+                            <a  href="/enterprise/enterprise_1">已发布职业信息</a>
                         </li>
                         <li style="display: none" class="roughinfo">
-                            <a  href="company-roughpositioninfo.html">草稿箱</a>
+                            <a  href="/enterprise/enterprise_3">草稿箱</a>
                         </li>
                         <li style="display: none" class="pastinfo">
-                            <a  href="company-pastpositioninfo.html">历史职业信息</a>
+                            <a  href="/enterprise/enterprise_2">历史职业信息</a>
                         </li>
                         <li class="apply">
-                            <a  href="#">应聘管理</a>
+                            <a style="color: white" href="#">应聘管理</a>
                         </li>
                         <li style="display: none;color: white" class="f">
-                            <a  href="company-applymentmanageF.html">未处理</a>
+                            <a  href="/candidate/candidate_1">未处理</a>
                         </li>
                         <li style="display: none" class="p">
-                            <a  href="company-applymentmanageP.html">已处理</a>
+                            <a  href="/candidate/candidate_2">已处理</a>
                         </li>
 
                     </ul>
@@ -82,6 +91,8 @@
         </div>
 
         <div class="col-md-10">
+            <br><br>
+            <label class="p1" style="font-size: 30px">草稿箱</label>
             <br><br><br><br>
 
             <div class="table-responsive " style="position:relative;left: -40px;">
@@ -219,8 +230,8 @@
                 field: 'operate',
                 title: '操作',
                 formatter: function (value, row, index) {
-                    var a = '<a href="#" mce_href="#" onclick="add1(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number+ '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >发布</a> ';
-                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.id + '\',\'' + row.position + '\',\'' + row.number + '\',\'' + row.salary + '\',\'' + row.education + '\',\'' + row.experience + '\',\'' + row.city + '\',\'' + row.introduction + '\' )" >修改</a> ';
+                    var a = '<a href="#" mce_href="#" onclick="add1(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber+ '\',\'' + row.minSalary + '\',\''+row.maxSalary + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\'' + row.workPlace + '\',\'' + row.jobDesc + '\' )" >发布</a> ';
+                    var u = '<a href="#" mce_href="#" onclick="update(\'' + row.jid + '\',\'' + row.jname + '\',\'' + row.requiredNumber + '\',\'' + row.minSalary + '\',\''+row.maxSalary + '\',\'' + row.requiredEducation + '\',\'' + row.requiredWorkyear + '\',\'' + row.workPlace + '\',\'' + row.jobDesc + '\' )" >修改</a> ';
 
                     return a + u;
                 }
@@ -235,62 +246,66 @@
 
     }
 
-    function add1(id, position, number,salary, education, experience, city, introduction) {
-        var data = {
-            "id": id,
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
+    function add1(id, position, number, minsalary, maxsalary, education, experience, city, introduction) {
+        var jobStatue = 1;
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            error: erryFunction
+            url:"/enterprise/updateJob2",
+            type:"post",
+            dataType:"text",
+            data:{
+                "jobStatue":jobStatue,
+                "jid":id,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":minsalary,
+                "maxSalary":maxsalary,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
+            success: succFunction,
         });
+        function succFunction(data){
+            if(data == "false")
 
-        function erryFunction(date) {
-            if(date == "false")
-                alert("删除失败");
+            {alert("发布失败");}
             else {
-                alert("删除成功");
+                alert("发布成功");
+                $("#close").click();
                 window.location.reload();
             }
 
         }
     }
 
-    function update(id, position,number, salary, education, experience, city, introduction) {
-        var data = {
-            "id": id,
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
+    function update(id, position,number, minsalary, maxsalary, education, experience, city, introduction) {
+        var jobStatue = 2;
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
-            dataType: 'text',
-            data: data,
-            error: erryFunction
+            url:"/enterprise/updateJob2",
+            type:"post",
+            dataType:"text",
+            data:{
+                "jobStatue":jobStatue,
+                "jid":id,
+                "jname":position,
+                "requiredNumber":number,
+                "minSalary":minsalary,
+                "maxSalary":maxsalary,
+                "requiredEducation":education,
+                "requiredWorkyear":experience,
+                "workPlace":city,
+                "jobDesc":introduction
+            },
+            success: succFunction,
         });
+        function succFunction(data){
+            if(data == "false")
 
-        function erryFunction(date) {
-            if(date == "false")
-                alert("删除失败");
+            {alert("修改失败");}
             else {
-                alert("删除成功");
+                alert("修改成功");
+                $("#close").click();
                 window.location.reload();
             }
 
@@ -300,41 +315,47 @@
 function add() {
     $("#mymodel").modal();
 }
-function del() {
-    var row = $("#table").bootstrapTable('getSelections');
-    var data = "[";
-    if (row == "") {
-        alert("请选择要删除的数据");
-    } else {
-        for (var i = 0; i < row.length; i++) {
-            data += ' {"id":"' + row[i].id + '" },';
+    function del() {
+        //获取所有被选中的记录
+        var rows = $("#table").bootstrapTable('getSelections');
+        if (rows.length== 0) {
+            alert("请先选择要删除的记录!");
+            return;
         }
-        var reg = /,$/gi;
-        data = data.replace(reg, "");
-        data += "]";
-        $.ajax({
-            url: '/v1/node/',
-            type: 'delete',
-            dataType: 'text',
-            data: data,
-
-            error: erryFunction//成功执行方法????
-        });
-
-
-
+        var ids = '';
+        for (var i = 0; i < rows.length; i++) {
+            ids += rows[i]['jid'] + ",";
+        }
+        ids = ids.substring(0, ids.length - 1);
+        //alert(ids);
+        deleteIds(ids);
     }
 
-}
-    function erryFunction(date) {
-        if(date == "false")
-            alert("删除失败");
-        else {
-            alert("删除成功");
-            window.location.reload();
-        }
 
+    //删除
+    function deleteIds(ids) {
+        var msg = "您真的确定要删除吗？";
+        if (confirm(msg) == true) {
+            $.ajax({
+                url: "/enterprise/delete",
+                type: "post",
+                data: {
+                    ids: ids
+                },
+                success: function erryFunction(date) {
+                    if(date == "false")
+                        alert("删除失败");
+                    else {
+                        alert("删除成功");
+                        window.location.reload();
+                    }
+
+                }
+            });
+        }
     }
+
+
 </script>
 <div class="modal fade" id="mymodel" aria-hidden="true" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
@@ -345,13 +366,21 @@ function del() {
             </div>
             <div class="modal-body" style="position: relative;text-align: center; ">
                 <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="position" type="text" class="inp"
+                ></div><br>
+                <div><b>招聘人数：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
                 ></div>
                 <br>
-                <div><b>职位：</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="number" type="text" class="inp"
-                ></div>
-                <br>
-                <div><b>薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="salary" type="text" class="inp">
+                <div><b>最低薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="minsalary" type="text" class="inp">
                 </div>
+                <br>
+                <div><b>最高薪酬：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="maxsalary" type="text" class="inp">
+                </div>
+                <br>
+                <div><b>福利：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="benefit" type="text" class="inp"
+                ></div>
+                <br>
+                <div><b>工作种类：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="jobType" type="text" class="inp"
+                ></div>
                 <br>
                 <div><b>学历：</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="education" type="text" class="inp"
                 ></div>
@@ -377,35 +406,44 @@ function del() {
 </div>
 <script>
     function addto() {
+        var jobStatue = 2;
         var position = $("#position").val();
         var number=$("#number").val();
-        var salary = $("#salary").val();
+        var minsalary = $("#minsalary").val();
+        var maxsalary = $("#maxsalary").val();
         var education = $("#education").val();
+        var benefit = $("#benefit").val();
+        var jobType = $("#jobType").val();
         var experience = $("#experience").val();
         var city = $("#city").val();
         var introduction = $("#introduction").val();
-        var data = {
-            "position": position,
-            "number":number,
-            "salary": salary,
-            "education": education,
-            "experience": experience,
-            "city": city,
-            "introduction": introduction
-        };
-        data = JSON.stringify(data);
         $.ajax({
-            url: '/v1/node/',//修改
-            type: 'post',
+            url: '/enterprise/addJob',//修改
+            type: 'get',
             dataType: 'text',
-            data: data,
-            error: erryFunction
+            data:
+
+                {
+                    "jobStatue":jobStatue,
+                    "jname": position,
+                    "requiredNumber":number,
+                    "minSalary": minsalary,
+                    "maxSalary": maxsalary,
+                    "requiredEducation": education,
+                    "requiredWorkyear": experience,
+                    "benefit": benefit,
+                    "jobType":jobType,
+                    "workPlace": city,
+                    "jobDesc": introduction
+                },
+            success: erryFunction
         });
+
         function erryFunction(date) {
             if(date == "false")
-                alert("删除失败");
+                alert("添加失败");
             else {
-                alert("删除成功");
+                alert("添加成功");
                 window.location.reload();
             }
 
@@ -415,6 +453,7 @@ function del() {
 
 
 </script>
+    </div></div>
 </body>
 
 </html>

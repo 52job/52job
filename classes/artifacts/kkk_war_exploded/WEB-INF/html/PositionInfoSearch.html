@@ -159,14 +159,14 @@
 <body style="background-color: #f8f6e9" onload="table()">
 
 <div class="container-fluid">
-    <div class="col-md-10" style="height: 40px;line-height: 40px">
+    <div class="container-fluid" style="height: 40px;line-height: 40px;margin-left: -200px;margin-right: -30px;">
         <!-- 顶部固定导航条 -->
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default" role="navigation" style="background-color: #0f0f0f;margin-bottom: 10px">
             <div class="container-fluid">
-                <div class="navbar-header">
+                <div class="navbar-header" style="margin-left: 200px">
                     <a class="navbar-brand" href="#">52job</a>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 220px">
                   <!--<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
                     <li><a href="/person/index"><span class="glyphicon glyphicon-user"></span> 注册/登录</a></li>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
@@ -175,7 +175,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">简历中心</a></li>
                             <li><a href="/person/mycollection">我的收藏</a></li>
-                            <li><a href="/application/list">我的申请</a></li>
+                            <li><a href="/application/myapplication">我的申请</a></li>
                             <li><a href="/person/updatePersonInfo">信息修改</a></li>
                         </ul>
                     </li>
@@ -188,9 +188,12 @@
         <div class="panel-body" style="padding-bottom:0px;">
             <div class="panel panel-default">
                 <div class="panel-body" style="">
+                    <div style="height: 200px; margin-left: -14px;
+                    margin-right: -15px;background-image: url(../../img/bgimg01.jpg);margin-top: -25px;padding-top: 20px">
+                        <div style="height: 150px;margin-left: 30px;margin-right: 30px; background: #000; background: rgba(0,0,0,0.42);padding-top: 55px">
                     <form id="formSearch" class="form-horizontal" action="" style="text-align: center">
                         <div class="form-group" style="margin-top:2px;display: inline-block">
-                            <label class="control-label" for="PositionInfoSearch" style="float: left;font-size: 20px">职位信息搜索</label>
+                            <label class="control-label" for="PositionInfoSearch" style="float: left;font-size: 20px;color: #0f0f0f">职位信息搜索</label>
                             <div class="" style="float: left;width: 600px">
                                 <input type="text" class="form-control" id="PositionInfoSearch" name="jname">
                             </div>
@@ -198,87 +201,70 @@
 
                         </div>
                     </form>
+                        </div></div>
 
-                    <ul style="text-align: center">
-                        <li>
-                            <button id="btn" class="btn btn-default">收起/展开选择框</button>
-                        </li>
-
-                    </ul>
                     <div id="multiSelect">
                         <ul class="select">
                             <li class="select-list">
                                 <dl id="select1">
                                     <dt>月薪范围：</dt>
-                                    <dd class="select-all selected"><a href="#">全部</a></dd>
-                                    <dd><a href="#">2千以下</a></dd>
-                                    <dd><a href="#">2-3千</a></dd>
-                                    <dd><a href="#">3-4.5千</a></dd>
-                                    <dd><a href="#">4.5-6千</a></dd>
-                                    <dd><a href="#">6-8千</a></dd>
-                                    <dd><a href="#">0.8-1万</a></dd>
-                                    <dd><a href="#">1-1.5万</a></dd>
-                                    <dd><a href="#">1.5-2万</a></dd>
-                                    <dd><a href="#">2-3万</a></dd>
-                                    <dd><a href="#">3-4万</a></dd>
-                                    <dd><a href="#">4-5万</a></dd>
-                                    <dd><a href="#">5万以上</a></dd>
+                                    <dd class="select-all selected"><a href="javascript:void(0)">全部</a></dd>
+                                    <dd><a href="javascript:void(0)">2千以下</a></dd>
+                                    <dd><a href="javascript:void(0)">2-3千</a></dd>
+                                    <dd><a href="javascript:void(0)">3-4千</a></dd>
+                                    <dd><a href="javascript:void(0)">4-6千</a></dd>
+                                    <dd><a href="javascript:void(0)">6-8千</a></dd>
+                                    <dd><a href="javascript:void(0)">0.8-1万</a></dd>
+                                    <dd><a href="javascript:void(0)">1-1.5万</a></dd>
+                                    <dd><a href="javascript:void(0)">1.5-2万</a></dd>
+                                    <dd><a href="javascript:void(0)">2-3万</a></dd>
+                                    <dd><a href="javascript:void(0)">3-4万</a></dd>
+                                    <dd><a href="javascript:void(0)">4-5万</a></dd>
+                                    <dd><a href="javascript:void(0)">5万以上</a></dd>
                                 </dl>
                             </li>
                             <li class="select-list">
                                 <dl id="select2">
                                     <dt>公司性质：</dt>
-                                    <dd class="select-all selected"><a href="#">全部</a></dd>
-                                    <dd><a href="#">外资(欧美)</a></dd>
-                                    <dd><a href="#">外资(非欧美)</a></dd>
-                                    <dd><a href="#">合资</a></dd>
-                                    <dd><a href="#">国企</a></dd>
-                                    <dd><a href="#">民营公司</a></dd>
-                                    <dd><a href="#">外企代表处</a></dd>
-                                    <dd><a href="#">政府机关</a></dd>
-                                    <dd><a href="#">事业单位</a></dd>
-                                    <dd><a href="#">非盈利组织</a></dd>
-                                    <dd><a href="#">上市公司</a></dd>
-                                    <dd><a href="#">创业公司</a></dd>
+                                    <dd class="select-all selected"><a href="javascript:void(0)">全部</a></dd>
+                                    <dd><a href="javascript:void(0)">外资(欧美)</a></dd>
+                                    <dd><a href="javascript:void(0)">外资(非欧美)</a></dd>
+                                    <dd><a href="javascript:void(0)">合资</a></dd>
+                                    <dd><a href="javascript:void(0)">国企</a></dd>
+                                    <dd><a href="javascript:void(0)">民营公司</a></dd>
+                                    <dd><a href="javascript:void(0)">外企代表处</a></dd>
+                                    <dd><a href="javascript:void(0)">政府机关</a></dd>
+                                    <dd><a href="javascript:void(0)">事业单位</a></dd>
+                                    <dd><a href="javascript:void(0)">非盈利组织</a></dd>
+                                    <dd><a href="javascript:void(0)">上市公司</a></dd>
+                                    <dd><a href="javascript:void(0)">创业公司</a></dd>
 
                                 </dl>
                             </li>
                             <li class="select-list">
                                 <dl id="select3">
                                     <dt>工作经验：</dt>
-                                    <dd class="select-all selected"><a href="#">全部</a></dd>
-                                    <dd><a href="#">无经验</a></dd>
-                                    <dd><a href="#">1-3年</a></dd>
-                                    <dd><a href="#">3-5年</a></dd>
-                                    <dd><a href="#">5-10年</a></dd>
-                                    <dd><a href="#">10年以上</a></dd>
+                                    <dd class="select-all selected"><a href="javascript:void(0)">全部</a></dd>
+                                    <dd><a href="javascript:void(0)">无经验</a></dd>
+                                    <dd><a href="javascript:void(0)">1-3年</a></dd>
+                                    <dd><a href="javascript:void(0)">3-5年</a></dd>
+                                    <dd><a href="javascript:void(0)">5-10年</a></dd>
+                                    <dd><a href="javascript:void(0)">10年以上</a></dd>
                                 </dl>
                             </li>
                             <li class="select-list">
                                 <dl id="select4">
                                     <dt>学历要求：</dt>
-                                    <dd class="select-all selected"><a href="#">全部</a></dd>
-                                    <dd><a href="#">初中及以下</a></dd>
-                                    <dd><a href="#">高中/中技/中专</a></dd>
-                                    <dd><a href="#">大专</a></dd>
-                                    <dd><a href="#">本科</a></dd>
-                                    <dd><a href="#">硕士</a></dd>
-                                    <dd><a href="#">博士</a></dd>
+                                    <dd class="select-all selected"><a href="javascript:void(0)">全部</a></dd>
+                                    <dd><a href="javascript:void(0)">初中及以下</a></dd>
+                                    <dd><a href="javascript:void(0)">高中/中技/中专</a></dd>
+                                    <dd><a href="javascript:void(0)">大专</a></dd>
+                                    <dd><a href="javascript:void(0)">本科</a></dd>
+                                    <dd><a href="javascript:void(0)">硕士</a></dd>
+                                    <dd><a href="javascript:void(0)">博士</a></dd>
                                 </dl>
                             </li>
-                            <li class="select-list" style="display: none">
-                                <dl id="select5">
-                                    <dt>公司规模：</dt>
-                                    <dd class="select-all selected"><a href="#">全部</a></dd>
-                                    <dd><a href="#">少于50人</a></dd>
-                                    <dd><a href="#">50-150人</a></dd>
-                                    <dd><a href="#">150-500人</a></dd>
-                                    <dd><a href="#">500-1000人</a></dd>
-                                    <dd><a href="#">1000-5000人</a></dd>
-                                    <dd><a href="#">5000-10000人</a></dd>
-                                    <dd><a href="#">10000人以上</a></dd>
-                                </dl>
-                            </li>
+
                             <li class="select-result">
                                 <dl>
                                     <dt>已选条件：</dt>
@@ -287,6 +273,7 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="up"></div>
                     <table id="bottomTable"></table>
                 </div>
             </div>

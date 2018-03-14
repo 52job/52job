@@ -29,9 +29,16 @@ public class ResumeController {
     //@RequestMapping("/addResume" , method = RequestMethod.POST)
     @RequestMapping("/add")
     @ResponseBody
-    public String addResume(HttpServletRequest request)
-            throws ServletException, IOException, FileUploadException {
-
+    public String addResume(HttpServletRequest request) throws ServletException, IOException, FileUploadException {
+        Resume resume = new Resume(CommonUtil.getResumeId(),"t3",request.getParameter("pname"),
+                request.getParameter("resumeName"),request.getParameter("sex"),null,
+                request.getParameter("birthday"),request.getParameter("tel"),
+                request.getParameter("startWorkTime"),request.getParameter("jobState"),
+                request.getParameter("email"),request.getParameter("address"),
+                request.getParameter("highestEducation"),request.getParameter("graduationUniversity"),
+                request.getParameter("graduationTime"),request.getParameter("careerIntention"),
+                request.getParameter("major"),request.getParameter("workExp"),
+                request.getParameter("isPublic"),"未读",null);
             //Map<String,String> uploadMap = new HashMap<String, String>();
             DiskFileItemFactory factory = new DiskFileItemFactory();
             factory.setSizeThreshold(1024*100);
@@ -80,16 +87,8 @@ public class ResumeController {
                     //  response.setHeader("Refresh", "1;url="+request.getContextPath()+"/addpic.jsp");
                 }
             }
-        Resume resume = new Resume(CommonUtil.getResumeId(),"t3",request.getParameter("pname"),
-                request.getParameter("resumeName"),request.getParameter("sex"),urls[0],
-                request.getParameter("birthday"),request.getParameter("tel"),
-                request.getParameter("startWorkTime"),request.getParameter("jobState"),
-                request.getParameter("email"),request.getParameter("address"),
-                request.getParameter("highestEducation"),request.getParameter("graduationUniversity"),
-                request.getParameter("graduationTime"),request.getParameter("careerIntention"),
-                request.getParameter("major"),request.getParameter("workExp"),
-                Integer.parseInt(request.getParameter("isPublic")),"未读",urls[1]);
-        System.out.println(resume.toString());
+            resume.setPortrait(urls[0]);
+            resume.setAccessory(urls[1]);
         if(resumeService.addResume(resume)>0){
             return "success";
         }else{
@@ -125,10 +124,10 @@ public class ResumeController {
 
     @RequestMapping("/manage")
     @ResponseBody
-    public String manage(HttpServletRequest request){
+    public String personResumeManage(String pid){
         Resume resume = new Resume();
+        resume.setPid(pid);
         Map<String, Object> map = new HashMap();
-        resume.setPid(request.getParameter("pid"));
         List<Resume> resumeList =  resumeService.queryAll(resume);
         map.put("total", resumeList.size());
         map.put("rows", resumeList);

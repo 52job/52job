@@ -29,4 +29,5 @@ public interface ApplicationMapper {
      * @return
      */
     List<Application> queryContains(Application application);
+
 }

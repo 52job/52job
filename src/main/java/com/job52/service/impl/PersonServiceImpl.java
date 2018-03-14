@@ -37,7 +37,8 @@ public class PersonServiceImpl implements PersonService {
         }else{
             person.setEmail(userName);//判断用户用邮箱注册，将邮箱添加到用户的邮箱
         }
-        int id = personMapper.findLastId()+1;
+        int id = Integer.parseInt(personMapper.findLastId())+1;
+        person.setPid(String.valueOf(id));
         person.setUserName("job52"+id);
         personMapper.insert(person);
         return true;
@@ -60,10 +61,22 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public boolean UpdatePersonPhone(String pid, String phone) throws Exception {
+        Person p = new Person();
+        p.setPhone(phone);
+        p.setPhone(pid);
+        if( personMapper.updateByPrimaryKeySelective(p)>0){
+            return true;
+        }
         return false;
     }
 
     public boolean updatePersonEmail(String pid, String Email) throws Exception {
+        Person p = new Person();
+        p.setEmail(Email);
+        p.setPid(pid);
+        if( personMapper.updateByPrimaryKeySelective(p)>0){
+            return true;
+        }
         return false;
     }
 

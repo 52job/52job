@@ -21,7 +21,7 @@
         <result column="major" property="careerIntention" jdbcType="VARCHAR" />
         <result column="major" property="major" jdbcType="VARCHAR" />
         <result column="workExp" property="workExp" jdbcType="LONGVARCHAR" />
-        <result column="isPublic" property="isPublic" jdbcType="INTEGER" />
+        <result column="isPublic" property="isPublic" jdbcType="VARCHAR" />
         <result column="resumeState" property="resumeState" jdbcType="VARCHAR" />
         <result column="accessory" property="accessory" jdbcType="VARCHAR" />
     </resultMap>
@@ -57,7 +57,7 @@
         #{tel,jdbcType=VARCHAR}, #{startWorkTime,jdbcType=VARCHAR}, #{jobState,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{highestEducation,jdbcType=VARCHAR},
         #{graduationUniversity,jdbcType=VARCHAR}, #{graduationTime,jdbcType=VARCHAR}, #{careerIntention,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR},
-        #{workExp,jdbcType=LONGVARCHAR}, #{isPublic,jdbcType=INTEGER},  #{resumeState,jdbcType=VARCHAR}, #{accessory,jdbcType=VARCHAR}
+        #{workExp,jdbcType=LONGVARCHAR}, #{isPublic,jdbcType=VARCHAR},  #{resumeState,jdbcType=VARCHAR}, #{accessory,jdbcType=VARCHAR}
         )
     </insert>
 
@@ -184,10 +184,10 @@
                 #{workExp,jdbcType=LONGVARCHAR},
             </if>
             <if test="isPublic != null" >
-                #{isPublic,jdbcType=INTEGER},
+                #{isPublic,jdbcType=VARCHAR},
             </if>
             <if test="resumeState != null" >
-                #{resumeState,jdbcType=INTEGER},
+                #{resumeState,jdbcType=VARCHAR},
             </if>
             <if test="accessory != null" >
                 #{accessory,jdbcType=VARCHAR},
@@ -247,10 +247,10 @@
                 #{workExp,jdbcType=LONGVARCHAR},
             </if>
             <if test="isPublic != null" >
-                #{isPublic,jdbcType=INTEGER},
+                #{isPublic,jdbcType=VARCHAR},
             </if>
             <if test="resumeState != null" >
-                #{resumeState,jdbcType=INTEGER},
+                #{resumeState,jdbcType=VARCHAR},
             </if>
             <if test="accessory != null" >
                 #{accessory,jdbcType=VARCHAR},
@@ -278,8 +278,8 @@
         careerIntention = #{careerIntention,jdbcType=VARCHAR},
         major = #{major,jdbcType=VARCHAR},
         workExp = #{workExp,jdbcType=LONGVARCHAR},
-        isPublic = #{isPublic,jdbcType=INTEGER},
-        resumeState = #{resumeState,jdbcType=INTEGER},
+        isPublic = #{isPublic,jdbcType=VARCHAR},
+        resumeState = #{resumeState,jdbcType=VARCHAR},
         accessory = #{accessory,jdbcType=VARCHAR}
         where rid = #{rid,jdbcType=VARCHAR}
     </update>
@@ -290,7 +290,7 @@
             <if test="rid != null">
                 and rid = #{rid}
             </if>
-            <if test="pid != null">
+            <if test="pid != null and pid != 'undefined' and pid != ''">
                 and pid = #{pid}
             </if>
             <if test="pname != null">
@@ -352,7 +352,7 @@
 
     <update id="setStateByPrimaryKey" parameterType="com.job52.model.Resume" >
         update resume
-        set isPublic = #{isPublic,jdbcType=INTEGER}
+        set isPublic = #{isPublic,jdbcType=VARCHAR}
         where rid = #{rid,jdbcType=VARCHAR}
     </update>
 </mapper>

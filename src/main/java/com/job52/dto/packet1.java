@@ -4,7 +4,7 @@ public class packet1 {
     String jid;
     String pid;
     String rid;
-    Integer ispass;
+    String ispass;
 
     @Override
     public String toString() {
@@ -18,7 +18,7 @@ public class packet1 {
                 '}';
     }
 
-    public packet1(String jid, String pid, String rid, Integer ispass, String name, String job) {
+    public packet1(String jid, String pid, String rid, String ispass, String name, String job) {
         this.jid = jid;
         this.pid = pid;
         this.rid = rid;
@@ -50,11 +50,11 @@ public class packet1 {
         return pid;
     }
 
-    public Integer getIspass() {
+    public String getIspass() {
         return ispass;
     }
 
-    public void setIspass(Integer ispass) {
+    public void setIspass(String ispass) {
         this.ispass = ispass;
     }
 

@@ -20,7 +20,7 @@ public interface CollectionService {
      * @return  操作是否成功
      * @throws Exception
      */
-    public boolean deleteCollection(List<CollectionKey> ids) throws Exception;
+    public long deleteCollection(String ids,String pid) throws Exception;
 
 
     public boolean addApplication(List<Application> ids) throws Exception;
