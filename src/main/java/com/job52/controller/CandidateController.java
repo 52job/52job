@@ -70,6 +70,7 @@ public class CandidateController {
             pid = c.getPid();
             rid = c.getRid();
             name = personService.queryPerson(c.getPid()).getUserName();
+            //System.out.println(c.getJid()+"-----------------------------------");
             job = jobService.getJob(c.getJid()).getJname();
             packet1s.add(i,new packet1(jid,pid,rid,name,job));
         }
@@ -169,45 +170,45 @@ public class CandidateController {
         return JsonString;
     }
 
-    /**
-     * delect candidates
-     * @param request
-     */
-    @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
-    @ResponseBody
-    public String delectCandidates(HttpServletRequest request) {
-        List<String> jids = new ArrayList<String>();
-        List<String> pids = new ArrayList<String>();
-        jids = (List<String>) request.getAttribute("jids");
-        pids = (List<String>) request.getAttribute("pids");
-        try {
-            candidateInfoService.removeCandidates(jids,pids);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "false";
-        }
-        return "true";
-    }
-
-    /**
-     * delect candidate
-     * @param request
-     */
-    @RequestMapping(value = "/delectCandidate/checkList",method = RequestMethod.DELETE)
-    @ResponseBody
-    public String delectCandidate(HttpServletRequest request) {
-        String jid = null;
-        String pid = null;
-        jid = (String) request.getAttribute("jid");
-        pid = (String) request.getAttribute("pid");
-        try {
-            candidateInfoService.removeCandidate(new Candidate(jid,pid));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "false";
-        }
-        return "true";
-    }
+//    /**
+//     * delect candidates
+//     * @param request
+//     */
+//    @RequestMapping(value = "/delectCandidates/checkList",method = RequestMethod.DELETE)
+//    @ResponseBody
+//    public String delectCandidates(HttpServletRequest request) {
+//        List<String> jids = new ArrayList<String>();
+//        List<String> pids = new ArrayList<String>();
+//        jids = (List<String>) request.getAttribute("jids");
+//        pids = (List<String>) request.getAttribute("pids");
+//        try {
+//            candidateInfoService.removeCandidates(jids,pids);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "false";
+//        }
+//        return "true";
+//    }
+//
+//    /**
+//     * delect candidate
+//     * @param request
+//     */
+//    @RequestMapping(value = "/delectCandidate/checkList",method = RequestMethod.DELETE)
+//    @ResponseBody
+//    public String delectCandidate(HttpServletRequest request) {
+//        String jid = null;
+//        String pid = null;
+//        jid = (String) request.getAttribute("jid");
+//        pid = (String) request.getAttribute("pid");
+//        try {
+//            candidateInfoService.removeCandidate(new Candidate(jid,pid));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "false";
+//        }
+//        return "true";
+//    }
 
     /**
      * query resumes
@@ -226,10 +227,10 @@ public class CandidateController {
         return  JsonString;
     }
 
-    @RequestMapping(value = "/delect")
+    @RequestMapping(value = "/delete")
     @ResponseBody
     public String delectCandidate(String ids) {
-        System.out.println(ids);
+        System.out.println(ids+"--------------------------------------------------");
         List<String> jids = new ArrayList<String>();
         List<String> pids = new ArrayList<String>();
         String[] jp;

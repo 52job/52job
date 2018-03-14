@@ -181,23 +181,24 @@ public class EnterpriseController {
         return  JsonString;
     }
 
-    /**
-     * delect prepared jobs
-     * @param request
-     */
-    @RequestMapping(value = "/delectPreparedJobs",method = RequestMethod.DELETE)
-    @ResponseBody
-    public String delectPreparedJobs(HttpServletRequest request) {
-        List<Job> jobs = new ArrayList<Job>();
-        jobs = (List<Job>) request.getAttribute("jobs");
-        try{
-            jobService.removeJobs(jobs);
-        }catch (Exception e){
-            e.printStackTrace();
-            return "false";
-        }
-        return "true";
-    }
+//    /**
+//     * delect prepared jobs
+//     * @param request
+//     * @param request
+//     */
+//    @RequestMapping(value = "/delectPreparedJobs",method = RequestMethod.DELETE)
+//    @ResponseBody
+//    public String delectPreparedJobs(HttpServletRequest request) {
+//        List<Job> jobs = new ArrayList<Job>();
+//        jobs = (List<Job>) request.getAttribute("jobs");
+//        try{
+//            jobService.removeJobs(jobs);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "false";
+//        }
+//        return "true";
+//    }
 
 //    /**
 //     * update job1
@@ -311,6 +312,25 @@ public class EnterpriseController {
             return "/FirmInfoManagement";
         }
         return "/FirmInfoManagement";
+    }
+
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public String delectCandidate(String ids) {
+        System.out.println(ids+"--------------------------------------------------");
+        List<Job> jids = new ArrayList<Job>();
+        for (String s : ids.split(",")) {
+            Job job= new Job();
+            job.setJid(s);
+            jids.add(job);
+        }
+        try {
+            jobService.removeJobs(jids);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "false";
+        }
+        return "true";
     }
 
 }
