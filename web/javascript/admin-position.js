@@ -32,7 +32,7 @@ function deleteIds(ids) {
                 jids: ids
             },
             success: function (data) {
-                alert(data.msg);
+              //  alert(data.msg);
                 //重新加载记录
                 //重新加载数据
                 $("#table").bootstrapTable('refresh', {url: '/admin/job'});

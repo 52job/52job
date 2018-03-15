@@ -2,7 +2,10 @@ package com.job52.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.job52.enums.EducationLevel;
+import com.job52.model.Collection;
 import com.job52.model.Job;
+import com.job52.model.Person;
+import com.job52.service.CollectionService;
 import com.job52.service.JobService;
 import com.job52.util.CommonUtil;
 import jdk.nashorn.internal.scripts.JO;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +31,9 @@ public class JobController {
 
     @Autowired
     JobService jobService;
+
+    @Autowired
+    CollectionService collectionService;
 
     @RequestMapping("/{value}")
     @ResponseBody
@@ -166,5 +173,36 @@ public class JobController {
         return  job;
     }
 
+    //跳转到职位详细页面
+    @RequestMapping("/jobInfo")
+    public String jobInfo() throws Exception{
+        return "/person-applyposition";
+    }
 
+
+    @RequestMapping("/addCollection")
+    @ResponseBody
+    public Map<String,String> addCollection(String jid,HttpSession session) throws Exception{
+        Map<String,String> map = new HashMap<String, String>();
+        try{
+
+            Person p = (Person) session.getAttribute("person");
+            Collection key = new Collection();
+            key.setPid(p.getPid());
+            key.setGid(jid);
+            collectionService.addCollection(key);
+            map.put("msg","收藏成功");
+            return map;
+        }catch (Exception e){
+            map.put("msg","收藏失败");
+            return map;
+        }
+    }
+    @RequestMapping("/findJobById")
+    @ResponseBody
+    public String findJodById(String jid) throws Exception{
+        Job job =  jobService.getJob(jid);
+        String jsonString = JSON.toJSONString(job);
+        return jsonString;
+    }
 }

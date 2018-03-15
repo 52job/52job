@@ -24,4 +24,7 @@ public interface CollectionService {
 
 
     public boolean addApplication(List<Application> ids) throws Exception;
+
+
+    public void addCollection(Collection key) throws Exception;
 }

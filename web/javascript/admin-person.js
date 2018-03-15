@@ -79,7 +79,7 @@ function table() {
             title:'ID',
             visible: false
         },{
-            field: 'username',//命名需与后台一致
+            field: 'userName',//命名需与后台一致
             title: '用户名'
         }, {
             field: 'phone',

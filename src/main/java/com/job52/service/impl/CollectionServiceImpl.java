@@ -51,4 +51,10 @@ public class CollectionServiceImpl implements CollectionService {
         return true;
     }
 
+    @Override
+    public void addCollection(Collection key) throws Exception {
+        collectionMapper.insert(key);
+    }
+
+
 }

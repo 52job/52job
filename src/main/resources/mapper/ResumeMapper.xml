@@ -261,26 +261,25 @@
 
     <update id="updateyPrimaryKey" parameterType="com.job52.model.Resume" >
         update resume
-        set pid = #{pid,jdbcType=VARCHAR},
-        pname = #{pname,jdbcType=VARCHAR},
-        resumeName = #{resumeName,jdbcType=VARCHAR},
-        sex = #{sex,jdbcType=VARCHAR},
-        portrait = #{portrait,jdbcType=VARCHAR},
-        birthday = #{birthday,jdbcType=VARCHAR},
-        tel = #{tel,jdbcType=VARCHAR},
-        startWorkTime = #{startWorkTime,jdbcType=VARCHAR},
-        jobState = #{jobState,jdbcType=VARCHAR},
-        email = #{email,jdbcType=VARCHAR},
-        address = #{address,jdbcType=VARCHAR},
-        highestEducation = #{highestEducation,jdbcType=VARCHAR},
-        graduationUniversity = #{graduationUniversity,jdbcType=VARCHAR},
-        graduationTime = #{graduationTime,jdbcType=VARCHAR},
-        careerIntention = #{careerIntention,jdbcType=VARCHAR},
-        major = #{major,jdbcType=VARCHAR},
-        workExp = #{workExp,jdbcType=LONGVARCHAR},
-        isPublic = #{isPublic,jdbcType=VARCHAR},
-        resumeState = #{resumeState,jdbcType=VARCHAR},
-        accessory = #{accessory,jdbcType=VARCHAR}
+        set
+            resumeName = #{resumeName,jdbcType=VARCHAR},
+            sex = #{sex,jdbcType=VARCHAR},
+            portrait = #{portrait,jdbcType=VARCHAR},
+            birthday = #{birthday,jdbcType=VARCHAR},
+            tel = #{tel,jdbcType=VARCHAR},
+            startWorkTime = #{startWorkTime,jdbcType=VARCHAR},
+            jobState = #{jobState,jdbcType=VARCHAR},
+            email = #{email,jdbcType=VARCHAR},
+            address = #{address,jdbcType=VARCHAR},
+            highestEducation = #{highestEducation,jdbcType=VARCHAR},
+            graduationUniversity = #{graduationUniversity,jdbcType=VARCHAR},
+            graduationTime = #{graduationTime,jdbcType=VARCHAR},
+            careerIntention = #{careerIntention,jdbcType=VARCHAR},
+            major = #{major,jdbcType=VARCHAR},
+            workExp = #{workExp,jdbcType=LONGVARCHAR},
+            isPublic = #{isPublic,jdbcType=VARCHAR},
+            accessory = #{accessory,jdbcType=VARCHAR},
+            resumeState = #{resumeState,jdbcType=VARCHAR}
         where rid = #{rid,jdbcType=VARCHAR}
     </update>
 
@@ -333,7 +332,7 @@
                 and graduationTime = #{graduationTime}
             </if>
             <if test="careerIntention != null and careerIntention != 'undefined' and careerIntention != ''">
-                and careerIntention = #{careerIntention}
+                and careerIntention LIKE CONCAT(CONCAT('%', #{careerIntention}), '%')
             </if>
             <if test="major != null">
                 and major = #{major}

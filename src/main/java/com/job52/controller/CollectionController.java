@@ -82,12 +82,11 @@ public class CollectionController {
         Person p = (Person) session.getAttribute("person");
         r.setPid(p.getPid());
         List<Resume> resumes = new ArrayList<Resume>();
-        Resume r1 = new Resume();
-        r1.setRid("12");
-        resumes.add(r1);
-        Resume r2 = new Resume();
-        r2.setRid("23");
-        resumes.add(r2);
+
+
+
+        resumes= resumeService.queryAll(r);
+
         String jsonString = JSON.toJSONString(resumes);
         return jsonString;
 

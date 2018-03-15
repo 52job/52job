@@ -338,7 +338,7 @@
     function selectJob(){
         var rid= $("#selectedResume").val();
         var jid =localStorage.getItem("jid");
-        alert("enter")
+       // alert("enter")
         $.ajax({
             url: '/collection/addApplication',//修改
             type: 'post',
@@ -409,8 +409,8 @@
         var val = eval(data);
         //$("#imageId").attr("src","xxxx.jpg");
         //$('#home_keleyi_com').attr('href','http://keleyi.com');
-        alert(val.name);
-        $("#name").val(val.name);
+        //alert(val.name);
+        $("#name").val(val.pname);
         $("#born").val(val.birthday);
         $("#sex").val(val.sex);
         $("#work_date").val(val.startWorkTime);

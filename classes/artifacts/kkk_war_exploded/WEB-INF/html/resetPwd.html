@@ -29,7 +29,7 @@
         function publish() {
             var userName = $("#userName").val();
             $.ajax({
-                url: '/person/sendCode',//修改
+                url: '/person/sendResetCode',//修改
                 type: 'post',
                 //dataType: 'json',
                 //contentType : 'application/json',
@@ -52,7 +52,7 @@
 
             function succFunction(data) {
                 if(data.msg!=null){
-                    alert("成功了，但是没有信息返回");
+                    alert("发送成功");
                 }else{
                     if(data==null){
                         alert("数据为空");

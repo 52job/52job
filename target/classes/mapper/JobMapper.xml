@@ -305,8 +305,8 @@
         or (min_salary >= #{minSalary,jdbcType=INTEGER} and min_salary &lt;= #{maxSalary,jdbcType=INTEGER}))
         and required_education >= #{requiredEducation,jdbcType=INTEGER}
         and job_statue = 1
-        <if test="enterprise.eType != null">
-            and e_type = #{enterprise.eType,jdbcType=VARCHAR}
+        <if test="enterprise.eType != null and enterprise.eType != ''" >
+            and e_type like "%"#{enterprise.eType,jdbcType=VARCHAR}"%"
         </if>
         and
         ( jname like "%"#{jname}"%"

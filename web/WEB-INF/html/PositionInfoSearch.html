@@ -134,7 +134,14 @@
                         }, {
                             field: 'maxSalary',
                             title: '最高工资(千)'
-                        },
+                        }, {
+                            field: 'maxSalary',
+                            title: '操作',
+                            formatter: function (value, row, index) {
+                                var u = '<a   onclick="setJid(\'' + row.jid + '\')">详细信息</a>'
+                                return u;
+                            }
+                         }
                         ]
                     });
                 }
@@ -299,6 +306,12 @@
         //aa=localStorage.getItem('jid');
         //alert(aa);
         //window.location.href = 'test.html';
+    }
+
+    function  setJid(jid) {
+      //  alert("ID");
+        localStorage.setItem("jobId",jid);
+        window.location.href="/job/jobInfo";
     }
 
 

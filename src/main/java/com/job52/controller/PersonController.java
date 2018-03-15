@@ -126,6 +126,45 @@ public class PersonController {
     }
 
 
+    @RequestMapping("/sendResetCode")
+    @ResponseBody
+    public  Map<String,Object> sendResetCode(String userName, HttpSession session) throws Exception {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        /**
+         * 1.判断用户是邮箱还是手机，如果格式不正确，则认为输入出错
+         * 2.如果是邮箱，则向用户的邮箱发送验证码
+         * 3.如果是手机，则向用户的手机发送验证码
+         */
+
+        int format = FormatUtil.verifyPhoneOrEmailFormat(userName);
+        String verifyCode = null;
+        if (format == 0) {//格式错误
+            modelMap.put("msg", "账号格式出错");
+        } else {
+            if (format == 1) {//手机
+                //判断手机是否存在，如果存在，不能进行发送验证码
+                //
+
+                    //得到手机验证码
+                    verifyCode = SecurityCodeUtil.getPhoneCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到手机,请注意查收");
+
+            } else if (format == 2) {//邮箱
+                //判断邮箱是否存在如果存在，不能进行发送验证码
+
+                    verifyCode = SecurityCodeUtil.getEmailCode(userName);
+                    //将验证码放入session域中
+                    session.setAttribute("verifyCode", verifyCode);
+                    modelMap.put("msg", "验证码发送到邮箱,请注意查收");
+                }
+
+        }
+        return modelMap;
+    }
+
+
     @RequestMapping("/sendUpdateCode")
     @ResponseBody
     public Map<String,Object> sendUpdateCode(HttpSession session,String email,String phone) throws Exception {
@@ -279,7 +318,7 @@ public class PersonController {
             //操作后返回登录界面
            //判断用户名的格式
             if(verifyCode.equals(verifyNum)) {
-                p.setPassWord(passWord);
+                p.setPassWord(MD5Util.md5(passWord));
                 personService.updatePersonInfo(p.getPid(),p);
                 return "/index";
             }else{

@@ -24,10 +24,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         CollectionKey collectionKey  = new CollectionKey();
         collectionKey.setGid(application.getGid());
         collectionKey.setPid(application.getPid());
-        if (applicationMapper.insert(application) > 0&&collectionMapper.deleteByPrimaryKey(collectionKey)>0) {
-            return true;
-        }
-        return false;
+        applicationMapper.insert(application) ;
+        collectionMapper.deleteByPrimaryKey(collectionKey) ;
+        return true;
     }
 
     public boolean removeApplication(ApplicationKey applicationKey) {

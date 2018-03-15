@@ -84,7 +84,7 @@ function erryFunction() {
     </script>
 </head>
 
-<body onload="getdata()">
+<body onload="getJobById()">
 <div class="bg1" style="width: 100%;height:610px;position: relative;" >
 <div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;
          background:rgba(255,255,255,0.5);" class="bg2" >
@@ -127,11 +127,11 @@ function erryFunction() {
                     <div style="position: absolute;right: 200px" title="点击收藏"><span class="glyphicon glyphicon-star-empty"
                                                                                     aria-hidden="true"
                                                                                     style="font-size: 25px;color:orange;opacity: 3;float: left"
-                                                                                    onclick="click2()"></span>
+                                                                                    onclick="collection()"></span>
                     </div>
                     <div style="position: absolute;right: 150px" title="点击申请职位"><span class="glyphicon glyphicon-user"
                                                                                       style="font-size: 25px;color:orange;opacity: 3;float: left"
-                                                                                      onclick="click3()"></span></div>
+                                                                                      onclick=""></span></div>
                 </div>
                 <br><br><br><br><br>
                 <div>
@@ -235,61 +235,76 @@ function erryFunction() {
 </div>
 
 <script>
-
-    function click2() {
-       var id1=localStorage.getItem("id1");
-       var id2=localStorage.getItem("id2");
-       var id3=localStorage.getItem("id3");
+    //收藏
+    function collection() {
+        var jid=localStorage.getItem("jid");
         var data={
-            "id1":id1,
-            "id2":id2,
-            "id3":id3
+            "jid":jid,
         };
-        data=JSON.stringify(data);
+        alert("收藏成功");
+        // data=JSON.stringify(data);
         $.ajax({
-            url: '',
-            type: 'get',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
-
+            url: '/collection/addCollection',
+            type: 'post',
+            dataType: 'josn',
+            contentType : 'application/json',
+            success: success,
+            error: success
         });
-        function succFunction() {
-           // alert("收藏失败");
-         alert("收藏成功");
-        }
-        function erryFunction() {
-          // alert("收藏失败");
+        function success(data){
+            alert("msg")
+            alert(data.msg);
         }
     }
 
-    function click3() {
-        var id1=localStorage.getItem("id1");
-        var id2=localStorage.getItem("id2");
-        var id3=localStorage.getItem("id3");
-        var data={
-            "id1":id1,
-            "id2":id2,
-            "id3":id3
-        };
-        data=JSON.stringify(data);
-        $.ajax({
-            url: '',
-            type: 'get',
-            dataType: 'text',
-            data: data,
-            success: succFunction,
-            error: erryFunction
 
-        });
-        function succFunction() {
-            alert("申请成功");
-        }
-        function erryFunction() {
-            alert("申请失败");
-        }
+    <!--得到职位信息-->
+    function getJobById(){
+        var jid=localStorage.getItem("jobId");
+        //alert(jid);
+        $.ajax({
+            url: '/job/findJobById?jid='+jid,//修改
+            type: 'post',
+            dataType: 'json',
+            contentType : 'application/json',
+            success: show,
+            error: show
+        })
     }
+
+    function show(data) {
+
+        // document.getElementById('userName').val("123");
+        //$("#phone").val("123");
+        var json = eval(data);
+        var salary=document.getElementById("salary");
+        var location=document.getElementById("location");
+        var education=document.getElementById("education");
+        var experience=document.getElementById("experience");
+        var number=document.getElementById("number");
+        var category=document.getElementById("category");
+        var jobrs=document.getElementById("jobrs");
+        var applyre=document.getElementById("applyre");
+        var jobre=document.getElementById("jobre");
+        var phone=document.getElementById("phone");
+        var address=document.getElementById("address");
+        var email=document.getElementById("email");
+        salary.innerText=json.minSalary+"-"+json.maxSalary;
+        location.innerText=json.workPlace;
+        education.innerText=json.requiredEducation;
+        experience.innerText="工作时间"+json.requiredWorkyear;
+        number.innerText=json.requiredNumber;
+        category.innerText=json.jobType;
+        jobrs.innerText="无";
+        applyre.innerText="五官端正，认真负责";
+        jobre.innerText="学历要求："+json.requiredEducation+",工作时间："+json.requiredWorkyear;
+        phone.innerText="15157589754";
+        address.innerText=json.workPlace;
+        email.innerText="暂时没有绑定邮箱";
+    }
+
+
+
 </script>
 </div>
 </div>
